@@ -17,7 +17,8 @@
 <a href="#-ce-que-fait-probasile">Fonctionnalités</a> ·
 <a href="#-premiers-pas">Premiers pas</a> ·
 <a href="#-questions-fréquentes">FAQ</a> ·
-<a href="#-contribuer">Contribuer</a>
+<a href="#-contribuer">Contribuer</a> ·
+<a href="README_nl.md">🇧🇪 Nederlands</a>
 </p>
 
 ---
@@ -54,6 +55,30 @@ flowchart LR
     C --> D["✍️ Rédiger<br/>plan type + blocs juridiques<br/>+ repères [[…]]"]
     D --> E["📄 Générer<br/>notes de bas de page<br/>+ PDF unique des annexes"]
 ```
+
+---
+
+## 📸 Captures d'écran
+
+<p align="center"><img src="captures/06_texte_avec_notes.png" width="720" alt="Un texte rédigé dans LibreOffice : chaque repère est devenu une note de bas de page complète, avec Ibid. et le renvoi à l'annexe"></p>
+<p align="center"><i>Le texte généré : les repères sont devenus des notes de bas de page, avec « Ibid. », la traduction libre et le renvoi « voir l'annexe n° X ».</i></p>
+
+<table>
+<tr>
+<td width="50%"><img src="captures/01_collecte_onu.png" alt="Onglet ONU : comités, base des organes de traités, EPU, ratifications"><br><sub><b>Collecter</b> : comités de l'ONU, état des rapports, EPU, ratifications.</sub></td>
+<td width="50%"><img src="captures/03_redaction.png" alt="Onglet Rédaction : plan type, blocs, repères du pays"><br><sub><b>Rédiger</b> : plan type, blocs juridiques et repères du pays.</sub></td>
+</tr>
+<tr>
+<td><img src="captures/04_reperes_et_annexes.png" alt="Liste des repères, rangés par catégorie, avec la colonne Annexe"><br><sub><b>Repères</b> : chaque source prête à citer ; on choisit ce qui est annexé.</sub></td>
+<td><img src="captures/05_paragraphes_calcules.png" alt="Aperçu des paragraphes calculés à partir des ratifications"><br><sub><b>Paragraphes calculés</b> : ratifications, retards, plaintes, écrits à partir de la collecte.</sub></td>
+</tr>
+<tr>
+<td><img src="captures/02_jurisprudence.png" alt="Onglet Jurisprudence : HUDOC, CJUE, Cour constitutionnelle, import par référence"><br><sub><b>Jurisprudence</b> : Cour eur. D.H., C.J.U.E., Cour constitutionnelle, import par référence.</sub></td>
+<td><img src="captures/07_pdf_des_annexes.png" alt="Le PDF des annexes : page de garde Annexe n° 1 puis le document tamponné Annexe n° 1 – p. 1/15"><br><sub><b>Annexes</b> : un seul PDF, page de garde et tampon « Annexe n° 1 – p. 1/15 ».</sub></td>
+</tr>
+</table>
+
+<sub>Exemple fictif (« Monsieur A. Exemple ») ; les documents de l'ONU sont publics.</sub>
 
 ---
 
@@ -118,16 +143,16 @@ Les blocs s'appuient sur les textes applicables depuis la réforme de 2026 : **l
 On écrit dans LibreOffice en plaçant un **repère** entre doubles crochets là où il faut une note :
 
 ```
-Le Comité s'inquiète des violences commises par les forces de sécurité[[CCPR/C/IDN/CO/2, §24]].
-Il réitère cette préoccupation[[CCPR/C/IDN/CO/2, §30]].
+Le Comité s'est déclaré « profondément préoccupé par le nombre d'exécutions extrajudiciaires »[[CCPR/C/IDN/CO/2, §10, p.3]].
+Il a demandé à l'État d'« enquêter sans délai sur toutes les violations des droits de l'homme »[[CCPR/C/IDN/CO/2, §11, b), p.4]].
 ```
 
 Au moment de générer, Probasile produit :
 
-> Le Comité s'inquiète des violences commises par les forces de sécurité¹. Il réitère cette préoccupation².
+> Le Comité s'est déclaré « profondément préoccupé par le nombre d'exécutions extrajudiciaires »¹. Il a demandé à l'État d'« enquêter sans délai sur toutes les violations des droits de l'homme »².
 >
-> ¹ ONU, Comité des droits de l'homme, observations finales concernant le deuxième rapport périodique de l'Indonésie, CCPR/C/IDN/CO/2, 3 mai 2024, §24, voir l'annexe n° 1 au présent courrier.
-> ² *Ibid.*, §30.
+> ¹ ONU, Comité des droits de l'homme, observations finales concernant le deuxième rapport périodique de l'Indonésie, CCPR/C/IDN/CO/2, 3 mai 2024, §10, p.3, voir l'annexe n° 1 au présent courrier.
+> ² *Ibid.*, §11, b), p.4.
 
 | Vous écrivez | Effet |
 |---|---|
