@@ -2,7 +2,7 @@
 
 <h1 align="center">Probasile</h1>
 
-<p align="center"><b>Personne n'est illégal·e. Papiers pour toustes.</b><br>
+<p align="center"><b>Personne n'est illégal·e. Papiers pour toustes ou pour personne.</b><br>
 <i>Preuves et rédaction pour le droit des étrangers en Belgique.</i></p>
 
 <p align="center">
