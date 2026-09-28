@@ -63,21 +63,21 @@ flowchart LR
 
 ## 📸 Bildschirmfotos
 
-<p align="center"><img src="captures/06_texte_avec_notes.png" width="720" alt="Ein Text in LibreOffice: jeder Verweis ist zu einer vollständigen Fußnote geworden, mit Ibid. und dem Hinweis auf die Anlage"></p>
+<p align="center"><img src="06_texte_avec_notes.png" width="720" alt="Ein Text in LibreOffice: jeder Verweis ist zu einer vollständigen Fußnote geworden, mit Ibid. und dem Hinweis auf die Anlage"></p>
 <p align="center"><i>Der erzeugte Text: Die Verweise sind zu Fußnoten geworden, mit « Ibid. », der freien Übersetzung und dem Hinweis auf die Anlage.</i></p>
 
 <table>
 <tr>
-<td width="50%"><img src="captures/01_collecte_onu.png" alt="Registerkarte UNO: Ausschüsse, Datenbank der Vertragsorgane, UPR, Ratifikationen"><br><sub><b>Sammeln</b>: UN-Ausschüsse, Stand der Staatenberichte, UPR, Ratifikationen.</sub></td>
-<td width="50%"><img src="captures/03_redaction.png" alt="Registerkarte Rédaction: Mustergliederung, Textbausteine, Verweise des Landes"><br><sub><b>Schreiben</b>: Mustergliederung, juristische Textbausteine und die Verweise des Landes.</sub></td>
+<td width="50%"><img src="01_collecte_onu.png" alt="Registerkarte UNO: Ausschüsse, Datenbank der Vertragsorgane, UPR, Ratifikationen"><br><sub><b>Sammeln</b>: UN-Ausschüsse, Stand der Staatenberichte, UPR, Ratifikationen.</sub></td>
+<td width="50%"><img src="03_redaction.png" alt="Registerkarte Rédaction: Mustergliederung, Textbausteine, Verweise des Landes"><br><sub><b>Schreiben</b>: Mustergliederung, juristische Textbausteine und die Verweise des Landes.</sub></td>
 </tr>
 <tr>
-<td><img src="captures/04_reperes_et_annexes.png" alt="Liste der Verweise nach Kategorie, mit der Spalte Anlage"><br><sub><b>Verweise</b>: jede Quelle zitierfertig; du wählst, was als Anlage beigefügt wird.</sub></td>
-<td><img src="captures/05_paragraphes_calcules.png" alt="Vorschau der automatisch berechneten Absätze zu den Ratifikationen"><br><sub><b>Berechnete Absätze</b>: Ratifikationen, Verzögerungen, Beschwerdeverfahren, geschrieben auf Grundlage der gesammelten Daten.</sub></td>
+<td><img src="04_reperes_et_annexes.png" alt="Liste der Verweise nach Kategorie, mit der Spalte Anlage"><br><sub><b>Verweise</b>: jede Quelle zitierfertig; du wählst, was als Anlage beigefügt wird.</sub></td>
+<td><img src="05_paragraphes_calcules.png" alt="Vorschau der automatisch berechneten Absätze zu den Ratifikationen"><br><sub><b>Berechnete Absätze</b>: Ratifikationen, Verzögerungen, Beschwerdeverfahren, geschrieben auf Grundlage der gesammelten Daten.</sub></td>
 </tr>
 <tr>
-<td><img src="captures/02_jurisprudence.png" alt="Registerkarte Rechtsprechung: HUDOC, EuGH, Verfassungsgerichtshof, Import per Referenz"><br><sub><b>Rechtsprechung</b>: EGMR, EuGH, Verfassungsgerichtshof, Import per Referenz.</sub></td>
-<td><img src="captures/07_pdf_des_annexes.png" alt="Das PDF der Anlagen: Deckblatt Anlage 1, danach das gestempelte Dokument"><br><sub><b>Anlagen</b>: ein einziges PDF, mit Deckblatt und Stempel « Annexe n° 1 – p. 1/15 ».</sub></td>
+<td><img src="02_jurisprudence.png" alt="Registerkarte Rechtsprechung: HUDOC, EuGH, Verfassungsgerichtshof, Import per Referenz"><br><sub><b>Rechtsprechung</b>: EGMR, EuGH, Verfassungsgerichtshof, Import per Referenz.</sub></td>
+<td><img src="07_pdf_des_annexes.png" alt="Das PDF der Anlagen: Deckblatt Anlage 1, danach das gestempelte Dokument"><br><sub><b>Anlagen</b>: ein einziges PDF, mit Deckblatt und Stempel « Annexe n° 1 – p. 1/15 ».</sub></td>
 </tr>
 </table>
 

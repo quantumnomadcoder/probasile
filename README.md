@@ -18,7 +18,8 @@
 <a href="#-premiers-pas">Premiers pas</a> ·
 <a href="#-questions-fréquentes">FAQ</a> ·
 <a href="#-contribuer">Contribuer</a> ·
-<a href="README_nl.md">🇧🇪 Nederlands</a>
+<a href="README_nl.md">🇧🇪 Nederlands</a> ·
+<a href="README_de.md">🇧🇪 Deutsch</a>
 </p>
 
 ---
@@ -60,21 +61,21 @@ flowchart LR
 
 ## 📸 Captures d'écran
 
-<p align="center"><img src="captures/06_texte_avec_notes.png" width="720" alt="Un texte rédigé dans LibreOffice : chaque repère est devenu une note de bas de page complète, avec Ibid. et le renvoi à l'annexe"></p>
+<p align="center"><img src="06_texte_avec_notes.png" width="720" alt="Un texte rédigé dans LibreOffice : chaque repère est devenu une note de bas de page complète, avec Ibid. et le renvoi à l'annexe"></p>
 <p align="center"><i>Le texte généré : les repères sont devenus des notes de bas de page, avec « Ibid. », la traduction libre et le renvoi « voir l'annexe n° X ».</i></p>
 
 <table>
 <tr>
-<td width="50%"><img src="captures/01_collecte_onu.png" alt="Onglet ONU : comités, base des organes de traités, EPU, ratifications"><br><sub><b>Collecter</b> : comités de l'ONU, état des rapports, EPU, ratifications.</sub></td>
-<td width="50%"><img src="captures/03_redaction.png" alt="Onglet Rédaction : plan type, blocs, repères du pays"><br><sub><b>Rédiger</b> : plan type, blocs juridiques et repères du pays.</sub></td>
+<td width="50%"><img src="01_collecte_onu.png" alt="Onglet ONU : comités, base des organes de traités, EPU, ratifications"><br><sub><b>Collecter</b> : comités de l'ONU, état des rapports, EPU, ratifications.</sub></td>
+<td width="50%"><img src="03_redaction.png" alt="Onglet Rédaction : plan type, blocs, repères du pays"><br><sub><b>Rédiger</b> : plan type, blocs juridiques et repères du pays.</sub></td>
 </tr>
 <tr>
-<td><img src="captures/04_reperes_et_annexes.png" alt="Liste des repères, rangés par catégorie, avec la colonne Annexe"><br><sub><b>Repères</b> : chaque source prête à citer ; on choisit ce qui est annexé.</sub></td>
-<td><img src="captures/05_paragraphes_calcules.png" alt="Aperçu des paragraphes calculés à partir des ratifications"><br><sub><b>Paragraphes calculés</b> : ratifications, retards, plaintes, écrits à partir de la collecte.</sub></td>
+<td><img src="04_reperes_et_annexes.png" alt="Liste des repères, rangés par catégorie, avec la colonne Annexe"><br><sub><b>Repères</b> : chaque source prête à citer ; on choisit ce qui est annexé.</sub></td>
+<td><img src="05_paragraphes_calcules.png" alt="Aperçu des paragraphes calculés à partir des ratifications"><br><sub><b>Paragraphes calculés</b> : ratifications, retards, plaintes, écrits à partir de la collecte.</sub></td>
 </tr>
 <tr>
-<td><img src="captures/02_jurisprudence.png" alt="Onglet Jurisprudence : HUDOC, CJUE, Cour constitutionnelle, import par référence"><br><sub><b>Jurisprudence</b> : Cour eur. D.H., C.J.U.E., Cour constitutionnelle, import par référence.</sub></td>
-<td><img src="captures/07_pdf_des_annexes.png" alt="Le PDF des annexes : page de garde Annexe n° 1 puis le document tamponné Annexe n° 1 – p. 1/15"><br><sub><b>Annexes</b> : un seul PDF, page de garde et tampon « Annexe n° 1 – p. 1/15 ».</sub></td>
+<td><img src="02_jurisprudence.png" alt="Onglet Jurisprudence : HUDOC, CJUE, Cour constitutionnelle, import par référence"><br><sub><b>Jurisprudence</b> : Cour eur. D.H., C.J.U.E., Cour constitutionnelle, import par référence.</sub></td>
+<td><img src="07_pdf_des_annexes.png" alt="Le PDF des annexes : page de garde Annexe n° 1 puis le document tamponné Annexe n° 1 – p. 1/15"><br><sub><b>Annexes</b> : un seul PDF, page de garde et tampon « Annexe n° 1 – p. 1/15 ».</sub></td>
 </tr>
 </table>
 

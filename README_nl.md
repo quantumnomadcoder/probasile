@@ -18,7 +18,8 @@
 <a href="#-aan-de-slag">Aan de slag</a> ·
 <a href="#-veelgestelde-vragen">FAQ</a> ·
 <a href="#-bijdragen">Bijdragen</a> ·
-<a href="README.md">🇧🇪 Français</a>
+<a href="README.md">🇧🇪 Français</a> ·
+<a href="README_de.md">🇧🇪 Deutsch</a>
 </p>
 
 > 🗣️ **Let op: de interface, de modelplannen en de juridische tekstblokken zijn voorlopig in het Frans.** De verzameling van bronnen (VN, UPR, ratificaties, ngo's, rechtspraak) werkt voor iedereen, ook voor Nederlandstalige dossiers. Een Nederlandstalige versie van de interface en van de tekstblokken is een van de volgende doelen: [hulp is welkom](#-bijdragen)!
@@ -62,21 +63,21 @@ flowchart LR
 
 ## 📸 Schermafbeeldingen
 
-<p align="center"><img src="captures/06_texte_avec_notes.png" width="720" alt="Een tekst in LibreOffice: elke verwijzing is een volledige voetnoot geworden, met Ibid. en de verwijzing naar de bijlage"></p>
+<p align="center"><img src="06_texte_avec_notes.png" width="720" alt="Een tekst in LibreOffice: elke verwijzing is een volledige voetnoot geworden, met Ibid. en de verwijzing naar de bijlage"></p>
 <p align="center"><i>De gegenereerde tekst: de verwijzingen zijn voetnoten geworden, met « Ibid. », de vrije vertaling en de verwijzing naar de bijlage.</i></p>
 
 <table>
 <tr>
-<td width="50%"><img src="captures/01_collecte_onu.png" alt="Tabblad VN: comités, databank van de verdragsorganen, UPR, ratificaties"><br><sub><b>Verzamelen</b>: VN-comités, stand van de rapporten, UPR, ratificaties.</sub></td>
-<td width="50%"><img src="captures/03_redaction.png" alt="Tabblad Rédaction: modelplan, blokken, verwijzingen van het land"><br><sub><b>Schrijven</b>: modelplan, juridische blokken en de verwijzingen van het land.</sub></td>
+<td width="50%"><img src="01_collecte_onu.png" alt="Tabblad VN: comités, databank van de verdragsorganen, UPR, ratificaties"><br><sub><b>Verzamelen</b>: VN-comités, stand van de rapporten, UPR, ratificaties.</sub></td>
+<td width="50%"><img src="03_redaction.png" alt="Tabblad Rédaction: modelplan, blokken, verwijzingen van het land"><br><sub><b>Schrijven</b>: modelplan, juridische blokken en de verwijzingen van het land.</sub></td>
 </tr>
 <tr>
-<td><img src="captures/04_reperes_et_annexes.png" alt="Lijst van verwijzingen per categorie, met de kolom Bijlage"><br><sub><b>Verwijzingen</b>: elke bron klaar om te citeren; jij kiest wat als bijlage gaat.</sub></td>
-<td><img src="captures/05_paragraphes_calcules.png" alt="Voorbeeld van automatisch berekende paragrafen over ratificaties"><br><sub><b>Berekende paragrafen</b>: ratificaties, vertragingen, klachtprocedures, geschreven op basis van de verzamelde gegevens.</sub></td>
+<td><img src="04_reperes_et_annexes.png" alt="Lijst van verwijzingen per categorie, met de kolom Bijlage"><br><sub><b>Verwijzingen</b>: elke bron klaar om te citeren; jij kiest wat als bijlage gaat.</sub></td>
+<td><img src="05_paragraphes_calcules.png" alt="Voorbeeld van automatisch berekende paragrafen over ratificaties"><br><sub><b>Berekende paragrafen</b>: ratificaties, vertragingen, klachtprocedures, geschreven op basis van de verzamelde gegevens.</sub></td>
 </tr>
 <tr>
-<td><img src="captures/02_jurisprudence.png" alt="Tabblad Rechtspraak: HUDOC, HvJ, Grondwettelijk Hof, import via referentie"><br><sub><b>Rechtspraak</b>: EHRM, HvJ EU, Grondwettelijk Hof, import via referentie.</sub></td>
-<td><img src="captures/07_pdf_des_annexes.png" alt="De pdf met bijlagen: titelblad Bijlage 1, daarna het document met stempel"><br><sub><b>Bijlagen</b>: één pdf, met titelblad en stempel « Annexe n° 1 – p. 1/15 ».</sub></td>
+<td><img src="02_jurisprudence.png" alt="Tabblad Rechtspraak: HUDOC, HvJ, Grondwettelijk Hof, import via referentie"><br><sub><b>Rechtspraak</b>: EHRM, HvJ EU, Grondwettelijk Hof, import via referentie.</sub></td>
+<td><img src="07_pdf_des_annexes.png" alt="De pdf met bijlagen: titelblad Bijlage 1, daarna het document met stempel"><br><sub><b>Bijlagen</b>: één pdf, met titelblad en stempel « Annexe n° 1 – p. 1/15 ».</sub></td>
 </tr>
 </table>
 
