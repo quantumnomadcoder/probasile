@@ -1,0 +1,454 @@
+PROBASILE – mode d'emploi (version 0.9.24)
+==========================================
+
+À quoi sert ce programme
+------------------------
+Probasile rassemble, pour un pays donné, les sources utiles aux dossiers (protection
+internationale, non-délivrance d'OQT, 9bis, 9ter), les range dans un dossier par pays
+et crée pour chacune une fiche (sources.csv) prête pour les notes de bas de page.
+
+Onglet « ONU »
+  - Organes de traités : observations finales, listes de points, rapports de l'État
+    (CCPR, CAT, CESCR, CEDAW, CRC, CERD, CED, CRPD, CMW), retrouvés par leur cote
+    (ex. CCPR/C/IDN/CO/2), en français si la version existe, sinon en anglais.
+  - Base des organes de traités : l'état des rapports (dates dues / dates de remise,
+    utile pour démontrer les retards) et tous les documents listés pour le pays,
+    y compris les courriers de suivi (ex. le courrier du 18 avril 2017) et les
+    anciennes cotes d'avant 2008. Au choix : tous les comités, ou seulement ceux
+    cochés en haut de l'onglet (+ documents communs comme le document de base
+    HRI/CORE, case à décocher si inutile). Case « sans les comptes rendus de
+    séance » pour écarter les procès-verbaux (…/SR.…), souvent volumineux.
+  - Examen périodique universel (EPU) : pour chaque examen, rapport national,
+    compilation des Nations Unies et résumé des parties prenantes ; avec l'option
+    « résultats » : rapport du Groupe de travail (toutes les recommandations),
+    additif (recommandations acceptées ou seulement « notées » par l'État),
+    décision du Conseil et liste thématique des recommandations. Les cotes sont
+    lues sur la page du pays du site du HCDH (ohchr.org/en/hr-bodies/upr/xx-index).
+  - Ratifications, réserves et déclarations (voir la section dédiée plus bas).
+    Bouton « Choisir les traités… » : ne vérifier que certains traités de la liste
+    pour ce lancement (rien de coché = toute la liste).
+  - Procédures spéciales : le bouton ouvre la recherche des communications ; les PDF
+    se récupèrent ensuite via l'onglet « Importer » (voir plus bas).
+
+AIDE DANS LE PROGRAMME
+  - Bouton « Aide générale » (en haut) : fonctionnement, fichiers produits, colonnes
+    de sources.csv, comment repartir de zéro.
+  - Bouton « Mode d'emploi de l'onglet » dans chaque onglet : options et fichiers
+    produits par cet onglet.
+  - Bulles d'aide : survolez une case ou un bouton.
+  - Fenêtre de bienvenue au premier lancement ; bilan à la fin de chaque collecte
+    (désactivables).
+  - « Tout réinitialiser » : remet les cases et champs à leur valeur de départ
+    (documents, dossier, CountryID, appname et listes de veille conservés).
+
+Onglet « Rapports ONU, ONG, États (ReliefWeb) »
+  Si ReliefWeb refuse le programme (réponse 202) : ouvrez le flux RSS dans le navigateur,
+  enregistrez-le (Ctrl+S, fichier .xml) et importez ce fichier dans l'onglet « Importer ».
+  Une fiche est créée par publication ; les PDF que le site refuse de fournir au
+  programme sont listés dans la page « liens_a_telecharger_… .html ».
+
+  Rapports des sources cochées dans le catalogue (HCDH, HCR, OMS, Human Rights Watch,
+  Amnesty International, Département d'État, EUAA…), filtrés par thème, période,
+  langue et mots-clés. Préréglages « Droits humains (PI, OQT) » et « Santé (9ter) »,
+  qui cochent les sources correspondantes. Chaque rapport est rangé selon la
+  catégorie de sa source (voir « Catégories et catalogue des sources »).
+
+Onglet « Presse et sources nationales (veille) »
+  Veille sur des flux RSS et des recherches Google Actualités (ex. KontraS, ANTARA,
+  Hukumonline pour l'Indonésie). Seules les fiches sont créées (titre, source, date,
+  lien) : les pages ne sont pas téléchargées. Les listes sont mémorisées pour chaque pays.
+
+Onglet « Jurisprudence »
+  Chaque décision reçoit une fiche avec une citation déjà mise en forme (colonne
+  « citation » de sources.csv), par exemple :
+    Cour eur. D.H. (Gde Ch.), arrêt M.S.S. c. Belgique et Grèce, 21 janvier 2011, req. n° 30696/09
+    C.J.U.E. (Gde Ch.), arrêt M c. Ministerstvo vnitra…, 14 mai 2019, aff. jointes C-391/16, C-77/17 et C-78/17, EU:C:2019:403
+    C. const., 18 février 2021, n° 23/2021        C.E., 12 mai 2020, n° 248.270
+    C.C.E., 16 novembre 2018, n° 212 381           Cass., 14 mai 2019, ECLI:BE:CASS:2019:ARR.20190514.2
+  La colonne « articles » indique les articles retrouvés dans la décision.
+
+  Filtre par articles (chaque juridiction a le sien) : un ou plusieurs articles séparés
+  par des virgules, avec « tous ces articles » ou « au moins un ».
+  - HUDOC : numéros d'articles de la CEDH (« 3, 13 » ; « P1-1 » = article 1 du
+    Protocole n° 1). Pour un autre traité (Genève, torture…), utiliser les mots-clés.
+  - C.J.U.E. et Cour constitutionnelle : le script lit le texte des décisions. Pour
+    éviter de confondre l'article 3 de la CEDH avec l'article 3 d'une loi, choisissez
+    le texte visé dans la liste « de : » ; le script connaît les différentes manières
+    de l'écrire (ex. pour la CEDH : « Convention européenne des droits de l'homme »,
+    « Convention de sauvegarde… », « CEDH »…). Vous pouvez aussi préciser le texte
+    article par article : « 3 CEDH, 33 Genève, 3 CAT, 22bis Constitution » (le texte
+    écrit après le numéro l'emporte sur la liste). Textes connus : CEDH, CAT (torture),
+    Genève (réfugiés), PIDCP (pacte), PIDESC, CIDE (enfant), CEDAW (femmes), CERD,
+    CRPD, Charte, Constitution, loi du 15 décembre 1980, directives 2011/95, 2013/32,
+    2008/115 (retour), règlements 2024/1347, 2024/1348, Dublin. Un texte absent de la
+    liste peut être tapé librement : il doit alors apparaître tel quel après l'article.
+
+  Recherche automatique :
+  - Cour eur. D.H. (HUDOC) : filtre sur les articles de la Convention (données
+    officielles de la Cour), mots-clés (ex. Indonesia), État défendeur (ex. BEL),
+    arrêts / décisions, Grande Chambre, langue (la version française est préférée).
+  - C.J.U.E. : arrêts qui citent ou interprètent les actes cochés (directive et
+    règlement qualification, directive procédures, retour, Dublin, Charte…, ou tout
+    autre acte par son numéro CELEX, ex. 32011L0095), puis filtre sur les articles
+    dans le texte de l'arrêt.
+  - Cour constitutionnelle : parcours de tous les arrêts des années choisies, filtrés
+    sur les articles cités et les mots-clés. Comptez quelques minutes par année ; les
+    arrêts déjà examinés ne sont pas relus lors des collectes suivantes (tant que les
+    filtres ne changent pas).
+  Comités de l'ONU (Comité contre la torture, Comité des droits de l'homme…) :
+  décisions et constatations sur plaintes individuelles. Pas de recherche
+  automatique ; bouton « Comités ONU » (base « Juris » du HCDH), puis collez la cote
+  (ex. CAT/C/66/D/832/2017) dans « Importer par référence », ou importez le PDF.
+  La fiche est remplie (comité, auteur, État partie, n° de communication, date) :
+    Comité contre la torture, X c. Suisse, communication n° 832/2017, décision du
+    10 mai 2019, CAT/C/66/D/832/2017
+  et la colonne « articles » indique les articles de la Convention ou du Pacte cités.
+  Import par référence (une par ligne) : ECLI de toutes les juridictions, « req. n°
+  30696/09 », « C-391/16 », « C. const. 23/2021 », « C.E. 248.270 », « C.C.E. 212 381 »,
+  ou un lien. Le texte de l'arrêt est téléchargé et la fiche remplie.
+  Cour de cassation : par son ECLI uniquement (la fiche renvoie à Juportal ; le PDF
+  est à enregistrer à la main puis à importer si vous voulez l'annexer).
+  C.I.J. : pas de recherche automatique (pas d'accès prévu pour les programmes) ;
+  bouton « C.I.J. », puis importer le PDF : la juridiction et la date sont reconnues,
+  l'intitulé est à vérifier.
+  Les PDF d'arrêts importés dans l'onglet « Importer » (catégorie « Automatique »
+  ou « Jurisprudence ») sont reconnus de la même façon.
+  Rangement : dossier commun « Jurisprudence (dossier commun) » (utile d'un dossier
+  à l'autre) ou dossier du pays.
+
+Onglet « Importer »
+  Pour tout document trouvé à la main : choisissez des fichiers déjà téléchargés ou
+  collez des liens. Les communications des procédures spéciales (« AL IDN 5/2026 »,
+  « UA … », « OL … ») sont reconnues automatiquement : cote, date et titre sont
+  remplis et le fichier est rangé dans 04_Procedures_speciales. Pour les autres
+  documents, la fiche est créée et l'auteur et le titre sont à compléter.
+
+Onglet « Rédaction »
+  1. Créer un plan type (non-délivrance d'OQT, protection internationale, 9ter) :
+     document LibreOffice avec les titres, des indications de rédaction et, sous
+     chaque titre, les repères des sources déjà collectées.
+     - « Nom(s) » et « Qui demande ? » (un homme, une femme, plusieurs personnes ou
+       une famille, plusieurs femmes) : le plan et les blocs s'accordent
+       (le demandeur / la demanderesse / les demandeurs, il / elle / ils, exposé(e)s…).
+     - « Ajouter les paragraphes calculés » (OQT et protection internationale) :
+       paragraphes écrits à partir de la collecte ONU, avec leurs notes : traités
+       ratifiés, signés ou non ; procédures de plaintes acceptées ou non ; rapports
+       remis en retard (retard calculé) ou toujours attendus ; informations de suivi
+       jamais transmises ; ancienneté des dernières observations finales.
+       Boutons « Aperçu… » (avec ce que le programme a lu), « Exporter… » (document
+       LibreOffice) et « Corriger les dates… » (fichier à compléter à la main).
+  2. Écrire dans LibreOffice en plaçant des repères là où il faut une note :
+       [[CCPR/C/IDN/CO/2, §24, p.8]]   [[… +trad]]   [[… +souligne]]   [[… +sansannexe]]
+       [[A, §3 ; B, p.2]]   [[A ; = texte libre]]   [[PIECE nom]]   [[BLOC nom]]
+     Liste des repères (cadre 2, rangée par catégorie ; double-clic = copier) et
+     bouton « Liste des repères et des annexes… » : annexer ou non une source,
+     corriger sa référence, ajouter un document non collecté (copié dans
+     12_Sources_ajoutees), supprimer une source ajoutée. La liste suit le pays choisi.
+  3. Générer : chaque repère devient une note de bas de page (référence complète
+     la première fois, puis « op.cit. », « Ibid. » si la note précédente cite la
+     même source), les annexes sont numérotées dans l'ordre de première citation,
+     l'index des annexes est écrit et un PDF unique des annexes est assemblé
+     (page « Annexe n° X » avant chacune, numérotation des pages en option ;
+     les fichiers Word sont convertis avec LibreOffice).
+  Annexes : case « Annexer toutes les sources citées » (cochée) = chaque document
+  cité dont on a le fichier est annexé ; les pages web gardent leur lien ; les
+  textes de référence ne sont jamais annexés. Exceptions : +sansannexe, ou
+  « non » / « oui » dans la liste des repères. Pièces personnelles : dossier
+  00_Pieces_du_dossier du pays (bouton « Pièces du dossier »), toujours annexées.
+  Fichiers : dossier « Redaction » du pays (Plan_….odt, …_notes.odt,
+  …_annexes.pdf, …_rapport.txt, Apercu_paragraphes_calcules_….odt). Le texte
+  d'origine n'est jamais modifié.
+  Plans types (plans_types.odt, dans le dossier de base) : les titres des trois plans,
+  modifiables dans LibreOffice (bouton « Modifier les plans… ») : ajouter, renommer,
+  déplacer ou supprimer une section (Titre 1 = procédure, Titres 2 à 6 = niveaux du
+  plan, paragraphe normal = indication de rédaction). Les numéros des titres ne
+  comptent pas : on peut renuméroter sans que les blocs ne se perdent. Supprimer le
+  fichier pour revenir aux plans d'origine.
+  Bibliothèque de blocs (bibliotheque_blocs.odt, dans le dossier de base) : passages
+  juridiques types par procédure, avec leurs notes et leurs accords ({il}, {e}…),
+  modifiables dans LibreOffice (Titre 1 = procédure, Titre 2 = rubrique du plan,
+  Titre 3 = bloc « (par défaut) »). Ils sont recopiés dans le plan (« Choisir les
+  blocs… ») ou insérés dans leur dernière version à la génération ([[BLOC nom]]).
+  Une nouvelle version du programme met la bibliothèque à jour si vous ne l'avez
+  pas modifiée (l'ancienne est gardée en copie) ; sinon la nouvelle est posée à
+  côté (bibliotheque_blocs_nouvelle_version.odt).
+  Textes de référence (references_juridiques.csv, dans le dossier de base) : lois,
+  conventions, règlements, arrêts et doctrine cités par repère ([[LOI1980, art.
+  74/13]], [[REG2024-1347, art. 3, point 5)]], [[SOERING, §88]]…). Bouton « Mettre à
+  jour un arrêt ou un bloc… » : marche à suivre pas à pas, formulaire pour ajouter,
+  modifier ou supprimer une référence, et « Où ce repère est-il utilisé ? ». Les
+  références ajoutées dans une nouvelle version du programme sont complétées
+  automatiquement (vos lignes ne sont jamais modifiées).
+  Bouton « Comment écrire une note ? » : exemples de repères (paragraphes, pages,
+  articles, options) et liste complète des abréviations.
+  Nécessite le module lxml (installé par l'installateur) et LibreOffice (pour ouvrir
+  les documents et convertir les annexes Word en PDF).
+
+Rangement (un dossier par catégorie, voir la section suivante) :
+  Probasile/
+    catalogue_sources.csv         <- la liste des sources et de leur catégorie (modifiable)
+    Indonésie (IDN)/
+      01_ONU_organes_de_traites/  (par comité ; etat_des_rapports.csv)
+      02_Ratifications/ … 12_A_classer/
+      sources.csv                 <- une fiche par document
+      journal_2026-09-26_225422.txt  <- les nouveautés de cette collecte
+      liens_a_telecharger_….html  <- en mode « liens seulement »
+      .etat.json                  <- mémoire technique des collectes
+
+
+Catégories et catalogue des sources
+-----------------------------------
+Chaque document reçoit une catégorie, qui décide de son dossier. Liste complète
+(aussi visible avec le bouton « Voir les catégories ») :
+
+  01 Organes de traités        Comités de l'ONU : observations finales, listes de
+                               points, rapports de l'État, courriers de suivi,
+                               état des rapports
+  02 Ratifications             État des ratifications
+  03 EPU                       Examen périodique universel
+  04 Procédures spéciales      Rapporteurs spéciaux et groupes de travail :
+                               communications (AL, UA, OL), rapports de visite
+  05 ONU – HCDH et Conseil     Haut-Commissariat aux droits de l'homme (communiqués,
+     des droits de l'homme     rapports), Conseil des droits de l'homme
+  06 ONU – agences             HCR, OMS, UNICEF, OCHA, PNUD, ONUSIDA…
+  07 ONG internationales       HRW, Amnesty, Crisis Group, FIDH, OMCT, MRG, CSW, MSF…
+  08 Sources nationales        ONG et institutions nationales (KontraS, SETARA,
+                               Komnas HAM, YLBHI…)
+  09 Gouvernements et          Département d'État, EUAA, Union européenne, Conseil
+     organisations régionales  de l'Europe, CGRA (COI Focus)…
+  10 Presse                    Hukumonline, ANTARA, Tempo, Reuters…
+  11 Jurisprudence             CCE, Cour eur. D.H., CJUE…
+  12 À classer                 source inconnue du catalogue
+
+Le classement des rapports ReliefWeb, de la veille et des imports se fait grâce au
+fichier catalogue_sources.csv, créé dans le dossier de base à la première
+utilisation (bouton « Modifier le catalogue… »). Une ligne par source :
+  nom           le nom affiché (ex. HCDH)
+  nom_reliefweb le nom exact de la source sur ReliefWeb (vide si la source n'y est pas)
+  categorie     une des catégories ci-dessus, écrite exactement comme dans la liste
+  domaines      adresses web de la source (ex. hrw.org), pour reconnaître les liens
+  prereglages   « droits » et/ou « sante » : cochée par le préréglage correspondant
+Pour ajouter une source (ex. une ONG d'un autre pays) : ajouter une ligne, enregistrer,
+puis « Recharger ». Pour changer la catégorie d'une source, modifier la colonne
+« categorie ». Les noms ReliefWeb du catalogue de départ sont à vérifier sur
+reliefweb.int (page de la source) : si l'API ne renvoie rien pour une source,
+c'est souvent que le nom exact diffère.
+
+
+Installation (une seule fois, sans terminal)
+--------------------------------------------
+Il faut Python 3 (https://www.python.org/downloads/ ; sous Windows, cocher
+« Add Python to PATH » pendant l'installation) et LibreOffice
+(https://fr.libreoffice.org/ : pour ouvrir les plans et les notes, et convertir les
+annexes Word en PDF). Sous Linux, s'il manque des éléments de Python (python3-venv,
+python3-tk), l'installation propose de les installer (mot de passe demandé).
+
+Puis double-cliquer sur le fichier d'installation de votre système :
+- Windows : installer_windows.bat
+- Linux   : « Installer Probasile (Linux).sh ». S'il s'ouvre dans un éditeur de
+            texte : clic droit -> « Exécuter comme un programme » (ou « Lancer »).
+- macOS   : « Installer Probasile (Mac).command ». Si macOS refuse de l'ouvrir
+            (développeur non identifié) : clic droit -> Ouvrir -> Ouvrir.
+Une fenêtre montre l'installation, puis propose de lancer Probasile.
+
+L'installation crée les raccourcis, avec l'icône de Probasile :
+- Windows : menu Démarrer et bureau. Pour la barre des tâches : clic droit sur
+  Probasile dans le menu Démarrer -> « Épingler à la barre des tâches ».
+- Linux   : menu des applications (catégorie Bureautique) et bureau. Pour le
+  tableau de bord : clic droit sur Probasile dans le menu -> ajouter au tableau
+  de bord / aux favoris (selon le bureau).
+- macOS   : Probasile dans le dossier Applications de votre compte ; le glisser
+  dans le Dock.
+
+Retirer les raccourcis : desinstaller_windows.bat (Windows), ou
+./installer_mac_linux.sh --retirer (macOS / Linux). Supprimer ensuite le dossier du
+programme supprime tout le reste.
+
+Détails (macOS / Linux) : les modules sont installés dans un dossier .venv À
+L'INTÉRIEUR du dossier du programme : rien n'est installé ailleurs, et le Python du
+système n'est jamais modifié. Dans un terminal, on peut aussi lancer
+./installer_mac_linux.sh, ou ./installer_mac_linux.sh ~/chemin/vers/environnement
+pour utiliser un environnement existant (partagé entre vos outils). Si un
+environnement est activé dans le terminal, le script demande s'il faut l'utiliser
+(réponse par défaut : non -> .venv du programme). Le lanceur utilise toujours
+l'environnement choisi à l'installation.
+Si le programme ne s'ouvre pas depuis le menu, les erreurs sont écrites dans
+journal_erreurs.txt (dossier du programme) : joignez ce fichier à votre signalement.
+
+
+Utilisation avec l'interface
+----------------------------
+Lancer Probasile depuis le menu, le bureau ou le Dock (ou, à défaut :
+lancer_windows.bat sous Windows, lancer_mac_linux.command sous macOS / Linux).
+
+1. Choisir le pays (taper le début du nom filtre la liste) et vérifier la forme
+   « Dans une phrase » (« de l'Indonésie », « du Maroc », « des Philippines »).
+2. « Choisir… » une seule fois pour le dossier de base : il est mémorisé, comme tous
+   les réglages.
+3. Cocher ce qu'on veut dans les onglets, puis « Lancer la collecte ».
+4. « Nouveautés seulement » : ne cherche que ce qui est plus récent que la collecte
+   précédente. À décocher pour la première collecte d'un pays.
+5. « Liens seulement » : rien n'est téléchargé ; le programme produit une page
+   liens_a_telecharger_….html avec tous les liens directs, que vous ouvrez et cliquez
+   vous-même (voir « Règles d'accès des sites » plus bas).
+6. « Ouvrir le journal » affiche la liste des nouveautés ; « Ouvrir le dossier » ouvre
+   le dossier du pays. On peut arrêter à tout moment : ce qui est téléchargé est gardé.
+
+
+Utilisation dans le terminal
+----------------------------
+  python collecte.py --pays IDN --base-organes --epu --ratifications
+  python collecte.py --pays IDN --comites aucun --ratifications-chapitres
+  python collecte.py --pays IDN --comites CCPR,CAT --types CO,Q --maj
+  python collecte.py --pays IDN --comites aucun --reliefweb --depuis 2024
+  python collecte.py --pays UKR --comites aucun --reliefweb --preset "Santé (9ter)"
+  python collecte.py --pays IDN --comites aucun --veille --maj
+  python collecte.py --pays IDN --comites aucun --importer ~/Téléchargements/*.pdf
+  python collecte.py --pays IDN --comites aucun --liens liens.txt --categorie "Presse et sources nationales"
+  python collecte.py --pays IDN --liens-seulement --base-organes
+  python collecte.py --pays IDN --comites aucun --hudoc --articles "3, 13" --au-moins-un --mots-jur Indonesia
+  python collecte.py --pays IDN --comites aucun --cjue 32011L0095 32024R1347 --articles-cjue "4, 9"
+  python collecte.py --pays IDN --comites aucun --cour-const 2024 2026 --articles-cc 3 --reference "Convention européenne"
+  python collecte.py --pays IDN --comites aucun --refs arrets.txt
+  python collecte.py --liste-pays        (tous les codes)      python collecte.py --help
+
+Le dossier de base, le nom d'application ReliefWeb, les flux de veille et l'identifiant
+OHCHR de chaque pays sont mémorisés : pas de chemin à retaper.
+
+
+Comment le programme sait ce qui est nouveau
+--------------------------------------------
+- sources.csv est la référence : chaque document y a un identifiant unique (sa cote
+  pour l'ONU, son numéro pour ReliefWeb, son lien pour la presse). Tout ce qui n'y
+  figure pas encore est une nouveauté, et apparaît dans le journal horodaté.
+- .etat.json retient la date et l'heure de la dernière collecte de chaque module et
+  jusqu'où on a cherché (numéro de rapport, session de l'EPU) : en mode
+  « Nouveautés seulement », ReliefWeb et la veille ne demandent que ce qui a été
+  publié depuis, et les cotes ne sont vérifiées qu'à partir du dernier numéro trouvé.
+
+
+Le fichier sources.csv
+----------------------
+Une ligne par document, séparateur « ; » (LibreOffice Calc ou Excel) :
+id ; categorie ; auteur ; titre ; cote ; date ; url ; consulte_le ; fichier ;
+langue ; annexe ; remarques
+- « consulte_le » : date de la collecte, remplie automatiquement.
+- « date » : pour les PDF de l'ONU, lue sur la première page (date de distribution) :
+  à vérifier ; à compléter pour les fichiers Word.
+- « annexe » et « remarques » sont à vous : jamais écrasées par les collectes suivantes.
+
+
+Ratifications, réserves et déclarations
+---------------------------------------
+- Liste choisie : les traités de traites.csv (dossier de base, bouton « Modifier la
+  liste… ») : grands traités de l'ONU et leurs protocoles, Convention de Genève et son
+  protocole, conventions sur l'apatridie de 1954 et 1961, Statut de Rome, Convention
+  contre la criminalité organisée et Protocole sur la traite, Convention sur le
+  génocide. Pour chaque traité : dates de signature et de ratification ou d'adhésion,
+  et texte des réserves et déclarations de l'État (y compris les déclarations
+  reconnaissant la compétence d'un comité, ex. articles 21 et 22 de la Convention
+  contre la torture), ainsi que les objections d'autres États qui le visent.
+- Option « + tous les autres traités des chapitres… » : ajoute tous les traités des
+  chapitres « droits de l'homme », « réfugiés et apatrides » et « matières pénales »
+  de la Collection des traités auxquels l'État participe.
+- Si l'identifiant OHCHR du pays est connu (voir « CountryID »), le tableau du HCDH
+  sur l'acceptation des procédures de plaintes individuelles et d'enquête est aussi
+  enregistré (procedures_de_plaintes_HCDH.csv).
+Résultats dans 02_Ratifications : ratifications.csv (tableau) et ratifications.html
+(lecture confortable, textes complets). Les textes sont repris de la page anglaise de
+la Collection des traités et sont à vérifier sur la page officielle (lien fourni).
+Les numéros de traités de traites.csv (ex. IV-9) sont ceux de la Collection des
+traités ; si un traité renvoie « introuvable », vérifiez son numéro sur le site.
+
+
+ReliefWeb : nom d'application (API) et flux RSS de secours
+----------------------------------------------------------
+Deux façons d'accéder à ReliefWeb, qui se complètent :
+
+1. L'API (la plus complète) : il faut un « nom d'application » (appname),
+   demandé via le court formulaire indiqué sur https://apidoc.reliefweb.int
+   (rubrique « appname »). ReliefWeb n'accepte que les adresses e-mail
+   institutionnelles (pas Gmail, Yahoo, Hotmail…). Nom conseillé : votre nom,
+   l'usage et quelques caractères au hasard, ex. dupont-legalresearch-k7q2x.
+   Le coller dans le champ « appname » (il est mémorisé).
+
+2. Les flux RSS de secours (sans inscription) : utilisés automatiquement s'il n'y
+   a pas d'appname ou si l'API refuse (appname expiré, adresse universitaire
+   fermée…). Pour en créer un :
+   - bouton « Construire un flux sur ReliefWeb » (ou https://reliefweb.int/updates) ;
+   - filtrer : pays principal (ex. Indonesia) et une ou plusieurs sources (on peut
+     en sélectionner plusieurs dans le même filtre : un seul flux suffit alors),
+     éventuellement thème ;
+   - en bas de la page de résultats, cliquer sur « RSS » et copier l'adresse ;
+   - la coller dans « Flux RSS de secours » (une ligne par flux ; mémorisé par pays).
+   Chaque rapport du flux devient une fiche, rangée selon la catégorie de sa source
+   (catalogue), et le PDF joint est téléchargé quand il y en a un. Différences avec l'API : le filtre par langue et les mots-clés ne
+   s'appliquent pas (ils sont définis dans le flux lui-même), et l'auteur est parfois
+   à compléter dans sources.csv.
+
+Les deux méthodes partagent le même identifiant (l'adresse de la page ReliefWeb) :
+passer de l'une à l'autre ne crée pas de doublons.
+
+
+Base des organes de traités : l'identifiant « CountryID »
+---------------------------------------------------------
+Le HCDH désigne chaque pays par un numéro interne (Indonésie : 80). Le programme le
+cherche seul dans la liste des pays du HCDH. S'il n'y parvient pas, une fenêtre
+s'ouvre avec la marche à suivre et un champ pour coller le numéro. À la main :
+ouvrez https://tbinternet.ohchr.org/_layouts/15/TreatyBodyExternal/Treaty.aspx?Lang=en,
+choisissez le pays : l'adresse de la page du pays contient « CountryID=… ». Recopiez ce
+nombre dans le champ « CountryID OHCHR » de l'onglet ONU (mémorisé pour ce pays).
+
+
+Veille presse : exemples pour l'Indonésie
+------------------------------------------
+Recherches Google Actualités (langue « id », pays « ID ») :
+  site:kontras.org penyiksaan
+  site:hukumonline.com penistaan agama
+  site:antaranews.com penistaan agama
+  Papua penyiksaan polisi
+Filtre de titres (facultatif) : siksa penyiksaan penistaan intoleransi
+Flux RSS : si un site en propose un (souvent adresse-du-site/feed pour les sites
+WordPress), collez son adresse dans « Flux RSS ».
+
+
+Règles d'accès des sites (à lire)
+---------------------------------
+Les sites de l'ONU (documents.un.org, base des organes de traités) indiquent dans leur
+fichier robots.txt qu'ils ne souhaitent pas être parcourus par des programmes
+automatiques. Ce programme n'est pas un robot d'indexation : il est lancé par vous,
+pour quelques documents précis, avec une pause entre chaque requête et en
+s'identifiant clairement. Si vous préférez respecter strictement ces règles, cochez
+« Liens seulement » : le programme ne fait alors que préparer la liste des liens et
+c'est vous qui cliquez. Google Actualités et ReliefWeb (API officielle) ne posent pas
+cette question, mais ReliefWeb limite le nombre de requêtes par jour.
+
+
+Limites connues
+---------------
+- Les sites consultés changent parfois de présentation. Si un message d'erreur
+  apparaît, ou si un module ne trouve rien alors que les documents existent,
+  importez le document à la main et signalez-le (onglet « Issues » du dépôt
+  GitHub) en joignant le journal, sans données personnelles.
+- La base des organes de traités est une application web complexe ; si elle ne
+  renvoie pas ses tableaux au programme, le journal le signale et donne le lien
+  pour consulter la page à la main.
+- Les communications des procédures spéciales ne sont pas cherchées automatiquement
+  (leur site ne le permet pas simplement) : recherche à la main, puis « Importer ».
+- Le tableau des ratifications ne reprend pas le texte des réserves et déclarations :
+  à lire sur la page (lien dans sources.csv).
+
+
+Licence
+-------
+Ce programme est un logiciel libre : vous pouvez le redistribuer et/ou le modifier
+selon les termes de la Licence publique générale GNU (GNU GPL) publiée par la Free
+Software Foundation, version 3 de la licence ou (à votre choix) toute version
+ultérieure. Il est distribué dans l'espoir qu'il sera utile, mais SANS AUCUNE
+GARANTIE, sans même la garantie implicite de QUALITÉ MARCHANDE ou d'ADÉQUATION À UN
+USAGE PARTICULIER. Le texte complet de la licence (en anglais, seule version
+officielle) figure dans le fichier LICENSE ; voir aussi https://www.gnu.org/licenses/.
+
+Les blocs de texte juridique et les références sont fournis comme point de départ :
+ils doivent être vérifiés et adaptés à chaque dossier et ne constituent pas un avis
+juridique.
