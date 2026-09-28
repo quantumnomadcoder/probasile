@@ -94,9 +94,9 @@ Pour chaque traité de votre liste : dates de signature et de ratification ou d'
 - « Modifier la liste… » : ajouter ou retirer des traités de façon durable (fichier traites.csv).
 - « Élargir » : en plus de votre liste, le programme parcourt trois chapitres entiers de la Collection des traités (IV Droits de l'homme, V Réfugiés et apatrides, XVIII Matières pénales) et ajoute tous les traités de ces chapitres auxquels le pays participe. Plus long ; utile pour ne rien oublier.
 Fichiers produits (02_Ratifications/) :
-- ratifications.csv et ratifications.html (plus lisible) : traité ; signature / ratification / adhésion ; réserves ou déclarations (oui/non) ; texte des réserves et déclarations (anglais) ; lien officiel ; origine (liste ou chapitre) ; date de consultation.
+- ratifications.csv et ratifications.html (plus lisible) : traité ; signature / ratification / adhésion ; réserves ou déclarations (oui/non) ; texte des réserves et déclarations (en français, sinon en anglais) ; lien officiel ; origine (liste ou chapitre) ; date de consultation.
 - procedures_de_plaintes_HCDH.csv et .html : quatre tableaux — ratifications (avec l'entrée en vigueur), plaintes individuelles (OUI / NON), procédures d'enquête, communications entre États.
-À savoir : les textes des réserves sont repris de la page anglaise ; la page officielle (lien sous chaque traité) fait foi.
+À savoir : les textes des réserves sont repris de la page française de la Collection des traités ; si elle ne les donne pas, le texte anglais est repris et signalé. La page officielle (lien sous chaque traité) fait foi.
 
 ## 5. Procédures spéciales
 Les lettres des rapporteurs spéciaux au gouvernement (« AL IDN 5/2026 »…) ne se téléchargent pas automatiquement : le bouton ouvre leur moteur de recherche ; téléchargez les PDF puis importez-les (onglet Importer), la référence est reconnue automatiquement.

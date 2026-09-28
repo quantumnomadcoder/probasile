@@ -69,7 +69,7 @@ try:
 except ImportError:
     PdfReader = None
 
-VERSION = "0.9.24"
+VERSION = "0.9.25"
 CONFIG_PATH = os.path.join(os.path.expanduser("~"), ".collecte_pays.json")
 USER_AGENT = "Mozilla/5.0 (collecte-pays/%s; recherche juridique non commerciale)" % VERSION
 PAUSE = 0.5  # secondes entre deux requêtes, pour rester courtois avec les serveurs
@@ -387,12 +387,33 @@ def _noms_pays_norm():
                                "Democratic People's Republic of Korea", "Holy See", "State of Palestine",
                                "Micronesia (Federated States of)", "Côte d'Ivoire", "Czechia", "Netherlands (Kingdom of the)",
                                "European Union"]}
+    # noms français (page française de la Collection des traités)
+    if pycountry:
+        try:
+            tr = gettext.translation("iso3166-1", pycountry.LOCALES_DIR, languages=["fr"])
+            for c in pycountry.countries:
+                for a in ("name", "official_name", "common_name"):
+                    v = getattr(c, a, None)
+                    if v:
+                        noms.add(norm(tr.gettext(v)))
+        except Exception:
+            pass
+    noms |= {norm(x) for x in ["Royaume-Uni de Grande-Bretagne et d'Irlande du Nord", "États-Unis d'Amérique",
+                               "Fédération de Russie", "République de Corée", "République de Moldova",
+                               "République arabe syrienne", "République démocratique populaire lao",
+                               "République populaire démocratique de Corée", "Saint-Siège", "État de Palestine",
+                               "Micronésie (États fédérés de)", "Bolivie (État plurinational de)",
+                               "Venezuela (République bolivarienne du)", "Iran (République islamique d')",
+                               "Pays-Bas (Royaume des)", "Tchéquie", "Union européenne", "Türkiye"]}
     return noms
 
 
 MOTS_NON_PAYS = {"declaration", "declarations", "reservation", "reservations", "objection", "objections", "understanding",
                  "understandings", "interpretative", "note", "notes", "the", "with", "upon", "in", "on", "for", "and",
-                 "article", "articles", "see", "unless", "communication", "communications", "declarations:", "reserve"}
+                 "article", "articles", "see", "unless", "communication", "communications", "declarations:", "reserve",
+                 # français (page française de la Collection des traités)
+                 "reserves", "le", "la", "les", "l", "en", "a", "au", "aux", "de", "du", "des", "d", "et", "pour", "sur",
+                 "voir", "conformement", "lors", "sous", "avec", "par", "application", "sauf", "compte", "declaration:"}
 
 
 def _ressemble_pays(l):
@@ -409,13 +430,24 @@ def _ressemble_pays(l):
 def _passages_cible(texte, cibles):
     """Dans une objection qui vise plusieurs États, ne garde que les passages
     (« [date] With regard to … ») qui mentionnent le pays recherché."""
-    debuts = [m.start() for m in re.finditer(r"(?:\d{1,2} [A-Z][a-z]+ \d{4} )?With regard to", texte)]
+    debuts = [m.start() for m in re.finditer(
+        r"(?:\d{1,2}(?:er)? [A-Za-zéû]+\.? \d{4} )?(?:With regard to|[ÀA] l[’']égard (?:de|des|du|d[’']))", texte)]
     if not debuts:
         return texte
     bornes = [0] + debuts + [len(texte)]
     morceaux = [texte[a:b].strip() for a, b in zip(bornes, bornes[1:]) if texte[a:b].strip()]
     garde = [m for m in morceaux if any(c and c in norm(m) for c in cibles)]
     return " […] ".join(garde) if garde else texte
+
+
+def texte_en_francais(t):
+    """Vrai si le texte est manifestement en français (et non l'anglais recopié sur la page française)."""
+    mots = re.findall(r"[a-zà-ÿ’']+", (t or "").lower())
+    fr = sum(1 for m in mots if m in {"le", "la", "les", "des", "du", "et", "que", "qui", "est", "une", "dans",
+                                      "gouvernement", "conformément", "à", "réserve", "déclare", "pas", "sur"})
+    en = sum(1 for m in mots if m in {"the", "and", "of", "that", "which", "is", "to", "government", "with",
+                                      "shall", "not", "declares", "reservation", "by"})
+    return fr > en
 
 
 def reserves_pays(html_text, noms):
@@ -433,7 +465,7 @@ def reserves_pays(html_text, noms):
         texte = " ".join(bloc[3])
         if bloc[1]:
             # la colonne « Note » du tableau des participants ne fait que répéter les dates
-            if re.match(r"notes?\b", norm(bloc[2])) and re.fullmatch(r"[\dA-Za-z ]{0,60}", texte) \
+            if re.match(r"notes?\b", norm(bloc[2])) and re.fullmatch(r"[\da-z ]{0,60}", norm(texte)) \
                     and re.search(r"\b(19|20)\d\d\b", texte):
                 return
             out.append((bloc[2], texte))
@@ -441,6 +473,10 @@ def reserves_pays(html_text, noms):
             out.append(("%s – %s" % (bloc[2], bloc[0]), _passages_cible(texte, cibles)))
 
     for l in lignes:
+        if re.fullmatch(r"(?i)notes?\s*:?", l.strip()):  # « Notes: » / « Notes : » : fin des sections utiles
+            fermer()
+            bloc, section = None, ""
+            continue
         if SECTIONS_UNTC.match(l) and l[:1].isupper() and not l.rstrip().endswith(":") and len(l.split()) <= 14:
             fermer()
             bloc = None
@@ -1563,7 +1599,7 @@ class Collecteur:
         self.log("  + %s" % sym)
 
     # -- ratifications ------------------------------------------------------
-    def ratifications(self, depot, noms_en, base, chapitres=False, country_id="", selection=None):
+    def ratifications(self, depot, noms_en, base, chapitres=False, country_id="", selection=None, noms_fr=None):
         choisis, chemin_liste = liste_traites(base)
         traites = [(no, nom, "liste") for no, nom in choisis]
         if selection:
@@ -1600,23 +1636,38 @@ class Collecteur:
             ch = str(ROMAINS.get(rom, CHAPITRES.get(rom, "4")))
             url_en = TRAITE_URL.format(no=no, ch=ch, lang="_en")
             url_fr = TRAITE_URL.format(no=no, ch=ch, lang="_fr")
-            row, reserves = None, []
+            row, reserves, langue = None, [], ""
             try:
                 r = self._get(url_en)
                 if r.status_code == 200:
                     row = ligne_pays(r.text, noms_en)
                     if row:
                         reserves = reserves_pays(r.text, noms_en)
+                        langue = "anglais" if reserves else ""
             except Arret:
                 raise
             except Exception as e:
                 self.log("  ! %s : %s" % (nom, e))
+            if reserves:
+                # texte français quand la page française de la Collection le donne ; sinon l'anglais
+                try:
+                    rf = self._get(url_fr)
+                    if rf.status_code == 200:
+                        res_fr = reserves_pays(rf.text, list(noms_fr or []) + list(noms_en))
+                        if res_fr and texte_en_francais(" ".join(t for _, t in res_fr)):
+                            reserves, langue = res_fr, "français"
+                except Arret:
+                    raise
+                except Exception as e:
+                    self.log("  ! %s (page française) : %s" % (nom, e))
             if not row and origine != "liste":
                 continue  # option « chapitres » : on ne garde que les traités auxquels l'État participe
             statut = row or "non partie (ou pays introuvable dans le tableau : à vérifier)"
             txt_res = " || ".join("%s : %s" % (sec, t) for sec, t in reserves)
+            if reserves and langue == "anglais":
+                txt_res = "[texte anglais : pas de version française sur la Collection des traités] " + txt_res
             lignes.append((nom, statut, "oui" if reserves else "", txt_res, url_fr, origine))
-            self.log("  %s : %s%s" % (nom, statut, "  [réserves / déclarations]" if reserves else ""))
+            self.log("  %s : %s%s" % (nom, statut, ("  [réserves / déclarations, en %s]" % langue) if reserves else ""))
             depot.ajouter({"id": "TRAITE-" + no, "categorie": "Ratifications",
                            "auteur": "ONU, Collection des Traités, état des traités", "titre": nom,
                            "cote": no, "url": url_fr, "consulte_le": self.aujourdhui,
@@ -1625,20 +1676,27 @@ class Collecteur:
         with open(chemin, "w", encoding="utf-8-sig", newline="") as f:
             w = csv.writer(f, delimiter=";")
             w.writerow(["Traité", "Signature / ratification / adhésion", "Réserves ou déclarations",
-                        "Texte des réserves et déclarations (anglais, extrait)", "Source", "Liste", "Consulté le"])
+                        "Texte des réserves et déclarations (français, sinon anglais ; extrait)", "Source", "Liste", "Consulté le"])
             for l in lignes:
                 w.writerow(list(l) + [self.aujourdhui])
         page = depot.chemin("Ratifications", "ratifications.html")
         with open(page, "w", encoding="utf-8") as f:
             f.write("<!doctype html><meta charset='utf-8'><title>Ratifications</title><style>body{font-family:Arial;"
                     "max-width:950px;margin:2em auto;line-height:1.4}h2{font-size:1.05em;margin-top:1.6em}"
-                    ".s{color:#08738f}.r{background:#f4f7f7;padding:.6em;border-left:3px solid #08a19f}</style>"
+                    ".s{color:#08738f}.r{background:#f4f7f7;padding:.6em;border-left:3px solid #08a19f}"
+                    ".en{color:#9a5b00;font-style:italic;margin:.3em 0}</style>"
                     "<h1>Ratifications, réserves et déclarations</h1><p>Collection des traités de l’ONU, consultée le %s. "
-                    "Textes des réserves et déclarations repris de la page anglaise : à vérifier sur la page officielle "
-                    "(lien sous chaque traité), qui fait foi.</p>" % self.aujourdhui)
+                    "Textes des réserves et déclarations repris de la page française de la Collection des traités ; "
+                    "lorsqu’elle ne les donne pas, le texte anglais est repris et signalé. À vérifier sur la page "
+                    "officielle (lien sous chaque traité), qui fait foi.</p>" % self.aujourdhui)
             for nom, statut, a_res, txt, url, origine in lignes:
                 f.write("<h2>%s</h2><p class='s'>%s</p><p><a href='%s'>%s</a></p>" % (
                     html.escape(nom), html.escape(statut), html.escape(url), html.escape(url)))
+                m_en = re.match(r"(\[texte anglais[^\]]*\] )", txt)
+                if m_en:
+                    e_ = m_en.group(1).strip(" []")
+                    f.write("<p class='en'>%s</p>" % html.escape(e_[:1].upper() + e_[1:]))
+                    txt = txt[len(m_en.group(1)):]
                 for part in [x for x in txt.split(" || ") if x]:
                     f.write("<div class='r'>%s</div>" % html.escape(part))
         self.log("  -> %s et %s" % (os.path.relpath(chemin, depot.racine), os.path.relpath(page, depot.racine)))
@@ -2048,6 +2106,27 @@ def sauver_config(cfg):
         pass
 
 
+def noms_pays_fr(iso, nom_fr):
+    """Noms français possibles du pays (tels que la page française de la Collection des traités peut les écrire)."""
+    noms = [nom_fr]
+    if pycountry:
+        try:
+            tr = gettext.translation("iso3166-1", pycountry.LOCALES_DIR, languages=["fr"])
+            c = pycountry.countries.get(alpha_3=iso)
+            for a in ("name", "official_name", "common_name"):
+                v = getattr(c, a, None) if c is not None else None
+                if v:
+                    noms.append(tr.gettext(v))
+        except Exception:
+            pass
+    out = []
+    for n in noms:
+        for v in (n, re.sub(r"^(?:la|le|les|l[’'])\s*", "", n, flags=re.I)):
+            if v and v not in out:
+                out.append(v)
+    return out
+
+
 def noms_pays(iso):
     pays = {i: (fr, en) for i, fr, en in liste_pays()}
     nom_fr, nom_en = pays.get(iso, (iso, iso))
@@ -2094,7 +2173,8 @@ def lancer_collecte(p, log=print, progres=None, stop_event=None, session=None):
         if p.get("ratifications"):
             log("\n=== Ratifications ===")
             col.ratifications(depot, noms_en + p.get("noms_onu", []), p["dossier"], p.get("ratif_chapitres", False),
-                              p.get("country_id", "") or depot.etat.get("country_id", ""), p.get("ratif_selection") or None)
+                              p.get("country_id", "") or depot.etat.get("country_id", ""), p.get("ratif_selection") or None,
+                              noms_fr=noms_pays_fr(iso, nom_fr))
         if p.get("reliefweb"):
             log("\n=== Rapports d’ONG et d’agences (ReliefWeb) ===")
             col.reliefweb(depot, iso, p.get("appname", ""), int(p.get("depuis", 2016)),

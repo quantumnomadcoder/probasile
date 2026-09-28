@@ -2,12 +2,12 @@
 
 <h1 align="center">Probasile</h1>
 
-<p align="center"><b>Personne n'est illégal·e. Papiers pour toustes ou pour personne.</b><br>
+<p align="center"><b>Personne n'est illégal·e. Papiers pour toustes.</b><br>
 <i>Preuves et rédaction pour le droit des étrangers en Belgique.</i></p>
 
 <p align="center">
 <img src="https://img.shields.io/badge/licence-GPL--3.0-blue" alt="Licence GPL-3.0">
-<img src="https://img.shields.io/badge/version-0.9.24-orange" alt="Version 0.9.24">
+<img src="https://img.shields.io/badge/version-0.9.25-orange" alt="Version 0.9.25">
 <img src="https://img.shields.io/badge/Windows%20%7C%20macOS%20%7C%20Linux-lightgrey" alt="Windows, macOS, Linux">
 <img src="https://img.shields.io/badge/langue-fran%C3%A7ais-lightgrey" alt="En français">
 </p>
@@ -89,7 +89,7 @@ flowchart LR
 
 | Onglet | Ce qui est rassemblé |
 |---|---|
-| **ONU** | <ul><li>**Organes de traités** (CCPR, CAT, CESCR, CEDAW, CRC, CERD, CED, CRPD, CMW) : observations finales, listes de points, rapports de l'État, courriers de suivi. Les documents sont retrouvés par leur cote (par ex. `CCPR/C/IDN/CO/2`), en français quand la version existe.</li><li>**État des rapports** : dates dues et dates de remise, utiles pour montrer les retards de l'État.</li><li>**Examen périodique universel** : rapport national, compilation de l'ONU, résumé des parties prenantes, recommandations, et celles que l'État a acceptées ou seulement « notées ».</li><li>**Ratifications** : dates de signature et de ratification, texte des réserves et déclarations, objections des autres États, procédures de plaintes individuelles acceptées ou non.</li></ul> |
+| **ONU** | <ul><li>**Organes de traités** (CCPR, CAT, CESCR, CEDAW, CRC, CERD, CED, CRPD, CMW) : observations finales, listes de points, rapports de l'État, courriers de suivi. Les documents sont retrouvés par leur cote (par ex. `CCPR/C/IDN/CO/2`), en français quand la version existe.</li><li>**État des rapports** : dates dues et dates de remise, utiles pour montrer les retards de l'État.</li><li>**Examen périodique universel** : rapport national, compilation de l'ONU, résumé des parties prenantes, recommandations, et celles que l'État a acceptées ou seulement « notées ».</li><li>**Ratifications** : dates de signature et de ratification, texte des réserves et déclarations (en français quand il existe), objections des autres États, procédures de plaintes individuelles acceptées ou non.</li></ul> |
 | **Rapports (ReliefWeb)** | Rapports du HCDH, du HCR, de l'OMS, de l'UNICEF, de Human Rights Watch, d'Amnesty International, de Crisis Group, de la FIDH, de l'OMCT, de l'EUAA, du Département d'État… On filtre par thème, période, langue et mots-clés. Deux préréglages sont prévus : **Droits humains (PI, OQT)** et **Santé (9ter)**. |
 | **Presse et veille** | Flux RSS et recherches Google Actualités, par exemple sur des sites de presse ou d'ONG nationales, dans la langue du pays. Les listes sont mémorisées pour chaque pays. |
 | **Jurisprudence** | <ul><li>**Recherche automatique** : Cour eur. D.H. (HUDOC), C.J.U.E. et Cour constitutionnelle, filtrées par article (par ex. « 3 CEDH, 33 Genève »).</li><li>**Import par référence** : C.E., C.C.E., Cour de cassation (ECLI) et comités de l'ONU (par ex. `CAT/C/66/D/832/2017`).</li><li>Chaque décision reçoit une **citation déjà mise en forme**.</li></ul> |

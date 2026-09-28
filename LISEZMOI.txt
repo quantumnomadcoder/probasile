@@ -1,4 +1,4 @@
-PROBASILE – mode d'emploi (version 0.9.24)
+PROBASILE – mode d'emploi (version 0.9.25)
 ==========================================
 
 À quoi sert ce programme
@@ -355,8 +355,9 @@ Ratifications, réserves et déclarations
   sur l'acceptation des procédures de plaintes individuelles et d'enquête est aussi
   enregistré (procedures_de_plaintes_HCDH.csv).
 Résultats dans 02_Ratifications : ratifications.csv (tableau) et ratifications.html
-(lecture confortable, textes complets). Les textes sont repris de la page anglaise de
-la Collection des traités et sont à vérifier sur la page officielle (lien fourni).
+(lecture confortable, textes complets). Les textes sont repris de la page française de
+la Collection des traités ; lorsqu'elle ne les donne pas, le texte anglais est repris et
+signalé comme tel. À vérifier sur la page officielle (lien fourni).
 Les numéros de traités de traites.csv (ex. IV-9) sont ceux de la Collection des
 traités ; si un traité renvoie « introuvable », vérifiez son numéro sur le site.
 
