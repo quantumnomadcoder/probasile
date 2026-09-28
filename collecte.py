@@ -69,9 +69,9 @@ try:
 except ImportError:
     PdfReader = None
 
-VERSION = "0.9.25"
+VERSION = "1.0.0"
 CONFIG_PATH = os.path.join(os.path.expanduser("~"), ".collecte_pays.json")
-USER_AGENT = "Mozilla/5.0 (collecte-pays/%s; recherche juridique non commerciale)" % VERSION
+USER_AGENT = "Mozilla/5.0 (Probasile/%s; recherche juridique non commerciale)" % VERSION
 PAUSE = 0.5  # secondes entre deux requêtes, pour rester courtois avec les serveurs
 
 MOIS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août",
@@ -3263,9 +3263,241 @@ def interface():
         fenetre_info(parent, "Où ce repère est-il utilisé ?", "\n".join(lignes),
                      bouton=("Ouvrir la bibliothèque", lambda: ouvrir(biblio())))
 
-    bulle(ttk.Button(f_r1, text="Mettre à jour un arrêt ou un bloc…", command=fenetre_maj),
+
+    def fenetre_veille():
+        import veille as VL
+        from aide import AIDE as _AIDE
+        base = v_dossier.get()
+        w = tk.Toplevel(root)
+        w.title("Veille législative")
+        w.transient(root)
+        w.geometry("900x%d" % max(420, min(680, w.winfo_screenheight() - 140)))
+        etat = {"v": None, "ch": [], "bases": {}, "bul": None, "html": ""}
+        eu = VL.etat_utilisateur(base)
+        bas = ttk.Frame(w, padding=10)
+        bas.pack(side="bottom", fill="x")
+        haut = ttk.Frame(w, padding=(12, 10, 12, 0))
+        haut.pack(fill="x")
+        ttk.Label(haut, text="Les textes cités par vos blocs ont-ils changé ?", font=("Arial", 12, "bold")).pack(anchor="w")
+        ttk.Label(haut, wraplength=860, justify="left", text=(
+            "Probasile compare les textes suivis (loi du 15 décembre 1980, arrêté royal du 8 octobre 1981, "
+            "règlements européens, arrêté « pays d’origine sûrs ») avec l’état connu, signale les articles modifiés "
+            "et les blocs qui les citent, et lit le bulletin de veille rédigé par des juristes. "
+            "Dernière vérification enregistrée : %s." % (VL.date_fr(eu.get("vu_le")) if eu.get("vu_le") else
+                                                         "aucune (comparaison avec l’état du droit dans le programme)"))
+                  ).pack(anchor="w", pady=(2, 6))
+        cadre = ttk.Frame(w, padding=(12, 0, 12, 0))
+        cadre.pack(fill="both", expand=True)
+        txt = tk.Text(cadre, wrap="word", relief="flat", padx=10, pady=8, font=("Arial", 11), spacing1=2,
+                      spacing3=2, background="#fbfbfa")
+        sb = ttk.Scrollbar(cadre, orient="vertical", command=txt.yview)
+        txt.configure(yscrollcommand=sb.set)
+        sb.pack(side="right", fill="y")
+        txt.pack(side="left", fill="both", expand=True)
+        txt.tag_configure("titre", font=("Arial", 13, "bold"), foreground="#08738f", spacing1=12, spacing3=4)
+        txt.tag_configure("puce", lmargin1=12, lmargin2=28)
+        txt.tag_configure("gris", foreground="#666")
+
+        def afficher(texte, efface=True):
+            txt.configure(state="normal")
+            if efface:
+                txt.delete("1.0", "end")
+            for ligne in texte.strip("\n").split("\n"):
+                if ligne.startswith("## "):
+                    txt.insert("end", ligne[3:] + "\n", "titre")
+                elif ligne.startswith("- "):
+                    txt.insert("end", "•  " + ligne[2:] + "\n", "puce")
+                else:
+                    txt.insert("end", ligne + "\n")
+            txt.configure(state="disabled")
+            txt.see("end" if not efface else "1.0")
+
+        def journal(msg):
+            w.after(0, lambda: afficher(msg, efface=False))
+
+        afficher(_AIDE.get("veille_intro", "Cliquez sur « Vérifier en ligne »."))
+        boutons = []
+
+        def occupe(oui):
+            for b in boutons:
+                try:
+                    b.configure(state="disabled" if oui else "normal")
+                except Exception:
+                    pass
+            b_rapport.configure(state="normal" if etat["html"] and not oui else "disabled")
+            b_vu.configure(state="normal" if etat["v"] and etat["v"].lectures and not oui else "disabled")
+
+        def terminer():
+            v = etat["v"]
+            etat["ch"], etat["bases"] = v.comparer()
+            bvu = VL.etat_utilisateur(base).get("bulletin_vu", "")
+            texte = VL.rapport_texte(etat["ch"], etat["bases"], v.erreurs, etat["bul"], bvu, VERSION)
+            try:
+                chemin = os.path.join(VL.dossier_veille(base), "rapport_%s.html" % dt.date.today().isoformat())
+                etat["html"] = VL.rapport_html(chemin, etat["ch"], etat["bases"], v.erreurs, v.textes, v.lectures,
+                                               etat["bul"], bvu)
+                texte += "\n\nRapport détaillé (texte avant / après, liens) : %s" % chemin
+            except Exception as e:
+                texte += "\n\n(rapport détaillé non écrit : %s)" % e
+            afficher(texte)
+            occupe(False)
+            try:
+                maj_label_veille()
+            except Exception:
+                pass
+
+        def lire_bulletin(v=None):
+            try:
+                etat["bul"] = VL.telecharger_bulletin(cfg.get("bulletin_url", VL.BULLETIN_URL), user_agent=USER_AGENT)
+                journal("Bulletin de veille : %d information(s)." % len(etat["bul"]["entrees"]))
+            except Exception as e:
+                etat["bul"] = None
+                if v is not None:
+                    v.erreurs["BULLETIN"] = "bulletin de veille non lu (%s) : %s" % (e.__class__.__name__,
+                                                                                       VL.BULLETIN_PAGE)
+
+        def verifier():
+            if not base:
+                messagebox.showinfo("Veille législative", "Choisissez d’abord le dossier de base.", parent=w)
+                return
+            occupe(True)
+            afficher("## Vérification en cours…\nUne page par texte, avec une pause entre chaque (environ une "
+                     "minute).")
+
+            def travail():
+                try:
+                    v = VL.Verification(base, biblio(), log=journal, user_agent=USER_AGENT)
+                    etat["v"] = v
+                    v.en_ligne()
+                    lire_bulletin(v)
+                    w.after(0, terminer)
+                except Exception as e:
+                    w.after(0, lambda: (afficher("## Erreur\n%s" % e), occupe(False)))
+            threading.Thread(target=travail, daemon=True).start()
+
+        def pages():
+            fichiers = filedialog.askopenfilenames(parent=w, title="Pages enregistrées (Justel, EUR-Lex)",
+                                                   filetypes=[("Pages web", "*.html *.htm"), ("Tous", "*.*")])
+            if not fichiers:
+                return
+            occupe(True)
+            afficher("## Analyse des pages enregistrées")
+            v = VL.Verification(base, biblio(), log=journal, user_agent=USER_AGENT)
+            etat["v"] = v
+            try:
+                v.pages_enregistrees(fichiers)
+            except Exception as e:
+                journal("Erreur : %s" % e)
+            if not etat["bul"]:
+                threading.Thread(target=lambda: (lire_bulletin(), w.after(0, terminer)), daemon=True).start()
+            else:
+                terminer()
+
+        def liens():
+            v = VL.Verification(base, biblio(), log=lambda m: None)
+            lignes = ["## Ouvrir les pages et les enregistrer vous-même",
+                      "Les pages s’ouvrent dans votre navigateur. Pour chacune : Ctrl+S (ou Cmd+S), type « Page web "
+                      "complète » ou « HTML uniquement ». Puis revenez ici : « Analyser des pages enregistrées… ».", ""]
+            for nom, url in v.liens():
+                lignes.append("- %s : %s" % (nom, url))
+                try:
+                    webbrowser.open(url)
+                except Exception:
+                    pass
+            afficher("\n".join(lignes))
+
+        def bulletin_seul():
+            occupe(True)
+            afficher("## Lecture du bulletin de veille…")
+
+            def travail():
+                lire_bulletin()
+                bvu = VL.etat_utilisateur(base).get("bulletin_vu", "")
+                b = etat["bul"]
+                if not b:
+                    w.after(0, lambda: (afficher("## Bulletin non lu\nConnexion impossible. Le bulletin se lit aussi "
+                                                 "sur %s" % VL.BULLETIN_PAGE), occupe(False)))
+                    return
+                t = VL.rapport_texte([], {}, {}, b, bvu, VERSION, textes_verifies=False)
+                w.after(0, lambda: (afficher(t), occupe(False)))
+            threading.Thread(target=travail, daemon=True).start()
+
+        def marquer():
+            v = etat["v"]
+            if not v:
+                return
+            if not messagebox.askyesno("Marquer comme vu", (
+                    "Les prochaines vérifications partiront de l’état lu aujourd’hui : les changements affichés ne "
+                    "seront plus signalés.\n\nFaites-le après avoir relu (et, si nécessaire, corrigé) les blocs "
+                    "signalés. Continuer ?"), parent=w):
+                return
+            v.marquer_vu()
+            if etat["bul"] and etat["bul"].get("entrees"):
+                e = VL.etat_utilisateur(base)
+                e["bulletin_vu"] = max(x["date"] for x in etat["bul"]["entrees"])
+                VL.ecrire_json(os.path.join(VL.dossier_veille(base), "etat.json"), e)
+            messagebox.showinfo("Veille législative", "C’est noté : état enregistré le %s."
+                                % VL.date_fr(dt.date.today().isoformat()), parent=w)
+            try:
+                maj_label_veille()
+            except Exception:
+                pass
+
+        l1 = ttk.Frame(bas)
+        l1.pack(fill="x")
+        l2 = ttk.Frame(bas)
+        l2.pack(fill="x", pady=(6, 0))
+        b = ttk.Button(l1, text="Vérifier en ligne", command=verifier)
+        bulle(b, "Lit la version à jour de chaque texte suivi (Justel, EUR-Lex) et le bulletin de veille, puis "
+                 "compare avec l’état connu.").pack(side="left")
+        boutons.append(b)
+        b = ttk.Button(l1, text="Analyser des pages enregistrées…", command=pages)
+        bulle(b, "Si la vérification en ligne échoue, ou si vous préférez ouvrir les pages vous-même : analysez les "
+                 "pages Justel / EUR-Lex enregistrées depuis votre navigateur.").pack(side="left", padx=(6, 0))
+        boutons.append(b)
+        b = ttk.Button(l1, text="Ouvrir les pages dans le navigateur", command=liens)
+        bulle(b, "Mode « liens seulement » : ouvre la page de chaque texte suivi ; enregistrez-les puis analysez-les."
+              ).pack(side="left", padx=(6, 0))
+        boutons.append(b)
+        b = ttk.Button(l1, text="Lire le bulletin", command=bulletin_seul)
+        bulle(b, "Informations rédigées par des juristes : ce qui change, quels blocs relire, nouvelle version du "
+                 "programme.").pack(side="left", padx=(6, 0))
+        boutons.append(b)
+        b_rapport = ttk.Button(l2, text="Rapport détaillé", state="disabled",
+                               command=lambda: ouvrir(etat["html"]) if etat["html"] else None)
+        bulle(b_rapport, "Rapport complet dans le navigateur : texte des articles avant / après, liens officiels."
+              ).pack(side="left")
+        b_vu = ttk.Button(l2, text="Marquer comme vu", state="disabled", command=marquer)
+        bulle(b_vu, "Enregistre l’état lu aujourd’hui comme référence pour les prochaines vérifications.").pack(
+            side="left", padx=(6, 0))
+        b = ttk.Button(l2, text="Textes suivis…", command=lambda: ouvrir(VL.chemin_textes(base)))
+        bulle(b, "Liste des textes surveillés (veille_textes.csv, dans le dossier de base) : on peut en ajouter.").pack(
+            side="left", padx=(6, 0))
+        boutons.append(b)
+        ttk.Button(l2, text="Fermer", command=w.destroy).pack(side="right")
+        ttk.Button(l2, text="Aide", command=lambda: fenetre_info(w, "Veille législative", _AIDE["veille"])).pack(
+            side="right", padx=(0, 6))
+
+    fmaj = ttk.Frame(f_r1)
+    fmaj.grid(row=7, column=0, columnspan=2, sticky="w", pady=(4, 0))
+    bulle(ttk.Button(fmaj, text="Mettre à jour un arrêt ou un bloc…", command=fenetre_maj),
           "Assistant pas à pas : remplacer un arrêt, corriger une référence, modifier ou ajouter un bloc, "
-          "après une réforme.").grid(row=7, column=0, columnspan=2, sticky="w", pady=(4, 0))
+          "après une réforme.").pack(side="left")
+    bulle(ttk.Button(fmaj, text="Vérifier la législation…", command=fenetre_veille),
+          "Les textes cités par vos blocs (loi de 1980, arrêté royal de 1981, règlements européens, pays d’origine "
+          "sûrs) ont-ils changé ? Signale les articles modifiés et les blocs à relire, et lit le bulletin de veille."
+          ).pack(side="left", padx=(6, 0))
+    lab_veille = ttk.Label(fmaj, foreground="#666")
+    lab_veille.pack(side="left", padx=(8, 0))
+
+    def maj_label_veille():
+        try:
+            import veille as VL
+            vu = VL.etat_utilisateur(v_dossier.get()).get("vu_le", "") if v_dossier.get() else ""
+            lab_veille.configure(text=("vérifiée le %s" % VL.date_fr(vu)) if vu else "jamais vérifiée")
+        except Exception:
+            lab_veille.configure(text="")
+    maj_label_veille()
     v_calc = tk.BooleanVar(value=cfg.get("red_calcules", True))
     fcalc = ttk.Frame(f_r1)
     fcalc.grid(row=8, column=0, columnspan=2, sticky="w", pady=(8, 0))

@@ -7,7 +7,7 @@
 
 <p align="center">
 <img src="https://img.shields.io/badge/licentie-GPL--3.0-blue" alt="Licentie GPL-3.0">
-<img src="https://img.shields.io/badge/versie-0.9.25-orange" alt="Versie 0.9.25">
+<img src="https://img.shields.io/badge/versie-1.0.0-orange" alt="Versie 1.0.0">
 <img src="https://img.shields.io/badge/Windows%20%7C%20macOS%20%7C%20Linux-lightgrey" alt="Windows, macOS, Linux">
 <img src="https://img.shields.io/badge/interface-Frans-lightgrey" alt="Interface in het Frans">
 </p>
@@ -158,6 +158,16 @@ Probasile maakt vervolgens:
 - 📕 **één pdf** met alle bijlagen, elk voorafgegaan door een titelblad; Word-bestanden worden onderweg omgezet;
 - 📋 een verslag dat onbekende verwijzingen en ontbrekende bestanden meldt.
 
+### 5. De wetgeving controleren
+
+De knop **« Vérifier la législation… »** (tabblad Rédaction) beantwoordt één vraag: *zijn de teksten die mijn blokken citeren gewijzigd?* Probasile leest de actuele versie van:
+
+- de **vreemdelingenwet van 15 december 1980** en het **koninklijk besluit van 8 oktober 1981** (Justel);
+- de **verordeningen (EU) 2024/1347 en 2024/1348** en **richtlijn 2011/95/EU** (EUR-Lex);
+- het **koninklijk besluit over de lijst van veilige landen van herkomst**.
+
+Het meldt welke artikelen gewijzigd of opgeheven zijn, sinds wanneer, en **welke blokken je moet herlezen**. Het gedetailleerde verslag toont de tekst voor en na de wijziging, met de officiële links. Het **[bulletin](BULLETIN.md)**, geschreven door juristen, legt uit wat er concreet verandert.
+
 ---
 
 ## 💾 Installatie
@@ -271,7 +281,7 @@ Websites veranderen soms van opmaak. Importeer het document zelf (tabblad « Imp
 
 ## 🚧 Stand van het project en bekende beperkingen
 
-Probasile is in **versie 0.9**: het wordt in de praktijk gebruikt, maar is nog jong.
+Probasile is in **versie 1.0**: het wordt in de praktijk gebruikt, maar is nog jong.
 
 - De interface, de modelplannen en de juridische blokken zijn voorlopig **enkel in het Frans**.
 - De databank van de VN-verdragsorganen is een complexe webtoepassing. Als ze niet antwoordt, meldt het logboek dat en geeft het de link om de pagina zelf te raadplegen.

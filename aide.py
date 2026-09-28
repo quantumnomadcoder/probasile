@@ -448,6 +448,45 @@ Organes et organisations :
 - CGRA : Commissariat général aux réfugiés et aux apatrides ; OE : Office des étrangers ; OQT : ordre de quitter le territoire
 """
 
+AIDE["veille_intro"] = """## Vérifier la législation
+Cliquez sur « Vérifier en ligne ». Probasile lit la version à jour de chaque texte suivi et le bulletin de veille, puis vous dit en langage simple :
+- quels textes ont été modifiés depuis l'état connu, par quel acte, et à partir de quand ;
+- quels articles cités dans vos blocs sont touchés, et donc quels blocs relire ;
+- s'il y a un nouvel arrêté royal « pays d'origine sûrs », et quels pays ont été ajoutés ou retirés ;
+- ce que disent les juristes dans le bulletin de veille, et si une nouvelle version du programme existe.
+
+Le programme repère les changements ; il n'en tire pas de conclusion juridique. Le bouton « Aide » explique tout en détail.
+"""
+
+AIDE["veille"] = """## À quoi sert la veille législative ?
+Les blocs de la bibliothèque citent des articles de loi (par exemple [[LOI1980, art. 50]]). Quand une loi change, un bloc peut devenir faux sans que rien ne le signale. La veille compare les textes en vigueur avec l'état connu et vous dit quels blocs relire.
+
+## Avec quoi compare-t-on ?
+- La première fois : avec l'état du droit sur lequel les blocs du programme ont été écrits (indiqué dans le rapport).
+- Ensuite : avec votre dernière vérification « marquée comme vue ».
+Cliquez sur « Marquer comme vu » seulement après avoir relu (et si nécessaire corrigé) les blocs signalés : les changements ne seront plus signalés ensuite.
+
+## Les textes suivis
+- Loi du 15 décembre 1980 et arrêté royal du 8 octobre 1981 : version consolidée de la banque de données Justel (Moniteur belge). Justel indique, sous chaque article, l'acte qui l'a modifié et la date d'entrée en vigueur. Attention : Justel est mis à jour avec un certain retard (la date de mise à jour figure dans le rapport).
+- Règlements (UE) 2024/1347 et 2024/1348, directive 2011/95/UE : EUR-Lex. Une nouvelle « version consolidée » signifie que l'acte a été modifié ; le rapport donne le lien pour voir quoi.
+- Arrêté royal établissant la liste des pays d'origine sûrs (article 57/6/1, § 3, de la loi) : un nouvel arrêté chaque année environ, repéré dans la liste des arrêtés d'exécution de la loi.
+La liste se modifie (bouton « Textes suivis… », fichier veille_textes.csv du dossier de base) : une ligne par texte, avec son adresse Justel (…/justel) ou son numéro CELEX, et le repère utilisé dans vos blocs.
+
+## Lire le rapport
+- « À relire en priorité » : un article cité par vos blocs a été modifié ou abrogé (supprimé), ou un acte européen cité a changé. Le rapport nomme les blocs concernés.
+- « Autres changements » : le texte a changé, mais pas les articles que vos blocs citent.
+- « Rapport détaillé » : s'ouvre dans le navigateur, avec le texte de l'article avant et après (supprimé en rouge, ajouté en vert) quand il est connu, et les liens officiels, qui font foi.
+
+## Le bulletin de veille
+Des juristes y expliquent en langage courant ce qui change (réforme, arrêt important, nouvelle liste de pays sûrs), quels blocs relire, et annoncent les nouvelles versions de Probasile. Il est publié sur la page GitHub du projet (fichier BULLETIN.md) et se lit aussi sans le programme.
+
+## Si la vérification en ligne échoue
+Certains sites refusent les programmes, ou la connexion est coupée. Cliquez sur « Ouvrir les pages dans le navigateur », enregistrez chaque page (Ctrl+S, « Page web complète »), puis « Analyser des pages enregistrées… » et choisissez les fichiers. Le résultat est le même.
+
+## Respect des sites
+Probasile n'est pas un robot : c'est vous qui lancez la vérification, pour quelques pages seulement, avec une pause entre chaque page et en s'identifiant clairement. Si vous préférez ne rien faire lire au programme, utilisez « Ouvrir les pages dans le navigateur ».
+"""
+
 AIDE["bienvenue"] = """## Bienvenue dans Probasile
 Probasile rassemble les sources sur un pays et les range, avec leur référence complète, dans un dossier prêt à être annexé.
 

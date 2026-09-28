@@ -7,7 +7,7 @@
 
 <p align="center">
 <img src="https://img.shields.io/badge/licence-GPL--3.0-blue" alt="Licence GPL-3.0">
-<img src="https://img.shields.io/badge/version-0.9.25-orange" alt="Version 0.9.25">
+<img src="https://img.shields.io/badge/version-1.0.0-orange" alt="Version 1.0.0">
 <img src="https://img.shields.io/badge/Windows%20%7C%20macOS%20%7C%20Linux-lightgrey" alt="Windows, macOS, Linux">
 <img src="https://img.shields.io/badge/langue-fran%C3%A7ais-lightgrey" alt="En français">
 </p>
@@ -78,6 +78,9 @@ flowchart LR
 <td><img src="07_pdf_des_annexes.png" alt="Le PDF des annexes : page de garde Annexe n° 1 puis le document tamponné Annexe n° 1 – p. 1/15"><br><sub><b>Annexes</b> : un seul PDF, page de garde et tampon « Annexe n° 1 – p. 1/15 ».</sub></td>
 </tr>
 </table>
+
+<p align="center"><img src="08_veille_legislative.png" width="720" alt="Fenêtre Veille législative : règlement 2024/1348 modifié, bulletin de veille"></p>
+<p align="center"><i>La veille législative : textes modifiés, blocs à relire, bulletin rédigé par des juristes.</i></p>
 
 <sub>Exemple fictif (« Monsieur A. Exemple ») ; les documents de l'ONU sont publics.</sub>
 
@@ -173,6 +176,26 @@ Probasile produit ensuite :
 - 📎 les **annexes numérotées** dans l'ordre de première citation, avec leur index ;
 - 📕 **un seul PDF** qui contient toutes les annexes, avec une page de garde « Annexe n° X » devant chacune ; les fichiers Word sont convertis au passage ;
 - 📋 un compte rendu qui signale les repères inconnus et les fichiers manquants.
+
+### 5. Vérifier la législation
+
+Le bouton **« Vérifier la législation… »** (onglet Rédaction) répond à une question simple : *les textes cités par mes blocs ont-ils changé ?* Probasile lit la version à jour de ces textes :
+
+- la **loi du 15 décembre 1980** et l'**arrêté royal du 8 octobre 1981**, sur Justel ;
+- les **règlements (UE) 2024/1347 et 2024/1348** et la **directive 2011/95/UE**, sur EUR-Lex ;
+- l'**arrêté royal « pays d'origine sûrs »**, un nouveau chaque année environ.
+
+Il dit ensuite, en langage courant :
+
+- quel acte a modifié quel article, et depuis quand ;
+- **quels blocs relire**, parce qu'ils citent un article modifié ou abrogé ;
+- quels pays ont été ajoutés à la liste des pays sûrs, ou retirés.
+
+Le rapport détaillé montre le texte de l'article **avant / après**, avec les liens officiels.
+
+Le **[bulletin de veille](BULLETIN.md)**, rédigé par des juristes, complète le rapport : ce que la réforme change concrètement, les arrêts importants, les nouvelles versions de Probasile. Il se lit dans le programme ou directement sur cette page.
+
+> Le programme repère les changements ; il n'en tire pas de conclusion juridique.
 
 ---
 
@@ -274,7 +297,7 @@ Le texte se rédige dans **LibreOffice Writer**, gratuit, et le document génér
 <details>
 <summary><b>Les blocs juridiques sont-ils à jour ?</b></summary>
 
-Ils tiennent compte de la réforme de 2026 (loi du 16 juin 2026, règlements (UE) 2024/1347 et 2024/1348), et leurs citations ont été vérifiées sur les textes. Le droit bouge vite, cependant : **relisez toujours** les blocs et adaptez-les au dossier. Les références se corrigent en quelques clics (bouton « Mettre à jour un arrêt ou un bloc… »).
+Ils tiennent compte de la réforme de 2026 (loi du 16 juin 2026, règlements (UE) 2024/1347 et 2024/1348), et leurs citations ont été vérifiées sur les textes. Le droit bouge vite, cependant : **relisez toujours** les blocs et adaptez-les au dossier. Les références se corrigent en quelques clics (bouton « Mettre à jour un arrêt ou un bloc… »), et le bouton « Vérifier la législation… » signale les blocs à relire quand un texte cité change.
 </details>
 
 <details>
@@ -305,12 +328,13 @@ Les erreurs sont écrites dans `journal_erreurs.txt`, dans le dossier du program
 
 ## 🚧 État du projet et limites connues
 
-Probasile est en **version 0.9** : il est utilisé en conditions réelles, mais il est encore jeune.
+Probasile est en **version 1.0** : il est utilisé en conditions réelles, mais il est encore jeune.
 
 - La base des organes de traités de l'ONU est une application web complexe. Si elle ne répond pas, le journal le signale et donne le lien pour consulter la page à la main.
 - Les communications des procédures spéciales ne sont pas cherchées automatiquement : on les cherche à la main, puis on les importe (elles sont alors reconnues automatiquement).
 - La Cour de cassation n'est accessible que par ECLI. La C.I.J. demande d'importer le PDF à la main.
 - Les dates lues dans les PDF sont à vérifier.
+- Veille législative : Justel est mis à jour avec un peu de retard sur le Moniteur belge (la date de mise à jour figure dans le rapport). La détection du nouvel arrêté « pays d'origine sûrs » est récente : vérifiez-la sur Justel.
 - Les installateurs Windows et macOS ont été moins testés que celui de Linux : vos retours sont précieux.
 
 ---

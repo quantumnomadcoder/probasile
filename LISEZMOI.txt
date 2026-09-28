@@ -1,4 +1,4 @@
-PROBASILE – mode d'emploi (version 0.9.25)
+PROBASILE – mode d'emploi (version 1.0.0)
 ==========================================
 
 À quoi sert ce programme
@@ -183,6 +183,29 @@ Onglet « Rédaction »
   articles, options) et liste complète des abréviations.
   Nécessite le module lxml (installé par l'installateur) et LibreOffice (pour ouvrir
   les documents et convertir les annexes Word en PDF).
+
+Veille législative (onglet « Rédaction », bouton « Vérifier la législation… »)
+  Les textes cités par vos blocs ont-ils changé ? Probasile lit la version à jour de la
+  loi du 15 décembre 1980 et de l'arrêté royal du 8 octobre 1981 (Justel), des
+  règlements (UE) 2024/1347 et 2024/1348 et de la directive 2011/95/UE (EUR-Lex), et
+  la liste des arrêtés royaux « pays d'origine sûrs » (article 57/6/1, § 3), puis dit
+  en langage courant : quels actes ont modifié ces textes, quels articles cités dans vos
+  blocs sont touchés (donc quels blocs relire), et quels pays ont été ajoutés ou retirés
+  de la liste des pays sûrs. Le rapport détaillé (navigateur) montre le texte de
+  l'article avant / après quand il est connu, avec les liens officiels, qui font foi.
+  - Comparaison : la première fois avec l'état du droit sur lequel les blocs du
+    programme ont été écrits ; ensuite avec votre dernière vérification « marquée comme
+    vue » (à faire après avoir relu les blocs signalés).
+  - Bulletin de veille : rédigé par des juristes (fichier BULLETIN.md de la page GitHub
+    du projet), il explique ce qui change, quels blocs relire, et annonce les nouvelles
+    versions. Bouton « Lire le bulletin ».
+  - Si la vérification en ligne échoue : « Ouvrir les pages dans le navigateur »,
+    enregistrer chaque page (Ctrl+S, « Page web complète »), puis « Analyser des pages
+    enregistrées… ».
+  - Textes suivis : veille_textes.csv (dossier de base, bouton « Textes suivis… »),
+    une ligne par texte (adresse Justel …/justel ou numéro CELEX, et repère des blocs).
+  - Fichiers : dossier « veille » du dossier de base (etat.json, rapport_….html).
+  Le programme repère les changements ; il n'en tire pas de conclusion juridique.
 
 Rangement (un dossier par catégorie, voir la section suivante) :
   Probasile/

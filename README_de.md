@@ -7,7 +7,7 @@
 
 <p align="center">
 <img src="https://img.shields.io/badge/Lizenz-GPL--3.0-blue" alt="Lizenz GPL-3.0">
-<img src="https://img.shields.io/badge/Version-0.9.25-orange" alt="Version 0.9.25">
+<img src="https://img.shields.io/badge/Version-1.0.0-orange" alt="Version 1.0.0">
 <img src="https://img.shields.io/badge/Windows%20%7C%20macOS%20%7C%20Linux-lightgrey" alt="Windows, macOS, Linux">
 <img src="https://img.shields.io/badge/Oberfl%C3%A4che-Franz%C3%B6sisch-lightgrey" alt="Oberfläche auf Französisch">
 </p>
@@ -167,6 +167,16 @@ Probasile erstellt anschließend:
 - 📕 **ein einziges PDF** mit allen Anlagen, jeweils mit einem Deckblatt davor; Word-Dateien werden dabei umgewandelt;
 - 📋 einen Bericht, der unbekannte Verweise und fehlende Dateien meldet.
 
+### 5. Die Gesetzgebung prüfen
+
+Die Schaltfläche **« Vérifier la législation… »** (Registerkarte Rédaction) beantwortet eine Frage: *Haben sich die Texte geändert, die meine Bausteine zitieren?* Probasile liest die aktuelle Fassung:
+
+- des **Ausländergesetzes vom 15. Dezember 1980** und des **Königlichen Erlasses vom 8. Oktober 1981** (Justel);
+- der **Verordnungen (EU) 2024/1347 und 2024/1348** und der **Richtlinie 2011/95/EU** (EUR-Lex);
+- des **Königlichen Erlasses über die Liste der sicheren Herkunftsstaaten**.
+
+Es meldet, welche Artikel geändert oder aufgehoben wurden, seit wann, und **welche Bausteine du gegenlesen solltest**. Der ausführliche Bericht zeigt den Text vor und nach der Änderung, mit den amtlichen Links. Das **[Bulletin](BULLETIN.md)**, von Jurist\*innen geschrieben, erklärt, was sich konkret ändert.
+
 ---
 
 ## 💾 Installation
@@ -280,7 +290,7 @@ Websites ändern manchmal ihr Layout. Importiere das Dokument selbst (Registerka
 
 ## 🚧 Projektstand und bekannte Einschränkungen
 
-Probasile ist in **Version 0.9**: Es wird in der Praxis eingesetzt, ist aber noch jung.
+Probasile ist in **Version 1.0**: Es wird in der Praxis eingesetzt, ist aber noch jung.
 
 - Die Oberfläche, die Mustergliederungen und die juristischen Bausteine sind derzeit **nur auf Französisch**.
 - Die Datenbank der UN-Vertragsorgane ist eine komplexe Webanwendung. Antwortet sie nicht, meldet das Protokoll dies und gibt den Link an, um die Seite selbst aufzurufen.
