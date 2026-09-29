@@ -484,9 +484,12 @@ DEFAUT = [
         "automatique[[REG2024-1348, art. 68, §3, a), i)]]. Il faut alors demander au juge l’autorisation de rester sur "
         "le territoire pendant le recours, dans un délai d’au moins cinq jours à compter de la notification ; aucun "
         "éloignement ne peut avoir lieu tant que ce délai court ou que le juge n’a pas statué, et une assistance "
-        "juridique gratuite est due sur demande[[REG2024-1348, art. 68, §§4 et 5]]. [Vérifier les délais applicables "
-        "devant le Conseil du contentieux des étrangers : les articles 39/57 et 39/70 de la loi du 15 décembre 1980 ont "
-        "été abrogés par la loi du 17 juin 2026.]",
+        "juridique gratuite est due sur demande[[REG2024-1348, art. 68, §§4 et 5]]. En droit belge, la procédure "
+        "devant le Conseil du contentieux des étrangers est désormais réglée par la loi du 17 juin 2026, qui a remplacé "
+        "les articles 39/1 et suivants de la loi du 15 décembre 1980 et prévoit un délai de recours de trente jours "
+        "en procédure ordinaire, de dix jours en procédure accélérée et de cinq ou dix jours en procédure "
+        "urgente[[LOI-CCE-2026]]. [Vérifier le délai et l’article applicables à la décision attaquée, tels qu’ils sont "
+        "indiqués dans la décision notifiée.]",
         "Plusieurs voies permettent d’éviter la procédure accélérée ou d’en sortir :",
         "– la vulnérabilité : lorsque le soutien nécessaire ne peut être fourni dans le cadre de la procédure accélérée, "
         "« en accordant une attention particulière aux victimes de torture, de viol ou d’autres formes graves de violence "
@@ -547,6 +550,23 @@ DEFAUT = [
         "l’article 57/6/1, §1er, a) à j), de la loi du 15 décembre 1980, parmi lesquelles le seuil de 20 % ne figure "
         "pas[[LOI1980, art. 57/6/1, §2]] : un rejet fondé sur ce seul critère ne peut pas être qualifié de manifestement "
         "infondé.",
+        "[Point d’attention : cet argument est une interprétation, qui n’a pas encore été tranchée par le Conseil du "
+        "contentieux des étrangers. Il repose sur l’article 57/6/1, §2, tel qu’il était rédigé le 29 septembre 2026 : "
+        "vérifier qu’une loi n’a pas, depuis, ajouté le seuil de 20 % à la liste belge. Le Commissaire général pourrait "
+        "objecter que le règlement est directement applicable et que son article 39, §4, vise tous les cas de "
+        "l’article 42 ; la réponse est que cette disposition exige une autorisation donnée « en vertu du droit "
+        "national », et que le législateur belge ne l’a donnée que pour les cas qu’il énumère.]",
+        "Quoi qu’il en soit, l’examen reste toujours individuel. Quel que soit le motif d’accélération, l’autorité "
+        "« examine les demandes de manière objective, impartiale et individualisée », en tenant compte des déclarations "
+        "et documents {du_demandeur} et d’informations précises et actualisées sur le pays d’origine[[REG2024-1348, "
+        "art. 34, §2]], et l’examen accéléré se déroule « dans le respect des principes de base et des garanties "
+        "fondamentales »[[REG2024-1348, art. 42, §1er, al. 1er]]. Le seuil de 20 % ne détermine que le rythme de la "
+        "procédure, jamais son issue : il ne figure pas parmi les motifs d’irrecevabilité[[REG2024-1348, art. 38]] et "
+        "aucune disposition ne permet de rejeter une demande en raison de ce seul taux. La Cour de justice souligne "
+        "qu’il n’existe « aucune garantie absolue de sécurité pour chaque individu », même dans un pays généralement "
+        "sûr[[CJUE-ALACE-2025, point 97]] ; un taux statistique, qui ne décrit que des décisions passées, peut encore "
+        "moins préjuger de la situation d’une personne. L’interdiction de renvoyer une personne vers un risque de "
+        "torture ou de traitements inhumains ou dégradants est absolue[[CEDH, art. 3]][[CHARTE, art. 19, §2]].",
         "Il est dès lors demandé au Commissaire général de ne pas appliquer, ou de cesser d’appliquer, la procédure "
         "accélérée et, à tout le moins, de motiver spécialement sa décision au regard de ces exceptions."]),
     ("pi", "Pays sûr ?", "Pays tiers sûr : conditions strictes et évaluation individuelle", False, [
@@ -876,7 +896,7 @@ def _migrer_references(c, defaut):
         os.replace(tmp, c)
 
 
-BIB_VERSION = 13  # à augmenter quand les blocs par défaut changent
+BIB_VERSION = 14  # à augmenter quand les blocs par défaut changent
 
 
 def _empreinte(chemin):

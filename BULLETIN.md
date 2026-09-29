@@ -24,9 +24,33 @@ aux utilisateurs qu'une nouvelle version existe.
 
 # Bulletin de veille de Probasile
 
-Version du programme : 1.0.3
+Version du programme : 1.0.4
 
 Ce bulletin est rédigé par des juristes. Il explique en langage courant ce qui change dans le droit des étrangers et quels blocs de Probasile relire. Dans le programme : onglet **Rédaction → Vérifier la législation… → Lire le bulletin**. Les textes officiels font foi ; les références entre doubles crochets (par exemple `[[REG2024-1348, art. 61, §5, c)]]`) se collent telles quelles dans un texte Probasile.
+
+## 2026-09-29 | Conseil du contentieux des étrangers : les nouveaux délais de recours
+Textes : LOI-CCE-2026 ; REG2024-1348 art. 67, § 7, et 68
+Blocs : Procédure accélérée : quand, pourquoi, et comment en sortir
+Importance : haute
+Lien : https://www.ejustice.just.fgov.be/eli/loi/2026/06/17/2026004052/justel
+Lien : https://dofi.ibz.be/fr/themes/faq/appeal/le-conseil-du-contentieux-des-etrangers
+Lien : https://www.fedasil.be/fr/actualites/accueil-des-demandeurs-dasile/entree-en-vigueur-du-pacte-migratoire-europeen
+La loi du 17 juin 2026 relative au Conseil du contentieux des étrangers (Moniteur belge du 19 juin 2026) remplace les articles 39/1 et suivants de la loi du 15 décembre 1980. Elle s'applique aux décisions notifiées à partir du 12 juin 2026, date d'application du pacte européen sur la migration et l'asile. Elle organise trois procédures :
+- procédure ordinaire : recours dans les 30 jours de la notification (c'est le délai général) ;
+- procédure accélérée : 10 jours ;
+- procédure urgente : 5 ou 10 jours (notamment procédure à la frontière et certaines décisions accompagnées d'une détention).
+
+Ces délais s'inscrivent dans le cadre du règlement (UE) 2024/1348 : 5 à 10 jours contre un rejet en procédure accélérée, une irrecevabilité ou un retrait implicite, et deux semaines à un mois dans les autres cas (article 67, § 7). Quand le recours n'est pas suspensif, il faut demander au juge l'autorisation de rester, dans un délai d'au moins cinq jours ; aucun éloignement n'est possible entre-temps (article 68, §§ 4 et 5).
+
+Autres changements : l'audience devient l'exception (il faut la demander), la requête est limitée en longueur, et le juge peut accéder à des pièces confidentielles.
+
+À vérifier : les chiffres ci-dessus viennent de sources secondaires (Office des étrangers, presse, cabinets d'avocats). Le texte de la loi n'a pas pu être relu ici, en particulier la répartition exacte des décisions entre les trois procédures. Le délai qui fait foi est celui indiqué dans la décision notifiée, qui doit mentionner les voies de recours (règlement (UE) 2024/1348, article 36, § 3). La veille de Probasile suit désormais cette loi.
+
+## 2026-09-29 | Probasile 1.0.4 : l'onglet Jurisprudence s'enrichit
+Importance : information
+L'onglet Jurisprudence propose maintenant, pour la recherche C.J.U.E., les règlements (UE) 2026/463 (pays tiers sûr) et 2026/464 (liste de l'Union), ainsi que les actes du pacte : directive (UE) 2024/1346 (accueil), règlements (UE) 2024/1349 (retour à la frontière), 2024/1351 (gestion de l'asile et de la migration), 2024/1356 (filtrage) et 2024/1359 (crise). Ces textes figurent aussi dans les listes « de : », pour filtrer les articles, avec la loi du 17 juin 2026 relative au C.C.E.
+
+Nouveau cadre 6, « Vos sources » : « Ajouter des sources… » ouvre le fichier sources_jurisprudence.csv du dossier de base. On y ajoute un acte européen (numéro CELEX), un site de recherche (adresse) ou un texte (abréviation et façons de le citer), puis on clique sur « Recharger ».
 
 ## 2026-09-29 | Pays d'origine sûrs : les deux listes et où les trouver
 Textes : AR-PAYS-SURS-2025 ; UE-LISTE-PAYS-SURS ; LOI1980 art. 57/6/1 ; REG2024-1348 art. 61, 62 et annexe II
@@ -88,7 +112,7 @@ Pour les mineurs non accompagnés, la liste est plus courte (article 42, § 3) :
 - Délai de recours : entre cinq et dix jours (article 67, § 7, a)), contre deux semaines à un mois en procédure ordinaire (article 67, § 7, b)).
 - « Manifestement infondée » : un rejet peut recevoir cette qualification si le droit national le prévoit (article 39, § 4). En Belgique, c'est possible dans les cas de l'article 57/6/1, § 1er, a) à j), mais jamais pour un mineur non accompagné (article 57/6/1, § 2).
 - Pas d'effet suspensif automatique du recours (article 68, § 3, a), i)). Il faut demander au juge l'autorisation de rester pendant le recours, dans un délai d'au moins cinq jours après la notification. Aucun éloignement n'est possible tant que ce délai court ou que le juge n'a pas statué, et l'assistance juridique gratuite est due sur demande (article 68, §§ 4 et 5).
-- Attention : les articles 39/57 et 39/70 de la loi du 15 décembre 1980 (délais et effet suspensif devant le Conseil du contentieux des étrangers) ont été abrogés par la loi du 17 juin 2026. Vérifiez les délais belges actuels avant tout recours.
+- En Belgique, le recours devant le Conseil du contentieux des étrangers suit désormais la loi du 17 juin 2026 : 30 jours en procédure ordinaire, 10 jours en procédure accélérée, 5 ou 10 jours en procédure urgente (voir l'entrée « Conseil du contentieux des étrangers : les nouveaux délais de recours »). Le délai applicable est indiqué dans la décision notifiée : vérifiez-le toujours.
 
 **Comment l'éviter ou en sortir.**
 - Vulnérabilité : si le soutien nécessaire ne peut être fourni dans la procédure accélérée, l'autorité « n'applique pas, ou cesse d'appliquer » cette procédure, en particulier pour les victimes de torture, de viol ou d'autres formes graves de violence (article 21, § 2). L'évaluation des besoins de garanties procédurales spéciales commence dès la présentation de la demande et se termine dans les 30 jours (article 20). Il faut donc signaler tôt et produire des attestations médicales ou psychologiques.
@@ -116,12 +140,14 @@ Lien : https://www.cgra.be/fr/chiffres
 La base de données correspondante s'appelle migr_asydec1pc. Un taux marqué « (u) » est peu fiable : il repose sur moins de 30 décisions. Les liens s'ouvrent depuis Probasile : Vérifier la législation… → Ouvrir les pages dans le navigateur.
 
 **Comment le contester.**
+0. Avant tout : le cas par cas s'applique toujours. Quel que soit le motif d'accélération, l'autorité examine chaque demande « de manière objective, impartiale et individualisée », avec les déclarations et documents de la personne et des informations précises et actualisées sur son pays (règlement (UE) 2024/1348, article 34, § 2). L'examen accéléré respecte « les principes de base et les garanties fondamentales » (article 42, § 1er). Le seuil de 20 % ne règle que le rythme de la procédure, jamais son issue : il ne figure pas parmi les motifs d'irrecevabilité (article 38), et aucune disposition ne permet de rejeter une demande à cause de ce seul taux. La Cour de justice rappelle qu'il n'existe « aucune garantie absolue de sécurité pour chaque individu », même dans un pays généralement sûr (Alace et Canpelli, 1er août 2025, C-758/24 et C-759/24, point 97). Un taux statistique, qui ne décrit que des décisions passées, peut encore moins préjuger de la situation d'une personne. Enfin, l'interdiction de renvoyer quelqu'un vers un risque de torture ou de traitements inhumains est absolue (article 3 de la Convention européenne des droits de l'homme ; article 19, § 2, de la Charte).
 1. Vérifier le chiffre. Seul compte le dernier taux annuel d'Eurostat, pour l'ensemble de l'Union. Ni le taux belge, ni un taux qui inclut les statuts humanitaires, ni une année plus ancienne ne correspondent au critère. Un taux marqué « (u) » ne peut pas fonder sérieusement l'accélération.
 2. Changement important dans le pays depuis la publication des données (article 42, § 1er, j)). Exemples : coup d'État, conflit, vague de répression, nouvelle loi pénale. Si l'Agence de l'Union européenne pour l'asile (AUEA) a constaté un tel changement dans une note d'orientation, les États doivent s'y référer (article 42, § 1er, alinéa 2).
 3. Catégorie de personnes pour qui le taux n'est pas représentatif. Le texte vise « une catégorie de personnes pour lesquelles la proportion de 20 % ou moins ne peut être considérée comme représentative de leurs besoins en matière de protection, compte tenu, entre autres, des différences importantes entre les décisions prises en première instance et les décisions finales ». Le considérant 56 précise qu'il s'agit notamment d'un « motif spécifique de persécution ». Exemples : opposants politiques, personnes LGBTIQ, femmes exposées à des violences de genre, minorités. Les notes d'orientation de l'AUEA identifient souvent ces profils à risque.
 4. Première instance contre décisions finales. Le taux ignore les recours gagnés. Eurostat publie séparément les décisions finales (base migr_asydcfina). L'AUEA souligne que ses taux « do not account for cases decided by the judiciary », et que le taux de reconnaissance en recours était de 19 % en 2024 pour l'ensemble des nationalités (fiche EUAA/2025/37). Pour une nationalité donnée, un écart important entre la première instance et les décisions finales montre que le taux n'est pas représentatif. Le taux de protection du CGRA pour cette nationalité (statistiques mensuelles) peut aussi aider.
 5. Le considérant 56 est clair : dans ces deux cas d'exception, « l'examen de la demande ne devrait pas être accéléré ». Demandez au CGRA de ne pas appliquer la procédure accélérée ou de cesser de l'appliquer, et à tout le moins de motiver sa décision sur ces exceptions.
 6. Pas de « manifestement infondée » sur ce seul motif. Le règlement ne permet cette qualification que si le droit national l'autorise (article 39, § 4). Or l'article 57/6/1, § 2, ne l'autorise que dans les situations a) à j) de son § 1er, parmi lesquelles le seuil de 20 % ne figure pas.
+   ⚠ Point d'attention : c'est une interprétation, que le Conseil du contentieux des étrangers n'a pas encore tranchée. Elle repose sur l'article 57/6/1, § 2, tel qu'il était rédigé le 29 septembre 2026 : vérifiez qu'une loi n'a pas, depuis, ajouté le seuil de 20 % à la liste belge (la veille de Probasile le signalera). Le CGRA pourrait objecter que le règlement est directement applicable et que son article 39, § 4, vise tous les cas de l'article 42. Réponse : cette disposition exige une autorisation donnée « en vertu du droit national », et le législateur belge ne l'a donnée que pour les cas qu'il énumère. Même si l'argument est écarté, le point 0 reste entier.
 7. Les autres voies restent ouvertes : vulnérabilité (article 21, § 2), complexité (article 42, § 2), raisons médicales à la frontière (article 53, § 2).
 
 ## 2026-09-29 | Pays tiers sûr : ce qui change avec le règlement (UE) 2026/463

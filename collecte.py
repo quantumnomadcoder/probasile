@@ -69,7 +69,7 @@ try:
 except ImportError:
     PdfReader = None
 
-VERSION = "1.0.3"
+VERSION = "1.0.4"
 CONFIG_PATH = os.path.join(os.path.expanduser("~"), ".collecte_pays.json")
 USER_AGENT = "Mozilla/5.0 (Probasile/%s; recherche juridique non commerciale)" % VERSION
 PAUSE = 0.5  # secondes entre deux requêtes, pour rester courtois avec les serveurs
@@ -2748,6 +2748,10 @@ def interface():
 
     # --- onglet jurisprudence ---------------------------------------------
     import jurisprudence as J
+    try:
+        J.charger_textes_utilisateur(v_dossier.get())
+    except Exception:
+        pass
     t5 = ttk.Frame(nb, padding=(8, 4, 8, 8))
     nb.add(t5, text="Jurisprudence")
     t5.columnconfigure(0, weight=1, uniform="col")
@@ -2764,6 +2768,24 @@ def interface():
     bulle(ttk.Checkbutton(f_art, text="Dossier commun « Jurisprudence »", variable=v_commun),
           "Coché : la jurisprudence est rangée dans un dossier commun à tous les pays (dans le dossier de base). "
           "Décoché : dans 11_Jurisprudence du pays.").pack(side="left", padx=(14, 0))
+    combos_textes = []
+
+    def editer_sources_jur():
+        try:
+            ouvrir(J.chemin_sources(v_dossier.get()))
+        except Exception as e:
+            messagebox.showerror("Sources de jurisprudence", str(e))
+
+    def recharger_sources_jur():
+        base_ = v_dossier.get()
+        J.charger_textes_utilisateur(base_)
+        for cb_ in combos_textes:
+            cb_.configure(values=[""] + [lib for lib, _ in J.TEXTES.values()])
+        remplir_actes()
+        remplir_sites()
+        su = J.sources_utilisateur(base_)
+        messagebox.showinfo("Sources de jurisprudence", "Sources ajoutées lues : %d acte(s) européen(s), %d site(s), "
+                            "%d texte(s)." % (len(su["acte_ue"]), len(su["site"]), len(su["texte"])))
 
     def ligne_articles(parent, row, cle, defaut, avec_ref=False, ex_ref=""):
         f = ttk.Frame(parent)
@@ -2786,6 +2808,7 @@ def interface():
             ttk.Label(f, text="de :").grid(row=1, column=0, sticky="w", pady=(2, 0))
             cbr = bulle(ttk.Combobox(f, textvariable=vr, width=38, values=[""] + [lib for lib, _ in J.TEXTES.values()]),
                         "Texte dont les articles sont cités " + ex_ref + ". Vide = l’acte ou le texte choisi ci-dessus.")
+            combos_textes.append(cbr)
             cbr.grid(row=1, column=1, columnspan=3, sticky="w", padx=4, pady=(2, 0))
             ws.append(cbr)
         return va, vm, vr, ws
@@ -2866,12 +2889,22 @@ def interface():
     f_act = ttk.Frame(f_c)
     f_act.grid(row=1, column=0, columnspan=4, sticky="w", padx=(18, 0))
     ws_c = []
-    for i, (celex, lib) in enumerate(J.ACTES_UE):
-        v = tk.BooleanVar(value=celex in cfg.get("jur_actes", ["32011L0095", "32024R1347"]))
-        v_actes[celex] = v
-        cb_ = bulle(ttk.Checkbutton(f_act, text=lib, variable=v), "CELEX " + celex)
-        cb_.grid(row=i, column=0, sticky="w")
-        ws_c.append(cb_)
+
+    def remplir_actes():
+        for w_ in f_act.winfo_children():
+            w_.destroy()
+        ws_c.clear()
+        coches = cfg.get("jur_actes", ["32011L0095", "32024R1347"])
+        for i, (celex, lib) in enumerate(J.actes_ue(v_dossier.get())):
+            if celex not in v_actes:
+                v_actes[celex] = tk.BooleanVar(value=celex in coches)
+            cb_ = bulle(ttk.Checkbutton(f_act, text=J.libelle_court(lib, celex), variable=v_actes[celex]),
+                        "%s – CELEX %s" % (lib, celex))
+            cb_.grid(row=i // 2, column=i % 2, sticky="w", padx=(0, 8))
+            if not v_cj.get():
+                cb_.state(["disabled"])
+            ws_c.append(cb_)
+    remplir_actes()
     fc2 = ttk.Frame(f_c)
     fc2.grid(row=2, column=0, columnspan=4, sticky="w", pady=(4, 0))
     ttk.Label(fc2, text="Autres actes (CELEX) :").pack(side="left")
@@ -2883,13 +2916,35 @@ def interface():
     e_cjm = ttk.Entry(fc2, textvariable=v_cmots, width=12)
     e_cjm.pack(side="left", padx=4)
     va_c, vm_c, vr_c, ws_ = ligne_articles(f_c, 3, "cjue", "", True, "(ou texte libre)")
-    lier(v_cj, ws_c + [e_cx, e_cjm] + ws_)
+    lier(v_cj, [e_cx, e_cjm] + ws_)
+
+    def etat_actes(*_):
+        for w_ in ws_c:
+            try:
+                w_.state(["!disabled"] if v_cj.get() else ["disabled"])
+            except Exception:
+                pass
+    v_cj.trace_add("write", etat_actes)
 
     # 5. Recherche à la main
     f_man = cadre(droite5, "5. Recherche à la main (ouvre le site dans le navigateur)", 1, 0, pady=(6, 0))
-    for i, (lib, url) in enumerate(J.RECHERCHES_MANUELLES):
-        bulle(ttk.Button(f_man, text=lib.split(" (")[0], command=lambda u=url: webbrowser.open(u)), lib).grid(
-            row=i // 4, column=i % 4, sticky="we", padx=2, pady=2)
+
+    def remplir_sites():
+        for w_ in f_man.winfo_children():
+            w_.destroy()
+        for i, (lib, url) in enumerate(J.recherches_manuelles(v_dossier.get())):
+            bulle(ttk.Button(f_man, text=lib.split(" (")[0][:22], command=lambda u=url: webbrowser.open(u)),
+                  "%s – %s" % (lib, url)).grid(row=i // 4, column=i % 4, sticky="we", padx=2, pady=2)
+    remplir_sites()
+
+    # 6. Vos sources
+    f_vs = cadre(droite5, "6. Vos sources (actes européens, sites, textes)", 2, 0, pady=(6, 0))
+    bulle(ttk.Button(f_vs, text="Ajouter des sources…", command=editer_sources_jur),
+          "Ouvre sources_jurisprudence.csv (dossier de base). Une ligne par source : acte_ue (numéro CELEX, "
+          "ajouté au cadre 2), site (adresse, ajoutée au cadre 5) ou texte (abréviation et formulations, "
+          "ajouté aux listes « de : »). Enregistrez, puis « Recharger ».").grid(row=0, column=0, sticky="w")
+    bulle(ttk.Button(f_vs, text="Recharger", command=recharger_sources_jur),
+          "Relit sources_jurisprudence.csv après modification.").grid(row=0, column=1, sticky="w", padx=(6, 0))
 
     # --- onglet import ----------------------------------------------------
     t4 = ttk.Frame(nb, padding=(8, 4, 8, 8))

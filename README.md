@@ -7,7 +7,7 @@
 
 <p align="center">
 <img src="https://img.shields.io/badge/licence-GPL--3.0-blue" alt="Licence GPL-3.0">
-<img src="https://img.shields.io/badge/version-1.0.3-orange" alt="Version 1.0.3">
+<img src="https://img.shields.io/badge/version-1.0.4-orange" alt="Version 1.0.4">
 <img src="https://img.shields.io/badge/Windows%20%7C%20macOS%20%7C%20Linux-lightgrey" alt="Windows, macOS, Linux">
 <img src="https://img.shields.io/badge/langue-fran%C3%A7ais-lightgrey" alt="En français">
 </p>

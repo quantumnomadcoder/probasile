@@ -17,8 +17,10 @@ Module jurisprudence de collecte.py
   C. const., 18 février 2021, n° 23/2021      C.E., 12 mai 2020, n° 248.270
   C.C.E., 16 novembre 2018, n° 212 381         Cass., 14 mai 2019, P.19.0123.N
 """
+import csv
 import datetime as dt
 import json
+import os
 import re
 import time
 import urllib.parse
@@ -75,6 +77,15 @@ TEXTES = {
     "REG2024/1348": ("Règlement (UE) 2024/1348 (procédure)", ["2024 1348"]),
     "DIR2008/115": ("Directive 2008/115/CE (retour)", ["directive 2008 115", "2008 115 ce", "directive retour"]),
     "DUBLIN": ("Règlement Dublin III (604/2013)", ["604 2013", "dublin iii", "reglement dublin"]),
+    "REG2024/1351": ("Règlement (UE) 2024/1351 (gestion de l’asile et de la migration)", ["2024 1351"]),
+    "REG2026/463": ("Règlement (UE) 2026/463 (pays tiers sûr)", ["2026 463"]),
+    "REG2026/464": ("Règlement (UE) 2026/464 (pays d’origine sûrs de l’Union)", ["2026 464"]),
+    "DIR2024/1346": ("Directive (UE) 2024/1346 (accueil)", ["2024 1346"]),
+    "REG2024/1349": ("Règlement (UE) 2024/1349 (retour à la frontière)", ["2024 1349"]),
+    "REG2024/1356": ("Règlement (UE) 2024/1356 (filtrage)", ["2024 1356", "reglement filtrage"]),
+    "REG2024/1359": ("Règlement (UE) 2024/1359 (crise et force majeure)", ["2024 1359"]),
+    "LOI-CCE-2026": ("Loi du 17 juin 2026 relative au Conseil du contentieux des étrangers",
+                     ["loi du 17 juin 2026", "loi relative au conseil du contentieux des etrangers"]),
 }
 # mots courts reconnus après un numéro d'article : « 3 CEDH », « 33 Genève », « 3 torture »…
 ALIAS = [("cedh", "CEDH"), ("echr", "CEDH"), ("europeenne", "CEDH"), ("cat", "CAT"), ("torture", "CAT"),
@@ -83,7 +94,12 @@ ALIAS = [("cedh", "CEDH"), ("echr", "CEDH"), ("europeenne", "CEDH"), ("cat", "CA
          ("cerd", "CERD"), ("crpd", "CRPD"), ("charte", "CHARTE"), ("constitution", "CONST"), ("const", "CONST"),
          ("loi", "LOI1980"), ("1980", "LOI1980"), ("2011 95", "DIR2011/95"), ("qualification", "DIR2011/95"),
          ("2024 1347", "REG2024/1347"), ("2013 32", "DIR2013/32"), ("2024 1348", "REG2024/1348"),
-         ("2008 115", "DIR2008/115"), ("retour", "DIR2008/115"), ("dublin", "DUBLIN"), ("604", "DUBLIN")]
+         ("2008 115", "DIR2008/115"), ("retour", "DIR2008/115"), ("dublin", "DUBLIN"), ("604", "DUBLIN"),
+         ("filtrage", "REG2024/1356")]
+# numéros d'actes récents : reconnus avant les mots courts (« retour », « loi »…) de la liste ci-dessus
+ALIAS[:0] = [("2024 1351", "REG2024/1351"), ("2026 463", "REG2026/463"), ("2026 464", "REG2026/464"),
+             ("2024 1346", "DIR2024/1346"), ("2024 1349", "REG2024/1349"), ("2024 1356", "REG2024/1356"),
+             ("2024 1359", "REG2024/1359"), ("17 juin 2026", "LOI-CCE-2026")]
 
 
 def code_texte(s):
@@ -902,19 +918,121 @@ CCE_PDF = ["https://www.rvv-cce.be/sites/default/files/arr/a{n}.an_.pdf",
            "https://www.rvv-cce.be/sites/default/files/arr/A{n}.AN.pdf"]
 JUPORTAL = "https://juportal.be/content/{ecli}/FR"
 
-# Actes proposés pour la recherche C.J.U.E. (CELEX)
+# Actes proposés pour la recherche C.J.U.E. (CELEX, libellé complet, libellé court affiché)
 ACTES_UE = [
     ("32011L0095", "Directive 2011/95/UE (qualification, refonte)"),
     ("32024R1347", "Règlement (UE) 2024/1347 (qualification)"),
     ("32013L0032", "Directive 2013/32/UE (procédures)"),
     ("32024R1348", "Règlement (UE) 2024/1348 (procédure d’asile)"),
+    ("32026R0463", "Règlement (UE) 2026/463 (pays tiers sûr)"),
+    ("32026R0464", "Règlement (UE) 2026/464 (pays d’origine sûrs de l’Union)"),
     ("32013L0033", "Directive 2013/33/UE (accueil)"),
+    ("32024L1346", "Directive (UE) 2024/1346 (accueil, refonte)"),
     ("32008L0115", "Directive 2008/115/CE (retour)"),
+    ("32024R1349", "Règlement (UE) 2024/1349 (retour à la frontière)"),
     ("32013R0604", "Règlement (UE) n° 604/2013 (Dublin III)"),
     ("32024R1351", "Règlement (UE) 2024/1351 (gestion de l’asile et de la migration)"),
+    ("32024R1356", "Règlement (UE) 2024/1356 (filtrage)"),
+    ("32024R1359", "Règlement (UE) 2024/1359 (crise et force majeure)"),
     ("12016P/TXT", "Charte des droits fondamentaux de l’UE"),
     ("32003L0086", "Directive 2003/86/CE (regroupement familial)"),
 ]
+
+
+# Libellés courts affichés dans l'onglet (deux colonnes) ; le libellé complet apparaît dans la bulle d'aide.
+COURTS = {"32011L0095": "Dir. 2011/95 (qualification)", "32024R1347": "Règl. 2024/1347 (qualification)",
+          "32013L0032": "Dir. 2013/32 (procédures)", "32024R1348": "Règl. 2024/1348 (procédure)",
+          "32026R0463": "Règl. 2026/463 (tiers sûr)", "32026R0464": "Règl. 2026/464 (liste UE)",
+          "32013L0033": "Dir. 2013/33 (accueil)", "32024L1346": "Dir. 2024/1346 (accueil)",
+          "32008L0115": "Dir. 2008/115 (retour)", "32024R1349": "Règl. 2024/1349 (frontière)",
+          "32013R0604": "Règl. 604/2013 (Dublin III)", "32024R1351": "Règl. 2024/1351 (gestion)",
+          "32024R1356": "Règl. 2024/1356 (filtrage)", "32024R1359": "Règl. 2024/1359 (crise)",
+          "12016P/TXT": "Charte des droits fond.", "32003L0086": "Dir. 2003/86 (regroupement)"}
+
+
+def libelle_court(lib, celex="", maxi=30):
+    """« Règlement (UE) 2024/1358 (Eurodac) » -> « Règl. 2024/1358 (Eurodac) » (coupé à « maxi » caractères)."""
+    if celex in COURTS:
+        return COURTS[celex]
+    lib = re.sub(r"^Règlement \(UE\) (n° )?", "Règl. ", lib)
+    lib = re.sub(r"^Directive (\(UE\) )?", "Dir. ", lib)
+    lib = re.sub(r"(\d{4}/\d+)/(UE|CE)\b", r"\1", lib)
+    return lib if len(lib) <= maxi else lib[:maxi - 1].rstrip() + "…"
+
+
+# Sources ajoutées par l'utilisateur : fichier sources_jurisprudence.csv du dossier de base.
+SOURCES_NOM = "sources_jurisprudence.csv"
+SOURCES_ENTETE = ["type", "code", "libelle", "formulations"]
+SOURCES_MODELE = [
+    ["# type = acte_ue (code = numéro CELEX : l’acte apparaît dans « C.J.U.E. »)", "", "", ""],
+    ["# type = site (code = adresse : un bouton apparaît dans « Recherche à la main »)", "", "", ""],
+    ["# type = texte (code = abréviation ; formulations = façons de citer le texte, séparées par |) : "
+     "le texte apparaît dans les listes « de : » pour filtrer les articles", "", "", ""],
+    ["# Les lignes qui commencent par # sont ignorées. Exemples :", "", "", ""],
+    ["#acte_ue", "32024R1358", "Règlement (UE) 2024/1358 (Eurodac)", ""],
+    ["#site", "https://www.refworld.org/", "Refworld (HCR)", ""],
+    ["#texte", "LOI-CCE-2026", "Loi du 17 juin 2026 relative au Conseil du contentieux des étrangers",
+     "loi du 17 juin 2026|conseil du contentieux des etrangers"],
+]
+
+
+def chemin_sources(base):
+    c = os.path.join(base, SOURCES_NOM)
+    if not os.path.exists(c):
+        os.makedirs(base, exist_ok=True)
+        with open(c, "w", encoding="utf-8-sig", newline="") as f:
+            w = csv.writer(f, delimiter=";")
+            w.writerow(SOURCES_ENTETE)
+            w.writerows(SOURCES_MODELE)
+    return c
+
+
+def sources_utilisateur(base):
+    """-> {"acte_ue": [(celex, libellé)], "site": [(libellé, url)], "texte": [(code, libellé, [formulations])]}"""
+    out = {"acte_ue": [], "site": [], "texte": []}
+    if not base:
+        return out
+    try:
+        with open(chemin_sources(base), encoding="utf-8-sig", newline="") as f:
+            for r in csv.DictReader(f, delimiter=";"):
+                typ = (r.get("type") or "").strip().lower()
+                code, lib = (r.get("code") or "").strip(), (r.get("libelle") or "").strip()
+                if not typ or typ.startswith("#") or not code:
+                    continue
+                if typ in ("acte_ue", "acte", "celex"):
+                    out["acte_ue"].append((code.upper(), lib or code.upper()))
+                elif typ in ("site", "url", "lien"):
+                    out["site"].append((lib or code, code))
+                elif typ == "texte":
+                    forms = [x.strip() for x in (r.get("formulations") or "").split("|") if x.strip()]
+                    out["texte"].append((code, lib or code, forms or [lib or code]))
+    except Exception:
+        pass
+    return out
+
+
+def actes_ue(base=None):
+    vus, out = set(), []
+    for celex, lib in ACTES_UE + sources_utilisateur(base)["acte_ue"]:
+        if celex not in vus:
+            vus.add(celex)
+            out.append((celex, lib))
+    return out
+
+
+def recherches_manuelles(base=None):
+    urls = {u for _, u in RECHERCHES_MANUELLES}
+    return RECHERCHES_MANUELLES + [(l, u) for l, u in sources_utilisateur(base)["site"] if u not in urls]
+
+
+def charger_textes_utilisateur(base=None):
+    """Ajoute à TEXTES les textes du fichier de l'utilisateur (sans jamais remplacer un texte du programme)."""
+    for code, lib, forms in sources_utilisateur(base)["texte"]:
+        if code not in TEXTES:
+            TEXTES[code] = (lib, forms)
+            for f_ in [code] + forms:
+                if C.norm(f_):
+                    ALIAS.insert(0, (C.norm(f_), code))
 
 def url_hudoc_manuelle(articles=(), etat="", mots="", types=("JUDGMENTS",), langues=("FRE", "ENG"), gc=False):
     """Adresse de recherche HUDOC pré-remplie (critères dans le fragment « #{…} » de l'URL)."""

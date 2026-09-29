@@ -43,6 +43,8 @@ TEXTES_DEFAUT = [
     ("REG2024-1347", "eurlex", "32024R1347", "Règlement (UE) 2024/1347 (qualification)", "REG2024-1347"),
     ("REG2024-1348", "eurlex", "32024R1348", "Règlement (UE) 2024/1348 (procédure commune)", "REG2024-1348"),
     ("DIR2011-95", "eurlex", "32011L0095", "Directive 2011/95/UE (qualification, refonte)", "DIR2011-95"),
+    ("LOI-CCE-2026", "justel", "https://www.ejustice.just.fgov.be/eli/loi/2026/06/17/2026004052/justel",
+     "Loi du 17 juin 2026 relative au Conseil du contentieux des étrangers", "LOI-CCE-2026"),
     ("PAYS-SURS", "pays_surs", "LOI1980",
      "Arrêté royal établissant la liste des pays d'origine sûrs (art. 57/6/1, § 3, de la loi du 15 décembre 1980)", ""),
 ]
@@ -74,6 +76,10 @@ SOURCES_REFERENCE = [
     ("Agence de l'Union européenne pour l'asile : notes d'orientation par pays",
      "https://www.euaa.europa.eu/asylum-knowledge/country-guidance"),
     ("CGRA : statistiques d'asile (taux de protection par nationalité)", "https://www.cgra.be/fr/chiffres"),
+    ("Office des étrangers : le recours au Conseil du contentieux des étrangers (délais)",
+     "https://dofi.ibz.be/fr/themes/faq/appeal/le-conseil-du-contentieux-des-etrangers"),
+    ("Fedasil : entrée en vigueur du pacte européen sur la migration et l'asile",
+     "https://www.fedasil.be/fr/actualites/accueil-des-demandeurs-dasile/entree-en-vigueur-du-pacte-migratoire-europeen"),
 ]
 
 
@@ -463,6 +469,11 @@ def texte_pdf(chemin):
 # ---------------------------------------------------------------------------------------------------
 # Textes suivis, état, articles cités
 # ---------------------------------------------------------------------------------------------------
+# Textes ajoutés à la liste par défaut après la version 1.0 : ajoutés une seule fois au fichier de
+# l'utilisateur (s'il les retire ensuite, ils ne reviennent pas).
+TEXTES_AJOUTES = ["LOI-CCE-2026"]
+
+
 def chemin_textes(base):
     c = os.path.join(base, TEXTES_NOM)
     if not os.path.exists(c):
@@ -471,7 +482,31 @@ def chemin_textes(base):
             w = csv.writer(f, delimiter=";")
             w.writerow(["id", "type", "adresse", "nom", "repere"])
             w.writerows(TEXTES_DEFAUT)
+        _noter_ajouts(base, TEXTES_AJOUTES)
+        return c
+    try:
+        deja = set(lire_json(os.path.join(dossier_veille(base), "textes_ajoutes.json"), []))
+        a_faire = [i for i in TEXTES_AJOUTES if i not in deja]
+        if a_faire:
+            with open(c, encoding="utf-8-sig", newline="") as f:
+                ids = {(r.get("id") or "").strip() for r in csv.DictReader(f, delimiter=";")}
+            lignes = [t for t in TEXTES_DEFAUT if t[0] in a_faire and t[0] not in ids]
+            if lignes:
+                with open(c, "rb") as f:
+                    fin = f.read()[-1:]
+                with open(c, "a", encoding="utf-8", newline="") as f:
+                    if fin not in (b"\n", b""):
+                        f.write("\r\n")
+                    csv.writer(f, delimiter=";").writerows(lignes)
+            _noter_ajouts(base, a_faire)
+    except Exception:
+        pass
     return c
+
+
+def _noter_ajouts(base, ids):
+    chemin = os.path.join(dossier_veille(base), "textes_ajoutes.json")
+    ecrire_json(chemin, sorted(set(lire_json(chemin, [])) | set(ids)))
 
 
 def lire_textes(base):

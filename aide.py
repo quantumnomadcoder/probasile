@@ -156,10 +156,11 @@ Tapez « 3 » (article 3 de la Convention pour la Cour européenne), ou précise
 
 ## Chaque juridiction
 - Cour eur. D.H. (HUDOC) : HUDOC refuse les programmes. Le programme affiche un lien de recherche déjà rempli avec vos critères : ouvrez-le dans le navigateur, téléchargez les PDF, importez-les (onglet Importer). La référence est lue dans le PDF.
-- C.J.U.E. : arrêts qui citent ou interprètent l'acte coché (directive qualification, règlement 2024/1347…), filtrés sur ses articles. Automatique.
+- C.J.U.E. : arrêts qui citent ou interprètent l'acte coché (directive qualification, règlements 2024/1347 et 2024/1348, règlements 2026/463 et 2026/464 sur les pays sûrs, actes du pacte sur la migration et l'asile…), filtrés sur ses articles. Automatique. Un acte trop récent peut ne pas encore avoir d'arrêt : le programme l'indique simplement.
 - Cour constitutionnelle : parcourt les arrêts des années choisies et garde ceux qui citent les articles demandés. Automatique.
 - Importer par référence : une référence par ligne (ECLI, « req. n° 59166/12 », « C-465/07 », « C. const. 23/2021 », « C.E. 248.270 », « C.C.E. 212 381 », cote d'une décision d'un comité de l'ONU, lien). Automatique, sauf HUDOC (voir plus haut).
 - Recherche à la main : boutons qui ouvrent les moteurs de recherche officiels.
+- Vos sources : « Ajouter des sources… » ouvre sources_jurisprudence.csv (dossier de base). Une ligne par source : acte_ue + numéro CELEX (l'acte s'ajoute au cadre C.J.U.E.), site + adresse (un bouton s'ajoute à « Recherche à la main »), texte + abréviation + façons de le citer séparées par | (il s'ajoute aux listes « de : »). Enregistrez, puis « Recharger ».
 
 ## Références produites
 Exemples :

@@ -1,4 +1,4 @@
-PROBASILE – mode d'emploi (version 1.0.3)
+PROBASILE – mode d'emploi (version 1.0.4)
 ==========================================
 
 À quoi sert ce programme
@@ -80,8 +80,18 @@ Onglet « Jurisprudence »
     écrit après le numéro l'emporte sur la liste). Textes connus : CEDH, CAT (torture),
     Genève (réfugiés), PIDCP (pacte), PIDESC, CIDE (enfant), CEDAW (femmes), CERD,
     CRPD, Charte, Constitution, loi du 15 décembre 1980, directives 2011/95, 2013/32,
-    2008/115 (retour), règlements 2024/1347, 2024/1348, Dublin. Un texte absent de la
-    liste peut être tapé librement : il doit alors apparaître tel quel après l'article.
+    2008/115 (retour), 2024/1346 (accueil), règlements 2024/1347, 2024/1348,
+    2024/1349, 2024/1351, 2024/1356 (filtrage), 2024/1359 (crise), 2026/463 (pays
+    tiers sûr), 2026/464 (liste UE), Dublin, loi du 17 juin 2026 (C.C.E.). Un texte
+    absent de la liste peut être tapé librement : il doit alors apparaître tel quel
+    après l'article.
+
+  Vos sources (cadre 6, « Ajouter des sources… ») : fichier sources_jurisprudence.csv
+  du dossier de base, une ligne par source, colonnes type ; code ; libelle ;
+  formulations. Types : acte_ue (numéro CELEX : l'acte s'ajoute au cadre C.J.U.E.),
+  site (adresse : un bouton s'ajoute à « Recherche à la main »), texte (abréviation
+  et façons de citer le texte séparées par | : il s'ajoute aux listes « de : »).
+  Les lignes commençant par # sont ignorées. Enregistrez, puis « Recharger ».
 
   Recherche automatique :
   - Cour eur. D.H. (HUDOC) : filtre sur les articles de la Convention (données
