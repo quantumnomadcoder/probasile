@@ -488,6 +488,7 @@ Certains sites refusent les programmes, ou la connexion est coupée. Cliquez sur
 - la version consolidée d'EUR-Lex, en page web ou en PDF : il dit alors quels règlements l'ont modifiée et quels articles ils touchent, et si les articles cités dans vos blocs sont concernés.
 Une page incomplète (sommaire seul, texte non chargé) est signalée comme telle : le programme n'en tire aucune conclusion.
 Les pages lues en ligne sont gardées dans le dossier « veille/pages » du dossier de base : joignez-les à un signalement si un résultat vous semble faux.
+Le même bouton ouvre aussi, sans qu'il faille les enregistrer, les sources de référence citées dans le bulletin : les deux listes de pays d'origine sûrs (belge et de l'Union), les règlements (UE) 2026/463 et 2026/464, les arrêts CV, Alace et Canpelli, LH et Ilias et Ahmed, la liste Eurostat des nationalités dont le taux de reconnaissance est de 20 % ou moins, les décisions sur recours (Eurostat), les notes d'orientation de l'Agence de l'Union européenne pour l'asile et les statistiques du CGRA.
 
 ## Respect des sites
 Probasile n'est pas un robot : c'est vous qui lancez la vérification, pour quelques pages seulement, avec une pause entre chaque page et en s'identifiant clairement. Si vous préférez ne rien faire lire au programme, utilisez « Ouvrir les pages dans le navigateur ».

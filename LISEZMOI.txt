@@ -1,4 +1,4 @@
-PROBASILE – mode d'emploi (version 1.0.2)
+PROBASILE – mode d'emploi (version 1.0.3)
 ==========================================
 
 À quoi sert ce programme
@@ -205,6 +205,10 @@ Veille législative (onglet « Rédaction », bouton « Vérifier la législatio
     arrêté « pays d'origine sûrs » (liste des pays comparée à la précédente), la page
     EUR-Lex d'un acte, et sa version consolidée en page web ou en PDF (actes
     modificatifs et articles touchés).
+  - Le même bouton ouvre les sources de référence (listes de pays d'origine sûrs belge
+    et de l'Union, règlements 2026/463 et 2026/464, arrêts de la Cour de justice, liste
+    Eurostat du seuil de 20 %, décisions sur recours, notes d'orientation de l'AUEA,
+    statistiques du CGRA) : à consulter, inutile de les enregistrer.
   - Textes suivis : veille_textes.csv (dossier de base, bouton « Textes suivis… »),
     une ligne par texte (adresse Justel …/justel ou numéro CELEX, et repère des blocs).
   - Fichiers : dossier « veille » du dossier de base (etat.json, rapport_….html).

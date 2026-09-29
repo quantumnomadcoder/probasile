@@ -69,7 +69,7 @@ try:
 except ImportError:
     PdfReader = None
 
-VERSION = "1.0.2"
+VERSION = "1.0.3"
 CONFIG_PATH = os.path.join(os.path.expanduser("~"), ".collecte_pays.json")
 USER_AGENT = "Mozilla/5.0 (Probasile/%s; recherche juridique non commerciale)" % VERSION
 PAUSE = 0.5  # secondes entre deux requêtes, pour rester courtois avec les serveurs
@@ -3398,7 +3398,13 @@ def interface():
             lignes = ["## Ouvrir les pages et les enregistrer vous-même",
                       "Les pages s’ouvrent dans votre navigateur. Pour chacune : Ctrl+S (ou Cmd+S), type « Page web "
                       "complète » ou « HTML uniquement ». Puis revenez ici : « Analyser des pages enregistrées… ».", ""]
+            refs = {u for _, u in VL.SOURCES_REFERENCE}
+            titre_refs = False
             for nom, url in v.liens():
+                if url in refs and not titre_refs:
+                    titre_refs = True
+                    lignes += ["", "## Sources de référence (pays sûrs, procédure accélérée, seuil de 20 %)",
+                               "À consulter : inutile de les enregistrer pour la vérification.", ""]
                 lignes.append("- %s : %s" % (nom, url))
                 try:
                     webbrowser.open(url)

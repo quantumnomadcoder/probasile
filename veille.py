@@ -49,6 +49,33 @@ TEXTES_DEFAUT = [
 EURLEX_URL = "https://eur-lex.europa.eu/legal-content/FR/ALL/?uri=CELEX:{celex}"
 EURLEX_TXT = "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:{celex}"
 
+# Sources citées dans le bulletin et dans les blocs « Pays sûr ? » : ouvertes avec les pages à vérifier.
+SOURCES_REFERENCE = [
+    ("Règlement (UE) 2026/463 (concept de pays tiers sûr)", "http://data.europa.eu/eli/reg/2026/463/oj"),
+    ("Règlement (UE) 2026/464 (liste des pays d'origine sûrs au niveau de l'Union)",
+     "http://data.europa.eu/eli/reg/2026/464/oj"),
+    ("C.J.U.E., CV, 4 octobre 2024, C-406/22 (présomption réfragable, point 47 ; contrôle d'office, point 98)",
+     "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:62022CJ0406"),
+    ("C.J.U.E. (gde ch.), Alace et Canpelli, 1er août 2025, C-758/24 et C-759/24 (accès aux sources, points 73 "
+     "et 86-87 ; « aucune garantie absolue de sécurité », point 97)",
+     "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:62024CJ0758"),
+    ("C.J.U.E., LH, 19 mars 2020, C-564/18 (pays de transit)",
+     "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:62018CJ0564"),
+    ("Cour eur. D.H. (GC), Ilias et Ahmed c. Hongrie, 21 novembre 2019", "https://hudoc.echr.coe.int/fre?i=001-198760"),
+    ("Eurostat : pays dont le taux de reconnaissance est de 20 % ou moins (seuil de l'examen accéléré)",
+     "https://ec.europa.eu/eurostat/documents/d/migration-asylum/"
+     "countries-of-citizenship-with-an-asylum-recognition-rate-of-20-or-lower-1"),
+    ("Eurostat : décisions de première instance, en % (migr_asydec1pc)",
+     "https://ec.europa.eu/eurostat/databrowser/view/migr_asydec1pc/default/table?lang=fr"),
+    ("Eurostat : décisions finales sur recours (migr_asydcfina)",
+     "https://ec.europa.eu/eurostat/databrowser/view/migr_asydcfina/default/table?lang=fr"),
+    ("Agence de l'Union européenne pour l'asile : taux de reconnaissance",
+     "https://www.euaa.europa.eu/latest-asylum-trends-annual-analysis/recognition-rates"),
+    ("Agence de l'Union européenne pour l'asile : notes d'orientation par pays",
+     "https://www.euaa.europa.eu/asylum-knowledge/country-guidance"),
+    ("CGRA : statistiques d'asile (taux de protection par nationalité)", "https://www.cgra.be/fr/chiffres"),
+]
+
 
 # ---------------------------------------------------------------------------------------------------
 # Outils
@@ -883,6 +910,8 @@ class Verification:
                        if v else EURLEX_TXT.format(celex=t["adresse"]))
                 out.append(("Liste des pays d'origine sûrs au niveau de l'Union : règlement (UE) 2024/1348, annexe II, "
                             "dans la version consolidée (enregistrez-la, en page web ou en PDF)", url))
+        vus = {u for _, u in out}
+        out += [(n, u) for n, u in SOURCES_REFERENCE if u not in vus]
         return out
 
     def comparer(self):
@@ -1138,7 +1167,7 @@ def rapport_texte(changements, bases, erreurs, bulletin=None, bulletin_vu="", ve
         for e in (neuves or bulletin["entrees"][:2]):
             L.append("- %s – %s" % (date_fr(e["date"]), e["titre"]))
             if e["texte"]:
-                L.append("  " + e["texte"].replace("\n", "\n  "))
+                L.append("  " + e["texte"].replace("**", "").replace("\n", "\n  "))
     if bulletin and bulletin.get("version") and version and version_plus_recente(bulletin["version"], version):
         L.append("## Nouvelle version du programme : %s (vous avez la %s)" % (bulletin["version"], version))
     if erreurs:
@@ -1204,7 +1233,8 @@ def rapport_html(chemin, changements, bases, erreurs, textes, lectures, bulletin
             neuf = e["date"] > (bulletin_vu or "")
             h.append("<div class='c%s'><p><b>%s%s – %s</b></p>%s%s%s%s</div>" % (
                 "" if neuf else " b", "🆕 " if neuf else "", html.escape(date_fr(e["date"])), html.escape(e["titre"]),
-                "<p>%s</p>" % html.escape(e["texte"]).replace("\n\n", "</p><p>").replace("\n", "<br>") if e["texte"] else "",
+                "<p>%s</p>" % re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", html.escape(e["texte"])).replace("\n\n", "</p><p>")
+                .replace("\n", "<br>") if e["texte"] else "",
                 "<p class='meta'>Textes : %s</p>" % html.escape(e["textes"]) if e["textes"] else "",
                 "<p class='meta'>Blocs à relire : %s</p>" % html.escape(e["blocs"]) if e["blocs"] else "",
                 "".join("<p class='meta'><a href='%s'>%s</a></p>" % (html.escape(u), html.escape(u)) for u in e["liens"])))

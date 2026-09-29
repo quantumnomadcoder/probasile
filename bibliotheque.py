@@ -404,6 +404,11 @@ DEFAUT = [
         "expressément : « Le simple fait pour un demandeur de protection internationale d’être originaire d’un pays "
         "d’origine sûr n’aura en aucun cas pour conséquence automatique que sa demande de protection internationale "
         "sera refusée »[[AR-PAYS-SURS-2025, rapport au Roi]].",
+        "La Cour de justice le dit de manière générale : le régime des pays d’origine sûrs « repose sur une forme de "
+        "présomption réfragable de protection suffisante dans le pays d’origine, laquelle peut […] être renversée par "
+        "le demandeur s’il fait état de raisons sérieuses tenant à sa situation personnelle »[[CJUE-CV-2024, point 47]], "
+        "car « même dans un pays généralement sûr pour toute sa population, il n’existe aucune garantie absolue de "
+        "sécurité pour chaque individu »[[CJUE-ALACE-2025, point 97]].",
         "Cette lecture s’impose aussi au regard de la Convention de Genève, que les États appliquent « sans "
         "discrimination quant à la race, la religion ou le pays d’origine »[[GENEVE, art. 3]], et du caractère absolu de "
         "l’interdiction du renvoi vers un risque de torture ou de traitements inhumains ou dégradants[[CEDH, art. 3]]"
@@ -426,13 +431,17 @@ DEFAUT = [
         "difficultés spécifiques rencontrées par certains groupes dans le pays, qui peuvent mériter une attention "
         "particulière »[[AR-PAYS-SURS-2025, rapport au Roi]].] {Le_demandeur} {appartient|appartiennent} à "
         "[catégorie], exposée {en_pays} à [risques], comme l’établissent les sources citées dans la partie 4.",
-        "La Cour de justice a jugé, sous l’empire de la directive 2013/32/UE, que la désignation d’un pays d’origine sûr "
-        "reste soumise au contrôle du juge, que les sources d’information sur lesquelles elle repose doivent être "
-        "suffisamment accessibles au demandeur et à la juridiction[[CJUE-ALACE-2025]], et que le juge saisi d’un recours "
-        "doit relever la méconnaissance des règles du droit de l’Union relatives à cette désignation[[CJUE-CV-2024]]. Le "
-        "règlement (UE) 2024/1348 autorise désormais des exceptions par catégories de personnes, mais ces exigences "
-        "de contrôle et d’accès aux sources procèdent du droit à un recours effectif[[CHARTE, art. 47]] et gardent toute "
-        "leur pertinence."]),
+        "La Cour de justice a jugé, sous l’empire de la directive 2013/32/UE, que le juge saisi d’un recours doit "
+        "soulever, sur la base du dossier et des éléments portés à sa connaissance, une méconnaissance des conditions "
+        "matérielles de la désignation[[CJUE-CV-2024, point 98]]. Elle a ajouté que « la possibilité pour le demandeur "
+        "de renverser cette présomption requiert, pour être effective, que ce demandeur soit mis en mesure de connaître "
+        "les raisons pour lesquelles son pays d’origine est présumé sûr »[[CJUE-ALACE-2025, point 73]] : l’État doit "
+        "garantir « un accès suffisant et adéquat » aux sources d’information sur lesquelles repose la "
+        "désignation[[CJUE-ALACE-2025, point 87]], et le juge peut tenir compte d’informations qu’il a lui-même recueillies, dans "
+        "le respect du contradictoire[[CJUE-ALACE-2025, point 86]]. Le règlement (UE) 2024/1348 autorise désormais des exceptions "
+        "par catégories de personnes, ce que la Cour présente comme un nouveau choix du législateur[[CJUE-ALACE-2025, point "
+        "106]] ; mais les exigences de contrôle et d’accès aux sources procèdent du droit à un recours "
+        "effectif[[CHARTE, art. 47]] et gardent toute leur pertinence."]),
     ("pi", "Pays sûr ?", "Pays d’origine sûr : une désignation fragile (Maroc)", False, [
         "L’inscription du Maroc sur la liste belge repose sur des bases que le Gouvernement lui-même présente comme "
         "discutables. Selon le rapport au Roi, « En ce qui concerne Maroc, il est donc décidé de s’écarter des avis du "
@@ -448,22 +457,36 @@ DEFAUT = [
         "{sa} situation[[REG2024-1348, art. 61, §5, c)]]. [Confronter la désignation aux sources de la partie 4 "
         "(organes de traités, ONG) sur la situation {en_pays}.]"]),
     ("pi", "Pays sûr ?", "Procédure accélérée : quand, pourquoi, et comment en sortir", False, [
-        "Le règlement (UE) 2024/1348 énumère les cas d’examen accéléré[[REG2024-1348, art. 42, §1er]] : notamment des "
-        "déclarations sans pertinence, manifestement incohérentes ou contredisant les informations disponibles sur le "
-        "pays d’origine ; la tromperie sur l’identité ou la nationalité ; une demande introduite uniquement pour retarder "
-        "ou empêcher un éloignement ; l’origine d’un pays d’origine sûr ; un danger pour la sécurité nationale ou l’ordre "
-        "public ; une demande ultérieure ; l’absence, sans motif valable, de demande « le plus rapidement possible » ; ou "
-        "une nationalité pour laquelle le taux de reconnaissance à l’échelle de l’Union est de 20 % ou moins. Le droit "
-        "belge prévoit une liste comparable[[LOI1980, art. 57/6/1, §1er]].",
-        "La procédure accélérée ne réduit pas les garanties : l’examen a lieu « dans le respect des principes de base et "
-        "des garanties fondamentales »[[REG2024-1348, art. 42, §1er, al. 1er]]. Elle abrège en revanche les délais — "
-        "l’examen doit être conclu au plus tard trois mois après l’introduction de la demande[[REG2024-1348, art. 35, "
-        "§3]] — et, surtout, le recours contre un rejet prononcé dans ce cadre n’a pas d’effet suspensif "
+        "La procédure accélérée n’est pas une procédure de rejet : c’est un examen au fond de la demande, mené dans des "
+        "délais plus courts. Elle ne peut être appliquée que dans les cas limitativement énumérés par le règlement (UE) "
+        "2024/1348[[REG2024-1348, art. 42, §1er]] : des questions sans pertinence pour la protection ; des déclarations "
+        "manifestement incohérentes, contradictoires, fausses ou peu plausibles, ou qui contredisent les informations "
+        "disponibles sur le pays d’origine ; la tromperie intentionnelle sur l’identité ou la nationalité ; une demande "
+        "présentée uniquement pour retarder ou empêcher un éloignement ; l’origine d’un pays d’origine sûr ; un danger "
+        "pour la sécurité nationale ou l’ordre public ; une demande ultérieure recevable ; l’absence, sans motif valable, "
+        "de demande « le plus rapidement possible » ; une nationalité pour laquelle le taux de reconnaissance à "
+        "l’échelle de l’Union est de 20 % ou moins. Le droit belge contient une liste comparable[[LOI1980, art. 57/6/1, "
+        "§1er]].",
+        "Le législateur justifie ces cas par le souci de traiter plus vite des demandes présumées moins susceptibles "
+        "d’aboutir, « en tenant compte, entre autres, des différences importantes entre la première instance et les "
+        "décisions finales »[[REG2024-1348, considérant 56]]. La Cour de justice rappelle toutefois que l’accélération "
+        "se fait « sans préjudice de la réalisation d’un examen approprié et exhaustif et de l’accès effectif du "
+        "demandeur aux garanties et aux principes fondamentaux »[[CJUE-ALACE-2025, point 102]]. L’examen se déroule "
+        "« dans le respect des principes de base et des garanties fondamentales »[[REG2024-1348, art. 42, §1er, al. "
+        "1er]] ; il reste objectif, impartial et individualisé et tient compte d’informations précises et actualisées "
+        "sur le pays d’origine[[REG2024-1348, art. 34, §2]] ; la possibilité d’un entretien sur le fond demeure la "
+        "règle[[REG2024-1348, art. 12, §1er]].",
+        "Ce qui change réellement tient aux délais et au recours : l’examen doit être conclu au plus tard trois mois "
+        "après l’introduction de la demande[[REG2024-1348, art. 35, §3]] ; le délai de recours est compris entre cinq "
+        "et dix jours[[REG2024-1348, art. 67, §7, a)]] ; le rejet peut être qualifié de manifestement infondé si le "
+        "droit national le prévoit[[REG2024-1348, art. 39, §4]] (en droit belge, jamais pour un mineur non "
+        "accompagné[[LOI1980, art. 57/6/1, §2]]) ; surtout, le recours n’a pas d’effet suspensif "
         "automatique[[REG2024-1348, art. 68, §3, a), i)]]. Il faut alors demander au juge l’autorisation de rester sur "
         "le territoire pendant le recours, dans un délai d’au moins cinq jours à compter de la notification ; aucun "
-        "éloignement ne peut avoir lieu tant que ce délai court ou que le juge n’a pas statué[[REG2024-1348, art. 68, "
-        "§§4 et 5]]. [Vérifier les délais applicables devant le Conseil du contentieux des étrangers : les articles 39/57 "
-        "et 39/70 de la loi du 15 décembre 1980 ont été abrogés par la loi du 17 juin 2026.]",
+        "éloignement ne peut avoir lieu tant que ce délai court ou que le juge n’a pas statué, et une assistance "
+        "juridique gratuite est due sur demande[[REG2024-1348, art. 68, §§4 et 5]]. [Vérifier les délais applicables "
+        "devant le Conseil du contentieux des étrangers : les articles 39/57 et 39/70 de la loi du 15 décembre 1980 ont "
+        "été abrogés par la loi du 17 juin 2026.]",
         "Plusieurs voies permettent d’éviter la procédure accélérée ou d’en sortir :",
         "– la vulnérabilité : lorsque le soutien nécessaire ne peut être fourni dans le cadre de la procédure accélérée, "
         "« en accordant une attention particulière aux victimes de torture, de viol ou d’autres formes graves de violence "
@@ -478,12 +501,54 @@ DEFAUT = [
         "art. 42, §3]], et leur demande ne peut pas être déclarée manifestement infondée[[LOI1980, art. 57/6/1, §2]] ; la "
         "Cour constitutionnelle avait déjà annulé l’application de la procédure accélérée aux mineurs non accompagnés "
         "au-delà des hypothèses prévues par le droit de l’Union[[CC-23-2021]] ;",
-        "– le seuil de 20 % : il ne joue pas lorsqu’un changement important est intervenu dans le pays, ni pour le "
-        "demandeur qui appartient à « une catégorie de personnes pour lesquelles la proportion de 20 % ou moins ne peut "
-        "être considérée comme représentative de leurs besoins en matière de protection »[[REG2024-1348, art. 42, §1er, "
-        "j)]] ;",
+        "– le seuil de 20 % : il ne joue pas lorsqu’un changement important est intervenu dans le pays, ni pour une "
+        "catégorie de personnes pour lesquelles ce taux n’est pas représentatif[[REG2024-1348, art. 42, §1er, j)]] "
+        "(voir le bloc consacré à ce seuil) ;",
         "– le retard : les motifs valables exposés dans la section consacrée au délai d’introduction de la demande ;",
-        "– le pays d’origine sûr : les raisons sérieuses propres {au_demandeur}, qui renversent la présomption."]),
+        "– le pays d’origine sûr : les raisons sérieuses propres {au_demandeur}, qui renversent la présomption ;",
+        "– la procédure à la frontière, lorsqu’elle est envisagée : elle n’est pas appliquée, ou cesse de l’être, "
+        "notamment pour des raisons médicales, y compris de santé mentale, ou lorsque le soutien nécessaire ne peut être "
+        "fourni aux demandeurs ayant des besoins particuliers[[REG2024-1348, art. 53, §2]]."]),
+    ("pi", "Pays sûr ?", "Seuil de 20 % : contester l’examen accéléré fondé sur la nationalité", False, [
+        "L’examen est accéléré lorsque {le_demandeur} {possède|possèdent} la nationalité d’un pays pour lequel « la "
+        "proportion de décisions prises par l’autorité responsable de la détermination qui octroient une protection "
+        "internationale est, selon les dernières données disponibles d’Eurostat concernant la moyenne annuelle à "
+        "l’échelle de l’Union, de 20 % ou moins »[[REG2024-1348, art. 42, §1er, j)]]. Ce critère est un chiffre "
+        "collectif : il ne dit rien de la situation de la personne, et il ne peut justifier qu’un traitement plus "
+        "rapide, jamais un refus. L’examen reste individuel[[REG2024-1348, art. 34, §2]].",
+        "Le taux pertinent est celui publié par Eurostat « solely for the purpose » du règlement (UE) 2024/1348 : la "
+        "part des décisions octroyant le statut de réfugié ou la protection subsidiaire dans l’ensemble des décisions "
+        "de première instance, pour l’Union sans le Danemark[[EUROSTAT-20]]. [Taux publié pour {le_pays} : [x] % "
+        "(année [aaaa]) ; nombre de décisions : [n].] Un taux signalé comme peu fiable, faute de 30 décisions au moins, "
+        "ne peut fonder une présomption sérieuse. Un autre chiffre (taux belge, taux incluant les statuts humanitaires "
+        "nationaux, année plus ancienne) ne correspond pas au critère légal.",
+        "La disposition prévoit elle-même deux exceptions, que le considérant 56 formule comme une obligation : dans "
+        "ces cas, « l’examen de la demande ne devrait pas être accéléré »[[REG2024-1348, considérant 56]].",
+        "– un changement important dans le pays depuis la publication des données d’Eurostat[[REG2024-1348, art. 42, "
+        "§1er, j)]]. Lorsque l’Agence de l’Union européenne pour l’asile a constaté un tel changement dans une note "
+        "d’orientation, les États membres doivent s’y référer[[REG2024-1348, art. 42, §1er, al. 2]][[EUAA-ORIENTATION]]. "
+        "[Événements postérieurs à l’année de référence : [coup d’État, conflit, vague de répression, nouvelle loi "
+        "pénale…], sources de la partie 4.] ;",
+        "– l’appartenance à « une catégorie de personnes pour lesquelles la proportion de 20 % ou moins ne peut être "
+        "considérée comme représentative de leurs besoins en matière de protection, compte tenu, entre autres, des "
+        "différences importantes entre les décisions prises en première instance et les décisions finales »"
+        "[[REG2024-1348, art. 42, §1er, j)]], notamment « en raison d’un motif spécifique de persécution »"
+        "[[REG2024-1348, considérant 56]]. [{Le_demandeur} {appartient|appartiennent} à [catégorie : opposants "
+        "politiques, personnes LGBTIQ, femmes exposées à des violences de genre, minorité…], pour laquelle les "
+        "sources de la partie 4 établissent un risque spécifique.]",
+        "Le taux de première instance ne reflète pas non plus l’issue réelle des demandes : les décisions rendues sur "
+        "recours sont publiées séparément par Eurostat[[EUROSTAT-FINALES]], et l’Agence de l’Union européenne pour "
+        "l’asile relève que ses propres taux « do not account for cases decided by the judiciary »[[EUAA-TAUX]]. "
+        "[Comparer, pour {le_pays}, le taux de première instance et la part des décisions positives sur "
+        "recours[[EUAA-2DE-INSTANCE]] ; au besoin, le taux de protection du Commissariat général pour cette "
+        "nationalité[[CGRA-CHIFFRES]].]",
+        "Enfin, le règlement ne permet de qualifier un rejet de manifestement infondé que si le droit national "
+        "l’autorise[[REG2024-1348, art. 39, §4]]. Or le droit belge ne le prévoit que dans les situations énumérées à "
+        "l’article 57/6/1, §1er, a) à j), de la loi du 15 décembre 1980, parmi lesquelles le seuil de 20 % ne figure "
+        "pas[[LOI1980, art. 57/6/1, §2]] : un rejet fondé sur ce seul critère ne peut pas être qualifié de manifestement "
+        "infondé.",
+        "Il est dès lors demandé au Commissaire général de ne pas appliquer, ou de cesser d’appliquer, la procédure "
+        "accélérée et, à tout le moins, de motiver spécialement sa décision au regard de ces exceptions."]),
     ("pi", "Pays sûr ?", "Pays tiers sûr : conditions strictes et évaluation individuelle", False, [
         "Le concept de pays tiers sûr permet de déclarer une demande irrecevable, sans l’examiner au fond, au motif que "
         "{le_demandeur} pourrait obtenir une protection dans un pays tiers[[REG2024-1348, art. 38, §1er, b)]]. Il "
@@ -499,9 +564,11 @@ DEFAUT = [
         "Depuis le règlement (UE) 2026/463[[REG2026-463]], le lien exigé entre le demandeur et le pays tiers est élargi : "
         "il suffit désormais d’un « lien de connexion » rendant raisonnable que le demandeur se rende dans ce pays, d’un "
         "transit par ce pays « sur le trajet vers l’Union », ou d’un accord ou arrangement imposant à ce pays d’examiner "
-        "le bien-fondé des demandes de protection effective[[REG2024-1348, art. 59, §5, al. 1er, b)]]. Auparavant, la "
-        "Cour de justice avait jugé que le seul transit ne constituait pas un lien suffisant au sens de la directive "
-        "2013/32/UE[[CJUE-LH-2020]].",
+        "le bien-fondé des demandes de protection effective[[REG2024-1348, art. 59, §5, al. 1er, b)]]. Sous la "
+        "directive 2013/32/UE, la Cour de justice avait jugé contraire au droit de l’Union une réglementation "
+        "permettant de déclarer une demande irrecevable au seul motif que le demandeur était arrivé par un État dans "
+        "lequel il n’était pas exposé à des persécutions ou dans lequel était assuré un degré de protection "
+        "adéquat[[CJUE-LH-2020, dispositif, point 1]].",
         "Cet élargissement ne supprime aucune garantie :",
         "– le concept ne s’applique que si le demandeur « ne peut fournir d’éléments justifiant que le concept de pays "
         "tiers sûr ne lui est pas applicable, dans le cadre d’une évaluation individuelle »[[REG2024-1348, art. 59, §5, "
@@ -761,6 +828,19 @@ REFERENCES_CORRIGEES = [
     ("NIRAGHALLAIGH-2014", "M. Ní Raghallaigh, « The Causes of Mistrust amongst Asylum Seekers and Refugees: "
      "Insights from Research with Unaccompanied Asylum-Seeking Minors Living in the Republic of Ireland », "
      "Journal of Refugee Studies, vol. 27, n° 1, 2014, pp. 82-100", ""),
+    # 1.0.3 : intitulés officiels et points vérifiés sur les textes
+    ("REG2026-463", "Règlement (UE) 2026/463 du Parlement européen et du Conseil du 24 février 2026 modifiant le "
+     "règlement (UE) 2024/1348 (concept de pays tiers sûr), J.O.U.E., L, 2026/463, 26 février 2026",
+     "intitulé officiel à vérifier"),
+    ("REG2026-464", "Règlement (UE) 2026/464 du Parlement européen et du Conseil du 24 février 2026 modifiant le "
+     "règlement (UE) 2024/1348 (pays d’origine sûrs au niveau de l’Union), J.O.U.E., L, 2026/464, 26 février 2026",
+     "intitulé officiel à vérifier"),
+    ("CJUE-CV-2024", "C.J.U.E., arrêt CV c. Ministerstvo vnitra České republiky, 4 octobre 2024, aff. C-406/22",
+     "formation de jugement et points à vérifier"),
+    ("CJUE-ALACE-2025", "C.J.U.E. (Gde Ch.), arrêt Alace et Canpelli, 1er août 2025, aff. jointes C-758/24 et "
+     "C-759/24", "points à vérifier"),
+    ("CJUE-LH-2020", "C.J.U.E., arrêt LH c. Bevándorlási és Menekültügyi Hivatal, 19 mars 2020, aff. C-564/18",
+     "points à vérifier"),
 ]
 
 
@@ -796,7 +876,7 @@ def _migrer_references(c, defaut):
         os.replace(tmp, c)
 
 
-BIB_VERSION = 12  # à augmenter quand les blocs par défaut changent
+BIB_VERSION = 13  # à augmenter quand les blocs par défaut changent
 
 
 def _empreinte(chemin):

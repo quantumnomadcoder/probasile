@@ -24,7 +24,7 @@ aux utilisateurs qu'une nouvelle version existe.
 
 # Bulletin de veille de Probasile
 
-Version du programme : 1.0.2
+Version du programme : 1.0.3
 
 Ce bulletin est rédigé par des juristes. Il explique en langage courant ce qui change dans le droit des étrangers et quels blocs de Probasile relire. Dans le programme : onglet **Rédaction → Vérifier la législation… → Lire le bulletin**. Les textes officiels font foi ; les références entre doubles crochets (par exemple `[[REG2024-1348, art. 61, §5, c)]]`) se collent telles quelles dans un texte Probasile.
 
@@ -56,30 +56,76 @@ Oui : une personne originaire d'un pays d'origine sûr peut toujours demander et
 
 4. La désignation n'est qu'une présomption, qui se renverse au cas par cas. Le concept « ne peut s'appliquer » que si le demandeur « ne peut fournir d'éléments justifiant pourquoi le concept de pays d'origine sûr ne lui est pas applicable, dans le cadre d'une évaluation individuelle » (article 61, § 5, c)), et il ne s'applique pas à une catégorie de personnes exclue de la désignation (article 61, § 5, b)). En droit belge, le Commissaire général ne peut refuser la protection que « lorsque l'étranger n'a pas fait valoir de raisons sérieuses permettant de penser qu'il ne s'agit pas d'un pays d'origine sûr en raison de sa situation personnelle » (loi du 15 décembre 1980, article 57/6/1, § 3). Le rapport au Roi de l'arrêté du 3 décembre 2025 l'écrit en toutes lettres : « Le simple fait pour un demandeur de protection internationale d'être originaire d'un pays d'origine sûr n'aura en aucun cas pour conséquence automatique que sa demande de protection internationale sera refusée ».
 
-5. La Convention de Genève s'applique « sans discrimination quant à la race, la religion ou le pays d'origine » (article 3), et l'interdiction du renvoi vers un risque de torture ou de traitements inhumains est absolue (article 3 de la Convention européenne des droits de l'homme ; article 19, § 2, de la Charte). La Cour de justice exige en outre que la désignation reste soumise au contrôle du juge et que ses sources soient accessibles (arrêts CV, 4 octobre 2024, C-406/22, et Alace et Canpelli, 1er août 2025, C-758/24 et C-759/24, rendus sous l'empire de la directive 2013/32/UE).
+5. La Convention de Genève s'applique « sans discrimination quant à la race, la religion ou le pays d'origine » (article 3), et l'interdiction du renvoi vers un risque de torture ou de traitements inhumains est absolue (article 3 de la Convention européenne des droits de l'homme ; article 19, § 2, de la Charte). La Cour de justice qualifie la désignation de « présomption réfragable » que la personne peut renverser par des raisons sérieuses tenant à sa situation personnelle (arrêt CV, 4 octobre 2024, C-406/22, point 47), car « même dans un pays généralement sûr pour toute sa population, il n'existe aucune garantie absolue de sécurité pour chaque individu » (arrêt Alace et Canpelli, 1er août 2025, C-758/24 et C-759/24, point 97). Le juge doit soulever d'office une méconnaissance des conditions de la désignation (CV, point 98). La personne et le juge doivent avoir « un accès suffisant et adéquat » aux sources sur lesquelles la désignation repose (Alace et Canpelli, points 73 et 87). Ces arrêts ont été rendus sous l'empire de la directive 2013/32/UE, mais ils reposent sur le droit à un recours effectif (article 47 de la Charte).
 
 En pratique : exposer dès le début les raisons sérieuses propres à la personne (persécutions déjà subies, profil exposé, absence de protection), avec des pièces et des sources sur le pays.
 
-## 2026-09-29 | Procédure accélérée : quand, pourquoi, et comment l'éviter
-Textes : REG2024-1348 art. 20, 21, 35, 42, 68 ; LOI1980 art. 57/6/1, §§ 1er et 2
-Blocs : Procédure accélérée : quand, pourquoi, et comment en sortir ; Procédure accélérée pour tardiveté
+## 2026-09-29 | Procédure accélérée : ce que c'est, quand elle s'applique, comment en sortir
+Textes : REG2024-1348 art. 12, 20, 21, 34, 35, 39, 42, 53, 67, 68 et considérant 56 ; LOI1980 art. 57/6/1, §§ 1er et 2 ; CJUE-ALACE-2025 ; CC-23-2021
+Blocs : Procédure accélérée : quand, pourquoi, et comment en sortir ; Seuil de 20 % : contester l’examen accéléré fondé sur la nationalité ; Procédure accélérée pour tardiveté
 Importance : haute
-Quand ? Le règlement (UE) 2024/1348 énumère les cas (article 42, § 1er) : déclarations sans pertinence, manifestement incohérentes ou contredisant les informations sur le pays ; tromperie sur l'identité ou la nationalité ; demande introduite uniquement pour retarder ou empêcher un éloignement ; pays d'origine sûr ; danger pour la sécurité nationale ou l'ordre public ; demande ultérieure recevable ; demande qui n'a pas été présentée « le plus rapidement possible », sans motif valable ; nationalité pour laquelle le taux de reconnaissance à l'échelle de l'Union est de 20 % ou moins. La loi belge contient une liste comparable (article 57/6/1, § 1er).
+Lien : https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:02024R1348-20260227
+**Ce que c'est.** La procédure accélérée n'est pas une procédure de rejet ni un examen « au rabais ». C'est un examen complet de la demande au fond (la personne a-t-elle besoin d'une protection ?), mais mené plus vite et avec un recours plus difficile. Depuis le 12 juin 2026, elle est réglée par le règlement (UE) 2024/1348, directement applicable en Belgique ; l'article 57/6/1 de la loi du 15 décembre 1980 la complète.
 
-Pourquoi ? Pour traiter plus vite les demandes que le législateur présume moins susceptibles d'aboutir. Mais l'examen reste complet et individuel : il se fait « dans le respect des principes de base et des garanties fondamentales » (article 42, § 1er).
+**Quand elle s'applique.** Seulement dans les cas énumérés par l'article 42, § 1er, du règlement. Le règlement dit que l'autorité « accélère » : dans ces cas, ce n'est plus une simple faculté.
+- a) la personne n'a soulevé que des questions sans pertinence pour la protection ;
+- b) déclarations manifestement incohérentes, contradictoires, fausses ou peu plausibles, ou qui contredisent les informations disponibles sur le pays d'origine ;
+- c) tromperie intentionnelle sur l'identité ou la nationalité (faux documents, destruction de papiers de mauvaise foi) ;
+- d) demande présentée uniquement pour retarder ou empêcher un éloignement ;
+- e) pays d'origine sûr (liste belge ou liste de l'Union) ;
+- f) danger pour la sécurité nationale ou l'ordre public ;
+- g) demande ultérieure qui n'est pas irrecevable ;
+- h) et i) demande qui n'a pas été présentée « le plus rapidement possible », sans motif valable ;
+- j) nationalité d'un pays dont le taux de reconnaissance à l'échelle de l'Union est de 20 % ou moins (voir l'entrée suivante).
+Pour les mineurs non accompagnés, la liste est plus courte (article 42, § 3) : pays d'origine sûr, danger pour la sécurité, demande ultérieure, tromperie sur l'identité, seuil de 20 %.
 
-Ce que cela change : l'examen doit être conclu en trois mois au plus (article 35, § 3) ; en droit belge, la demande rejetée peut être déclarée « manifestement infondée », sauf pour les mineurs non accompagnés (article 57/6/1, § 2) ; surtout, le recours n'a pas d'effet suspensif automatique (article 68, § 3, a), i)) : il faut demander au juge l'autorisation de rester pendant le recours, dans un délai d'au moins cinq jours, et aucun éloignement n'est possible tant que ce délai court ou que le juge n'a pas statué (article 68, §§ 4 et 5). Attention : les articles 39/57 et 39/70 de la loi du 15 décembre 1980 (délais et effet suspensif devant le Conseil du contentieux des étrangers) ont été abrogés par la loi du 17 juin 2026 : vérifiez les nouvelles règles de procédure.
+**Pourquoi.** Le législateur veut traiter plus vite les demandes qu'il présume moins susceptibles d'aboutir (considérant 56). Mais la Cour de justice rappelle que l'accélération se fait « sans préjudice de la réalisation d'un examen approprié et exhaustif et de l'accès effectif du demandeur aux garanties et aux principes fondamentaux » (Alace et Canpelli, 1er août 2025, point 102).
 
-Comment l'éviter ou en sortir :
-- vulnérabilité : si le soutien nécessaire ne peut être fourni dans la procédure accélérée, en particulier pour les victimes de torture, de viol ou d'autres formes graves de violence, l'autorité « n'applique pas, ou cesse d'appliquer » cette procédure (article 21, § 2). L'évaluation des besoins de garanties procédurales spéciales commence dès la présentation de la demande et se termine dans les 30 jours (article 20) : signaler tôt, produire des attestations médicales ou psychologiques ;
-- complexité : des questions de fait ou de droit trop complexes justifient le retour à la procédure ordinaire (article 42, § 2) ;
-- mineurs non accompagnés : cas limités (article 42, § 3) ; la Cour constitutionnelle avait déjà annulé l'application plus large de la procédure accélérée à ces mineurs (arrêt n° 23/2021 du 25 février 2021) ;
-- seuil de 20 % : il ne joue pas si la situation du pays a changé, ni pour une catégorie de personnes pour qui ce taux n'est pas représentatif (article 42, § 1er, j)) ;
-- retard : invoquer les motifs valables (voir la section « délai » de Probasile) ;
-- pays d'origine sûr : renverser la présomption par des raisons sérieuses personnelles.
+**Ce qui ne change pas.** L'examen se fait « dans le respect des principes de base et des garanties fondamentales » (article 42, § 1er). Il reste objectif, impartial et individualisé, sur la base d'informations précises et actualisées sur le pays (article 34, § 2). La personne a la possibilité d'un entretien sur le fond (article 12). Elle garde droit à l'interprète, à l'assistance juridique et à l'évaluation de ses besoins particuliers.
+
+**Ce qui change.**
+- Délai d'examen : trois mois au plus à compter de l'introduction de la demande (article 35, § 3), contre six mois en procédure ordinaire (article 35, § 4).
+- Délai de recours : entre cinq et dix jours (article 67, § 7, a)), contre deux semaines à un mois en procédure ordinaire (article 67, § 7, b)).
+- « Manifestement infondée » : un rejet peut recevoir cette qualification si le droit national le prévoit (article 39, § 4). En Belgique, c'est possible dans les cas de l'article 57/6/1, § 1er, a) à j), mais jamais pour un mineur non accompagné (article 57/6/1, § 2).
+- Pas d'effet suspensif automatique du recours (article 68, § 3, a), i)). Il faut demander au juge l'autorisation de rester pendant le recours, dans un délai d'au moins cinq jours après la notification. Aucun éloignement n'est possible tant que ce délai court ou que le juge n'a pas statué, et l'assistance juridique gratuite est due sur demande (article 68, §§ 4 et 5).
+- Attention : les articles 39/57 et 39/70 de la loi du 15 décembre 1980 (délais et effet suspensif devant le Conseil du contentieux des étrangers) ont été abrogés par la loi du 17 juin 2026. Vérifiez les délais belges actuels avant tout recours.
+
+**Comment l'éviter ou en sortir.**
+- Vulnérabilité : si le soutien nécessaire ne peut être fourni dans la procédure accélérée, l'autorité « n'applique pas, ou cesse d'appliquer » cette procédure, en particulier pour les victimes de torture, de viol ou d'autres formes graves de violence (article 21, § 2). L'évaluation des besoins de garanties procédurales spéciales commence dès la présentation de la demande et se termine dans les 30 jours (article 20). Il faut donc signaler tôt et produire des attestations médicales ou psychologiques.
+- Complexité : des questions de fait ou de droit trop complexes justifient le passage à la procédure ordinaire (article 42, § 2). La personne en est informée.
+- Mineurs non accompagnés : seulement dans les cas de l'article 42, § 3. La Cour constitutionnelle avait déjà annulé l'application plus large de la procédure accélérée à ces mineurs (arrêt n° 23/2021 du 25 février 2021).
+- Seuil de 20 % : voir l'entrée suivante.
+- Retard : invoquer les motifs valables (voir la section « délai » de Probasile).
+- Pays d'origine sûr : renverser la présomption par des raisons sérieuses personnelles (voir l'entrée « on peut toujours demander la protection »).
+- Procédure à la frontière : elle n'est pas appliquée, ou cesse de l'être, notamment pour des raisons médicales, y compris de santé mentale, ou lorsque le soutien nécessaire ne peut être fourni aux personnes ayant des besoins particuliers (article 53, § 2).
+
+## 2026-09-29 | Seuil de 20 % : où trouver le taux et comment le contester
+Textes : REG2024-1348 art. 34, 39, 42, § 1er, j), 42, § 3, e), 45 et considérant 56 ; LOI1980 art. 57/6/1, § 2 ; EUROSTAT-20 ; EUROSTAT-FINALES ; EUAA-TAUX ; EUAA-ORIENTATION ; CGRA-CHIFFRES
+Blocs : Seuil de 20 % : contester l’examen accéléré fondé sur la nationalité
+Importance : haute
+Lien : https://ec.europa.eu/eurostat/documents/d/migration-asylum/countries-of-citizenship-with-an-asylum-recognition-rate-of-20-or-lower-1
+Lien : https://ec.europa.eu/eurostat/databrowser/view/migr_asydcfina/default/table?lang=fr
+Lien : https://www.euaa.europa.eu/asylum-knowledge/country-guidance
+Lien : https://www.cgra.be/fr/chiffres
+**La règle.** L'examen est accéléré lorsque la personne a la nationalité d'un pays pour lequel « la proportion de décisions prises par l'autorité responsable de la détermination qui octroient une protection internationale est, selon les dernières données disponibles d'Eurostat concernant la moyenne annuelle à l'échelle de l'Union, de 20 % ou moins » (règlement (UE) 2024/1348, article 42, § 1er, j) ; pour les mineurs non accompagnés, article 42, § 3, e)). Ce critère ne vise que la procédure : il ne permet jamais, à lui seul, de refuser la protection, et l'examen reste individuel (article 34, § 2). À la frontière, il rend aussi la procédure à la frontière obligatoire (article 45, § 1er).
+
+**Où trouver le taux.** Eurostat publie une liste établie « solely for the purpose » du règlement : « Countries of citizenship with an asylum recognition rate for international protection of 20% or lower ». La version actuelle porte sur l'année 2025, avec des données extraites le 21 mai 2026. Le calcul :
+- au numérateur, les décisions qui octroient le statut de réfugié ou la protection subsidiaire (les statuts humanitaires nationaux ne comptent pas) ;
+- au dénominateur, toutes les décisions de première instance ;
+- pour l'Union sans le Danemark, et uniquement les décisions de première instance, donc sans les recours.
+La base de données correspondante s'appelle migr_asydec1pc. Un taux marqué « (u) » est peu fiable : il repose sur moins de 30 décisions. Les liens s'ouvrent depuis Probasile : Vérifier la législation… → Ouvrir les pages dans le navigateur.
+
+**Comment le contester.**
+1. Vérifier le chiffre. Seul compte le dernier taux annuel d'Eurostat, pour l'ensemble de l'Union. Ni le taux belge, ni un taux qui inclut les statuts humanitaires, ni une année plus ancienne ne correspondent au critère. Un taux marqué « (u) » ne peut pas fonder sérieusement l'accélération.
+2. Changement important dans le pays depuis la publication des données (article 42, § 1er, j)). Exemples : coup d'État, conflit, vague de répression, nouvelle loi pénale. Si l'Agence de l'Union européenne pour l'asile (AUEA) a constaté un tel changement dans une note d'orientation, les États doivent s'y référer (article 42, § 1er, alinéa 2).
+3. Catégorie de personnes pour qui le taux n'est pas représentatif. Le texte vise « une catégorie de personnes pour lesquelles la proportion de 20 % ou moins ne peut être considérée comme représentative de leurs besoins en matière de protection, compte tenu, entre autres, des différences importantes entre les décisions prises en première instance et les décisions finales ». Le considérant 56 précise qu'il s'agit notamment d'un « motif spécifique de persécution ». Exemples : opposants politiques, personnes LGBTIQ, femmes exposées à des violences de genre, minorités. Les notes d'orientation de l'AUEA identifient souvent ces profils à risque.
+4. Première instance contre décisions finales. Le taux ignore les recours gagnés. Eurostat publie séparément les décisions finales (base migr_asydcfina). L'AUEA souligne que ses taux « do not account for cases decided by the judiciary », et que le taux de reconnaissance en recours était de 19 % en 2024 pour l'ensemble des nationalités (fiche EUAA/2025/37). Pour une nationalité donnée, un écart important entre la première instance et les décisions finales montre que le taux n'est pas représentatif. Le taux de protection du CGRA pour cette nationalité (statistiques mensuelles) peut aussi aider.
+5. Le considérant 56 est clair : dans ces deux cas d'exception, « l'examen de la demande ne devrait pas être accéléré ». Demandez au CGRA de ne pas appliquer la procédure accélérée ou de cesser de l'appliquer, et à tout le moins de motiver sa décision sur ces exceptions.
+6. Pas de « manifestement infondée » sur ce seul motif. Le règlement ne permet cette qualification que si le droit national l'autorise (article 39, § 4). Or l'article 57/6/1, § 2, ne l'autorise que dans les situations a) à j) de son § 1er, parmi lesquelles le seuil de 20 % ne figure pas.
+7. Les autres voies restent ouvertes : vulnérabilité (article 21, § 2), complexité (article 42, § 2), raisons médicales à la frontière (article 53, § 2).
 
 ## 2026-09-29 | Pays tiers sûr : ce qui change avec le règlement (UE) 2026/463
-Textes : REG2024-1348 art. 38, 57, 59, 68 ; REG2026-463 ; ILIAS-AHMED
+Textes : REG2024-1348 art. 38, 57, 59, 68 ; REG2026-463 ; CJUE-LH-2020 ; ILIAS-AHMED
 Blocs : Pays tiers sûr : conditions strictes et évaluation individuelle
 Importance : haute
 Lien : https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:02024R1348-20260227
@@ -91,7 +137,7 @@ Ce qui change : le lien exigé entre la personne et le pays tiers. Depuis le rè
 - un « lien de connexion » rendant raisonnable que la personne s'y rende (par exemple de la famille ou un séjour antérieur) ;
 - un simple transit par ce pays « sur le trajet vers l'Union » ;
 - un accord ou un arrangement avec ce pays, qui l'oblige à examiner le bien-fondé des demandes de protection des personnes concernées.
-C'est un élargissement important : la Cour de justice avait jugé que le seul transit ne suffisait pas sous la directive 2013/32/UE (arrêt LH, 19 mars 2020, C-564/18).
+C'est un élargissement important. Sous la directive 2013/32/UE, la Cour de justice avait jugé contraire au droit de l'Union une réglementation déclarant irrecevable une demande au seul motif que la personne était arrivée par un État où elle n'était pas exposée à la persécution ou dans lequel était assuré un degré de protection adéquat (arrêt LH, 19 mars 2020, C-564/18, dispositif, point 1).
 
 Ce qui ne change pas, et qu'il faut invoquer :
 - l'évaluation individuelle : le concept ne s'applique pas si la personne apporte des éléments montrant qu'il ne lui est pas applicable (article 59, § 5, a)) — transit bref ou forcé, violences subies dans ce pays, absence réelle d'accès à l'asile, risque de renvoi en chaîne ;
