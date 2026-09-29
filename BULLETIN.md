@@ -105,15 +105,14 @@ Lien : https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:02024R1348-2026
 
 **Quand elle s'applique.** Seulement dans les cas énumérés par l'article 42, § 1er, du règlement. Le règlement dit que l'autorité « accélère » : dans ces cas, ce n'est plus une simple faculté.
 
-- a) la personne n'a soulevé que des questions sans pertinence pour la protection ;
-- b) déclarations manifestement incohérentes, contradictoires, fausses ou peu plausibles, ou qui contredisent les informations disponibles sur le pays d'origine ;
-- c) tromperie intentionnelle sur l'identité ou la nationalité (faux documents, destruction de papiers de mauvaise foi) ;
-- d) demande présentée uniquement pour retarder ou empêcher un éloignement ;
-- e) pays d'origine sûr (liste belge ou liste de l'Union) ;
-- f) danger pour la sécurité nationale ou l'ordre public ;
-- g) demande ultérieure qui n'est pas irrecevable ;
-- h) et i) demande qui n'a pas été présentée « le plus rapidement possible », sans motif valable ;
-- j) nationalité d'un pays dont le taux de reconnaissance à l'échelle de l'Union est de 20 % ou moins (voir l'entrée suivante).
+a) la personne n'a soulevé que des questions sans pertinence pour la protection ;
+b) déclarations manifestement incohérentes, contradictoires, fausses ou peu plausibles, ou qui contredisent les informations disponibles sur le pays d'origine ;
+c) tromperie intentionnelle sur l'identité ou la nationalité (faux documents, destruction de papiers de mauvaise foi) ;
+d) demande présentée uniquement pour retarder ou empêcher un éloignement ;
+e) pays d'origine sûr (liste belge ou liste de l'Union) ;
+f) danger pour la sécurité nationale ou l'ordre public ;
+g) demande ultérieure qui n'est pas irrecevable ;
+h) et i) demande qui n'a pas été présentée « le plus rapidement possible », sans motif valable ;j) nationalité d'un pays dont le taux de reconnaissance à l'échelle de l'Union est de 20 % ou moins (voir l'entrée suivante).
 Pour les mineurs non accompagnés, la liste est plus courte (article 42, § 3) : pays d'origine sûr, danger pour la sécurité, demande ultérieure, tromperie sur l'identité, seuil de 20 %.
 
 **Pourquoi.** Le législateur veut traiter plus vite les demandes qu'il présume moins susceptibles d'aboutir (considérant 56). Mais la Cour de justice rappelle que l'accélération se fait « sans préjudice de la réalisation d'un examen approprié et exhaustif et de l'accès effectif du demandeur aux garanties et aux principes fondamentaux » (Alace et Canpelli, 1er août 2025, point 102).
@@ -309,15 +308,15 @@ Link: https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX:02024R1348-20260
 
 **Wanneer ze geldt.** Alleen in de gevallen die artikel 42, § 1, van de verordening opsomt. De verordening zegt dat de autoriteit het onderzoek « versnelt »: in die gevallen is het geen loutere mogelijkheid meer.
 
-- a) de persoon heeft alleen punten aangevoerd die niet relevant zijn voor de bescherming;
-- b) kennelijk inconsistente, tegenstrijdige, valse of onwaarschijnlijke verklaringen, of verklaringen die in strijd zijn met de beschikbare informatie over het land van herkomst;
-- c) opzettelijke misleiding over identiteit of nationaliteit (valse documenten, te kwader trouw vernietigde papieren);
-- d) verzoek alleen ingediend om een verwijdering uit te stellen of te verhinderen;
-- e) veilig land van herkomst (Belgische lijst of lijst van de Unie);
-- f) gevaar voor de nationale veiligheid of de openbare orde;
-- g) volgend verzoek dat niet niet-ontvankelijk is;
-- h) en i) verzoek dat niet « zo spoedig mogelijk » is gedaan, zonder geldige reden;
-- j) nationaliteit van een land waarvoor de erkenningsgraad op het niveau van de Unie 20 % of minder bedraagt (zie de volgende rubriek).
+a) de persoon heeft alleen punten aangevoerd die niet relevant zijn voor de bescherming;
+b) kennelijk inconsistente, tegenstrijdige, valse of onwaarschijnlijke verklaringen, of verklaringen die in strijd zijn met de beschikbare informatie over het land van herkomst;
+c) opzettelijke misleiding over identiteit of nationaliteit (valse documenten, te kwader trouw vernietigde papieren);
+d) verzoek alleen ingediend om een verwijdering uit te stellen of te verhinderen;
+e) veilig land van herkomst (Belgische lijst of lijst van de Unie);
+f) gevaar voor de nationale veiligheid of de openbare orde;
+g) volgend verzoek dat niet niet-ontvankelijk is;
+h) en i) verzoek dat niet « zo spoedig mogelijk » is gedaan, zonder geldige reden;
+j) nationaliteit van een land waarvoor de erkenningsgraad op het niveau van de Unie 20 % of minder bedraagt (zie de volgende rubriek).
 
 Voor niet-begeleide minderjarigen is de lijst korter (artikel 42, § 3): veilig land van herkomst, gevaar voor de veiligheid, volgend verzoek, misleiding over de identiteit, drempel van 20 %.
 
@@ -516,15 +515,15 @@ Link: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:02024R1348-20260
 
 **Wann es gilt.** Nur in den Fällen, die Artikel 42 Absatz 1 der Verordnung aufzählt. Die Verordnung sagt, dass die Behörde die Prüfung « beschleunigt »: In diesen Fällen handelt es sich nicht mehr um eine bloße Möglichkeit.
 
-- a) die Person hat nur Umstände vorgebracht, die für den Schutz nicht von Belang sind;
-- b) offensichtlich inkohärente, widersprüchliche, falsche oder unwahrscheinliche Angaben oder Angaben, die im Widerspruch zu den verfügbaren Informationen über das Herkunftsland stehen;
-- c) vorsätzliche Täuschung über Identität oder Staatsangehörigkeit (gefälschte Dokumente, böswillig vernichtete Papiere);
-- d) Antrag nur gestellt, um eine Abschiebung zu verzögern oder zu verhindern;
-- e) sicherer Herkunftsstaat (belgische Liste oder Liste der Union);
-- f) Gefahr für die nationale Sicherheit oder die öffentliche Ordnung;
-- g) Folgeantrag, der nicht unzulässig ist;
-- h) und i) Antrag, der nicht « so bald wie möglich » gestellt wurde, ohne triftigen Grund;
-- j) Staatsangehörigkeit eines Landes, dessen Anerkennungsquote auf Unionsebene 20 % oder weniger beträgt (siehe den folgenden Eintrag).
+a) die Person hat nur Umstände vorgebracht, die für den Schutz nicht von Belang sind;
+b) offensichtlich inkohärente, widersprüchliche, falsche oder unwahrscheinliche Angaben oder Angaben, die im Widerspruch zu den verfügbaren Informationen über das Herkunftsland stehen;
+c) vorsätzliche Täuschung über Identität oder Staatsangehörigkeit (gefälschte Dokumente, böswillig vernichtete Papiere);
+d) Antrag nur gestellt, um eine Abschiebung zu verzögern oder zu verhindern;
+e) sicherer Herkunftsstaat (belgische Liste oder Liste der Union);
+f) Gefahr für die nationale Sicherheit oder die öffentliche Ordnung;
+g) Folgeantrag, der nicht unzulässig ist;
+h) und i) Antrag, der nicht « so bald wie möglich » gestellt wurde, ohne triftigen Grund;
+j) Staatsangehörigkeit eines Landes, dessen Anerkennungsquote auf Unionsebene 20 % oder weniger beträgt (siehe den folgenden Eintrag).
 
 Für unbegleitete Minderjährige ist die Liste kürzer (Artikel 42 Absatz 3): sicherer Herkunftsstaat, Gefahr für die Sicherheit, Folgeantrag, Täuschung über die Identität, Schwelle von 20 %.
 
