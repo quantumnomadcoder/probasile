@@ -7,7 +7,7 @@
 
 <p align="center">
 <img src="https://img.shields.io/badge/licence-GPL--3.0-blue" alt="Licence GPL-3.0">
-<img src="https://img.shields.io/badge/version-1.0.0-orange" alt="Version 1.0.0">
+<img src="https://img.shields.io/badge/version-1.0.2-orange" alt="Version 1.0.2">
 <img src="https://img.shields.io/badge/Windows%20%7C%20macOS%20%7C%20Linux-lightgrey" alt="Windows, macOS, Linux">
 <img src="https://img.shields.io/badge/langue-fran%C3%A7ais-lightgrey" alt="En français">
 </p>
@@ -191,7 +191,7 @@ Il dit ensuite, en langage courant :
 - **quels blocs relire**, parce qu'ils citent un article modifié ou abrogé ;
 - quels pays ont été ajoutés à la liste des pays sûrs, ou retirés.
 
-Le rapport détaillé montre le texte de l'article **avant / après**, avec les liens officiels.
+Le rapport détaillé montre le texte de l'article **avant / après**, avec les liens officiels. Si un site refuse le programme, il suffit d'enregistrer les pages depuis le navigateur (ou la version consolidée d'EUR-Lex en PDF) : Probasile les analyse de la même façon.
 
 Le **[bulletin de veille](BULLETIN.md)**, rédigé par des juristes, complète le rapport : ce que la réforme change concrètement, les arrêts importants, les nouvelles versions de Probasile. Il se lit dans le programme ou directement sur cette page.
 

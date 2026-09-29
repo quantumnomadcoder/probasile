@@ -310,25 +310,127 @@ def noms_pays_fr():
     return noms
 
 
+def _cle_pays(s):
+    """Clé tolérante aux accents perdus : « Herzégovine » et « Herz?govine » -> « herzgovine »."""
+    s = re.sub(r"[^\x00-\x7f]", "", s or "").lower()
+    return re.sub(r"[^a-z0-9]+", " ", s).strip()
+
+
 def pays_de_texte(texte):
     """Pays cités dans le dispositif d'un arrêté « pays d'origine sûrs »."""
-    t = " " + norm(texte_html(texte) if "<" in (texte or "") else texte) + " "
+    t = " " + _cle_pays(texte_html(texte) if "<" in (texte or "") else texte) + " "
     trouves = set()
-    for n, fr in noms_pays_fr().items():
-        if len(n) >= 4 and (" %s " % n) in t:
+    for fr in set(noms_pays_fr().values()):
+        k = _cle_pays(fr)
+        if len(k) >= 4 and (" %s " % k) in t:
             trouves.add(fr)
     return sorted(trouves)
 
 
+PAYS_SURS_RE = re.compile(r"pays d.{0,2}origine s.{0,6}rs", re.I)
+
+
 def reconnaitre(texte):
-    """Type d'une page enregistrée : justel, eurlex, arrexec ou ""."""
-    if 'data-celex=' in texte or "eur-lex.europa.eu" in texte[:20000] and "CELEX" in texte:
+    """Type d'une page ou d'un PDF enregistré :
+    justel (texte consolidé d'une loi / d'un arrêté), ar_pays_surs, arrexec (liste des arrêtés d'exécution),
+    eurlex (page EUR-Lex), eurlex_consolide (texte consolidé EUR-Lex, HTML ou PDF), ou ""."""
+    tete = texte[:6000]
+    if re.search(r"Texte consolid\S* ?:", tete) and re.search(r"\b0\d{4}[A-Z]\d{4}\s*[—-]\s*FR\s*[—-]", texte[:20000]):
+        return "eurlex_consolide"
+    if 'data-celex=' in texte or ("eur-lex.europa.eu" in texte[:20000] and "CELEX" in texte):
         return "eurlex"
-    if re.search(r"arr.t.s d.ex.cution", texte[:4000], re.I) and 'name="Art.' not in texte and "sw_ad" not in texte:
+    if not ("Justel" in texte[:3000] or "ejustice" in texte[:20000]):
+        return ""
+    m = re.search(r'class="list-item--title">(.*?)</p>', texte, re.S)
+    titre = m.group(1) if m else ""
+    nb_art = len(re.findall(r'<a name="Art\.', texte))
+    if PAYS_SURS_RE.search(titre):
+        return "ar_pays_surs"
+    nb_entrees = len(re.findall(r"\d{1,2}(?:er)?\s+[A-Za-zÀ-ÿ\ufffd?]{3,12}\s+\d{4}\s*\.\s*-\s*(?:<[^>]+>\s*)*Arr", texte))
+    if nb_entrees >= 5 and nb_art < 5:
         return "arrexec"
-    if "Justel" in texte[:3000] or "ejustice" in texte[:20000]:
+    if nb_art >= 1 or 'id="sw_ad"' in texte:
         return "justel"
-    return ""
+    return "justel_partiel"
+
+
+def lire_ar_pays_surs(texte):
+    """Page Justel d'un arrêté « pays d'origine sûrs » -> {date, titre, lien, pays} (pays de l'article 1er)."""
+    j = lire_justel(texte)
+    date = ""
+    m = re.match(r"\s*(\d{1,2}(?:er)?\s+\S+\s+\d{4})", j.get("titre", ""))
+    if m:
+        date = date_iso(m.group(1))
+    arts = j.get("articles", {})
+    premier = next((v for k, v in arts.items() if re.match(r"1(er)?$", k)), None) or \
+        (next(iter(arts.values())) if arts else None)
+    pays = pays_de_texte(premier["texte"]) if premier else pays_de_texte(texte)
+    m = re.search(r'href="(https://www\.ejustice\.just\.fgov\.be/eli/[^"]+/justel)"', texte)
+    return {"date": date, "titre": j.get("titre", ""), "lien": m.group(1) if m else "", "pays": pays}
+
+
+def lire_eurlex_consolide(texte):
+    """Texte consolidé EUR-Lex (page HTML ou PDF converti en texte) : actes modificatifs (►M1…), rectificatifs
+    (►C1…) et articles qu'ils touchent (repères ▼M1 / ►M1 placés dans le texte)."""
+    plat = texte_html(texte) if "<" in texte[:2000] else texte
+    out = {"type": "eurlex_consolide", "celex": "", "date": "", "modificatifs": [], "rectificatifs": [],
+           "articles": {}}
+    m = re.search(r"\b0(\d{4})([A-Z])(\d{4})\s*[—-]\s*FR\s*[—-]\s*(\d{2})\.(\d{2})\.(\d{4})", plat)
+    if m:
+        out["celex"] = "3%s%s%s" % (m.group(1), m.group(2), m.group(3))
+        out["date"] = "%s-%s-%s" % (m.group(6), m.group(5), m.group(4))
+    for m in re.finditer(r"►(M\d+)[^\w\n]*((?:R\S*GLEMENT|DIRECTIVE|D\S*CISION)[^\n]*?\(UE\)\s*\d{4}/\d+)[^►]{0,200}?"
+                         r"du\s+(\d{1,2}(?:er)?\s+\S+\s+\d{4})", plat, re.I):
+        if m.group(1) not in {x["code"] for x in out["modificatifs"]}:
+            acte = " ".join(m.group(2).split())
+            acte = acte[:1] + acte[1:].lower().replace("(ue)", "(UE)")
+            out["modificatifs"].append({"code": m.group(1), "acte": acte, "date": date_iso(m.group(3))})
+    for m in re.finditer(r"►(C\d+)[^\w\n]*Rectificatif,?\s*([^\n(]*)", plat):
+        if m.group(1) not in {x["code"] for x in out["rectificatifs"]}:
+            md = re.search(r"du\s+(\d{1,2}\.\d{1,2}\.\d{4})", m.group(2))
+            acte = ("rectificatif du %s" % date_fr(date_iso(md.group(1)))) if md else "rectificatif"
+            out["rectificatifs"].append({"code": m.group(1), "acte": acte})
+    # liste des pays d'origine sûrs au niveau de l'Union (annexe insérée par le règlement (UE) 2026/464)
+    m = re.search(r"d.sign\S*s comme pays d.origine s\S*rs au\s+niveau de l.Union\s*:(.{0,700})", plat, re.S)
+    if m:
+        bloc = re.split(r"\n\s*\(\s*\d*\s*\)|\nHaut\n", m.group(1))[0]
+        out["pays_ue"] = pays_de_texte(bloc)
+    # articles touchés : intitulé « Article N » / « ANNEXE X » en cours ; un repère placé juste avant un
+    # intitulé (ligne suivante) se rapporte à cet intitulé
+    debut = plat.find("▼B")
+    lignes = [l for l in plat[debut if debut > 0 else 0:].split("\n") if l.strip()
+              and not re.match(r"\s*(EUR-Lex - 0\d{4}|\d+ of \d+ \d{2}/\d{2}/\d{4})", l)]  # pieds de page du PDF
+    tete = re.compile(r"\s*(Article\s+(\d+\w*|premier)|ANNEXE\s+([IVX]+))\s*$")
+
+    def nom_tete(mm):
+        if mm.group(3):
+            return "annexe " + mm.group(3)
+        return "1" if mm.group(2) == "premier" else mm.group(2)
+    courant = ""
+    for k, ligne in enumerate(lignes):
+        mm = tete.match(ligne)
+        if mm:
+            courant = nom_tete(mm)
+        codes = re.findall(r"[▼►]((?:M|C)\d+)", ligne)
+        if not codes:
+            continue
+        cible = courant
+        if re.fullmatch(r"\s*▼(?:M|C)\d+[^\w]*", ligne) and k + 1 < len(lignes):
+            ms = tete.match(lignes[k + 1])
+            if ms:
+                cible = nom_tete(ms)
+        for code in codes:
+            if cible:
+                lst = out["articles"].setdefault(code, [])
+                if cible not in lst:
+                    lst.append(cible)
+    return out
+
+
+def texte_pdf(chemin):
+    """Texte d'un PDF (pypdf)."""
+    from pypdf import PdfReader
+    return "\n".join((p.extract_text() or "") for p in PdfReader(chemin).pages)
 
 
 # ---------------------------------------------------------------------------------------------------
@@ -478,6 +580,14 @@ def comparer_justel(tid, nom, ancien, nouveau, cites):
                    "cites": {a: cites[a] for a in touches}, "priorite": bool(touches)})
     # articles cités : nouvelles annotations, abrogation, texte différent
     anc_arts, nouv_arts = ancien.get("articles", {}), nouveau.get("articles", {})
+    if len(nouv_arts) < max(20, len(anc_arts) // 2):
+        # page lue incomplète (texte non chargé, page de sommaire, liste des arrêtés…) : on ne conclut rien
+        ch.append({"genre": "info", "texte": tid, "nom": nom, "priorite": False,
+                   "message": "%s : la page lue ne contient pas le texte complet (%d articles au lieu de %d) ; les "
+                              "articles n'ont pas pu être comparés. Enregistrez la page entière du texte consolidé et "
+                              "utilisez « Analyser des pages enregistrées… »." % (majuscule(court(nom)), len(nouv_arts),
+                                                                                  len(anc_arts))})
+        return ch
     for art, blocs in cites.items():
         cand = [k for k in nouv_arts if cle_article(k) == cle_article(art)]
         n = nouv_arts.get(cand[0]) if cand else None
@@ -510,10 +620,32 @@ def comparer_eurlex(tid, nom, ancien, nouveau, cites):
         return ch
     connues = set(ancien.get("versions", []))
     ref = max(connues) if connues else ""
+    cons = nouveau.get("consolide") or {}
     for v in nouveau.get("versions", []):
         if v not in connues and v > ref:
-            ch.append({"genre": "ue_version", "texte": tid, "nom": nom, "date": v, "celex": nouveau.get("celex", ""),
-                       "cites": cites or {}, "priorite": bool(cites)})
+            c = {"genre": "ue_version", "texte": tid, "nom": nom, "date": v, "celex": nouveau.get("celex", ""),
+                 "cites": cites or {}, "priorite": bool(cites)}
+            if cons.get("date") == v:
+                anc_cons = ancien.get("consolide") or {}
+                connus_codes = {(x["code"], x.get("acte")) for x in anc_cons.get("modificatifs", []) +
+                                anc_cons.get("rectificatifs", [])}
+                cons = dict(cons)
+                cons["modificatifs"] = [x for x in cons.get("modificatifs", []) if (x["code"], x.get("acte")) not in connus_codes]
+                cons["rectificatifs"] = [x for x in cons.get("rectificatifs", []) if (x["code"], x.get("acte")) not in connus_codes]
+                nouveaux_codes = {x["code"] for x in cons["modificatifs"] + cons["rectificatifs"]}
+                cons["articles"] = {k: a for k, a in cons.get("articles", {}).items() if k in nouveaux_codes}
+                c["consolide"] = cons
+                touches = {code: arts for code, arts in cons.get("articles", {}).items()}
+                c["cites_touches"] = sorted({a for a in (cites or {}) for arts in touches.values() if a in arts},
+                                            key=lambda x: cle_article(x) or ())
+                c["priorite"] = bool(c["cites_touches"])
+            ch.append(c)
+    anc_c = ancien.get("consolide") or {}
+    if cons.get("pays_ue") and anc_c.get("pays_ue") and set(cons["pays_ue"]) != set(anc_c["pays_ue"]):
+        ch.append({"genre": "ue_pays_surs", "texte": tid, "nom": nom, "date": cons.get("date", ""),
+                   "ajoutes": sorted(set(cons["pays_ue"]) - set(anc_c["pays_ue"])),
+                   "retires": sorted(set(anc_c["pays_ue"]) - set(cons["pays_ue"])),
+                   "liste": cons["pays_ue"], "celex": nouveau.get("celex", ""), "priorite": True})
     if nouveau.get("fin_validite") and nouveau["fin_validite"] != ancien.get("fin_validite"):
         ch.append({"genre": "ue_fin", "texte": tid, "nom": nom, "date": nouveau["fin_validite"],
                    "celex": nouveau.get("celex", ""), "cites": cites or {}, "priorite": True})
@@ -575,6 +707,16 @@ class Verification:
             return EURLEX_URL.format(celex=t["adresse"])
         return t["adresse"]
 
+    def _garder(self, tid, texte):
+        """Copie de la page lue (dossier veille/pages) : utile pour comprendre un résultat inattendu."""
+        try:
+            d = os.path.join(dossier_veille(self.base), "pages")
+            os.makedirs(d, exist_ok=True)
+            with open(os.path.join(d, "%s.html" % re.sub(r"[^\w.-]", "_", tid)), "w", encoding="utf-8") as f:
+                f.write(texte)
+        except Exception:
+            pass
+
     def en_ligne(self):
         """Lit toutes les pages en ligne (une par texte, plus la liste des arrêtés d'exécution)."""
         for t in self.textes:
@@ -583,9 +725,30 @@ class Verification:
             url = self.url_de(t)
             self.log("  %s…" % t["nom"][:70])
             try:
-                self.analyser(t, self._get(url))
+                texte = self._get(url)
+                self._garder(t["id"], texte)
+                self.analyser(t, texte)
             except Exception as e:
                 self.erreurs[t["id"]] = "page non lue (%s) : %s" % (e.__class__.__name__, url)
+                continue
+            lec = self.lectures.get(t["id"]) or {}
+            if t["type"] == "justel" and len(lec.get("articles", {})) < 20:
+                self.erreurs[t["id"]] = ("page lue sans le texte des articles (%d articles) : %s — utilisez « Ouvrir les "
+                                         "pages dans le navigateur » puis « Analyser des pages enregistrées… »"
+                                         % (len(lec.get("articles", {})), url))
+                self.lectures.pop(t["id"], None)
+                continue
+            if t["type"] == "eurlex" and lec.get("versions"):
+                v = lec["versions"][-1]
+                celex_c = "0%s-%s" % (lec.get("celex", t["adresse"])[1:], v.replace("-", ""))
+                try:
+                    cons = lire_eurlex_consolide(self._get(
+                        "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:%s" % celex_c))
+                    if not cons.get("date"):
+                        cons["date"] = v
+                    lec["consolide"] = cons
+                except Exception:
+                    pass
         for t in self.textes:
             if t["type"] != "pays_surs":
                 continue
@@ -596,15 +759,20 @@ class Verification:
                 continue
             try:
                 self.log("  Arrêtés d'exécution (pays d'origine sûrs)…")
-                lec = {"type": "pays_surs", "arretes": lire_arrexec(self._get(lien))}
+                page = self._get(lien)
+                self._garder(t["id"] + "_liste", page)
+                lec = {"type": "pays_surs", "arretes": lire_arrexec(page)}
                 if lec["arretes"]:
                     dernier = lec["arretes"][-1]
                     if dernier.get("lien"):
                         try:
-                            lec["pays"] = pays_de_texte(self._get(dernier["lien"]))
-                            lec["pays_de"] = dernier["date"]
+                            ar = lire_ar_pays_surs(self._get(dernier["lien"]))
+                            lec["pays"], lec["pays_de"] = ar["pays"], dernier["date"]
                         except Exception:
                             pass
+                else:
+                    self.erreurs[t["id"]] = ("aucun arrêté « pays d'origine sûrs » trouvé dans la liste des arrêtés "
+                                             "d'exécution : enregistrez la page du dernier arrêté et analysez-la")
                 self.lectures[t["id"]] = lec
             except Exception as e:
                 self.erreurs[t["id"]] = "liste des arrêtés d'exécution non lue (%s)" % e.__class__.__name__
@@ -616,46 +784,105 @@ class Verification:
             self.lectures[t["id"]] = lire_eurlex(texte)
 
     def pages_enregistrees(self, chemins):
-        """Analyse des pages enregistrées à la main (mode « liens seulement »)."""
+        """Analyse des pages (HTML), PDF ou textes enregistrés à la main (mode « liens seulement »)."""
         par_numac = {}
         for t in self.textes:
             m = re.search(r"/(\d{10})/justel", t.get("adresse", ""))
             if m:
                 par_numac[m.group(1)] = t
+        pays_t = next((x for x in self.textes if x["type"] == "pays_surs"), None)
         for c in chemins:
-            with open(c, "rb") as f:
-                texte = decoder(f.read())
+            nom = os.path.basename(c)
+            try:
+                if c.lower().endswith(".pdf"):
+                    texte = texte_pdf(c)
+                else:
+                    with open(c, "rb") as f:
+                        texte = decoder(f.read())
+            except Exception as e:
+                self.log("  %s : illisible (%s)" % (nom, e))
+                continue
             genre = reconnaitre(texte)
             if genre == "justel":
                 lec = lire_justel(texte)
                 t = par_numac.get(lec.get("numac"))
-                if t:
+                if t and len(lec["articles"]) >= 20:
                     self.lectures[t["id"]] = lec
-                    self.log("  %s : %s" % (os.path.basename(c), t["nom"][:60]))
+                    self.log("  %s : %s (%d articles, %d modifications)" % (nom, t["nom"][:50], len(lec["articles"]),
+                                                                            len(lec["modifications"])))
+                elif t:
+                    self.log("  %s : page incomplète de « %s » (%d articles lus) : enregistrez la page entière du "
+                             "texte consolidé (adresse …/justel)." % (nom, t["nom"][:40], len(lec["articles"])))
                 else:
-                    self.log("  %s : page Justel d'un texte non suivi (numac %s)" % (os.path.basename(c), lec.get("numac")))
-            elif genre == "eurlex":
-                lec = lire_eurlex(texte)
-                t = next((x for x in self.textes if x["type"] == "eurlex" and x["adresse"] == lec.get("celex")), None)
-                if t:
-                    self.lectures[t["id"]] = lec
-                    self.log("  %s : %s" % (os.path.basename(c), t["nom"][:60]))
-                else:
-                    self.log("  %s : page EUR-Lex d'un acte non suivi (%s)" % (os.path.basename(c), lec.get("celex")))
-            elif genre == "arrexec":
-                t = next((x for x in self.textes if x["type"] == "pays_surs"), None)
-                if t:
-                    self.lectures[t["id"]] = {"type": "pays_surs", "arretes": lire_arrexec(texte)}
-                    self.log("  %s : liste des arrêtés d'exécution" % os.path.basename(c))
+                    self.log("  %s : texte Justel non suivi (numac %s)" % (nom, lec.get("numac")))
+            elif genre == "ar_pays_surs" and pays_t:
+                ar = lire_ar_pays_surs(texte)
+                lec = self.lectures.get(pays_t["id"]) or {"type": "pays_surs", "arretes": []}
+                if ar["date"] and not any(a["date"] == ar["date"] for a in lec["arretes"]):
+                    lec["arretes"].append({"date": ar["date"], "titre": ar["titre"], "lien": ar["lien"]})
+                    lec["arretes"].sort(key=lambda a: a["date"])
+                if ar["date"] and ar["date"] >= max(a["date"] for a in lec["arretes"]):
+                    lec["pays"], lec["pays_de"] = ar["pays"], ar["date"]
+                self.lectures[pays_t["id"]] = lec
+                self.log("  %s : arrêté « pays d'origine sûrs » du %s (%s)" % (nom, date_fr(ar["date"]),
+                                                                            ", ".join(ar["pays"])))
+            elif genre == "arrexec" and pays_t:
+                lec = self.lectures.get(pays_t["id"]) or {"type": "pays_surs", "arretes": []}
+                for a in lire_arrexec(texte):
+                    if not any(x["date"] == a["date"] for x in lec["arretes"]):
+                        lec["arretes"].append(a)
+                lec["arretes"].sort(key=lambda a: a["date"])
+                self.lectures[pays_t["id"]] = lec
+                self.log("  %s : liste des arrêtés d'exécution (%d arrêté(s) « pays sûrs »)" % (nom, len(lec["arretes"])))
+            elif genre in ("eurlex", "eurlex_consolide"):
+                lec = lire_eurlex(texte) if genre == "eurlex" else None
+                cons = lire_eurlex_consolide(texte) if genre == "eurlex_consolide" else None
+                celex = (lec or cons).get("celex")
+                t = next((x for x in self.textes if x["type"] == "eurlex" and x["adresse"] == celex), None)
+                if not t:
+                    self.log("  %s : acte européen non suivi (%s)" % (nom, celex))
+                    continue
+                old = self.lectures.get(t["id"]) or {"type": "eurlex", "celex": celex, "titre": "", "statut": "",
+                                                     "versions": [], "fin_validite": ""}
+                if lec:
+                    lec["consolide"] = old.get("consolide")
+                    old = lec
+                if cons:
+                    if cons["date"] and cons["date"] not in old["versions"]:
+                        old["versions"] = sorted(old["versions"] + [cons["date"]])
+                    old["consolide"] = cons
+                self.lectures[t["id"]] = old
+                self.log("  %s : %s%s" % (nom, t["nom"][:50], (" – version consolidée du %s" % date_fr(cons["date"]))
+                                          if cons else ""))
+            elif genre == "justel_partiel":
+                self.log("  %s : page Justel sans le texte des articles : enregistrez la page entière." % nom)
             else:
-                self.log("  %s : page non reconnue" % os.path.basename(c))
+                self.log("  %s : page non reconnue" % nom)
 
     def liens(self):
         out = [(t["nom"], self.url_de(t)) for t in self.textes if t["type"] != "pays_surs"]
+        user = etat_utilisateur(self.base).get("sources", {})
+        ref = etat_reference().get("sources", {})
         for t in self.textes:
             if t["type"] == "pays_surs":
-                out.append((t["nom"] + " : liste des arrêtés d'exécution de la loi (page de la loi → « arrêtés "
-                            "d'exécution »)", next((x["adresse"] for x in self.textes if x["id"] == t["adresse"]), "")))
+                connu = user.get(t["id"]) or ref.get(t["id"]) or {}
+                arr = connu.get("arretes") or []
+                if arr and arr[-1].get("lien"):
+                    out.append(("Liste belge des pays d'origine sûrs : dernier arrêté connu (%s) — la liste est à "
+                                "l'article 1er" % date_fr(arr[-1]["date"]), arr[-1]["lien"]))
+                mere = user.get(t["adresse"]) or ref.get(t["adresse"]) or {}
+                lien = mere.get("lien_arrexec") or next((x["adresse"] for x in self.textes if x["id"] == t["adresse"]), "")
+                out.append(("Arrêtés d'exécution de la loi du 15 décembre 1980 : un nouvel arrêté « pays d'origine "
+                            "sûrs » y apparaît en tête de liste (enregistrez aussi sa page)", lien))
+        for t in self.textes:
+            if t["type"] == "eurlex" and t["adresse"] == "32024R1348":
+                connu = user.get(t["id"]) or ref.get(t["id"]) or {}
+                v = (connu.get("versions") or [""])[-1]
+                url = ("https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:0%s-%s" % (t["adresse"][1:],
+                                                                                             v.replace("-", ""))
+                       if v else EURLEX_TXT.format(celex=t["adresse"]))
+                out.append(("Liste des pays d'origine sûrs au niveau de l'Union : règlement (UE) 2024/1348, annexe II, "
+                            "dans la version consolidée (enregistrez-la, en page web ou en PDF)", url))
         return out
 
     def comparer(self):
@@ -839,13 +1066,42 @@ def phrase(c):
     if g == "ue_version":
         s = "%s : nouvelle version consolidée au %s, ce qui signifie que l'acte a été modifié." % (
             c["nom"], date_fr(c["date"]))
-        if c.get("cites"):
-            s += " Vos blocs citent les articles %s : vérifiez s'ils sont touchés." % ", ".join(sorted(c["cites"]))
+        cons = c.get("consolide")
+        if cons:
+            arts = cons.get("articles", {})
+
+            def liste(code):
+                a = arts.get(code, [])
+                return (" (%s %s)" % ("article" if len(a) == 1 else "articles", ", ".join(a))) if a else ""
+            if cons.get("modificatifs"):
+                s += " Modifié par : %s." % " ; ".join("%s du %s%s" % (m["acte"], date_fr(m["date"]), liste(m["code"]))
+                                                      for m in cons["modificatifs"])
+            if cons.get("rectificatifs"):
+                s += " Rectifié par : %s." % " ; ".join("%s%s" % (r["acte"] or "rectificatif", liste(r["code"]))
+                                                       for r in cons["rectificatifs"])
+            cites = sorted(c.get("cites") or {}, key=lambda x: cle_article(x) or ())
+            if c.get("cites_touches"):
+                s += " Articles cités dans vos blocs et touchés : %s. Relisez les blocs concernés." % \
+                    ", ".join(c["cites_touches"])
+            elif cites:
+                s += " Les articles cités dans vos blocs (%s) ne sont pas touchés." % ", ".join(cites)
+        elif c.get("cites"):
+            s += " Vos blocs citent les articles %s : vérifiez s'ils sont touchés (ouvrez la version consolidée, ou " \
+                 "enregistrez-la et analysez-la : le programme dira quels articles ont changé)." % \
+                 ", ".join(sorted(c["cites"], key=lambda x: cle_article(x) or ()))
         return s
     if g == "ue_fin":
         return "%s : n'est plus en vigueur%s. %s" % (
             c["nom"], (" depuis le " + date_fr(c["date"])) if c.get("date") else "",
             "Vos blocs le citent : remplacez les références." if c.get("cites") else "")
+    if g == "ue_pays_surs":
+        s = "Liste des pays d'origine sûrs au niveau de l'Union modifiée (version consolidée du %s)." % date_fr(c["date"])
+        if c.get("ajoutes"):
+            s += " Pays ajoutés : %s." % ", ".join(c["ajoutes"])
+        if c.get("retires"):
+            s += " Pays retirés : %s." % ", ".join(c["retires"])
+        s += " Liste actuelle : %s." % ", ".join(c.get("liste", []))
+        return s
     if g == "pays_surs":
         s = "Nouvel arrêté royal établissant la liste des pays d'origine sûrs (%s)." % date_fr(c["date"])
         if c.get("ajoutes"):

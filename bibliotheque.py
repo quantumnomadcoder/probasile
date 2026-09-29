@@ -386,6 +386,146 @@ DEFAUT = [
         "d’éviter l’exécution d’une décision relative à son éloignement »[[REG2024-1348, art. 42, §1er, d)]], d’autant "
         "que {le_demandeur} {justifie|justifient} ce délai par [raisons] (voir supra)."]),
     # --- Protection internationale (dossier de 2019, adapté au règlement (UE) 2024/1347) -----------------
+    ("pi", "Pays sûr ?", "Pays d’origine sûr : une présomption qui se renverse au cas par cas", True, [
+        "[{Le_pays} figure sur la liste belge des pays d’origine sûrs[[AR-PAYS-SURS-2025, art. 1er]] / sur la liste des "
+        "pays d’origine sûrs au niveau de l’Union[[UE-LISTE-PAYS-SURS]].] Cette désignation ne ferme pas la porte à la "
+        "protection : elle ne dispense ni d’enregistrer la demande, ni de l’examiner. Le pays d’origine sûr ne figure "
+        "pas parmi les motifs d’irrecevabilité[[REG2024-1348, art. 38]] ; il est seulement un motif d’examen "
+        "accéléré[[REG2024-1348, art. 42, §1er, e)]], examen qui se déroule « dans le respect des principes de base et "
+        "des garanties fondamentales »[[REG2024-1348, art. 42, §1er, al. 1er]] et doit rester objectif, impartial et "
+        "individualisé[[REG2024-1348, art. 34, §2]].",
+        "La désignation n’instaure qu’une présomption, qui se renverse au cas par cas. Le concept de pays d’origine sûr "
+        "ne peut s’appliquer que si « le demandeur ne peut fournir d’éléments justifiant pourquoi le concept de pays "
+        "d’origine sûr ne lui est pas applicable, dans le cadre d’une évaluation individuelle »[[REG2024-1348, art. 61, "
+        "§5, c)]]. Le droit belge est construit de la même manière : le Commissaire général ne peut refuser la "
+        "protection à un ressortissant d’un pays d’origine sûr que « lorsque l’étranger n’a pas fait valoir de raisons "
+        "sérieuses permettant de penser qu’il ne s’agit pas d’un pays d’origine sûr en raison de sa situation "
+        "personnelle »[[LOI1980, art. 57/6/1, §3, al. 1er]]. Le rapport au Roi qui accompagne la liste belge le rappelle "
+        "expressément : « Le simple fait pour un demandeur de protection internationale d’être originaire d’un pays "
+        "d’origine sûr n’aura en aucun cas pour conséquence automatique que sa demande de protection internationale "
+        "sera refusée »[[AR-PAYS-SURS-2025, rapport au Roi]].",
+        "Cette lecture s’impose aussi au regard de la Convention de Genève, que les États appliquent « sans "
+        "discrimination quant à la race, la religion ou le pays d’origine »[[GENEVE, art. 3]], et du caractère absolu de "
+        "l’interdiction du renvoi vers un risque de torture ou de traitements inhumains ou dégradants[[CEDH, art. 3]]"
+        "[[CHARTE, art. 19, §2]].",
+        "[Exposer les raisons sérieuses propres {au_demandeur} : persécutions déjà subies, profil exposé (opinions "
+        "politiques, orientation sexuelle, genre, appartenance à une minorité…), absence de protection des autorités ; "
+        "pièces et sources de la partie 4.]"]),
+    ("pi", "Pays sûr ?", "Pays d’origine sûr : les personnes exposées malgré la désignation", False, [
+        "La désignation d’un pays comme sûr repose sur une appréciation générale : le droit belge exige qu’il soit "
+        "démontré que, « d’une manière générale et de manière durable », il n’y est pas recouru à des actes de "
+        "persécution et qu’il n’y existe aucun risque réel d’atteintes graves[[LOI1980, art. 57/6/1, §3, al. 2]]. Le "
+        "règlement permet d’assortir la désignation d’« exceptions pour des parties spécifiques de son territoire ou des "
+        "catégories de personnes clairement identifiables »[[REG2024-1348, art. 61, §2]], et le concept ne s’applique "
+        "pas au demandeur qui appartient à une telle catégorie[[REG2024-1348, art. 61, §5, b)]]. Une désignation "
+        "générale n’exclut donc pas qu’un groupe reste exposé.",
+        "[Exemple pour le Maroc : dans l’évaluation reprise par le rapport au Roi de l’arrêté du 3 décembre 2025, la "
+        "Commission européenne relève elle-même que « Si le comportement homosexuel entre adultes consentants est "
+        "généralement toléré dans la sphère privée, il reste une infraction pénale en vertu du code pénal. La situation "
+        "des personnes LGBTIQ reste compliquée », et précise que la désignation est faite « sans préjudice des "
+        "difficultés spécifiques rencontrées par certains groupes dans le pays, qui peuvent mériter une attention "
+        "particulière »[[AR-PAYS-SURS-2025, rapport au Roi]].] {Le_demandeur} {appartient|appartiennent} à "
+        "[catégorie], exposée {en_pays} à [risques], comme l’établissent les sources citées dans la partie 4.",
+        "La Cour de justice a jugé, sous l’empire de la directive 2013/32/UE, que la désignation d’un pays d’origine sûr "
+        "reste soumise au contrôle du juge, que les sources d’information sur lesquelles elle repose doivent être "
+        "suffisamment accessibles au demandeur et à la juridiction[[CJUE-ALACE-2025]], et que le juge saisi d’un recours "
+        "doit relever la méconnaissance des règles du droit de l’Union relatives à cette désignation[[CJUE-CV-2024]]. Le "
+        "règlement (UE) 2024/1348 autorise désormais des exceptions par catégories de personnes, mais ces exigences "
+        "de contrôle et d’accès aux sources procèdent du droit à un recours effectif[[CHARTE, art. 47]] et gardent toute "
+        "leur pertinence."]),
+    ("pi", "Pays sûr ?", "Pays d’origine sûr : une désignation fragile (Maroc)", False, [
+        "L’inscription du Maroc sur la liste belge repose sur des bases que le Gouvernement lui-même présente comme "
+        "discutables. Selon le rapport au Roi, « En ce qui concerne Maroc, il est donc décidé de s’écarter des avis du "
+        "Commissaire général » ; le Gouvernement s’appuie principalement sur la baisse du taux de protection, tout en "
+        "admettant que « le taux de protection ne constitue pas un critère déterminant »[[AR-PAYS-SURS-2025, rapport au "
+        "Roi]]. Or l’évaluation d’un pays d’origine sûr « doit reposer sur une série de sources d’information », dont "
+        "celles du Haut Commissariat des Nations Unies pour les réfugiés et du Conseil de l’Europe[[LOI1980, art. "
+        "57/6/1, §3, al. 3]], et le règlement impose la même exigence[[REG2024-1348, art. 61, §3]]. Un taux de "
+        "reconnaissance peu élevé mesure les décisions prises, non l’absence de persécution : il ne saurait, à lui seul, "
+        "fonder la présomption.",
+        "Le Maroc figure aussi sur la liste des pays d’origine sûrs au niveau de l’Union[[UE-LISTE-PAYS-SURS]] : la "
+        "même présomption réfragable s’applique, et {le_demandeur} peut la renverser par des éléments propres à "
+        "{sa} situation[[REG2024-1348, art. 61, §5, c)]]. [Confronter la désignation aux sources de la partie 4 "
+        "(organes de traités, ONG) sur la situation {en_pays}.]"]),
+    ("pi", "Pays sûr ?", "Procédure accélérée : quand, pourquoi, et comment en sortir", False, [
+        "Le règlement (UE) 2024/1348 énumère les cas d’examen accéléré[[REG2024-1348, art. 42, §1er]] : notamment des "
+        "déclarations sans pertinence, manifestement incohérentes ou contredisant les informations disponibles sur le "
+        "pays d’origine ; la tromperie sur l’identité ou la nationalité ; une demande introduite uniquement pour retarder "
+        "ou empêcher un éloignement ; l’origine d’un pays d’origine sûr ; un danger pour la sécurité nationale ou l’ordre "
+        "public ; une demande ultérieure ; l’absence, sans motif valable, de demande « le plus rapidement possible » ; ou "
+        "une nationalité pour laquelle le taux de reconnaissance à l’échelle de l’Union est de 20 % ou moins. Le droit "
+        "belge prévoit une liste comparable[[LOI1980, art. 57/6/1, §1er]].",
+        "La procédure accélérée ne réduit pas les garanties : l’examen a lieu « dans le respect des principes de base et "
+        "des garanties fondamentales »[[REG2024-1348, art. 42, §1er, al. 1er]]. Elle abrège en revanche les délais — "
+        "l’examen doit être conclu au plus tard trois mois après l’introduction de la demande[[REG2024-1348, art. 35, "
+        "§3]] — et, surtout, le recours contre un rejet prononcé dans ce cadre n’a pas d’effet suspensif "
+        "automatique[[REG2024-1348, art. 68, §3, a), i)]]. Il faut alors demander au juge l’autorisation de rester sur "
+        "le territoire pendant le recours, dans un délai d’au moins cinq jours à compter de la notification ; aucun "
+        "éloignement ne peut avoir lieu tant que ce délai court ou que le juge n’a pas statué[[REG2024-1348, art. 68, "
+        "§§4 et 5]]. [Vérifier les délais applicables devant le Conseil du contentieux des étrangers : les articles 39/57 "
+        "et 39/70 de la loi du 15 décembre 1980 ont été abrogés par la loi du 17 juin 2026.]",
+        "Plusieurs voies permettent d’éviter la procédure accélérée ou d’en sortir :",
+        "– la vulnérabilité : lorsque le soutien nécessaire ne peut être fourni dans le cadre de la procédure accélérée, "
+        "« en accordant une attention particulière aux victimes de torture, de viol ou d’autres formes graves de violence "
+        "psychologique, physique, sexuelle ou sexiste », l’autorité « n’applique pas, ou cesse d’appliquer, ces "
+        "procédures »[[REG2024-1348, art. 21, §2]]. L’évaluation du besoin de garanties procédurales spéciales commence "
+        "dès la présentation de la demande et doit être achevée dans les 30 jours[[REG2024-1348, art. 20]] : il faut "
+        "signaler tôt les éléments de vulnérabilité et produire les attestations médicales ou psychologiques ;",
+        "– la complexité : lorsque l’examen fait intervenir « des questions factuelles ou juridiques trop complexes pour "
+        "être examinées dans le cadre d’une procédure accélérée », l’autorité peut poursuivre l’examen selon la "
+        "procédure ordinaire[[REG2024-1348, art. 42, §2]] ;",
+        "– les mineurs non accompagnés : l’examen accéléré ne leur est applicable que dans des cas limités[[REG2024-1348, "
+        "art. 42, §3]], et leur demande ne peut pas être déclarée manifestement infondée[[LOI1980, art. 57/6/1, §2]] ; la "
+        "Cour constitutionnelle avait déjà annulé l’application de la procédure accélérée aux mineurs non accompagnés "
+        "au-delà des hypothèses prévues par le droit de l’Union[[CC-23-2021]] ;",
+        "– le seuil de 20 % : il ne joue pas lorsqu’un changement important est intervenu dans le pays, ni pour le "
+        "demandeur qui appartient à « une catégorie de personnes pour lesquelles la proportion de 20 % ou moins ne peut "
+        "être considérée comme représentative de leurs besoins en matière de protection »[[REG2024-1348, art. 42, §1er, "
+        "j)]] ;",
+        "– le retard : les motifs valables exposés dans la section consacrée au délai d’introduction de la demande ;",
+        "– le pays d’origine sûr : les raisons sérieuses propres {au_demandeur}, qui renversent la présomption."]),
+    ("pi", "Pays sûr ?", "Pays tiers sûr : conditions strictes et évaluation individuelle", False, [
+        "Le concept de pays tiers sûr permet de déclarer une demande irrecevable, sans l’examiner au fond, au motif que "
+        "{le_demandeur} pourrait obtenir une protection dans un pays tiers[[REG2024-1348, art. 38, §1er, b)]]. Il "
+        "s’agit d’une exception à l’examen de la demande dans l’Union : elle est d’interprétation stricte et subordonnée à "
+        "des conditions cumulatives.",
+        "Un pays ne peut être considéré comme pays tiers sûr que si les non-ressortissants n’y ont à craindre ni pour "
+        "leur vie ni pour leur liberté, n’y courent aucun risque réel d’atteintes graves, y sont protégés contre le "
+        "refoulement, et s’il existe « la possibilité de demander et, si les conditions sont remplies, de recevoir une "
+        "protection effective »[[REG2024-1348, art. 59, §1er]]. À défaut de ratification et de respect de la Convention "
+        "de Genève, la protection effective suppose au minimum le droit de rester dans le pays, des moyens de subsistance "
+        "suffisants, l’accès aux soins de santé et à l’éducation, et une protection « toujours disponible dans l’attente "
+        "d’une solution durable »[[REG2024-1348, art. 57]].",
+        "Depuis le règlement (UE) 2026/463[[REG2026-463]], le lien exigé entre le demandeur et le pays tiers est élargi : "
+        "il suffit désormais d’un « lien de connexion » rendant raisonnable que le demandeur se rende dans ce pays, d’un "
+        "transit par ce pays « sur le trajet vers l’Union », ou d’un accord ou arrangement imposant à ce pays d’examiner "
+        "le bien-fondé des demandes de protection effective[[REG2024-1348, art. 59, §5, al. 1er, b)]]. Auparavant, la "
+        "Cour de justice avait jugé que le seul transit ne constituait pas un lien suffisant au sens de la directive "
+        "2013/32/UE[[CJUE-LH-2020]].",
+        "Cet élargissement ne supprime aucune garantie :",
+        "– le concept ne s’applique que si le demandeur « ne peut fournir d’éléments justifiant que le concept de pays "
+        "tiers sûr ne lui est pas applicable, dans le cadre d’une évaluation individuelle »[[REG2024-1348, art. 59, §5, "
+        "al. 1er, a)]] : un passage bref, forcé ou marqué par des violences, l’absence de tout accès réel à une procédure "
+        "d’asile dans le pays de transit ou un risque de renvoi en chaîne sont autant d’éléments à faire valoir ;",
+        "– lorsque le pays n’est pas désigné, les conditions de sécurité doivent être remplies à l’égard du demandeur "
+        "lui-même[[REG2024-1348, art. 59, §4, b)]], et une désignation peut comporter des exceptions pour des catégories "
+        "de personnes[[REG2024-1348, art. 59, §2]] ;",
+        "– pour un mineur non accompagné, le concept n’est admis que si ce n’est pas contraire à son intérêt supérieur, "
+        "après assurance d’une prise en charge et d’une protection effective immédiate, et l’hypothèse de l’accord ou "
+        "de l’arrangement ne s’applique pas[[REG2024-1348, art. 59, §6]] ;",
+        "– l’irrecevabilité est exclue s’il est clair que le demandeur ne sera pas admis ou réadmis dans le pays "
+        "tiers[[REG2024-1348, art. 38, §1er, b)]], et si ce pays ne l’admet pas, le demandeur a accès à la "
+        "procédure[[REG2024-1348, art. 59, §9]] ;",
+        "– le demandeur reçoit un document informant les autorités du pays tiers, dans leur langue, que sa demande n’a "
+        "pas été examinée au fond[[REG2024-1348, art. 59, §8, b)]].",
+        "Enfin, l’article 3 de la Convention européenne des droits de l’homme impose à l’État qui renvoie un demandeur "
+        "vers un pays tiers sans examiner sa demande au fond d’apprécier de manière approfondie si l’intéressé y aura "
+        "accès à une procédure d’asile adéquate le protégeant contre le refoulement ; une présomption de sécurité doit "
+        "reposer sur une analyse de la situation et du système d’asile de ce pays[[ILIAS-AHMED, §§137-141 et 152-154]]. "
+        "Le recours contre une décision d’irrecevabilité n’ayant pas d’effet suspensif automatique, il convient de "
+        "demander au juge l’autorisation de rester[[REG2024-1348, art. 68, §3, b), et §§4-5]]. [Exposer : trajet, durée "
+        "et conditions du passage dans le pays tiers, absence d’accès à la protection, risques de refoulement ; pièces "
+        "et sources.]"]),
     ("pi", "4. À titre principal : l’octroi du statut de réfugié", "Caractère déclaratif du statut (renvoi)", True, [
         "[[BLOC Caractère déclaratif du statut de réfugié]]"]),
     ("pi", "1) La définition du réfugié et la crainte avec raison", "Définition du réfugié", True, [
@@ -656,7 +796,7 @@ def _migrer_references(c, defaut):
         os.replace(tmp, c)
 
 
-BIB_VERSION = 11  # à augmenter quand les blocs par défaut changent
+BIB_VERSION = 12  # à augmenter quand les blocs par défaut changent
 
 
 def _empreinte(chemin):

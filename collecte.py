@@ -69,7 +69,7 @@ try:
 except ImportError:
     PdfReader = None
 
-VERSION = "1.0.0"
+VERSION = "1.0.2"
 CONFIG_PATH = os.path.join(os.path.expanduser("~"), ".collecte_pays.json")
 USER_AGENT = "Mozilla/5.0 (Probasile/%s; recherche juridique non commerciale)" % VERSION
 PAUSE = 0.5  # secondes entre deux requêtes, pour rester courtois avec les serveurs
@@ -3377,7 +3377,7 @@ def interface():
 
         def pages():
             fichiers = filedialog.askopenfilenames(parent=w, title="Pages enregistrées (Justel, EUR-Lex)",
-                                                   filetypes=[("Pages web", "*.html *.htm"), ("Tous", "*.*")])
+                                                   filetypes=[("Pages web, PDF ou texte", "*.html *.htm *.pdf *.txt"), ("Tous", "*.*")])
             if not fichiers:
                 return
             occupe(True)

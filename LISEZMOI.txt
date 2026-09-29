@@ -1,4 +1,4 @@
-PROBASILE – mode d'emploi (version 1.0.0)
+PROBASILE – mode d'emploi (version 1.0.2)
 ==========================================
 
 À quoi sert ce programme
@@ -201,7 +201,10 @@ Veille législative (onglet « Rédaction », bouton « Vérifier la législatio
     versions. Bouton « Lire le bulletin ».
   - Si la vérification en ligne échoue : « Ouvrir les pages dans le navigateur »,
     enregistrer chaque page (Ctrl+S, « Page web complète »), puis « Analyser des pages
-    enregistrées… ».
+    enregistrées… ». Sont reconnues : la page Justel du texte consolidé, celle d'un
+    arrêté « pays d'origine sûrs » (liste des pays comparée à la précédente), la page
+    EUR-Lex d'un acte, et sa version consolidée en page web ou en PDF (actes
+    modificatifs et articles touchés).
   - Textes suivis : veille_textes.csv (dossier de base, bouton « Textes suivis… »),
     une ligne par texte (adresse Justel …/justel ou numéro CELEX, et repère des blocs).
   - Fichiers : dossier « veille » du dossier de base (etat.json, rapport_….html).

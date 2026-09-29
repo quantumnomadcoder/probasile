@@ -480,8 +480,14 @@ La liste se modifie (bouton « Textes suivis… », fichier veille_textes.csv du
 ## Le bulletin de veille
 Des juristes y expliquent en langage courant ce qui change (réforme, arrêt important, nouvelle liste de pays sûrs), quels blocs relire, et annoncent les nouvelles versions de Probasile. Il est publié sur la page GitHub du projet (fichier BULLETIN.md) et se lit aussi sans le programme.
 
-## Si la vérification en ligne échoue
-Certains sites refusent les programmes, ou la connexion est coupée. Cliquez sur « Ouvrir les pages dans le navigateur », enregistrez chaque page (Ctrl+S, « Page web complète »), puis « Analyser des pages enregistrées… » et choisissez les fichiers. Le résultat est le même.
+## Si la vérification en ligne échoue, ou pour vérifier vous-même
+Certains sites refusent les programmes, ou la connexion est coupée. Cliquez sur « Ouvrir les pages dans le navigateur », enregistrez chaque page (Ctrl+S, « Page web complète »), puis « Analyser des pages enregistrées… » et choisissez les fichiers (plusieurs à la fois). Le programme reconnaît :
+- la page Justel du texte consolidé (loi, arrêté royal) : enregistrez la page entière (adresse …/justel) ;
+- la page Justel d'un arrêté « pays d'origine sûrs » : il lit la liste des pays de l'article 1er et la compare avec la précédente ;
+- la page EUR-Lex d'un règlement ou d'une directive ;
+- la version consolidée d'EUR-Lex, en page web ou en PDF : il dit alors quels règlements l'ont modifiée et quels articles ils touchent, et si les articles cités dans vos blocs sont concernés.
+Une page incomplète (sommaire seul, texte non chargé) est signalée comme telle : le programme n'en tire aucune conclusion.
+Les pages lues en ligne sont gardées dans le dossier « veille/pages » du dossier de base : joignez-les à un signalement si un résultat vous semble faux.
 
 ## Respect des sites
 Probasile n'est pas un robot : c'est vous qui lancez la vérification, pour quelques pages seulement, avec une pause entre chaque page et en s'identifiant clairement. Si vous préférez ne rien faire lire au programme, utilisez « Ouvrir les pages dans le navigateur ».
