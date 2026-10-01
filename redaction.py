@@ -114,8 +114,8 @@ def charger_sources(dossier_pays, dossier_base=None):
 
 
 # Description des pièces du dossier (facultative) : 00_Pieces_du_dossier/pieces.csv, une ligne par fichier.
-# Sans description, le nom du fichier sert de titre (« 03_Attestation_scolaire_David.pdf » -> « Attestation
-# scolaire David »).
+# Sans description, le nom du fichier sert de titre (« 03_Attestation_scolaire_B_Exemple.pdf » -> « Attestation
+# scolaire B Exemple »).
 INFOS_PIECES = "pieces.csv"
 CHAMPS_PIECES = ["fichier", "auteur", "titre", "cote", "date", "annexe", "remarques"]
 
@@ -854,27 +854,29 @@ def _jpeg_pdf(chemin, sortie):
 
 
 def _image_pdf(chemin, tmp):
+    """Photo ou scan (JPEG, PNG) -> PDF A4, image centrée."""
     sortie = os.path.join(tmp, os.path.splitext(os.path.basename(chemin))[0] + ".pdf")
+    source = chemin
     try:
         from PIL import Image
         im = Image.open(chemin)
-        if im.mode in ("RGBA", "P", "LA"):
-            fond = Image.new("RGB", im.size, "white")
-            im = im.convert("RGBA")
-            fond.paste(im, mask=im.split()[-1])
-            im = fond
-        elif im.mode != "RGB":
-            im = im.convert("RGB")
-        im.save(sortie, "PDF", resolution=150)
-        return sortie
+        if im.format != "JPEG" or im.mode not in ("RGB", "L", "CMYK"):
+            if im.mode in ("RGBA", "P", "LA"):
+                im = im.convert("RGBA")
+                fond = Image.new("RGB", im.size, "white")
+                fond.paste(im, mask=im.split()[-1])
+                im = fond
+            elif im.mode != "RGB":
+                im = im.convert("RGB")
+            source = os.path.join(tmp, os.path.splitext(os.path.basename(chemin))[0] + "_img.jpg")
+            im.save(source, "JPEG", quality=90)
     except Exception:
-        pass
-    if chemin.lower().endswith((".jpg", ".jpeg")):
-        try:
-            return _jpeg_pdf(chemin, sortie)
-        except Exception:
+        if not chemin.lower().endswith((".jpg", ".jpeg")):
             return None
-    return None
+    try:
+        return _jpeg_pdf(source, sortie)
+    except Exception:
+        return None
 
 
 def _word_pdf(chemin, tmp):

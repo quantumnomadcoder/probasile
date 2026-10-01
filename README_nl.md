@@ -7,7 +7,7 @@
 
 <p align="center">
 <img src="https://img.shields.io/badge/licentie-GPL--3.0-blue" alt="Licentie GPL-3.0">
-<img src="https://img.shields.io/badge/versie-1.1.0-orange" alt="Versie 1.1.0">
+<img src="https://img.shields.io/badge/versie-1.1.1-orange" alt="Versie 1.1.1">
 <img src="https://img.shields.io/badge/Windows%20%7C%20macOS%20%7C%20Linux-lightgrey" alt="Windows, macOS, Linux">
 <img src="https://img.shields.io/badge/interface-Frans-lightgrey" alt="Interface in het Frans">
 </p>
@@ -186,8 +186,10 @@ Het meldt welke artikelen gewijzigd of opgeheven zijn, sinds wanneer, en **welke
 | Systeem | Dubbelklik op | Als het niet opent |
 |---|---|---|
 | 🪟 Windows | `installer_windows.bat` | Bij een waarschuwing van Windows: *Meer informatie* → *Toch uitvoeren* |
-| 🐧 Linux | `Installer Probasile (Linux).sh` | Rechtsklik → *Uitvoeren als programma* (of *Starten*) |
+| 🐧 Linux | `Installer Probasile (Linux).sh` | Rechtsklik → *Uitvoeren als programma* (of *Starten*). Anders (vaak): de terminalmethode hieronder |
 | 🍎 macOS | `Installer Probasile (Mac).command` | Rechtsklik → *Open* → *Open* (onbekende ontwikkelaar) |
+
+**Werkt dubbelklikken niet** (vaak onder Linux, omdat de gedownloade zip het recht om scripts uit te voeren verliest): open een terminal in de programmamap (rechtsklik → *In terminal openen*) en typ `sh installer_mac_linux.sh`. Dat werkt ook onder macOS (app Terminal).
 
 Een venster toont de installatie en stelt daarna voor om Probasile te starten. Als onder Linux Python-onderdelen ontbreken (`python3-venv`, `python3-tk`), stelt het installatieprogramma voor om ze toe te voegen; je wachtwoord wordt dan gevraagd.
 
@@ -215,11 +217,11 @@ Onder macOS en Linux wordt niets buiten de programmamap geïnstalleerd en blijft
 1. **Kies het land**: typ de eerste letters om de lijst te filteren. Controleer de vorm die in een zin gebruikt wordt (« de l'Indonésie », « du Maroc »).
 2. **Kies de basismap**, één keer; die wordt onthouden.
 3. **Vink aan wat je wilt verzamelen** in de tabbladen en klik op **« Lancer la collecte »** (zoeken starten). Vink bij een eerste zoekronde « Nouveautés seulement » uit.
-4. Vul in het tabblad **Rédaction** (schrijven) de naam in en wie de aanvraag indient, kies de procedure en **maak het plan aan**. Kies de blokken en vink « Ajouter les paragraphes calculés » (berekende paragrafen toevoegen) aan.
+4. Vul in het tabblad **Rédaction** (schrijven) de naam in en wie de aanvraag indient, kies de procedure en **maak het plan aan**. Kies de blokken en vink « Paragraphes calculés » (berekende paragrafen toevoegen) aan.
 5. **Schrijf in Word of LibreOffice** en voeg je verwijzingen toe. De lijst met verwijzingen van het land (dubbelklik kopieert de verwijzing) en de knop « Comment écrire une note ? » helpen je op weg.
 6. Klik op **« Générer »** (genereren): je krijgt de tekst met voetnoten en de pdf met bijlagen, in de map `Redaction` van het land.
 
-Elk tabblad heeft een knop **« Mode d'emploi »** (handleiding), en bij het aanwijzen van een knop verschijnt een tip. De volledige handleiding (in het Frans) staat in [`LISEZMOI.txt`](LISEZMOI.txt). Een gids om Probasile aan anderen voor te stellen (demo van 5 of 25 minuten, in het Frans): [`GUIDE_DEMO.md`](GUIDE_DEMO.md).
+Elk tabblad heeft een knop **« Mode d'emploi »** (handleiding), en bij het aanwijzen van een knop verschijnt een tip. De volledige handleiding (in het Frans) staat in [`LISEZMOI.txt`](LISEZMOI.txt). Om Probasile aan anderen voor te stellen: de **[demokit](kit_de_demo/)** (fictief dossier, demogids van 5 of 25 minuten, presentaties over het programma en de installatie, verwachte resultaten; in het Frans).
 
 ---
 

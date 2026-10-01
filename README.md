@@ -7,7 +7,7 @@
 
 <p align="center">
 <img src="https://img.shields.io/badge/licence-GPL--3.0-blue" alt="Licence GPL-3.0">
-<img src="https://img.shields.io/badge/version-1.1.0-orange" alt="Version 1.1.0">
+<img src="https://img.shields.io/badge/version-1.1.1-orange" alt="Version 1.1.1">
 <img src="https://img.shields.io/badge/Windows%20%7C%20macOS%20%7C%20Linux-lightgrey" alt="Windows, macOS, Linux">
 <img src="https://img.shields.io/badge/langue-fran%C3%A7ais-lightgrey" alt="En français">
 </p>
@@ -215,8 +215,10 @@ Le **[bulletin de veille](BULLETIN.md)**, rédigé par des juristes, complète l
 | Système | Double-cliquez sur | Si ça ne s'ouvre pas |
 |---|---|---|
 | 🪟 Windows | `installer_windows.bat` | Si Windows affiche un avertissement : *Informations complémentaires* → *Exécuter quand même* |
-| 🐧 Linux | `Installer Probasile (Linux).sh` | Clic droit → *Exécuter comme un programme* (ou *Lancer*) |
+| 🐧 Linux | `Installer Probasile (Linux).sh` | Clic droit → *Exécuter comme un programme* (ou *Lancer*). Sinon (fréquent) : la méthode du terminal ci-dessous |
 | 🍎 macOS | `Installer Probasile (Mac).command` | Clic droit → *Ouvrir* → *Ouvrir* (développeur non identifié) |
+
+**Si le double-clic ne marche pas** (fréquent sous Linux, car le zip téléchargé perd souvent le droit d'exécuter les scripts) : ouvrez un terminal dans le dossier du programme (clic droit → *Ouvrir dans un terminal*), puis tapez `sh installer_mac_linux.sh`. Cela marche aussi sous macOS (app Terminal).
 
 Une fenêtre montre l'installation, puis propose de lancer Probasile. Sous Linux, s'il manque des éléments de Python (`python3-venv`, `python3-tk`), l'installateur propose de les ajouter ; votre mot de passe vous sera demandé.
 
@@ -256,11 +258,11 @@ python collecte.py --help                       # toutes les options de collecte
 1. **Choisissez le pays** : taper le début du nom filtre la liste. Vérifiez la forme utilisée dans une phrase (« de l'Indonésie », « du Maroc »).
 2. **Choisissez le dossier de base**, une seule fois ; il est mémorisé.
 3. **Cochez ce que vous voulez collecter** dans les onglets, puis cliquez sur **« Lancer la collecte »**. Pour une première collecte, décochez « Nouveautés seulement ».
-4. Dans l'onglet **Rédaction**, indiquez le nom et qui demande, choisissez la procédure, puis **créez le plan**. Choisissez les blocs et cochez « Ajouter les paragraphes calculés ».
+4. Dans l'onglet **Rédaction**, indiquez le nom et qui demande, choisissez la procédure, puis **créez le plan**. Choisissez les blocs et cochez « Paragraphes calculés ».
 5. **Écrivez dans Word ou LibreOffice** en ajoutant vos repères. La liste des repères du pays (un double-clic copie le repère) et le bouton « Comment écrire une note ? » vous guident.
 6. Cliquez sur **« Générer »** : vous obtenez le texte avec ses notes et le PDF des annexes, dans le dossier `Redaction` du pays.
 
-Chaque onglet a son bouton **« Mode d'emploi »**, et les bulles d'aide apparaissent au survol. Le mode d'emploi complet se trouve dans [`LISEZMOI.txt`](LISEZMOI.txt). Pour présenter Probasile à d'autres (démo de 5 ou 25 minutes, questions fréquentes, aide-mémoire sur les annexes) : [`GUIDE_DEMO.md`](GUIDE_DEMO.md).
+Chaque onglet a son bouton **« Mode d'emploi »**, et les bulles d'aide apparaissent au survol. Le mode d'emploi complet se trouve dans [`LISEZMOI.txt`](LISEZMOI.txt). Pour présenter Probasile à d'autres : le **[kit de démo](kit_de_demo/)** (dossier fictif prêt à l'emploi, guide de démo de 5 ou 25 minutes, diaporamas de présentation et d'installation, résultats attendus) ; le guide seul : [`kit_de_demo/GUIDE_DEMO.md`](kit_de_demo/GUIDE_DEMO.md).
 
 ---
 

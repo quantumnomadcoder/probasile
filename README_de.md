@@ -7,7 +7,7 @@
 
 <p align="center">
 <img src="https://img.shields.io/badge/Lizenz-GPL--3.0-blue" alt="Lizenz GPL-3.0">
-<img src="https://img.shields.io/badge/Version-1.1.0-orange" alt="Version 1.1.0">
+<img src="https://img.shields.io/badge/Version-1.1.1-orange" alt="Version 1.1.1">
 <img src="https://img.shields.io/badge/Windows%20%7C%20macOS%20%7C%20Linux-lightgrey" alt="Windows, macOS, Linux">
 <img src="https://img.shields.io/badge/Oberfl%C3%A4che-Franz%C3%B6sisch-lightgrey" alt="Oberfläche auf Französisch">
 </p>
@@ -195,8 +195,10 @@ Es meldet, welche Artikel geändert oder aufgehoben wurden, seit wann, und **wel
 | System | Doppelklick auf | Falls sie sich nicht öffnet |
 |---|---|---|
 | 🪟 Windows | `installer_windows.bat` | Bei einer Warnung von Windows: *Weitere Informationen* → *Trotzdem ausführen* |
-| 🐧 Linux | `Installer Probasile (Linux).sh` | Rechtsklick → *Als Programm ausführen* (oder *Starten*) |
+| 🐧 Linux | `Installer Probasile (Linux).sh` | Rechtsklick → *Als Programm ausführen* (oder *Starten*). Sonst (häufig): die Terminal-Methode unten |
 | 🍎 macOS | `Installer Probasile (Mac).command` | Rechtsklick → *Öffnen* → *Öffnen* (nicht verifizierter Entwickler) |
+
+**Klappt der Doppelklick nicht** (häufig unter Linux, weil die heruntergeladene Zip-Datei das Recht verliert, Skripte auszuführen): öffne ein Terminal im Programmordner (Rechtsklick → *Im Terminal öffnen*) und tippe `sh installer_mac_linux.sh`. Das funktioniert auch unter macOS (App Terminal).
 
 Ein Fenster zeigt die Installation und bietet anschließend an, Probasile zu starten. Fehlen unter Linux Python-Komponenten (`python3-venv`, `python3-tk`), bietet das Installationsprogramm an, sie hinzuzufügen; dein Passwort wird dann abgefragt.
 
@@ -224,11 +226,11 @@ Unter macOS und Linux wird außerhalb des Programmordners nichts installiert, un
 1. **Wähle das Land**: Die ersten Buchstaben filtern die Liste. Prüfe die im Satz verwendete Form (« de l'Indonésie », « du Maroc »).
 2. **Wähle den Basisordner**, einmalig; er wird gespeichert.
 3. **Kreuze an, was du sammeln möchtest**, und klicke auf **« Lancer la collecte »** (Suche starten). Beim ersten Suchlauf « Nouveautés seulement » abwählen.
-4. Gib in der Registerkarte **Rédaction** (Schreiben) den Namen ein und wer den Antrag stellt, wähle das Verfahren und **erstelle die Gliederung**. Wähle die Bausteine und kreuze « Ajouter les paragraphes calculés » (berechnete Absätze hinzufügen) an.
+4. Gib in der Registerkarte **Rédaction** (Schreiben) den Namen ein und wer den Antrag stellt, wähle das Verfahren und **erstelle die Gliederung**. Wähle die Bausteine und kreuze « Paragraphes calculés » (berechnete Absätze hinzufügen) an.
 5. **Schreibe in Word oder LibreOffice** und füge deine Verweise ein. Die Liste der Verweise des Landes (Doppelklick kopiert den Verweis) und die Schaltfläche « Comment écrire une note ? » helfen dir dabei.
 6. Klicke auf **« Générer »** (erzeugen): Du erhältst den Text mit Fußnoten und das PDF der Anlagen im Ordner `Redaction` des Landes.
 
-Jede Registerkarte hat eine Schaltfläche **« Mode d'emploi »** (Anleitung), und beim Überfahren einer Schaltfläche erscheint ein Hinweis. Die vollständige Anleitung (auf Französisch) steht in [`LISEZMOI.txt`](LISEZMOI.txt). Ein Leitfaden, um Probasile anderen vorzustellen (Demo von 5 oder 25 Minuten, auf Französisch): [`GUIDE_DEMO.md`](GUIDE_DEMO.md).
+Jede Registerkarte hat eine Schaltfläche **« Mode d'emploi »** (Anleitung), und beim Überfahren einer Schaltfläche erscheint ein Hinweis. Die vollständige Anleitung (auf Französisch) steht in [`LISEZMOI.txt`](LISEZMOI.txt). Um Probasile anderen vorzustellen: das **[Demo-Kit](kit_de_demo/)** (fiktives Dossier, Demo-Leitfaden für 5 oder 25 Minuten, Präsentationen zum Programm und zur Installation, erwartete Ergebnisse; auf Französisch).
 
 ---
 

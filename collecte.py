@@ -69,7 +69,7 @@ try:
 except ImportError:
     PdfReader = None
 
-VERSION = "1.1.0"
+VERSION = "1.1.1"
 CONFIG_PATH = os.path.join(os.path.expanduser("~"), ".collecte_pays.json")
 USER_AGENT = "Mozilla/5.0 (Probasile/%s; recherche juridique non commerciale)" % VERSION
 PAUSE = 0.5  # secondes entre deux requêtes, pour rester courtois avec les serveurs
@@ -3567,7 +3567,7 @@ def interface():
     v_calc = tk.BooleanVar(value=cfg.get("red_calcules", True))
     fcalc = ttk.Frame(f_r1)
     fcalc.grid(row=8, column=0, columnspan=2, sticky="w", pady=(8, 0))
-    bulle(ttk.Checkbutton(fcalc, text="Ajouter les paragraphes calculés", variable=v_calc),
+    bulle(ttk.Checkbutton(fcalc, text="Paragraphes calculés", variable=v_calc),
           "Plans OQT et protection internationale : paragraphes écrits à partir de la collecte de l’onglet ONU "
           "(traités ratifiés, signés ou non ; plaintes individuelles et articles 20 à 22 de la Convention contre la "
           "torture ; rapports remis en retard avec calcul du retard ; courriers de suivi sans réponse ; ancienneté "
@@ -3657,13 +3657,13 @@ def interface():
         bas_ = w_.bas
         ttk.Button(bas_, text="Exporter (LibreOffice)", command=lambda: exporter_apercu(w_)).pack(side="right", padx=6)
     bulle(ttk.Button(fcalc, text="Aperçu…", command=apercu_calcules),
-          "Montre les paragraphes qui seront ajoutés, sans créer le plan.").pack(side="left", padx=6)
+          "Montre les paragraphes qui seront ajoutés, sans créer le plan.").pack(side="left", padx=(2, 3))
     bulle(ttk.Button(fcalc, text="Exporter…", command=exporter_apercu),
           "Enregistre l’aperçu dans un document Word ou LibreOffice (dossier « Redaction » du pays) : paragraphes avec "
           "leurs repères, prêts à copier, et ce que le programme a lu.").pack(side="left")
     bulle(ttk.Button(fcalc, text="Corriger les dates…", command=corriger_dates),
           "Si une date de rapport est fausse ou manque : fichier à compléter, avec le mode d’emploi.").pack(
-        side="left", padx=6)
+        side="left", padx=(3, 0))
     fcre = ttk.Frame(f_r1)
     fcre.grid(row=9, column=0, columnspan=2, sticky="w", pady=(8, 0))
     bulle(ttk.Button(fcre, text="Créer le plan et l’ouvrir", command=creer_plan),
@@ -3878,13 +3878,13 @@ def interface():
             row=0, column=0, columnspan=2, sticky="w")
         ttk.Label(cc, wraplength=560, justify="left", foreground=GRIS, text=(
             "Facultatif mais conseillé : la description sert de référence dans la note et dans l’index des annexes "
-            "(ex. « Athénée Fernand Blum, Attestation de scolarité de Charles, 12 septembre 2026 »). Sans "
+            "(ex. « Athénée Exemple, Attestation de scolarité de B. Exemple, 12 septembre 2026 »). Sans "
             "description, le nom du fichier sert de titre.")).grid(row=1, column=0, columnspan=2, sticky="w", pady=(4, 6))
         titre0 = re.sub(r"[_]+", " ", re.sub(r"^\d+[\s._-]*", "", os.path.splitext(os.path.basename(f_))[0])).strip()
         vs_ = {}
         for i_, (k_, lib_, ex_, val0) in enumerate((
-                ("auteur", "Auteur", "ex. Athénée Fernand Blum ; Dr A. Dupont ; M. X (témoin)", ""),
-                ("titre", "Titre", "ex. Attestation de scolarité de Charles", titre0),
+                ("auteur", "Auteur", "ex. Athénée Exemple ; Dr A. Dupont ; M. X (témoin)", ""),
+                ("titre", "Titre", "ex. Attestation de scolarité de B. Exemple", titre0),
                 ("date", "Date", "ex. 12 septembre 2026", ""))):
             ttk.Label(cc, text=lib_ + " :").grid(row=2 + 2 * i_, column=0, sticky="w", pady=(6, 0))
             vs_[k_] = tk.StringVar(value=val0)

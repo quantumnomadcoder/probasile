@@ -30,7 +30,7 @@ aux utilisateurs qu'une nouvelle version existe.
 
 Une version néerlandaise et une version allemande de ce bulletin suivent ci-dessous, après la version française : [Nederlandse versie](#nederlandse-versie) · [Deutsche Fassung](#deutsche-fassung).
 
-Version du programme : 1.1.0
+Version du programme : 1.1.1
 
 Ce bulletin est rédigé par des juristes. Il explique en langage courant ce qui change dans le droit des étrangers et quels blocs de Probasile relire. Dans le programme : onglet **Rédaction → Vérifier la législation… → Lire le bulletin**. Les textes officiels font foi ; les textes sont désignés par leur nom officiel, suivi entre parenthèses de leur repère dans Probasile. Les repères entre doubles crochets (par exemple, pour l'article 61, § 5, c), du règlement (UE) 2024/1348 : `[[REG2024-1348, art. 61, §5, c)]]`) se collent tels quels dans un texte Probasile.
 
@@ -45,7 +45,7 @@ Importance : information
 
 **Installation sous Windows.** installer_windows.bat installe Python lui-même s'il manque (pour votre compte, sans droits d'administrateur), puis les modules et les raccourcis.
 
-**Présenter Probasile.** Le fichier GUIDE_DEMO.md propose une démonstration de 5 ou 25 minutes, les questions fréquentes et un aide-mémoire sur les annexes.
+**Présenter Probasile.** Le dossier kit_de_demo contient un dossier fictif prêt à l’emploi (pièces, texte à générer, résultats attendus), le guide de démonstration de 5 ou 25 minutes, avec questions fréquentes et aide-mémoire sur les annexes, et deux diaporamas : présentation et installation. Sous Linux, si le double-clic ne lance pas l’installation, ouvrez un terminal dans le dossier du programme et tapez sh installer_mac_linux.sh.
 
 ## 2026-09-29 | Conseil du contentieux des étrangers : les nouveaux délais de recours
 Textes : Loi du 17 juin 2026 relative au Conseil du contentieux des étrangers, M.B., 19 juin 2026 (LOI-CCE-2026) ; Règlement (UE) 2024/1348 du Parlement européen et du Conseil du 14 mai 2024 instituant une procédure commune en matière de protection internationale dans l’Union et abrogeant la directive 2013/32/UE, J.O.U.E., L, 2024/1348, 22 mai 2024 (REG2024-1348), art. 67, § 7, et 68  
@@ -262,7 +262,7 @@ Belang: informatie
 
 **Installatie onder Windows.** installer_windows.bat installeert zelf Python als het ontbreekt (voor jouw account, zonder beheerdersrechten), daarna de modules en de snelkoppelingen.
 
-**Probasile voorstellen.** Het bestand GUIDE_DEMO.md (in het Frans) bevat een demo van 5 of 25 minuten, veelgestelde vragen en een geheugensteun over bijlagen.
+**Probasile voorstellen.** De map kit_de_demo (in het Frans) bevat een fictief dossier dat meteen bruikbaar is (stukken, te genereren tekst, verwachte resultaten), de demogids van 5 of 25 minuten met veelgestelde vragen en een geheugensteun over bijlagen, en twee presentaties: het programma en de installatie. Start de installatie onder Linux niet met een dubbelklik? Open dan een terminal in de programmamap en typ sh installer_mac_linux.sh.
 
 ### 2026-09-29 | Raad voor Vreemdelingenbetwistingen: de nieuwe beroepstermijnen
 Teksten: Wet van 17 juni 2026 betreffende de Raad voor Vreemdelingenbetwistingen, B.S. 19 juni 2026 (LOI-CCE-2026) ; Verordening (EU) 2024/1348 van het Europees Parlement en de Raad van 14 mei 2024 tot vaststelling van een gemeenschappelijke procedure voor internationale bescherming in de Unie en tot intrekking van Richtlijn 2013/32/EU, PB L, 2024/1348, 22 mei 2024 (REG2024-1348), art. 67, § 7, en 68  
@@ -482,7 +482,7 @@ Bedeutung: Information
 
 **Installation unter Windows.** installer_windows.bat installiert Python selbst, falls es fehlt (für dein Konto, ohne Administratorrechte), danach die Module und die Verknüpfungen.
 
-**Probasile vorstellen.** Die Datei GUIDE_DEMO.md (auf Französisch) enthält eine Demo von 5 oder 25 Minuten, häufige Fragen und eine Gedächtnisstütze zu den Anlagen.
+**Probasile vorstellen.** Der Ordner kit_de_demo (auf Französisch) enthält ein sofort nutzbares fiktives Dossier (Unterlagen, zu erzeugender Text, erwartete Ergebnisse), den Demo-Leitfaden für 5 oder 25 Minuten mit häufigen Fragen und einer Gedächtnisstütze zu den Anlagen sowie zwei Präsentationen: Programm und Installation. Startet die Installation unter Linux nicht per Doppelklick, öffne ein Terminal im Programmordner und tippe sh installer_mac_linux.sh.
 
 ### 2026-09-29 | Rat für Ausländerstreitsachen: die neuen Beschwerdefristen
 Texte: Gesetz vom 17. Juni 2026 über den Rat für Ausländerstreitsachen, B.S. vom 19. Juni 2026 (LOI-CCE-2026) ; Verordnung (EU) 2024/1348 des Europäischen Parlaments und des Rates vom 14. Mai 2024 zur Einführung eines gemeinsamen Verfahrens zur Gewährung internationalen Schutzes in der Union und zur Aufhebung der Richtlinie 2013/32/EU, ABl. L, 2024/1348, 22.5.2024 (REG2024-1348), Art. 67 Abs. 7 und Art. 68  

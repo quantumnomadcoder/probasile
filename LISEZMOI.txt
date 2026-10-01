@@ -1,4 +1,4 @@
-PROBASILE – mode d'emploi (version 1.1.0)
+PROBASILE – mode d'emploi (version 1.1.1)
 ==========================================
 
 À quoi sert ce programme
@@ -141,7 +141,7 @@ Onglet « Rédaction »
      - « Nom(s) » et « Qui demande ? » (un homme, une femme, plusieurs personnes ou
        une famille, plusieurs femmes) : le plan et les blocs s'accordent
        (le demandeur / la demanderesse / les demandeurs, il / elle / ils, exposé(e)s…).
-     - « Ajouter les paragraphes calculés » (OQT et protection internationale) :
+     - « Paragraphes calculés » (OQT et protection internationale) :
        paragraphes écrits à partir de la collecte ONU, avec leurs notes : traités
        ratifiés, signés ou non ; procédures de plaintes acceptées ou non ; rapports
        remis en retard (retard calculé) ou toujours attendus ; informations de suivi
@@ -298,6 +298,14 @@ Puis double-cliquer sur le fichier d'installation de votre système :
 - macOS   : « Installer Probasile (Mac).command ». Si macOS refuse de l'ouvrir
             (développeur non identifié) : clic droit -> Ouvrir -> Ouvrir.
 Une fenêtre montre l'installation, puis propose de lancer Probasile.
+
+Si le double-clic ne marche pas (fréquent sous Linux : le zip téléchargé perd
+souvent le droit d'exécuter les scripts) : ouvrir un terminal dans le dossier du
+programme (clic droit -> « Ouvrir dans un terminal »), puis taper :
+    sh installer_mac_linux.sh
+Cela marche aussi sous macOS (app Terminal : « cd », espace, glisser le dossier,
+Entrée, puis la commande ci-dessus). Pour lancer sans raccourci :
+    sh lancer_mac_linux.command
 
 L'installation crée les raccourcis, avec l'icône de Probasile :
 - Windows : menu Démarrer et bureau. Pour la barre des tâches : clic droit sur
