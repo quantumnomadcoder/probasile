@@ -2,3 +2,4 @@ requests
 pycountry
 pypdf
 lxml>=4.9
+Pillow

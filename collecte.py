@@ -69,7 +69,7 @@ try:
 except ImportError:
     PdfReader = None
 
-VERSION = "1.0.4"
+VERSION = "1.1.0"
 CONFIG_PATH = os.path.join(os.path.expanduser("~"), ".collecte_pays.json")
 USER_AGENT = "Mozilla/5.0 (Probasile/%s; recherche juridique non commerciale)" % VERSION
 PAUSE = 0.5  # secondes entre deux requêtes, pour rester courtois avec les serveurs
@@ -3009,6 +3009,7 @@ def interface():
 
     # 1. Plan
     f_r1 = cadre(gauche6, "1. Créer un plan type", 0, 0)
+    v_format = tk.StringVar(value=cfg.get("red_format", "odt" if sys.platform.startswith("linux") else "docx"))
     v_proc = tk.StringVar(value=cfg.get("red_procedure", "oqt"))
     for i, (cle, lib) in enumerate(RD.NOMS_PROCEDURES.items()):
         ttk.Radiobutton(f_r1, text=lib, value=cle, variable=v_proc).grid(row=i, column=0, columnspan=2, sticky="w")
@@ -3036,6 +3037,10 @@ def interface():
             messagebox.showinfo("Bibliothèque de blocs", m)
         return c
 
+    def ext_doc():
+        cfg["red_format"] = v_format.get()
+        return "." + (v_format.get() or "docx")
+
     def creer_plan():
         iso = iso_choisi()
         if not iso:
@@ -3046,7 +3051,7 @@ def interface():
         cfg["red_personne"] = personne()
         cfg["red_calcules"] = v_calc.get()
         sauver_config(cfg)
-        chemin = os.path.join(dossier_redaction(), "Plan_%s_%s.odt" % (v_proc.get(), dt.date.today().isoformat()))
+        chemin = os.path.join(dossier_redaction(), "Plan_%s_%s%s" % (v_proc.get(), dt.date.today().isoformat(), ext_doc()))
         try:
             sel = cfg.get("red_blocs", {}).get(v_proc.get())
             RD.creer_plan(v_proc.get(), chemin, v_de.get().strip(), nom_fr,
@@ -3601,7 +3606,8 @@ def interface():
             el += [(0, p_, False) for p_ in ps]
         el.append((1, "Ce que le programme a lu", False))
         el += [(0, l_[2:] if l_.startswith("- ") else l_, True) for l_ in lect if not l_.startswith("## ")]
-        chemin = os.path.join(dossier_redaction(), "Apercu_paragraphes_calcules_%s.odt" % dt.date.today().isoformat())
+        chemin = os.path.join(dossier_redaction(), "Apercu_paragraphes_calcules_%s%s" % (dt.date.today().isoformat(),
+                                                                                        ext_doc()))
         try:
             RD.odt_simple(chemin, el, "Paragraphes calculés – %s" % nom_fr)
         except Exception as e:
@@ -3609,7 +3615,7 @@ def interface():
             return
         ecrire("Aperçu exporté : %s" % chemin)
         messagebox.showinfo("Exporter l’aperçu", "L’aperçu est enregistré dans le dossier « Redaction » du pays :\n%s"
-                            "\n\nIl s’ouvre dans LibreOffice." % os.path.basename(chemin), parent=parent)
+                            "\n\nIl s’ouvre dans votre traitement de texte." % os.path.basename(chemin), parent=parent)
         ouvrir(chemin)
 
     def corriger_dates():
@@ -3653,15 +3659,21 @@ def interface():
     bulle(ttk.Button(fcalc, text="Aperçu…", command=apercu_calcules),
           "Montre les paragraphes qui seront ajoutés, sans créer le plan.").pack(side="left", padx=6)
     bulle(ttk.Button(fcalc, text="Exporter…", command=exporter_apercu),
-          "Enregistre l’aperçu dans un document LibreOffice (dossier « Redaction » du pays) : paragraphes avec "
+          "Enregistre l’aperçu dans un document Word ou LibreOffice (dossier « Redaction » du pays) : paragraphes avec "
           "leurs repères, prêts à copier, et ce que le programme a lu.").pack(side="left")
     bulle(ttk.Button(fcalc, text="Corriger les dates…", command=corriger_dates),
           "Si une date de rapport est fausse ou manque : fichier à compléter, avec le mode d’emploi.").pack(
         side="left", padx=6)
-    bulle(ttk.Button(f_r1, text="Créer le plan et l’ouvrir", command=creer_plan),
-          "Crée un document LibreOffice avec les titres de la procédure, des indications de rédaction et, sous chaque "
-          "titre, les repères des sources déjà collectées. Enregistré dans le dossier « Redaction » du pays.").grid(
-        row=9, column=0, columnspan=2, sticky="w", pady=(8, 0))
+    fcre = ttk.Frame(f_r1)
+    fcre.grid(row=9, column=0, columnspan=2, sticky="w", pady=(8, 0))
+    bulle(ttk.Button(fcre, text="Créer le plan et l’ouvrir", command=creer_plan),
+          "Crée un document (Word ou LibreOffice, au choix à droite) avec les titres de la procédure, des indications "
+          "de rédaction et, sous chaque titre, les repères des sources déjà collectées. Enregistré dans le dossier "
+          "« Redaction » du pays.").pack(side="left")
+    ttk.Label(fcre, text="   Format :").pack(side="left")
+    for val_, lib_, aide_ in (("docx", "Word (.docx)", "Pour Microsoft Word (et aussi LibreOffice)."),
+                              ("odt", "LibreOffice (.odt)", "Pour LibreOffice (Word l’ouvre aussi).")):
+        bulle(ttk.Radiobutton(fcre, text=lib_, value=val_, variable=v_format), aide_).pack(side="left", padx=(4, 0))
 
     # 3. Notes et annexes
     f_r3 = cadre(gauche6, "3. Générer les notes et les annexes", 1, 0, pady=(6, 0))
@@ -3670,15 +3682,16 @@ def interface():
 
     def choisir_texte():
         f_ = filedialog.askopenfilename(title="Texte à traiter", initialdir=dossier_redaction(),
-                                        filetypes=[("Documents LibreOffice", "*.odt")])
+                                        filetypes=[("Textes Word ou LibreOffice", "*.docx *.odt"),
+                                                   ("Word", "*.docx"), ("LibreOffice", "*.odt")])
         if f_:
             etat["texte_odt"] = f_
             l_txt["text"] = os.path.basename(f_)
             cfg["red_texte"] = f_
             sauver_config(cfg)
-    bulle(ttk.Button(f_r3, text="Choisir le texte (.odt)…", command=choisir_texte),
-          "Votre texte avec les repères [[…]]. L’original n’est jamais modifié : le résultat est un nouveau fichier "
-          "« …_notes.odt ».").grid(row=0, column=0, sticky="w")
+    bulle(ttk.Button(f_r3, text="Choisir le texte (.docx ou .odt)…", command=choisir_texte),
+          "Votre texte avec les repères [[…]], en Word (.docx) ou LibreOffice (.odt). L’original n’est jamais "
+          "modifié : le résultat est un nouveau fichier « …_notes.docx » ou « …_notes.odt ».").grid(row=0, column=0, sticky="w")
     l_txt.grid(row=0, column=1, sticky="w", padx=8)
     v_rpdf = tk.BooleanVar(value=cfg.get("red_pdf", True))
     v_rtamp = tk.BooleanVar(value=cfg.get("red_tampon", True))
@@ -3700,7 +3713,7 @@ def interface():
     def generer_notes():
         chemin = etat.get("texte_odt", "")
         if not chemin or not os.path.exists(chemin):
-            messagebox.showerror("Texte", "Choisissez d’abord le texte à traiter (.odt).")
+            messagebox.showerror("Texte", "Choisissez d’abord le texte à traiter (.docx ou .odt).")
             return
         cfg["red_pdf"], cfg["red_tampon"] = v_rpdf.get(), v_rtamp.get()
         cfg["red_tout_annexer"] = v_rtout.get()
@@ -3850,9 +3863,69 @@ def interface():
         d = os.path.join(dossier_pays(), RD.DOSSIER_PIECES)
         os.makedirs(d, exist_ok=True)
         ouvrir(d)
-    bulle(ttk.Button(fb6, text="Pièces du dossier", command=ouvrir_pieces),
-          "Dossier où déposer les pièces personnelles (attestations, passeports…) : elles deviennent des repères "
-          "[[PIECE nom]] et sont mises en annexe. Préfixez-les d’un numéro pour l’ordre (01_…).").pack(side="left")
+    def ajouter_piece_ui():
+        f_ = filedialog.askopenfilename(title="Pièce à ajouter (attestation, certificat, témoignage…)",
+                                        filetypes=[("PDF, Word, LibreOffice, images", "*.pdf *.docx *.doc *.odt *.jpg *.jpeg *.png"),
+                                                   ("Tous", "*.*")])
+        if not f_:
+            return
+        d = tk.Toplevel(root)
+        d.title("Ajouter une pièce du dossier")
+        d.transient(root)
+        cc = ttk.Frame(d, padding=12)
+        cc.pack(fill="both", expand=True)
+        ttk.Label(cc, text="Fichier : %s" % os.path.basename(f_), font=("Arial", 10, "bold")).grid(
+            row=0, column=0, columnspan=2, sticky="w")
+        ttk.Label(cc, wraplength=560, justify="left", foreground=GRIS, text=(
+            "Facultatif mais conseillé : la description sert de référence dans la note et dans l’index des annexes "
+            "(ex. « Athénée Fernand Blum, Attestation de scolarité de Charles, 12 septembre 2026 »). Sans "
+            "description, le nom du fichier sert de titre.")).grid(row=1, column=0, columnspan=2, sticky="w", pady=(4, 6))
+        titre0 = re.sub(r"[_]+", " ", re.sub(r"^\d+[\s._-]*", "", os.path.splitext(os.path.basename(f_))[0])).strip()
+        vs_ = {}
+        for i_, (k_, lib_, ex_, val0) in enumerate((
+                ("auteur", "Auteur", "ex. Athénée Fernand Blum ; Dr A. Dupont ; M. X (témoin)", ""),
+                ("titre", "Titre", "ex. Attestation de scolarité de Charles", titre0),
+                ("date", "Date", "ex. 12 septembre 2026", ""))):
+            ttk.Label(cc, text=lib_ + " :").grid(row=2 + 2 * i_, column=0, sticky="w", pady=(6, 0))
+            vs_[k_] = tk.StringVar(value=val0)
+            ttk.Entry(cc, textvariable=vs_[k_], width=64).grid(row=2 + 2 * i_, column=1, sticky="we", padx=6, pady=(6, 0))
+            ttk.Label(cc, text=ex_, foreground=GRIS).grid(row=3 + 2 * i_, column=1, sticky="w", padx=6)
+
+        def ok_():
+            ch = {k: v.get().strip() for k, v in vs_.items()}
+            if ch.get("titre") == titre0 and not ch.get("auteur") and not ch.get("date"):
+                ch = {}
+            id_, err = RD.ajouter_piece(dossier_pays(), f_, ch)
+            if err:
+                messagebox.showerror("Pièce", err, parent=d)
+                return
+            d.destroy()
+            actualiser()
+            rep_ = "[[PIECE %s]]" % id_[6:]
+            try:
+                root.clipboard_clear()
+                root.clipboard_append(rep_)
+            except Exception:
+                pass
+            messagebox.showinfo("Pièce ajoutée", "La pièce est dans « %s ».\n\nSon repère, copié dans le presse-papiers :"
+                                "\n%s\n\nCollez-le (Ctrl+V) dans votre texte là où vous la citez : elle sera annexée "
+                                "et numérotée dans l’ordre des citations." % (RD.DOSSIER_PIECES, rep_))
+        bb_ = ttk.Frame(cc)
+        bb_.grid(row=8, column=0, columnspan=2, sticky="e", pady=(12, 0))
+        ttk.Button(bb_, text="Annuler", command=d.destroy).pack(side="right")
+        ttk.Button(bb_, text="Ajouter", command=ok_).pack(side="right", padx=4)
+        d.grab_set()
+    fb6b = ttk.Frame(f_r2)
+    fb6b.grid(row=4, column=0, columnspan=2, sticky="w", pady=(4, 0))
+    ttk.Label(fb6b, text="Pièces du dossier :").pack(side="left")
+    bulle(ttk.Button(fb6b, text="Ajouter une pièce…", command=ajouter_piece_ui),
+          "Choisir un fichier (attestation, certificat, témoignage, passeport…) : il est copié dans les pièces du "
+          "dossier avec sa description, et son repère [[PIECE …]] est copié pour le coller dans le texte.").pack(
+        side="left", padx=(6, 0))
+    bulle(ttk.Button(fb6b, text="Ouvrir le dossier des pièces", command=ouvrir_pieces),
+          "Ouvre le dossier des pièces personnelles (attestations, passeports…) : tout fichier déposé ici devient un "
+          "repère [[PIECE nom]], annexé s’il est cité. Préfixez-les d’un numéro pour les retrouver (01_…).").pack(
+        side="left", padx=4)
     bulle(ttk.Button(fb6, text="Gérer…", command=lambda: fenetre_reperes()),
           "Annexer ou non une source, corriger sa référence, ajouter un document qui n’a pas été collecté.").pack(
         side="left", padx=4)

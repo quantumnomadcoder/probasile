@@ -98,14 +98,47 @@ def charger_sources(dossier_pays, dossier_base=None):
             pass
     pieces = os.path.join(dossier_pays, DOSSIER_PIECES)
     if os.path.isdir(pieces):
+        infos = lire_infos_pieces(pieces)
         for nom in sorted(os.listdir(pieces)):
             if nom.lower().endswith(EXT_PIECES) and not nom.startswith("."):
                 base = os.path.splitext(nom)[0]
-                out.append({"id": "PIECE-" + base, "categorie": "Pièces du dossier", "auteur": "",
-                            "titre": re.sub(r"[_]+", " ", re.sub(r"^\d+[\s._-]*", "", base)).strip(),
-                            "cote": "", "date": "", "url": "", "consulte_le": "", "fichier": nom,
-                            "annexe": "oui", "citation": "", "_racine": pieces})
+                s = {"id": "PIECE-" + base, "categorie": "Pièces du dossier", "auteur": "",
+                     "titre": re.sub(r"[_]+", " ", re.sub(r"^\d+[\s._-]*", "", base)).strip(),
+                     "cote": "", "date": "", "url": "", "consulte_le": "", "fichier": nom,
+                     "annexe": "oui", "citation": "", "_racine": pieces, "_piece": True}
+                for k, v in infos.get(nom, {}).items():
+                    if k in CHAMPS_PIECES[1:] and v:
+                        s[k] = v
+                out.append(s)
     return out
+
+
+# Description des pièces du dossier (facultative) : 00_Pieces_du_dossier/pieces.csv, une ligne par fichier.
+# Sans description, le nom du fichier sert de titre (« 03_Attestation_scolaire_David.pdf » -> « Attestation
+# scolaire David »).
+INFOS_PIECES = "pieces.csv"
+CHAMPS_PIECES = ["fichier", "auteur", "titre", "cote", "date", "annexe", "remarques"]
+
+
+def lire_infos_pieces(dossier_pieces):
+    chemin = os.path.join(dossier_pieces, INFOS_PIECES)
+    if not os.path.exists(chemin):
+        return {}
+    try:
+        with open(chemin, encoding="utf-8-sig", newline="") as f:
+            return {(r.get("fichier") or "").strip(): {k: (v or "").strip() for k, v in r.items() if k}
+                    for r in csv.DictReader(f, delimiter=";") if (r.get("fichier") or "").strip()}
+    except Exception:
+        return {}
+
+
+def ecrire_info_piece(dossier_pieces, fichier, champs):
+    infos = lire_infos_pieces(dossier_pieces)
+    ligne = infos.get(fichier, {"fichier": fichier})
+    ligne.update({k: (v or "").strip() for k, v in champs.items() if k in CHAMPS_PIECES[1:]})
+    ligne["fichier"] = fichier
+    infos[fichier] = ligne
+    _ecrire_sources_csv(os.path.join(dossier_pieces, INFOS_PIECES), CHAMPS_PIECES, list(infos.values()))
 
 
 def repere(s, sources=None):
@@ -464,6 +497,14 @@ def _nouvelle_note(morceaux, style_it, n):
 # ---------------------------------------------------------------------------
 # Génération des notes et des annexes
 # ---------------------------------------------------------------------------
+def ligne_d_aide(t):
+    """Lignes du plan à retirer du résultat : suggestions bleues « [[repère]]  –  titre », renvoi à la liste
+    complète, mode d’emploi du plan."""
+    return bool(re.match(r"^\s*\[\[(?!\s*BLOC\s)[^\]]+\]\]\s+–\s", t) or
+                re.match(r"^… et \d+ autre\(s\) : voir la liste complète", t.strip()) or
+                t.strip().startswith("Mode d’emploi de ce plan (à supprimer ensuite)"))
+
+
 class Resultat:
     def __init__(self):
         self.notes = 0
@@ -478,6 +519,10 @@ def generer(chemin_odt, sources, dossier_sortie=None, pdf_annexes=True, tampon=T
     tout_annexer : toute source citée est annexée (sauf textes de référence, +sansannexe ou colonne annexe = non)."""
     if etree is None:
         raise RuntimeError("Le module lxml manque : relancez l’installateur.")
+    if chemin_odt.lower().endswith(".docx"):
+        import docx_io
+        return docx_io.generer_docx(chemin_odt, sources, dossier_sortie, pdf_annexes, tampon, log, bibliotheque,
+                                    variables, tout_annexer)
     res = Resultat()
     base = os.path.splitext(os.path.basename(chemin_odt))[0]
     dossier_sortie = dossier_sortie or os.path.dirname(os.path.abspath(chemin_odt))
@@ -498,9 +543,7 @@ def generer(chemin_odt, sources, dossier_sortie=None, pdf_annexes=True, tampon=T
     n_sugg = 0
     for p in list(_paragraphes(body)):
         t = "".join(p.itertext())
-        if re.match(r"^\s*\[\[(?!\s*BLOC\s)[^\]]+\]\]\s+–\s", t) or \
-                re.match(r"^… et \d+ autre\(s\) : voir la liste complète", t.strip()) or \
-                t.strip().startswith("Mode d’emploi de ce plan (à supprimer ensuite)"):
+        if ligne_d_aide(t):
             if p.getparent() is not None:
                 p.getparent().remove(p)
                 n_sugg += 1
@@ -529,6 +572,69 @@ def generer(chemin_odt, sources, dossier_sortie=None, pdf_annexes=True, tampon=T
         for o, a, b, an in sorted(evs, key=lambda e: e[0]):
             evenements.append((p, a, b, an))
 
+    contenus = calculer_notes(evenements, sources, tout_annexer, res)
+
+    # 3e passage : insertion, du dernier repère au premier dans chaque paragraphe
+    index_para = None
+    par_para = {}
+    for (p, a, b, an), c in zip(evenements, contenus):
+        par_para.setdefault(id(p), (p, []))[1].append((a, b, an, c))
+    n = 0
+    for p, evs in par_para.values():
+        for a, b, an, c in sorted(evs, key=lambda e: -e[0]):
+            if an is None:
+                continue
+            if c == "INDEX":
+                _supprimer(p, a, b)
+                index_para = p
+                continue
+            _supprimer(p, a, b)
+            n += 1
+            _inserer(p, a, _nouvelle_note(c, style_it, n))
+            res.notes += 1
+
+    # numérotation de toutes les notes dans l'ordre du document
+    for i, note in enumerate([x for x in body.iter(T + "note") if x.get(T + "note-class", "footnote") == "footnote"], 1):
+        cit = note.find(T + "note-citation")
+        if cit is not None:
+            cit.text = str(i)
+
+    # index des annexes
+    if res.annexes:
+        lignes = ["Annexe %d : %s" % (no, entree_index(s)) for no, s in res.annexes]
+        if index_para is None:
+            h = etree.SubElement(body, T + "h")
+            h.set(T + "style-name", "Heading_20_1")
+            h.set(T + "outline-level", "1")
+            h.text = "Index des annexes"
+            ancre, parent = h, body
+        else:
+            ancre, parent = index_para, index_para.getparent()
+        style_p = index_para.get(T + "style-name") if index_para is not None else "Text_20_body"
+        pos = parent.index(ancre) + 1
+        for l in lignes:
+            np_ = etree.Element(T + "p")
+            np_.set(T + "style-name", style_p or "Text_20_body")
+            np_.text = l
+            parent.insert(pos, np_)
+            pos += 1
+        if index_para is not None and not "".join(index_para.itertext()).strip():
+            parent.remove(index_para)
+
+    # écriture du nouveau document
+    res.odt = os.path.join(dossier_sortie, base + "_notes.odt")
+    fichiers["content.xml"] = etree.tostring(root, xml_declaration=True, encoding="UTF-8")
+    _ecrire_odt(res.odt, fichiers)
+    log("  Document avec notes : %s (%d note(s) créée(s), %d annexe(s))" % (res.odt, res.notes, len(res.annexes)))
+
+    finir(res, chemin_odt, dossier_sortie, base, pdf_annexes, tampon, log)
+    return res
+
+
+def calculer_notes(evenements, sources, tout_annexer, res):
+    """Commun aux formats .odt et .docx. evenements = [(paragraphe, début, fin, analyse | None)] dans l'ordre
+    du document (None = note de bas de page déjà présente). Remplit res.annexes et res.problemes ; renvoie le
+    contenu de chaque note : liste de morceaux, "INDEX" ou None."""
     # résolution des sources et annexes (ordre de première citation)
     annexe_de = {}
     for p, a, b, an in evenements:
@@ -612,59 +718,12 @@ def generer(chemin_odt, sources, dossier_sortie=None, pdf_annexes=True, tampon=T
         contenus.append(note)
         precedent = sources_note[0] if len(sources_note) == 1 and sources_note[0] else None
 
-    # 3e passage : insertion, du dernier repère au premier dans chaque paragraphe
-    index_para = None
-    par_para = {}
-    for (p, a, b, an), c in zip(evenements, contenus):
-        par_para.setdefault(id(p), (p, []))[1].append((a, b, an, c))
-    n = 0
-    for p, evs in par_para.values():
-        for a, b, an, c in sorted(evs, key=lambda e: -e[0]):
-            if an is None:
-                continue
-            if c == "INDEX":
-                _supprimer(p, a, b)
-                index_para = p
-                continue
-            _supprimer(p, a, b)
-            n += 1
-            _inserer(p, a, _nouvelle_note(c, style_it, n))
-            res.notes += 1
+    return contenus
 
-    # numérotation de toutes les notes dans l'ordre du document
-    for i, note in enumerate([x for x in body.iter(T + "note") if x.get(T + "note-class", "footnote") == "footnote"], 1):
-        cit = note.find(T + "note-citation")
-        if cit is not None:
-            cit.text = str(i)
 
-    # index des annexes
-    if res.annexes:
-        lignes = ["Annexe %d : %s" % (no, entree_index(s)) for no, s in res.annexes]
-        if index_para is None:
-            h = etree.SubElement(body, T + "h")
-            h.set(T + "style-name", "Heading_20_1")
-            h.set(T + "outline-level", "1")
-            h.text = "Index des annexes"
-            ancre, parent = h, body
-        else:
-            ancre, parent = index_para, index_para.getparent()
-        style_p = index_para.get(T + "style-name") if index_para is not None else "Text_20_body"
-        pos = parent.index(ancre) + 1
-        for l in lignes:
-            np_ = etree.Element(T + "p")
-            np_.set(T + "style-name", style_p or "Text_20_body")
-            np_.text = l
-            parent.insert(pos, np_)
-            pos += 1
-        if index_para is not None and not "".join(index_para.itertext()).strip():
-            parent.remove(index_para)
-
-    # écriture du nouveau document
-    res.odt = os.path.join(dossier_sortie, base + "_notes.odt")
-    fichiers["content.xml"] = etree.tostring(root, xml_declaration=True, encoding="UTF-8")
-    _ecrire_odt(res.odt, fichiers)
-    log("  Document avec notes : %s (%d note(s) créée(s), %d annexe(s))" % (res.odt, res.notes, len(res.annexes)))
-
+def finir(res, chemin_source, dossier_sortie, base, pdf_annexes, tampon, log):
+    """PDF des annexes et rapport (communs aux formats .odt et .docx)."""
+    chemin_odt = chemin_source
     if pdf_annexes and res.annexes:
         res.pdf = os.path.join(dossier_sortie, base + "_annexes.pdf")
         manques = assembler_annexes(res.annexes, res.pdf, tampon=tampon, log=log)
@@ -682,7 +741,6 @@ def generer(chemin_odt, sources, dossier_sortie=None, pdf_annexes=True, tampon=T
         f.write("Points à vérifier :\n" if res.problemes else "Aucun problème relevé.\n")
         for pb in res.problemes:
             f.write("  - %s\n" % pb)
-    return res
 
 
 def _ecrire_odt(chemin, fichiers):
@@ -753,18 +811,112 @@ def page_intercalaire(no, description):
     return page_pdf(lignes)
 
 
+def _jpeg_pdf(chemin, sortie):
+    """Photo JPEG -> PDF d'une page A4 (sans module supplémentaire)."""
+    data = open(chemin, "rb").read()
+    i, larg, haut, comp = 2, 0, 0, 3
+    while i < len(data) - 9:
+        if data[i] != 0xFF:
+            i += 1
+            continue
+        marq = data[i + 1]
+        if marq in (0xC0, 0xC1, 0xC2):
+            haut, larg, comp = int.from_bytes(data[i + 5:i + 7], "big"), int.from_bytes(data[i + 7:i + 9], "big"), data[i + 9]
+            break
+        i += 2 + int.from_bytes(data[i + 2:i + 4], "big")
+    if not larg or not haut:
+        return None
+    L, H = 595.28, 841.89
+    k = min((L - 56) / larg, (H - 56) / haut)
+    lw, lh = larg * k, haut * k
+    contenu = ("q %.2f 0 0 %.2f %.2f %.2f cm /Im1 Do Q\n" % (lw, lh, (L - lw) / 2, (H - lh) / 2)).encode()
+    cs = {1: "/DeviceGray", 4: "/DeviceCMYK"}.get(comp, "/DeviceRGB")
+    objs = [b"<< /Type /Catalog /Pages 2 0 R >>", b"<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+            ("<< /Type /Page /Parent 2 0 R /MediaBox [0 0 %.2f %.2f] /Resources << /XObject << /Im1 5 0 R >> >> "
+             "/Contents 4 0 R >>" % (L, H)).encode(),
+            b"<< /Length %d >>\nstream\n" % len(contenu) + contenu + b"\nendstream",
+            ("<< /Type /XObject /Subtype /Image /Width %d /Height %d /ColorSpace %s /BitsPerComponent 8 "
+             "/Filter /DCTDecode /Length %d >>\nstream\n" % (larg, haut, cs, len(data))).encode() + data + b"\nendstream"]
+    out = io.BytesIO()
+    out.write(b"%PDF-1.4\n")
+    pos = []
+    for n, o in enumerate(objs, 1):
+        pos.append(out.tell())
+        out.write(b"%d 0 obj\n" % n + o + b"\nendobj\n")
+    xref = out.tell()
+    out.write(b"xref\n0 %d\n0000000000 65535 f \n" % (len(objs) + 1))
+    for p_ in pos:
+        out.write(b"%010d 00000 n \n" % p_)
+    out.write(b"trailer\n<< /Size %d /Root 1 0 R >>\nstartxref\n%d\n%%%%EOF\n" % (len(objs) + 1, xref))
+    with open(sortie, "wb") as f:
+        f.write(out.getvalue())
+    return sortie
+
+
+def _image_pdf(chemin, tmp):
+    sortie = os.path.join(tmp, os.path.splitext(os.path.basename(chemin))[0] + ".pdf")
+    try:
+        from PIL import Image
+        im = Image.open(chemin)
+        if im.mode in ("RGBA", "P", "LA"):
+            fond = Image.new("RGB", im.size, "white")
+            im = im.convert("RGBA")
+            fond.paste(im, mask=im.split()[-1])
+            im = fond
+        elif im.mode != "RGB":
+            im = im.convert("RGB")
+        im.save(sortie, "PDF", resolution=150)
+        return sortie
+    except Exception:
+        pass
+    if chemin.lower().endswith((".jpg", ".jpeg")):
+        try:
+            return _jpeg_pdf(chemin, sortie)
+        except Exception:
+            return None
+    return None
+
+
+def _word_pdf(chemin, tmp):
+    """Windows sans LibreOffice : conversion par Microsoft Word, s'il est installé."""
+    if os.name != "nt":
+        return None
+    sortie = os.path.join(tmp, os.path.splitext(os.path.basename(chemin))[0] + ".pdf")
+    script = ("$ErrorActionPreference='Stop'; $w=New-Object -ComObject Word.Application; $w.Visible=$false; "
+              "try { $d=$w.Documents.Open($env:PROBASILE_SRC, $false, $true); $d.SaveAs([ref]$env:PROBASILE_PDF, [ref]17); "
+              "$d.Close($false) } finally { $w.Quit() }")
+    env = dict(os.environ, PROBASILE_SRC=os.path.abspath(chemin), PROBASILE_PDF=os.path.abspath(sortie))
+    try:
+        subprocess.run(["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-Command", script], env=env,
+                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=240,
+                       creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
+    except Exception:
+        return None
+    return sortie if os.path.exists(sortie) else None
+
+
 def _vers_pdf(chemin, tmp):
-    """Convertit un document (Word, ODT, image…) en PDF avec LibreOffice, s'il est installé."""
+    """Convertit un document (Word, ODT, image…) en PDF : images directement, sinon LibreOffice s'il est
+    installé, ou Microsoft Word sous Windows."""
+    if chemin.lower().endswith((".jpg", ".jpeg", ".png")):
+        r = _image_pdf(chemin, tmp)
+        if r:
+            return r
     for exe in ("soffice", "libreoffice", "/Applications/LibreOffice.app/Contents/MacOS/soffice",
-                r"C:\Program Files\LibreOffice\program\soffice.exe"):
+                r"C:\Program Files\LibreOffice\program\soffice.exe",
+                r"C:\Program Files (x86)\LibreOffice\program\soffice.exe"):
         if shutil.which(exe) or os.path.exists(exe):
             try:
                 subprocess.run([exe, "--headless", "--convert-to", "pdf", "--outdir", tmp, chemin],
                                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=180)
             except Exception:
-                return None
+                break
             sortie = os.path.join(tmp, os.path.splitext(os.path.basename(chemin))[0] + ".pdf")
-            return sortie if os.path.exists(sortie) else None
+            if os.path.exists(sortie):
+                return sortie
+            break
+    if chemin.lower().endswith((".doc", ".docx", ".odt", ".rtf")):
+        return _word_pdf(chemin, tmp)
     return None
 
 
@@ -784,7 +936,7 @@ def assembler_annexes(annexes, sortie, tampon=True, log=print):
                 continue
             pdf = chemin if chemin.lower().endswith(".pdf") else _vers_pdf(chemin, tmp)
             if not pdf:
-                manques.append("Annexe %d : %s n’a pas pu être converti en PDF (LibreOffice introuvable ?)." % (no, f))
+                manques.append("Annexe %d : %s n’a pas pu être converti en PDF (ni LibreOffice ni Word trouvés) : enregistrez-le en PDF et remplacez le fichier." % (no, f))
                 continue
             try:
                 r = PdfReader(pdf)
@@ -1319,6 +1471,12 @@ def creer_plan(procedure, chemin_sortie, de_pays="", nom_pays="[pays]", demandeu
             '</manifest:manifest>').encode(),
     }
     os.makedirs(os.path.dirname(os.path.abspath(chemin_sortie)), exist_ok=True)
+    if chemin_sortie.lower().endswith(".docx"):  # plan pour Word : même contenu, converti
+        import docx_io
+        tmp = os.path.splitext(chemin_sortie)[0] + "_tmp.odt"
+        _ecrire_odt(tmp, fichiers)
+        docx_io.odt_vers_docx(tmp, chemin_sortie, supprimer_odt=True)
+        return chemin_sortie
     _ecrire_odt(chemin_sortie, fichiers)
     return chemin_sortie
 
@@ -1356,6 +1514,11 @@ def odt_simple(chemin, elements, titre=""):
             '<manifest:file-entry manifest:full-path="styles.xml" manifest:media-type="text/xml"/>'
             '</manifest:manifest>').encode(),
     }
+    if chemin.lower().endswith(".docx"):
+        import docx_io
+        tmp = os.path.splitext(chemin)[0] + "_tmp.odt"
+        _ecrire_odt(tmp, fichiers)
+        return docx_io.odt_vers_docx(tmp, chemin, supprimer_odt=True)
     _ecrire_odt(chemin, fichiers)
     return chemin
 
@@ -1432,6 +1595,9 @@ def _ecrire_sources_csv(chemin, champs, lignes):
 
 def modifier_source(s, changements):
     """Modifie une ligne de sources.csv (du pays ou du dossier commun). Renvoie "" ou un message d'erreur."""
+    if s.get("_piece"):  # pièce du dossier : description dans 00_Pieces_du_dossier/pieces.csv
+        ecrire_info_piece(s["_racine"], s["fichier"], changements)
+        return ""
     chemin = os.path.join(s.get("_racine") or "", "sources.csv")
     if s.get("_lex") or not os.path.exists(chemin):
         return "Cette source n’est pas dans un fichier sources.csv."
@@ -1448,6 +1614,30 @@ def modifier_source(s, changements):
         return "Source introuvable dans %s." % chemin
     _ecrire_sources_csv(chemin, champs, lignes)
     return ""
+
+
+def ajouter_piece(dossier_pays, fichier, champs_src=None):
+    """Copie un fichier dans 00_Pieces_du_dossier (avec sa description éventuelle). Renvoie (id, erreur)."""
+    if not fichier or not os.path.exists(fichier):
+        return "", "Choisissez le fichier de la pièce."
+    if not fichier.lower().endswith(EXT_PIECES):
+        return "", "Format non pris en charge pour une pièce : PDF, Word, ODT ou image."
+    d = os.path.join(dossier_pays, DOSSIER_PIECES)
+    os.makedirs(d, exist_ok=True)
+    nom = os.path.basename(fichier)
+    dest = os.path.join(d, nom)
+    if os.path.exists(dest) and os.path.abspath(dest) != os.path.abspath(fichier):
+        racine, ext = os.path.splitext(nom)
+        i = 2
+        while os.path.exists(os.path.join(d, "%s_%d%s" % (racine, i, ext))):
+            i += 1
+        nom = "%s_%d%s" % (racine, i, ext)
+        dest = os.path.join(d, nom)
+    if os.path.abspath(dest) != os.path.abspath(fichier):
+        shutil.copy(fichier, dest)
+    if champs_src and any((champs_src.get(k) or "").strip() for k in CHAMPS_PIECES[1:]):
+        ecrire_info_piece(d, nom, champs_src)
+    return "PIECE-" + os.path.splitext(nom)[0], ""
 
 
 def ajouter_source(dossier_pays, champs_src, fichier=None):

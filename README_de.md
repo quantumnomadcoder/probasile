@@ -7,7 +7,7 @@
 
 <p align="center">
 <img src="https://img.shields.io/badge/Lizenz-GPL--3.0-blue" alt="Lizenz GPL-3.0">
-<img src="https://img.shields.io/badge/Version-1.0.4-orange" alt="Version 1.0.4">
+<img src="https://img.shields.io/badge/Version-1.1.0-orange" alt="Version 1.1.0">
 <img src="https://img.shields.io/badge/Windows%20%7C%20macOS%20%7C%20Linux-lightgrey" alt="Windows, macOS, Linux">
 <img src="https://img.shields.io/badge/Oberfl%C3%A4che-Franz%C3%B6sisch-lightgrey" alt="Oberfläche auf Französisch">
 </p>
@@ -122,7 +122,7 @@ Probasile/
 
 ### 3. Schreiben
 
-- **Mustergliederungen** für **internationalen Schutz**, die **Nicht-Erteilung einer Ausreiseanweisung** und **9ter**, in LibreOffice anpassbar: Abschnitte hinzufügen, umbenennen, verschieben oder löschen.
+- **Mustergliederungen** für **internationalen Schutz**, die **Nicht-Erteilung einer Ausreiseanweisung** und **9ter**, im Format **Word (.docx)** oder **LibreOffice (.odt)**, anpassbar: Abschnitte hinzufügen, umbenennen, verschieben oder löschen.
 - **Automatische grammatische Anpassung** je nachdem, wer den Antrag stellt (ein Mann, eine Frau, mehrere Personen oder eine Familie, mehrere Frauen).
 - **Absätze, die aus den gesammelten Daten berechnet werden**, mit ihren Fußnoten: nicht ratifizierte Verträge, abgelehnte Beschwerdeverfahren, verspätete Staatenberichte (die Verzögerung wird berechnet), nie übermittelte Follow-up-Informationen.
 - **Eine Bibliothek juristischer Textbausteine**, jeweils mit Quellen belegt:
@@ -133,11 +133,11 @@ Probasile/
   - Artikel 3 EMRK, Kindeswohl (Art. 74/13);
   - 9ter und die Rechtsprechung Paposhvili…
 
-Die Bausteine berücksichtigen die seit der Reform von 2026 geltenden Regeln: **Gesetz vom 16. Juni 2026**, **Verordnungen (EU) 2024/1347 und 2024/1348**. Sie zitieren außerdem Rechtsprechung (EGMR, EuGH, Rat für Ausländerstreitsachen), das UNHCR-Handbuch und sozialwissenschaftliche Literatur. Jeder Baustein lässt sich in LibreOffice bearbeiten, und du kannst eigene hinzufügen.
+Die Bausteine berücksichtigen die seit der Reform von 2026 geltenden Regeln: **Gesetz vom 16. Juni 2026**, **Verordnungen (EU) 2024/1347 und 2024/1348**. Sie zitieren außerdem Rechtsprechung (EGMR, EuGH, Rat für Ausländerstreitsachen), das UNHCR-Handbuch und sozialwissenschaftliche Literatur. Jeder Baustein lässt sich in Word oder LibreOffice bearbeiten, und du kannst eigene hinzufügen.
 
 ### 4. Fußnoten und Anlagen erzeugen
 
-Du schreibst in LibreOffice und setzt einen **Verweis** in doppelte eckige Klammern, wo eine Fußnote hin soll:
+Du schreibst in Word oder LibreOffice und setzt einen **Verweis** in doppelte eckige Klammern, wo eine Fußnote hin soll:
 
 ```
 Le Comité s'est déclaré « profondément préoccupé par le nombre d'exécutions extrajudiciaires »[[CCPR/C/IDN/CO/2, §10, p.3]].
@@ -164,7 +164,7 @@ Probasile erstellt anschließend:
 
 - 📝 eine Kopie des Textes **mit Fußnoten** (der Originaltext bleibt immer unverändert);
 - 📎 die **nummerierten Anlagen**, mit Verzeichnis;
-- 📕 **ein einziges PDF** mit allen Anlagen, jeweils mit einem Deckblatt davor; Word-Dateien werden dabei umgewandelt;
+- 📕 **ein einziges PDF** mit allen Anlagen, jeweils mit einem Deckblatt davor; Word-Dateien und Fotos werden dabei umgewandelt;
 - 📋 einen Bericht, der unbekannte Verweise und fehlende Dateien meldet.
 
 ### 5. Die Gesetzgebung prüfen
@@ -183,8 +183,9 @@ Es meldet, welche Artikel geändert oder aufgehoben wurden, seit wann, und **wel
 
 **Voraussetzungen, einmalig zu installieren:**
 
-- [Python 3](https://www.python.org/downloads/): unter Windows bei der Installation **« Add Python to PATH »** ankreuzen;
-- [LibreOffice](https://de.libreoffice.org/): um die Gliederungen zu öffnen und Word-Anlagen in PDF umzuwandeln.
+- **Windows**: nichts. Das Installationsprogramm findet Python oder installiert es selbst (für dein Konto, ohne Administratorrechte).
+- **macOS / Linux**: [Python 3](https://www.python.org/downloads/) (oft schon vorhanden).
+- Ein Textverarbeitungsprogramm: **Microsoft Word** oder **[LibreOffice](https://de.libreoffice.org/)** (kostenlos).
 
 **Danach:**
 
@@ -205,7 +206,7 @@ Ein Fenster zeigt die Installation und bietet anschließend an, Probasile zu sta
 - **Linux**: Anwendungsmenü (Kategorie *Büro*) und Desktop.
 - **macOS**: Ordner *Programme* deines Benutzerkontos; zieh Probasile ins Dock.
 
-Außerhalb des Programmordners wird nichts installiert, und die Python-Installation deines Systems bleibt unverändert.
+Unter macOS und Linux wird außerhalb des Programmordners nichts installiert, und die Python-Installation des Systems bleibt unverändert. Unter Windows werden Python (falls es fehlte) und die Module nur für dein Konto installiert.
 
 <details>
 <summary><b>Deinstallieren</b></summary>
@@ -224,10 +225,10 @@ Außerhalb des Programmordners wird nichts installiert, und die Python-Installat
 2. **Wähle den Basisordner**, einmalig; er wird gespeichert.
 3. **Kreuze an, was du sammeln möchtest**, und klicke auf **« Lancer la collecte »** (Suche starten). Beim ersten Suchlauf « Nouveautés seulement » abwählen.
 4. Gib in der Registerkarte **Rédaction** (Schreiben) den Namen ein und wer den Antrag stellt, wähle das Verfahren und **erstelle die Gliederung**. Wähle die Bausteine und kreuze « Ajouter les paragraphes calculés » (berechnete Absätze hinzufügen) an.
-5. **Schreibe in LibreOffice** und füge deine Verweise ein. Die Liste der Verweise des Landes (Doppelklick kopiert den Verweis) und die Schaltfläche « Comment écrire une note ? » helfen dir dabei.
+5. **Schreibe in Word oder LibreOffice** und füge deine Verweise ein. Die Liste der Verweise des Landes (Doppelklick kopiert den Verweis) und die Schaltfläche « Comment écrire une note ? » helfen dir dabei.
 6. Klicke auf **« Générer »** (erzeugen): Du erhältst den Text mit Fußnoten und das PDF der Anlagen im Ordner `Redaction` des Landes.
 
-Jede Registerkarte hat eine Schaltfläche **« Mode d'emploi »** (Anleitung), und beim Überfahren einer Schaltfläche erscheint ein Hinweis. Die vollständige Anleitung (auf Französisch) steht in [`LISEZMOI.txt`](LISEZMOI.txt).
+Jede Registerkarte hat eine Schaltfläche **« Mode d'emploi »** (Anleitung), und beim Überfahren einer Schaltfläche erscheint ein Hinweis. Die vollständige Anleitung (auf Französisch) steht in [`LISEZMOI.txt`](LISEZMOI.txt). Ein Leitfaden, um Probasile anderen vorzustellen (Demo von 5 oder 25 Minuten, auf Französisch): [`GUIDE_DEMO.md`](GUIDE_DEMO.md).
 
 ---
 
@@ -253,7 +254,7 @@ Für ReliefWeb verlangt die offizielle Schnittstelle (API) einen kostenlosen **A
 <details>
 <summary><b>Muss ich programmieren können?</b></summary>
 
-Nein. Alles funktioniert über Schaltflächen und Kästchen, und du schreibst wie gewohnt in LibreOffice. Die Befehlszeile ist eine Option für alle, die das möchten.
+Nein. Alles funktioniert über Schaltflächen und Kästchen, und du schreibst wie gewohnt in Word oder LibreOffice. Die Befehlszeile ist eine Option für alle, die das möchten.
 </details>
 
 <details>
@@ -265,7 +266,7 @@ Ja, für die Sammlung der Quellen: UN-Dokumente, UPR, Ratifikationen, NGO-Berich
 <details>
 <summary><b>Funktioniert es mit Word?</b></summary>
 
-Du schreibst in **LibreOffice Writer** (kostenlos), und das erzeugte Dokument (`.odt`) lässt sich danach auch in Word öffnen. Anlagen im Word-Format werden automatisch in PDF umgewandelt.
+Ja. Die Gliederung kann als **Word-Datei (.docx)** erstellt werden, und ein in Word geschriebener Text erhält echte Word-Fußnoten. LibreOffice (.odt) bleibt möglich. Anlagen im Word-Format werden automatisch in PDF umgewandelt (mit LibreOffice oder, unter Windows, mit Word).
 </details>
 
 <details>

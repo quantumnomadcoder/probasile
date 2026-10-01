@@ -1,4 +1,4 @@
-PROBASILE – mode d'emploi (version 1.0.4)
+PROBASILE – mode d'emploi (version 1.1.0)
 ==========================================
 
 À quoi sert ce programme
@@ -135,8 +135,9 @@ Onglet « Importer »
 
 Onglet « Rédaction »
   1. Créer un plan type (non-délivrance d'OQT, protection internationale, 9ter) :
-     document LibreOffice avec les titres, des indications de rédaction et, sous
-     chaque titre, les repères des sources déjà collectées.
+     document Word (.docx) ou LibreOffice (.odt), au choix (« Format »), avec les
+     titres, des indications de rédaction et, sous chaque titre, les repères des
+     sources déjà collectées.
      - « Nom(s) » et « Qui demande ? » (un homme, une femme, plusieurs personnes ou
        une famille, plusieurs femmes) : le plan et les blocs s'accordent
        (le demandeur / la demanderesse / les demandeurs, il / elle / ils, exposé(e)s…).
@@ -146,8 +147,8 @@ Onglet « Rédaction »
        remis en retard (retard calculé) ou toujours attendus ; informations de suivi
        jamais transmises ; ancienneté des dernières observations finales.
        Boutons « Aperçu… » (avec ce que le programme a lu), « Exporter… » (document
-       LibreOffice) et « Corriger les dates… » (fichier à compléter à la main).
-  2. Écrire dans LibreOffice en plaçant des repères là où il faut une note :
+       Word ou LibreOffice) et « Corriger les dates… » (fichier à compléter à la main).
+  2. Écrire dans Word ou LibreOffice en plaçant des repères là où il faut une note :
        [[CCPR/C/IDN/CO/2, §24, p.8]]   [[… +trad]]   [[… +souligne]]   [[… +sansannexe]]
        [[A, §3 ; B, p.2]]   [[A ; = texte libre]]   [[PIECE nom]]   [[BLOC nom]]
      Liste des repères (cadre 2, rangée par catégorie ; double-clic = copier) et
@@ -159,14 +160,19 @@ Onglet « Rédaction »
      même source), les annexes sont numérotées dans l'ordre de première citation,
      l'index des annexes est écrit et un PDF unique des annexes est assemblé
      (page « Annexe n° X » avant chacune, numérotation des pages en option ;
-     les fichiers Word sont convertis avec LibreOffice).
+     images converties directement ; fichiers Word avec LibreOffice ou, sous
+     Windows, avec Microsoft Word). Le texte peut être un .docx ou un .odt : le
+     résultat est dans le même format, avec de vraies notes de bas de page.
   Annexes : case « Annexer toutes les sources citées » (cochée) = chaque document
   cité dont on a le fichier est annexé ; les pages web gardent leur lien ; les
   textes de référence ne sont jamais annexés. Exceptions : +sansannexe, ou
-  « non » / « oui » dans la liste des repères. Pièces personnelles : dossier
-  00_Pieces_du_dossier du pays (bouton « Pièces du dossier »), toujours annexées.
-  Fichiers : dossier « Redaction » du pays (Plan_….odt, …_notes.odt,
-  …_annexes.pdf, …_rapport.txt, Apercu_paragraphes_calcules_….odt). Le texte
+  « non » / « oui » dans la liste des repères. Pièces personnelles : bouton
+  « Ajouter une pièce… » (fichier + auteur, titre, date ; le repère [[PIECE …]] est
+  copié pour être collé dans le texte), ou fichiers déposés dans 00_Pieces_du_dossier
+  (description modifiable ensuite, enregistrée dans pieces.csv). Une pièce n'est
+  annexée que si son repère est cité dans le texte.
+  Fichiers : dossier « Redaction » du pays (Plan_….docx ou .odt, …_notes.docx ou
+  .odt, …_annexes.pdf, …_rapport.txt, Apercu_paragraphes_calcules_…). Le texte
   d'origine n'est jamais modifié.
   Plans types (plans_types.odt, dans le dossier de base) : les titres des trois plans,
   modifiables dans LibreOffice (bouton « Modifier les plans… ») : ajouter, renommer,
@@ -191,8 +197,9 @@ Onglet « Rédaction »
   automatiquement (vos lignes ne sont jamais modifiées).
   Bouton « Comment écrire une note ? » : exemples de repères (paragraphes, pages,
   articles, options) et liste complète des abréviations.
-  Nécessite le module lxml (installé par l'installateur) et LibreOffice (pour ouvrir
-  les documents et convertir les annexes Word en PDF).
+  Nécessite le module lxml (installé par l'installateur) et un traitement de texte
+  (Word ou LibreOffice). Les plans types et la bibliothèque de blocs sont des fichiers
+  .odt : Word les ouvre et les enregistre aussi (garder le format .odt).
 
 Veille législative (onglet « Rédaction », bouton « Vérifier la législation… »)
   Les textes cités par vos blocs ont-ils changé ? Probasile lit la version à jour de la
@@ -277,10 +284,11 @@ c'est souvent que le nom exact diffère.
 
 Installation (une seule fois, sans terminal)
 --------------------------------------------
-Il faut Python 3 (https://www.python.org/downloads/ ; sous Windows, cocher
-« Add Python to PATH » pendant l'installation) et LibreOffice
-(https://fr.libreoffice.org/ : pour ouvrir les plans et les notes, et convertir les
-annexes Word en PDF). Sous Linux, s'il manque des éléments de Python (python3-venv,
+Sous Windows, rien à installer avant : installer_windows.bat trouve Python ou
+l'installe lui-même (pour votre compte, sans droits d'administrateur), puis les
+modules. Sous macOS et Linux, il faut Python 3 (https://www.python.org/downloads/).
+Il faut aussi un traitement de texte : Microsoft Word ou LibreOffice
+(https://fr.libreoffice.org/, gratuit). Sous Linux, s'il manque des éléments de Python (python3-venv,
 python3-tk), l'installation propose de les installer (mot de passe demandé).
 
 Puis double-cliquer sur le fichier d'installation de votre système :

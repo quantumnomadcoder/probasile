@@ -7,7 +7,7 @@
 
 <p align="center">
 <img src="https://img.shields.io/badge/licence-GPL--3.0-blue" alt="Licence GPL-3.0">
-<img src="https://img.shields.io/badge/version-1.0.4-orange" alt="Version 1.0.4">
+<img src="https://img.shields.io/badge/version-1.1.0-orange" alt="Version 1.1.0">
 <img src="https://img.shields.io/badge/Windows%20%7C%20macOS%20%7C%20Linux-lightgrey" alt="Windows, macOS, Linux">
 <img src="https://img.shields.io/badge/langue-fran%C3%A7ais-lightgrey" alt="En français">
 </p>
@@ -123,7 +123,7 @@ Probasile/
 
 ### 3. Rédiger
 
-- **Plans types** pour la **protection internationale**, la **non-délivrance d'un OQT** et le **9ter**. Ils sont modifiables dans LibreOffice : on peut ajouter, renommer, déplacer ou supprimer une section.
+- **Plans types** pour la **protection internationale**, la **non-délivrance d'un OQT** et le **9ter**, au format **Word (.docx)** ou **LibreOffice (.odt)**. Les plans se modifient : on peut ajouter, renommer, déplacer ou supprimer une section.
 - **Accords automatiques** selon la personne qui demande (un homme, une femme, plusieurs personnes ou une famille, plusieurs femmes) : *le demandeur / la demanderesse / les demandeurs*, *il / elle / ils*, *exposé·e·s*…
 - **Paragraphes calculés à partir de la collecte**, avec leurs notes : traités non ratifiés, procédures de plaintes refusées, rapports remis en retard (le retard est calculé), informations de suivi jamais transmises. Par exemple :
   > *L'État devait transmettre son troisième rapport périodique au plus tard le 30 juin 2012 ; à la date du présent courrier, il ne l'a toujours pas soumis, soit un retard de plus de quatorze ans.*
@@ -138,13 +138,13 @@ Probasile/
 | **Non-délivrance d'un OQT** | Convention contre la torture et article 33 de la Convention de Genève · Caractère déclaratif du statut de réfugié · Article 3 CEDH · Intérêt supérieur de l'enfant (art. 74/13) · Éligibilité à la protection internationale · Pacte : adhésion, réserves et article 40 · Convention contre la torture : articles 20, 21 et 22 · Notion de réserve · Dispositif |
 | **9ter** | Article 9ter, §1er · Jurisprudence Paposhvili · Portée autonome de l'article 9ter · Les deux hypothèses · Traitement adéquat · Disponibilité effective des soins · Accessibilité financière · Situation individuelle |
 
-Les blocs s'appuient sur les textes applicables depuis la réforme de 2026 : **loi du 16 juin 2026**, **règlements (UE) 2024/1347 et 2024/1348**. Ils citent aussi la jurisprudence (Cour eur. D.H., C.J.U.E., C.C.E.), le Guide du HCR et la littérature en sciences sociales. Chaque bloc se modifie dans LibreOffice, et vous pouvez ajouter les vôtres.
+Les blocs s'appuient sur les textes applicables depuis la réforme de 2026 : **loi du 16 juin 2026**, **règlements (UE) 2024/1347 et 2024/1348**. Ils citent aussi la jurisprudence (Cour eur. D.H., C.J.U.E., C.C.E.), le Guide du HCR et la littérature en sciences sociales. Chaque bloc se modifie dans Word ou LibreOffice, et vous pouvez ajouter les vôtres.
 
 </details>
 
 ### 4. Générer notes et annexes
 
-On écrit dans LibreOffice en plaçant un **repère** entre doubles crochets là où il faut une note :
+On écrit dans Word ou LibreOffice en plaçant un **repère** entre doubles crochets là où il faut une note :
 
 ```
 Le Comité s'est déclaré « profondément préoccupé par le nombre d'exécutions extrajudiciaires »[[CCPR/C/IDN/CO/2, §10, p.3]].
@@ -174,7 +174,7 @@ Probasile produit ensuite :
 
 - 📝 une copie du texte **avec les notes de bas de page** (le texte d'origine n'est jamais modifié) ;
 - 📎 les **annexes numérotées** dans l'ordre de première citation, avec leur index ;
-- 📕 **un seul PDF** qui contient toutes les annexes, avec une page de garde « Annexe n° X » devant chacune ; les fichiers Word sont convertis au passage ;
+- 📕 **un seul PDF** qui contient toutes les annexes, avec une page de garde « Annexe n° X » devant chacune ; les fichiers Word et les photos sont convertis au passage ;
 - 📋 un compte rendu qui signale les repères inconnus et les fichiers manquants.
 
 ### 5. Vérifier la législation
@@ -203,8 +203,9 @@ Le **[bulletin de veille](BULLETIN.md)**, rédigé par des juristes, complète l
 
 **Prérequis, à installer une seule fois :**
 
-- [Python 3](https://www.python.org/downloads/) : sous Windows, cochez **« Add Python to PATH »** pendant l'installation ;
-- [LibreOffice](https://fr.libreoffice.org/) : pour ouvrir les plans et convertir les annexes Word en PDF.
+- **Windows** : rien. L'installateur trouve Python ou l'installe lui-même (pour votre compte, sans droits d'administrateur).
+- **macOS / Linux** : [Python 3](https://www.python.org/downloads/) (souvent déjà présent).
+- Un traitement de texte : **Microsoft Word** ou **[LibreOffice](https://fr.libreoffice.org/)** (gratuit).
 
 **Ensuite :**
 
@@ -225,7 +226,7 @@ Une fenêtre montre l'installation, puis propose de lancer Probasile. Sous Linux
 - **Linux** : menu des applications (catégorie *Bureautique*) et bureau.
 - **macOS** : dossier *Applications* de votre compte ; glissez-le dans le Dock.
 
-Rien n'est installé en dehors du dossier du programme, et le Python de votre système n'est pas modifié.
+Sous macOS et Linux, rien n'est installé en dehors du dossier du programme et le Python du système n'est pas modifié. Sous Windows, Python (s'il manquait) et les modules sont installés pour votre seul compte.
 
 <details>
 <summary><b>Désinstaller</b></summary>
@@ -256,10 +257,10 @@ python collecte.py --help                       # toutes les options de collecte
 2. **Choisissez le dossier de base**, une seule fois ; il est mémorisé.
 3. **Cochez ce que vous voulez collecter** dans les onglets, puis cliquez sur **« Lancer la collecte »**. Pour une première collecte, décochez « Nouveautés seulement ».
 4. Dans l'onglet **Rédaction**, indiquez le nom et qui demande, choisissez la procédure, puis **créez le plan**. Choisissez les blocs et cochez « Ajouter les paragraphes calculés ».
-5. **Écrivez dans LibreOffice** en ajoutant vos repères. La liste des repères du pays (un double-clic copie le repère) et le bouton « Comment écrire une note ? » vous guident.
+5. **Écrivez dans Word ou LibreOffice** en ajoutant vos repères. La liste des repères du pays (un double-clic copie le repère) et le bouton « Comment écrire une note ? » vous guident.
 6. Cliquez sur **« Générer »** : vous obtenez le texte avec ses notes et le PDF des annexes, dans le dossier `Redaction` du pays.
 
-Chaque onglet a son bouton **« Mode d'emploi »**, et les bulles d'aide apparaissent au survol. Le mode d'emploi complet se trouve dans [`LISEZMOI.txt`](LISEZMOI.txt).
+Chaque onglet a son bouton **« Mode d'emploi »**, et les bulles d'aide apparaissent au survol. Le mode d'emploi complet se trouve dans [`LISEZMOI.txt`](LISEZMOI.txt). Pour présenter Probasile à d'autres (démo de 5 ou 25 minutes, questions fréquentes, aide-mémoire sur les annexes) : [`GUIDE_DEMO.md`](GUIDE_DEMO.md).
 
 ---
 
@@ -285,13 +286,13 @@ Pour ReliefWeb, l'API officielle demande un **nom d'application** gratuit, qui s
 <details>
 <summary><b>Faut-il savoir programmer ?</b></summary>
 
-Non. Tout se fait avec des boutons et des cases à cocher, et on écrit dans LibreOffice comme d'habitude. La ligne de commande est une option pour qui la souhaite.
+Non. Tout se fait avec des boutons et des cases à cocher, et on écrit dans Word ou LibreOffice comme d'habitude. La ligne de commande est une option pour qui la souhaite.
 </details>
 
 <details>
 <summary><b>Est-ce que ça fonctionne avec Word ?</b></summary>
 
-Le texte se rédige dans **LibreOffice Writer**, gratuit, et le document généré (`.odt`) s'ouvre ensuite dans Word. Les annexes au format Word sont converties en PDF automatiquement.
+Oui. Le plan peut être créé en **Word (.docx)**, et un texte écrit dans Word reçoit de vraies notes de bas de page Word. LibreOffice (.odt) reste possible. Les annexes au format Word sont converties en PDF automatiquement (par LibreOffice ou, sous Windows, par Word).
 </details>
 
 <details>
@@ -309,7 +310,7 @@ Pour tous les pays membres de l'ONU. Les sources nationales (presse, ONG locales
 <details>
 <summary><b>Et hors de Belgique ?</b></summary>
 
-La collecte (ONU, EPU, ratifications, ONG, Cour eur. D.H., C.J.U.E.) est utile partout. Les plans, les blocs et une partie de la jurisprudence sont conçus pour le droit belge : ils se modifient dans LibreOffice, et vos adaptations pour d'autres pays sont les bienvenues (voir [Contribuer](#-contribuer)).
+La collecte (ONU, EPU, ratifications, ONG, Cour eur. D.H., C.J.U.E.) est utile partout. Les plans, les blocs et une partie de la jurisprudence sont conçus pour le droit belge : ils se modifient dans Word ou LibreOffice, et vos adaptations pour d'autres pays sont les bienvenues (voir [Contribuer](#-contribuer)).
 </details>
 
 <details>

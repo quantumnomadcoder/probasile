@@ -30,9 +30,22 @@ aux utilisateurs qu'une nouvelle version existe.
 
 Une version néerlandaise et une version allemande de ce bulletin suivent ci-dessous, après la version française : [Nederlandse versie](#nederlandse-versie) · [Deutsche Fassung](#deutsche-fassung).
 
-Version du programme : 1.0.4
+Version du programme : 1.1.0
 
 Ce bulletin est rédigé par des juristes. Il explique en langage courant ce qui change dans le droit des étrangers et quels blocs de Probasile relire. Dans le programme : onglet **Rédaction → Vérifier la législation… → Lire le bulletin**. Les textes officiels font foi ; les textes sont désignés par leur nom officiel, suivi entre parenthèses de leur repère dans Probasile. Les repères entre doubles crochets (par exemple, pour l'article 61, § 5, c), du règlement (UE) 2024/1348 : `[[REG2024-1348, art. 61, §5, c)]]`) se collent tels quels dans un texte Probasile.
+
+## 2026-10-01 | Probasile 1.1 : Word, pièces du dossier et installation Windows
+Importance : information
+
+**Word.** Le plan type peut être créé au format Word (.docx) ou LibreOffice (.odt), au choix (onglet Rédaction, « Format »). Un texte écrit dans Word reçoit, à la génération, de vraies notes de bas de page Word, l'index des annexes et le PDF des annexes, comme avec LibreOffice.
+
+**Pièces du dossier.** Nouveau bouton « Ajouter une pièce… » : on choisit le fichier (attestation, témoignage, certificat, photo…) et on le décrit (auteur, titre, date). Le repère [[PIECE …]] est copié pour être collé dans le texte. Rappel : une pièce n'est annexée que si elle est citée ; les annexes sont numérotées dans l'ordre de la première citation.
+
+**Annexes.** Les photos (JPEG, PNG) sont converties en PDF directement ; sous Windows, les fichiers Word peuvent l'être par Microsoft Word si LibreOffice manque.
+
+**Installation sous Windows.** installer_windows.bat installe Python lui-même s'il manque (pour votre compte, sans droits d'administrateur), puis les modules et les raccourcis.
+
+**Présenter Probasile.** Le fichier GUIDE_DEMO.md propose une démonstration de 5 ou 25 minutes, les questions fréquentes et un aide-mémoire sur les annexes.
 
 ## 2026-09-29 | Conseil du contentieux des étrangers : les nouveaux délais de recours
 Textes : Loi du 17 juin 2026 relative au Conseil du contentieux des étrangers, M.B., 19 juin 2026 (LOI-CCE-2026) ; Règlement (UE) 2024/1348 du Parlement européen et du Conseil du 14 mai 2024 instituant une procédure commune en matière de protection internationale dans l’Union et abrogeant la directive 2013/32/UE, J.O.U.E., L, 2024/1348, 22 mai 2024 (REG2024-1348), art. 67, § 7, et 68  
@@ -105,14 +118,15 @@ Lien : https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:02024R1348-2026
 
 **Quand elle s'applique.** Seulement dans les cas énumérés par l'article 42, § 1er, du règlement. Le règlement dit que l'autorité « accélère » : dans ces cas, ce n'est plus une simple faculté.
 
-a) la personne n'a soulevé que des questions sans pertinence pour la protection ;
-b) déclarations manifestement incohérentes, contradictoires, fausses ou peu plausibles, ou qui contredisent les informations disponibles sur le pays d'origine ;
-c) tromperie intentionnelle sur l'identité ou la nationalité (faux documents, destruction de papiers de mauvaise foi) ;
-d) demande présentée uniquement pour retarder ou empêcher un éloignement ;
-e) pays d'origine sûr (liste belge ou liste de l'Union) ;
-f) danger pour la sécurité nationale ou l'ordre public ;
-g) demande ultérieure qui n'est pas irrecevable ;
-h) et i) demande qui n'a pas été présentée « le plus rapidement possible », sans motif valable ;j) nationalité d'un pays dont le taux de reconnaissance à l'échelle de l'Union est de 20 % ou moins (voir l'entrée suivante).
+- a) la personne n'a soulevé que des questions sans pertinence pour la protection ;
+- b) déclarations manifestement incohérentes, contradictoires, fausses ou peu plausibles, ou qui contredisent les informations disponibles sur le pays d'origine ;
+- c) tromperie intentionnelle sur l'identité ou la nationalité (faux documents, destruction de papiers de mauvaise foi) ;
+- d) demande présentée uniquement pour retarder ou empêcher un éloignement ;
+- e) pays d'origine sûr (liste belge ou liste de l'Union) ;
+- f) danger pour la sécurité nationale ou l'ordre public ;
+- g) demande ultérieure qui n'est pas irrecevable ;
+- h) et i) demande qui n'a pas été présentée « le plus rapidement possible », sans motif valable ;
+- j) nationalité d'un pays dont le taux de reconnaissance à l'échelle de l'Union est de 20 % ou moins (voir l'entrée suivante).
 Pour les mineurs non accompagnés, la liste est plus courte (article 42, § 3) : pays d'origine sûr, danger pour la sécurité, demande ultérieure, tromperie sur l'identité, seuil de 20 %.
 
 **Pourquoi.** Le législateur veut traiter plus vite les demandes qu'il présume moins susceptibles d'aboutir (considérant 56). Mais la Cour de justice rappelle que l'accélération se fait « sans préjudice de la réalisation d'un examen approprié et exhaustif et de l'accès effectif du demandeur aux garanties et aux principes fondamentaux » (Alace et Canpelli, 1er août 2025, point 102).
@@ -237,6 +251,19 @@ Le rapport au Roi rappelle aussi qu'être originaire d'un pays d'origine sûr n'
 
 Deze Nederlandse versie is een vertaling ter informatie; de Franse versie hierboven en de officiële teksten zijn authentiek. Het programma Probasile werkt in het Frans: de namen van knoppen en blokken staan daarom in het Frans, soms met een vertaling tussen haakjes. Citaten uit Franstalige bronnen (koninklijk besluit, verslag aan de Koning, arresten) en uit Europese verordeningen zijn vrij vertaald: controleer de officiële Nederlandse tekst (Belgisch Staatsblad, Publicatieblad van de Europese Unie) voordat u ze citeert. De teksten worden aangeduid met hun officiële naam, gevolgd door hun kenmerk in Probasile tussen haakjes.
 
+### 2026-10-01 | Probasile 1.1: Word, stukken van het dossier en installatie onder Windows
+Belang: informatie
+
+**Word.** Het modelplan kan in Word (.docx) of LibreOffice (.odt) worden aangemaakt (tabblad « Rédaction », « Format »). Een tekst die in Word is geschreven, krijgt bij het genereren echte Word-voetnoten, de index van de bijlagen en de pdf van de bijlagen, net als met LibreOffice.
+
+**Stukken van het dossier.** Nieuwe knop « Ajouter une pièce… » (stuk toevoegen): je kiest het bestand (attest, getuigenis, certificaat, foto…) en beschrijft het (auteur, titel, datum). De verwijzing [[PIECE …]] wordt gekopieerd om in de tekst te plakken. Let op: een stuk wordt alleen als bijlage toegevoegd als het in de tekst wordt aangehaald; de bijlagen worden genummerd in de volgorde van de eerste vermelding.
+
+**Bijlagen.** Foto's (JPEG, PNG) worden rechtstreeks naar pdf omgezet; onder Windows kan Microsoft Word de Word-bestanden omzetten als LibreOffice ontbreekt.
+
+**Installatie onder Windows.** installer_windows.bat installeert zelf Python als het ontbreekt (voor jouw account, zonder beheerdersrechten), daarna de modules en de snelkoppelingen.
+
+**Probasile voorstellen.** Het bestand GUIDE_DEMO.md (in het Frans) bevat een demo van 5 of 25 minuten, veelgestelde vragen en een geheugensteun over bijlagen.
+
 ### 2026-09-29 | Raad voor Vreemdelingenbetwistingen: de nieuwe beroepstermijnen
 Teksten: Wet van 17 juni 2026 betreffende de Raad voor Vreemdelingenbetwistingen, B.S. 19 juni 2026 (LOI-CCE-2026) ; Verordening (EU) 2024/1348 van het Europees Parlement en de Raad van 14 mei 2024 tot vaststelling van een gemeenschappelijke procedure voor internationale bescherming in de Unie en tot intrekking van Richtlijn 2013/32/EU, PB L, 2024/1348, 22 mei 2024 (REG2024-1348), art. 67, § 7, en 68  
 Blokken: Procédure accélérée : quand, pourquoi, et comment en sortir  
@@ -308,15 +335,15 @@ Link: https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX:02024R1348-20260
 
 **Wanneer ze geldt.** Alleen in de gevallen die artikel 42, § 1, van de verordening opsomt. De verordening zegt dat de autoriteit het onderzoek « versnelt »: in die gevallen is het geen loutere mogelijkheid meer.
 
-a) de persoon heeft alleen punten aangevoerd die niet relevant zijn voor de bescherming;
-b) kennelijk inconsistente, tegenstrijdige, valse of onwaarschijnlijke verklaringen, of verklaringen die in strijd zijn met de beschikbare informatie over het land van herkomst;
-c) opzettelijke misleiding over identiteit of nationaliteit (valse documenten, te kwader trouw vernietigde papieren);
-d) verzoek alleen ingediend om een verwijdering uit te stellen of te verhinderen;
-e) veilig land van herkomst (Belgische lijst of lijst van de Unie);
-f) gevaar voor de nationale veiligheid of de openbare orde;
-g) volgend verzoek dat niet niet-ontvankelijk is;
-h) en i) verzoek dat niet « zo spoedig mogelijk » is gedaan, zonder geldige reden;
-j) nationaliteit van een land waarvoor de erkenningsgraad op het niveau van de Unie 20 % of minder bedraagt (zie de volgende rubriek).
+- a) de persoon heeft alleen punten aangevoerd die niet relevant zijn voor de bescherming;
+- b) kennelijk inconsistente, tegenstrijdige, valse of onwaarschijnlijke verklaringen, of verklaringen die in strijd zijn met de beschikbare informatie over het land van herkomst;
+- c) opzettelijke misleiding over identiteit of nationaliteit (valse documenten, te kwader trouw vernietigde papieren);
+- d) verzoek alleen ingediend om een verwijdering uit te stellen of te verhinderen;
+- e) veilig land van herkomst (Belgische lijst of lijst van de Unie);
+- f) gevaar voor de nationale veiligheid of de openbare orde;
+- g) volgend verzoek dat niet niet-ontvankelijk is;
+- h) en i) verzoek dat niet « zo spoedig mogelijk » is gedaan, zonder geldige reden;
+- j) nationaliteit van een land waarvoor de erkenningsgraad op het niveau van de Unie 20 % of minder bedraagt (zie de volgende rubriek).
 
 Voor niet-begeleide minderjarigen is de lijst korter (artikel 42, § 3): veilig land van herkomst, gevaar voor de veiligheid, volgend verzoek, misleiding over de identiteit, drempel van 20 %.
 
@@ -444,6 +471,19 @@ Het verslag aan de Koning herinnert er ook aan dat afkomstig zijn uit een veilig
 
 Diese deutsche Fassung ist eine Übersetzung zur Information; maßgeblich sind die französische Fassung oben und die amtlichen Texte. Das Programm Probasile ist französischsprachig: Die Namen der Schaltflächen und Bausteine stehen daher auf Französisch, teilweise mit einer Übersetzung in Klammern. Zitate aus französischsprachigen Quellen (Königlicher Erlass, Bericht an den König, Urteile) und aus EU-Verordnungen sind frei übersetzt: Prüfen Sie vor dem Zitieren den amtlichen deutschen Wortlaut (Belgisches Staatsblatt, Amtsblatt der Europäischen Union). Die Texte werden mit ihrer amtlichen Bezeichnung angegeben, gefolgt von ihrem Kürzel in Probasile in Klammern.
 
+### 2026-10-01 | Probasile 1.1: Word, Unterlagen der Akte und Installation unter Windows
+Bedeutung: Information
+
+**Word.** Die Mustergliederung kann als Word- (.docx) oder LibreOffice-Datei (.odt) erstellt werden (Reiter « Rédaction », « Format »). Ein in Word geschriebener Text erhält beim Erzeugen echte Word-Fußnoten, das Anlagenverzeichnis und das PDF der Anlagen, wie mit LibreOffice.
+
+**Unterlagen der Akte.** Neue Schaltfläche « Ajouter une pièce… » (Unterlage hinzufügen): Datei wählen (Bescheinigung, Zeugenaussage, Attest, Foto…) und beschreiben (Autor, Titel, Datum). Der Verweis [[PIECE …]] wird kopiert, um ihn in den Text einzufügen. Hinweis: Eine Unterlage wird nur dann als Anlage beigefügt, wenn sie im Text zitiert wird; die Anlagen werden in der Reihenfolge der ersten Zitierung nummeriert.
+
+**Anlagen.** Fotos (JPEG, PNG) werden direkt in PDF umgewandelt; unter Windows kann Microsoft Word die Word-Dateien umwandeln, wenn LibreOffice fehlt.
+
+**Installation unter Windows.** installer_windows.bat installiert Python selbst, falls es fehlt (für dein Konto, ohne Administratorrechte), danach die Module und die Verknüpfungen.
+
+**Probasile vorstellen.** Die Datei GUIDE_DEMO.md (auf Französisch) enthält eine Demo von 5 oder 25 Minuten, häufige Fragen und eine Gedächtnisstütze zu den Anlagen.
+
 ### 2026-09-29 | Rat für Ausländerstreitsachen: die neuen Beschwerdefristen
 Texte: Gesetz vom 17. Juni 2026 über den Rat für Ausländerstreitsachen, B.S. vom 19. Juni 2026 (LOI-CCE-2026) ; Verordnung (EU) 2024/1348 des Europäischen Parlaments und des Rates vom 14. Mai 2024 zur Einführung eines gemeinsamen Verfahrens zur Gewährung internationalen Schutzes in der Union und zur Aufhebung der Richtlinie 2013/32/EU, ABl. L, 2024/1348, 22.5.2024 (REG2024-1348), Art. 67 Abs. 7 und Art. 68  
 Bausteine: Procédure accélérée : quand, pourquoi, et comment en sortir  
@@ -515,15 +555,15 @@ Link: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:02024R1348-20260
 
 **Wann es gilt.** Nur in den Fällen, die Artikel 42 Absatz 1 der Verordnung aufzählt. Die Verordnung sagt, dass die Behörde die Prüfung « beschleunigt »: In diesen Fällen handelt es sich nicht mehr um eine bloße Möglichkeit.
 
-a) die Person hat nur Umstände vorgebracht, die für den Schutz nicht von Belang sind;
-b) offensichtlich inkohärente, widersprüchliche, falsche oder unwahrscheinliche Angaben oder Angaben, die im Widerspruch zu den verfügbaren Informationen über das Herkunftsland stehen;
-c) vorsätzliche Täuschung über Identität oder Staatsangehörigkeit (gefälschte Dokumente, böswillig vernichtete Papiere);
-d) Antrag nur gestellt, um eine Abschiebung zu verzögern oder zu verhindern;
-e) sicherer Herkunftsstaat (belgische Liste oder Liste der Union);
-f) Gefahr für die nationale Sicherheit oder die öffentliche Ordnung;
-g) Folgeantrag, der nicht unzulässig ist;
-h) und i) Antrag, der nicht « so bald wie möglich » gestellt wurde, ohne triftigen Grund;
-j) Staatsangehörigkeit eines Landes, dessen Anerkennungsquote auf Unionsebene 20 % oder weniger beträgt (siehe den folgenden Eintrag).
+- a) die Person hat nur Umstände vorgebracht, die für den Schutz nicht von Belang sind;
+- b) offensichtlich inkohärente, widersprüchliche, falsche oder unwahrscheinliche Angaben oder Angaben, die im Widerspruch zu den verfügbaren Informationen über das Herkunftsland stehen;
+- c) vorsätzliche Täuschung über Identität oder Staatsangehörigkeit (gefälschte Dokumente, böswillig vernichtete Papiere);
+- d) Antrag nur gestellt, um eine Abschiebung zu verzögern oder zu verhindern;
+- e) sicherer Herkunftsstaat (belgische Liste oder Liste der Union);
+- f) Gefahr für die nationale Sicherheit oder die öffentliche Ordnung;
+- g) Folgeantrag, der nicht unzulässig ist;
+- h) und i) Antrag, der nicht « so bald wie möglich » gestellt wurde, ohne triftigen Grund;
+- j) Staatsangehörigkeit eines Landes, dessen Anerkennungsquote auf Unionsebene 20 % oder weniger beträgt (siehe den folgenden Eintrag).
 
 Für unbegleitete Minderjährige ist die Liste kürzer (Artikel 42 Absatz 3): sicherer Herkunftsstaat, Gefahr für die Sicherheit, Folgeantrag, Täuschung über die Identität, Schwelle von 20 %.
 

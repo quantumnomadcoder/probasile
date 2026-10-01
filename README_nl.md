@@ -7,7 +7,7 @@
 
 <p align="center">
 <img src="https://img.shields.io/badge/licentie-GPL--3.0-blue" alt="Licentie GPL-3.0">
-<img src="https://img.shields.io/badge/versie-1.0.4-orange" alt="Versie 1.0.4">
+<img src="https://img.shields.io/badge/versie-1.1.0-orange" alt="Versie 1.1.0">
 <img src="https://img.shields.io/badge/Windows%20%7C%20macOS%20%7C%20Linux-lightgrey" alt="Windows, macOS, Linux">
 <img src="https://img.shields.io/badge/interface-Frans-lightgrey" alt="Interface in het Frans">
 </p>
@@ -122,16 +122,16 @@ Probasile/
 
 ### 3. Schrijven
 
-- **Modelplannen** voor **internationale bescherming**, **niet-afgifte van een BGV** en **9ter**, aanpasbaar in LibreOffice: secties toevoegen, hernoemen, verplaatsen of schrappen.
+- **Modelplannen** voor **internationale bescherming**, **niet-afgifte van een BGV** en **9ter**, in **Word (.docx)** of **LibreOffice (.odt)**, aanpasbaar: secties toevoegen, hernoemen, verplaatsen of schrappen.
 - **Automatische grammaticale overeenstemming** volgens wie de aanvraag indient (een man, een vrouw, meerdere personen of een gezin, meerdere vrouwen).
 - **Paragrafen berekend op basis van de verzamelde gegevens**, met hun voetnoten: niet-geratificeerde verdragen, geweigerde klachtprocedures, laattijdige rapporten (de vertraging wordt berekend), nooit bezorgde opvolgingsinformatie.
 - **Een bibliotheek van juridische tekstblokken**, elk gestaafd met bronnen: definitie van vluchteling, gegronde vrees, eerdere vervolging, actoren van vervolging en bescherming, groepsvervolging, subsidiaire bescherming, non-refoulement, **tijdig indienen van het verzoek** (termijn van acht dagen, art. 50; geldige redenen voor een laattijdig verzoek, gestaafd met sociaalwetenschappelijk onderzoek), artikel 3 EVRM, belang van het kind (art. 74/13), 9ter en de rechtspraak Paposhvili…
 
-De blokken zijn afgestemd op de regels die gelden sinds de hervorming van 2026: **wet van 16 juni 2026**, **verordeningen (EU) 2024/1347 en 2024/1348**. Ze citeren ook rechtspraak (EHRM, HvJ EU, RvV), het UNHCR-handboek en sociaalwetenschappelijke literatuur. Elk blok is in LibreOffice aan te passen, en je kunt er zelf blokken bij maken.
+De blokken zijn afgestemd op de regels die gelden sinds de hervorming van 2026: **wet van 16 juni 2026**, **verordeningen (EU) 2024/1347 en 2024/1348**. Ze citeren ook rechtspraak (EHRM, HvJ EU, RvV), het UNHCR-handboek en sociaalwetenschappelijke literatuur. Elk blok is in Word of LibreOffice aan te passen, en je kunt er zelf blokken bij maken.
 
 ### 4. Voetnoten en bijlagen genereren
 
-Je schrijft in LibreOffice en zet een **verwijzing** tussen dubbele vierkante haken waar een voetnoot moet komen:
+Je schrijft in Word of LibreOffice en zet een **verwijzing** tussen dubbele vierkante haken waar een voetnoot moet komen:
 
 ```
 Het Comité is « profondément préoccupé par le nombre d’exécutions extrajudiciaires »[[CCPR/C/IDN/CO/2, §10, p.3]].
@@ -155,7 +155,7 @@ Probasile maakt vervolgens:
 
 - 📝 een kopie van de tekst **met voetnoten** (de oorspronkelijke tekst blijft altijd ongewijzigd);
 - 📎 de **genummerde bijlagen**, met een inventaris;
-- 📕 **één pdf** met alle bijlagen, elk voorafgegaan door een titelblad; Word-bestanden worden onderweg omgezet;
+- 📕 **één pdf** met alle bijlagen, elk voorafgegaan door een titelblad; Word-bestanden en foto's worden onderweg omgezet;
 - 📋 een verslag dat onbekende verwijzingen en ontbrekende bestanden meldt.
 
 ### 5. De wetgeving controleren
@@ -174,8 +174,9 @@ Het meldt welke artikelen gewijzigd of opgeheven zijn, sinds wanneer, en **welke
 
 **Vooraf, één keer te installeren:**
 
-- [Python 3](https://www.python.org/downloads/): vink onder Windows **« Add Python to PATH »** aan tijdens de installatie;
-- [LibreOffice](https://nl.libreoffice.org/): om de plannen te openen en Word-bijlagen om te zetten naar pdf.
+- **Windows**: niets. Het installatieprogramma vindt Python of installeert het zelf (voor jouw account, zonder beheerdersrechten).
+- **macOS / Linux**: [Python 3](https://www.python.org/downloads/) (vaak al aanwezig).
+- Een tekstverwerker: **Microsoft Word** of **[LibreOffice](https://nl.libreoffice.org/)** (gratis).
 
 **Daarna:**
 
@@ -196,7 +197,7 @@ Een venster toont de installatie en stelt daarna voor om Probasile te starten. A
 - **Linux**: toepassingenmenu (categorie *Kantoor*) en bureaublad.
 - **macOS**: map *Apps* van je account; sleep Probasile naar het Dock.
 
-Er wordt niets buiten de programmamap geïnstalleerd, en de Python-installatie van je systeem blijft ongewijzigd.
+Onder macOS en Linux wordt niets buiten de programmamap geïnstalleerd en blijft de Python-installatie van je systeem ongewijzigd. Onder Windows worden Python (als het ontbrak) en de modules alleen voor jouw account geïnstalleerd.
 
 <details>
 <summary><b>Verwijderen</b></summary>
@@ -215,10 +216,10 @@ Er wordt niets buiten de programmamap geïnstalleerd, en de Python-installatie v
 2. **Kies de basismap**, één keer; die wordt onthouden.
 3. **Vink aan wat je wilt verzamelen** in de tabbladen en klik op **« Lancer la collecte »** (zoeken starten). Vink bij een eerste zoekronde « Nouveautés seulement » uit.
 4. Vul in het tabblad **Rédaction** (schrijven) de naam in en wie de aanvraag indient, kies de procedure en **maak het plan aan**. Kies de blokken en vink « Ajouter les paragraphes calculés » (berekende paragrafen toevoegen) aan.
-5. **Schrijf in LibreOffice** en voeg je verwijzingen toe. De lijst met verwijzingen van het land (dubbelklik kopieert de verwijzing) en de knop « Comment écrire une note ? » helpen je op weg.
+5. **Schrijf in Word of LibreOffice** en voeg je verwijzingen toe. De lijst met verwijzingen van het land (dubbelklik kopieert de verwijzing) en de knop « Comment écrire une note ? » helpen je op weg.
 6. Klik op **« Générer »** (genereren): je krijgt de tekst met voetnoten en de pdf met bijlagen, in de map `Redaction` van het land.
 
-Elk tabblad heeft een knop **« Mode d'emploi »** (handleiding), en bij het aanwijzen van een knop verschijnt een tip. De volledige handleiding (in het Frans) staat in [`LISEZMOI.txt`](LISEZMOI.txt).
+Elk tabblad heeft een knop **« Mode d'emploi »** (handleiding), en bij het aanwijzen van een knop verschijnt een tip. De volledige handleiding (in het Frans) staat in [`LISEZMOI.txt`](LISEZMOI.txt). Een gids om Probasile aan anderen voor te stellen (demo van 5 of 25 minuten, in het Frans): [`GUIDE_DEMO.md`](GUIDE_DEMO.md).
 
 ---
 
@@ -244,7 +245,7 @@ Voor ReliefWeb vraagt de officiële API een gratis **toepassingsnaam** (appname)
 <details>
 <summary><b>Moet ik kunnen programmeren?</b></summary>
 
-Nee. Alles werkt met knoppen en vinkjes, en je schrijft zoals gewoonlijk in LibreOffice. De opdrachtregel is een optie voor wie dat wil.
+Nee. Alles werkt met knoppen en vinkjes, en je schrijft zoals gewoonlijk in Word of LibreOffice. De opdrachtregel is een optie voor wie dat wil.
 </details>
 
 <details>
@@ -256,7 +257,7 @@ Ja, voor het verzamelen van bronnen: VN-documenten, UPR, ratificaties, ngo-rappo
 <details>
 <summary><b>Werkt het met Word?</b></summary>
 
-Je schrijft in **LibreOffice Writer** (gratis), en het gegenereerde document (`.odt`) opent daarna ook in Word. Bijlagen in Word-formaat worden automatisch naar pdf omgezet.
+Ja. Het plan kan in **Word (.docx)** worden aangemaakt, en een tekst die in Word is geschreven krijgt echte Word-voetnoten. LibreOffice (.odt) blijft mogelijk. Bijlagen in Word-formaat worden automatisch naar pdf omgezet (door LibreOffice of, onder Windows, door Word).
 </details>
 
 <details>

@@ -233,16 +233,16 @@ Inutile de modifier la liste : le bouton « Choisir les traités… » permet de
 AIDE["redaction"] = """## L'onglet Rédaction en bref
 Il aide à écrire le dossier à partir des sources collectées, en trois temps :
 1. créer un plan type pour la procédure ;
-2. écrire le texte dans LibreOffice en plaçant des repères [[…]] là où il faut une note ;
+2. écrire le texte dans Word ou LibreOffice en plaçant des repères [[…]] là où il faut une note ;
 3. générer : chaque repère devient une vraie note de bas de page, les annexes sont numérotées, leur index est écrit et un PDF unique des annexes est assemblé.
 
 ## 1. Créer un plan type
-Choisissez la procédure (non-délivrance d'OQT, protection internationale, 9ter) le nom (ex. Monsieur A. Exemple, Madame X, Monsieur et Madame Y et leurs enfants) et « Qui demande ? » : un homme, une femme, plusieurs personnes ou une famille, plusieurs femmes. Les titres du plan et les blocs s'accordent automatiquement (le demandeur / la demanderesse / les demandeurs, il / elle / ils, exposé / exposée / exposés…). « Choisir les blocs… » : cochez les passages juridiques types à recopier dans le plan (ceux marqués « par défaut » sont cochés d'office). « Modifier la bibliothèque… » et « Textes de référence… » : pour mettre à jour ces passages et les lois ou arrêts qu'ils citent (explications dans la fenêtre qui s'ouvre). « Modifier les plans… » : pour ajouter, renommer, déplacer ou supprimer des sections des plans types. Le plan s'ouvre dans LibreOffice. Il contient :
+Choisissez la procédure (non-délivrance d'OQT, protection internationale, 9ter) le nom (ex. Monsieur A. Exemple, Madame X, Monsieur et Madame Y et leurs enfants) et « Qui demande ? » : un homme, une femme, plusieurs personnes ou une famille, plusieurs femmes. Les titres du plan et les blocs s'accordent automatiquement (le demandeur / la demanderesse / les demandeurs, il / elle / ils, exposé / exposée / exposés…). « Choisir les blocs… » : cochez les passages juridiques types à recopier dans le plan (ceux marqués « par défaut » sont cochés d'office). « Modifier la bibliothèque… » et « Textes de référence… » : pour mettre à jour ces passages et les lois ou arrêts qu'ils citent (explications dans la fenêtre qui s'ouvre). « Modifier les plans… » : pour ajouter, renommer, déplacer ou supprimer des sections des plans types. « Format » : Word (.docx) ou LibreOffice (.odt) ; le plan s'ouvre dans le traitement de texte correspondant. Il contient :
 - les titres de la procédure (repris des dossiers déjà rédigés), avec vos styles (Arial, titres, notes) ;
 - sous chaque titre, en gris, des indications de rédaction (à supprimer ensuite) ;
 - en bleu, les repères des sources déjà collectées qui correspondent à la rubrique (par ex. les documents du Comité des droits de l'homme sous « Le Pacte ») ;
 - les blocs de texte choisis, déjà rédigés, avec leurs repères de notes (passages entre [crochets] à adapter) ;
-- une table des matières (clic droit puis « Mettre à jour l'index ») et, à la fin, le repère [[INDEX DES ANNEXES]].
+- une table des matières (LibreOffice : clic droit puis « Mettre à jour l'index » ; Word : clic droit puis « Mettre à jour les champs ») et, à la fin, le repère [[INDEX DES ANNEXES]].
 Le plan est enregistré dans le dossier du pays, sous-dossier « Redaction ». Enregistrez votre texte sous le nom de votre choix.
 
 ## 2. Les repères
@@ -272,7 +272,7 @@ Les retards de rapports sont reconstitués sans intervention :
 - date de remise : lue sur la couverture du rapport de l'État (« [Date de réception : 19 janvier 2012] ») ;
 - échéance des rapports suivants : lue à la fin des observations finales (« soumettre son prochain rapport … d'ici au 26 juillet 2017 »).
 Le programme ne conclut jamais qu'un rapport n'a pas été remis s'il n'a aucun document de ce comité. Si une date est fausse ou manque : bouton « Corriger les dates… » (à côté d'« Aperçu… ») ; il crée le fichier 01_ONU_organes_de_traites/etat_des_rapports_a_remplir.csv et explique comment le remplir (une ligne par rapport : comité ; numéro ; date limite ; date de remise). Ce que vous y écrivez l'emporte, rapport par rapport.
-Bouton « Exporter… » : enregistre l'aperçu dans un document LibreOffice (dossier « Redaction » du pays), avec les paragraphes et leurs repères, prêts à copier dans votre texte.
+Bouton « Exporter… » : enregistre l'aperçu dans un document Word ou LibreOffice, selon le format choisi (dossier « Redaction » du pays), avec les paragraphes et leurs repères, prêts à copier dans votre texte.
 Les blocs « à compléter à la main » (ratification du Pacte, articles 21 et 22) sont alors remplacés par ces paragraphes ; les blocs d'analyse (article 40, article 20, notion de réserve) restent.
 Bouton « Aperçu… » : montre les paragraphes et, en dessous, ce que le programme a lu dans chaque fichier. Vérifiez-y les dates : les tableaux du Haut-Commissariat changent parfois de présentation.
 Chaque paragraphe calculé est précédé d'un paragraphe gris « Paragraphes calculés automatiquement… » : vérifiez, complétez les passages entre crochets, puis supprimez-le.
@@ -287,12 +287,15 @@ La mise en forme suit les usages habituels des courriers (Ibid., op.cit. en ital
 ## Les annexes
 Case « Annexer toutes les sources citées » cochée (par défaut) : chaque document cité dont on a le fichier (PDF, Word… : observations finales, rapports, pièces) devient une annexe, cité sans lien avec « voir l'annexe n° X au présent courrier ». Les pages web sans fichier (état des traités, état des rapports, articles en ligne) sont citées avec leur lien, et les lois, conventions et arrêts des textes de référence ne sont pas annexés. Pour ne pas annexer une source : [[repère +sansannexe]], ou « non » dans sa colonne « annexe » de sources.csv.
 Case décochée : seules les sources dont la colonne « annexe » est remplie (oui, x…) ou dont un repère porte +annexe sont annexées. Les pièces personnelles sont toujours annexées. Les annexes sont numérotées dans l'ordre de leur première citation dans le texte.
-Pièces personnelles (attestations, passeports, certificats…) : bouton « Pièces du dossier » puis déposez-y les fichiers (PDF, Word, images). Le nom du fichier devient le libellé : « 03_Attestation_scolaire_David.pdf » puis [[PIECE 03_Attestation_scolaire_David]] puis « Attestation scolaire David ».
+Pièces personnelles (attestations, témoignages, passeports, certificats…), deux façons :
+- bouton « Ajouter une pièce… » (cadre 2) : choisissez le fichier, décrivez-le (auteur, titre, date ; ex. « Athénée Fernand Blum », « Attestation de scolarité de Charles », « 12 septembre 2026 »). Le fichier est copié dans 00_Pieces_du_dossier et son repère est copié dans le presse-papiers : collez-le dans le texte ;
+- ou déposez directement les fichiers (PDF, Word, ODT, images) dans le dossier (« Ouvrir le dossier des pièces ») : le nom du fichier devient le libellé (« 03_Attestation_scolaire_David.pdf » donne [[PIECE 03_Attestation_scolaire_David]] et « Attestation scolaire David ») ; « Gérer… » puis « Modifier… » permet ensuite d'ajouter l'auteur et la date (enregistrés dans 00_Pieces_du_dossier/pieces.csv).
+Une pièce n'est annexée que si elle est citée dans le texte : déposer le fichier ne suffit pas, il faut placer son repère [[PIECE …]] à l'endroit où vous l'invoquez. Les annexes sont numérotées dans l'ordre de la première citation ; la note dit « voir l'annexe n° X au présent courrier » et l'index des annexes reprend la description.
 
 ## Fichiers produits (dossier « Redaction » du pays)
-- Plan_<procédure>_<date>.odt : le plan type.
-- <votre texte>_notes.odt : votre texte avec les notes et l'index des annexes. Votre fichier d'origine n'est jamais modifié : gardez-le pour les corrections, et régénérez.
-- <votre texte>_annexes.pdf : toutes les annexes dans l'ordre, chacune précédée d'une page « Annexe n° X » avec sa description ; en option, chaque page porte « Annexe n° X – p. 1/5 ». Les fichiers Word ou ODT sont convertis avec LibreOffice.
+- Plan_<procédure>_<date>.docx (ou .odt) : le plan type.
+- <votre texte>_notes.docx (ou .odt, même format que votre texte) : votre texte avec les notes et l'index des annexes. Votre fichier d'origine n'est jamais modifié : gardez-le pour les corrections, et régénérez.
+- <votre texte>_annexes.pdf : toutes les annexes dans l'ordre, chacune précédée d'une page « Annexe n° X » avec sa description ; en option, chaque page porte « Annexe n° X – p. 1/5 ». Les images (JPEG, PNG) sont converties directement ; les fichiers Word ou ODT avec LibreOffice ou, sous Windows, avec Microsoft Word s'il est installé. À défaut, enregistrez la pièce en PDF.
 - <votre texte>_rapport.txt : le nombre de notes, la liste des annexes avec leur fichier, et les points à vérifier (repère introuvable ou ambigu, annexe sans fichier…).
 - reperes.html : la liste complète des repères (bouton « Liste complète »).
 Dans le dossier de base : bibliotheque_blocs.odt (les blocs) et references_juridiques.csv (les textes de référence), communs à tous les pays.
