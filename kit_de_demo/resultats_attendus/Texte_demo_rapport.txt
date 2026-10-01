@@ -1,0 +1,11 @@
+Traitement de Texte_demo.docx – 01/10/2026 11:48
+
+17 note(s) créée(s) ; 4 annexe(s).
+
+Annexes :
+  1. Athénée Exemple, Attestation de scolarité de B. Exemple (document fictif), 12 septembre 2026.  [01_Attestation_scolarite_FICTIVE.pdf]
+  2. C. Témoin, Témoignage (document fictif), 20 septembre 2026.  [02_Temoignage_FICTIF.docx]
+  3. Dr D. Exemple, Certificat médical concernant Madame A. Exemple (document fictif), 22 septembre 2026.  [04_Certificat_medical_FICTIF.pdf]
+  4. Carte identite SPECIMEN.  [03_Carte_identite_SPECIMEN.jpg]
+
+Aucun problème relevé.

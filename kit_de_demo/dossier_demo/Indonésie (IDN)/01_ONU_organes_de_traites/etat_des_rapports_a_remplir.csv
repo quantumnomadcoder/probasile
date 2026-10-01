@@ -1,0 +1,7 @@
+﻿Comité;Cycle (1 = premier rapport);Date limite (échéance);Date de remise (vide si pas remis)
+"# Mode d’emploi : ouvrez la page « état des rapports » du pays sur le site du HCDH (base des organes de traités, onglet du pays) et recopiez une ligne par rapport. Dates au format 23/05/2007. Complétez les lignes ci-dessous (ajoutez-en une par cycle) ; les lignes qui commencent par # sont ignorées. Exemple :"
+# CCPR;1;23/05/2007;19/01/2012
+CCPR;1;23/05/2007;19/01/2012
+CCPR;2;26/07/2017;29/07/2021
+CAT;3;30/06/2012;
+CESCR;2;31/05/2019;13/04/2021
