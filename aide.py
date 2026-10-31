@@ -472,7 +472,7 @@ Cliquez sur « Marquer comme vu » seulement après avoir relu (et si nécessair
 
 ## Les textes suivis
 - Loi du 15 décembre 1980 et arrêté royal du 8 octobre 1981 : version consolidée de la banque de données Justel (Moniteur belge). Justel indique, sous chaque article, l'acte qui l'a modifié et la date d'entrée en vigueur. Attention : Justel est mis à jour avec un certain retard (la date de mise à jour figure dans le rapport).
-- Règlements (UE) 2024/1347 et 2024/1348, directive 2011/95/UE : EUR-Lex. Une nouvelle « version consolidée » signifie que l'acte a été modifié ; le rapport donne le lien pour voir quoi.
+- Règlements (UE) 2024/1347, 2024/1348 et 2026/2280 (retour), directives 2011/95/UE et 2008/115/CE (retour, abrogée le 17 octobre 2027) : EUR-Lex. Une nouvelle « version consolidée » signifie que l'acte a été modifié ; le rapport donne le lien pour voir quoi.
 - Arrêté royal établissant la liste des pays d'origine sûrs (article 57/6/1, § 3, de la loi) : un nouvel arrêté chaque année environ, repéré dans la liste des arrêtés d'exécution de la loi.
 La liste se modifie (bouton « Textes suivis… », fichier veille_textes.csv du dossier de base) : une ligne par texte, avec son adresse Justel (…/justel) ou son numéro CELEX, et le repère utilisé dans vos blocs.
 

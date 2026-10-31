@@ -76,6 +76,7 @@ TEXTES = {
     "DIR2013/32": ("Directive 2013/32/UE (procédures)", ["directive 2013 32", "2013 32 ue", "directive procedures"]),
     "REG2024/1348": ("Règlement (UE) 2024/1348 (procédure)", ["2024 1348"]),
     "DIR2008/115": ("Directive 2008/115/CE (retour)", ["directive 2008 115", "2008 115 ce", "directive retour"]),
+    "REG2026/2280": ("Règlement (UE) 2026/2280 (retour)", ["2026 2280", "reglement retour"]),
     "DUBLIN": ("Règlement Dublin III (604/2013)", ["604 2013", "dublin iii", "reglement dublin"]),
     "REG2024/1351": ("Règlement (UE) 2024/1351 (gestion de l’asile et de la migration)", ["2024 1351"]),
     "REG2026/463": ("Règlement (UE) 2026/463 (pays tiers sûr)", ["2026 463"]),
@@ -97,7 +98,7 @@ ALIAS = [("cedh", "CEDH"), ("echr", "CEDH"), ("europeenne", "CEDH"), ("cat", "CA
          ("2008 115", "DIR2008/115"), ("retour", "DIR2008/115"), ("dublin", "DUBLIN"), ("604", "DUBLIN"),
          ("filtrage", "REG2024/1356")]
 # numéros d'actes récents : reconnus avant les mots courts (« retour », « loi »…) de la liste ci-dessus
-ALIAS[:0] = [("2024 1351", "REG2024/1351"), ("2026 463", "REG2026/463"), ("2026 464", "REG2026/464"),
+ALIAS[:0] = [("2026 2280", "REG2026/2280"), ("reglement retour", "REG2026/2280"), ("2024 1351", "REG2024/1351"), ("2026 463", "REG2026/463"), ("2026 464", "REG2026/464"),
              ("2024 1346", "DIR2024/1346"), ("2024 1349", "REG2024/1349"), ("2024 1356", "REG2024/1356"),
              ("2024 1359", "REG2024/1359"), ("17 juin 2026", "LOI-CCE-2026")]
 
@@ -929,6 +930,7 @@ ACTES_UE = [
     ("32013L0033", "Directive 2013/33/UE (accueil)"),
     ("32024L1346", "Directive (UE) 2024/1346 (accueil, refonte)"),
     ("32008L0115", "Directive 2008/115/CE (retour)"),
+    ("32026R2280", "Règlement (UE) 2026/2280 (retour)"),
     ("32024R1349", "Règlement (UE) 2024/1349 (retour à la frontière)"),
     ("32013R0604", "Règlement (UE) n° 604/2013 (Dublin III)"),
     ("32024R1351", "Règlement (UE) 2024/1351 (gestion de l’asile et de la migration)"),
@@ -944,7 +946,8 @@ COURTS = {"32011L0095": "Dir. 2011/95 (qualification)", "32024R1347": "Règl. 20
           "32013L0032": "Dir. 2013/32 (procédures)", "32024R1348": "Règl. 2024/1348 (procédure)",
           "32026R0463": "Règl. 2026/463 (tiers sûr)", "32026R0464": "Règl. 2026/464 (liste UE)",
           "32013L0033": "Dir. 2013/33 (accueil)", "32024L1346": "Dir. 2024/1346 (accueil)",
-          "32008L0115": "Dir. 2008/115 (retour)", "32024R1349": "Règl. 2024/1349 (frontière)",
+          "32008L0115": "Dir. 2008/115 (retour)", "32026R2280": "Règl. 2026/2280 (retour)",
+          "32024R1349": "Règl. 2024/1349 (frontière)",
           "32013R0604": "Règl. 604/2013 (Dublin III)", "32024R1351": "Règl. 2024/1351 (gestion)",
           "32024R1356": "Règl. 2024/1356 (filtrage)", "32024R1359": "Règl. 2024/1359 (crise)",
           "12016P/TXT": "Charte des droits fond.", "32003L0086": "Dir. 2003/86 (regroupement)"}

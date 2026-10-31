@@ -1034,7 +1034,9 @@ PLANS = {
         (1, "IV. La demande",
          "Bases : art. 3 de la Convention européenne des droits de l’homme, art. 3 de la Convention contre la torture, "
          "art. 33 de la Convention de 1951 relative au statut des réfugiés, art. 74/13 de la loi du 15 décembre 1980 "
-         "(intérêt supérieur de l’enfant, vie familiale, état de santé) ; jurisprudence de la Cour eur. D.H. et du C.C.E.",
+         "(intérêt supérieur de l’enfant, vie familiale, état de santé) ; jurisprudence de la Cour eur. D.H. et du C.C.E. "
+         "Retour : directive 2008/115/CE jusqu’au 16 octobre 2027, puis règlement (UE) 2026/2280 (dont l’article 4, "
+         "non-refoulement, et l’article 15, intérêt supérieur de l’enfant, s’appliquent déjà).",
          _f(categories=JURI)),
     ]),
     "pi": ("Demande de protection internationale", [

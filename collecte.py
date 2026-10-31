@@ -69,7 +69,7 @@ try:
 except ImportError:
     PdfReader = None
 
-VERSION = "1.1.1"
+VERSION = "1.2.0"
 CONFIG_PATH = os.path.join(os.path.expanduser("~"), ".collecte_pays.json")
 USER_AGENT = "Mozilla/5.0 (Probasile/%s; recherche juridique non commerciale)" % VERSION
 PAUSE = 0.5  # secondes entre deux requêtes, pour rester courtois avec les serveurs

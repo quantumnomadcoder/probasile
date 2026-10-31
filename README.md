@@ -7,7 +7,7 @@
 
 <p align="center">
 <img src="https://img.shields.io/badge/licence-GPL--3.0-blue" alt="Licence GPL-3.0">
-<img src="https://img.shields.io/badge/version-1.1.1-orange" alt="Version 1.1.1">
+<img src="https://img.shields.io/badge/version-1.2.0-orange" alt="Version 1.2.0">
 <img src="https://img.shields.io/badge/Windows%20%7C%20macOS%20%7C%20Linux-lightgrey" alt="Windows, macOS, Linux">
 <img src="https://img.shields.io/badge/langue-fran%C3%A7ais-lightgrey" alt="En français">
 </p>
@@ -135,10 +135,10 @@ Probasile/
 | Procédure | Blocs |
 |---|---|
 | **Protection internationale** | Définition du réfugié · Crainte avec raison : éléments objectif et subjectif · Persécutions déjà subies : indice sérieux · Acteurs des persécutions et de la protection · Persécution de groupe · Absence de protection contre les acteurs non étatiques · Protection subsidiaire : atteintes graves · Non-refoulement · **Introduction de la demande dans le délai** : délai de huit jours (art. 50), délai dépassé sans irrecevabilité ni rejet automatique, motifs valables (ignorance de l'existence de la protection, ignorance que sa situation relève d'une protection, dépendance à l'égard des passeurs, traumatisme et honte, langue, méfiance envers les institutions et accès à l'information), procédure accélérée pour tardiveté · Dispositif |
-| **Non-délivrance d'un OQT** | Convention contre la torture et article 33 de la Convention de Genève · Caractère déclaratif du statut de réfugié · Article 3 CEDH · Intérêt supérieur de l'enfant (art. 74/13) · Éligibilité à la protection internationale · Pacte : adhésion, réserves et article 40 · Convention contre la torture : articles 20, 21 et 22 · Notion de réserve · Dispositif |
+| **Non-délivrance d'un OQT** | Convention contre la torture et article 33 de la Convention de Genève · Caractère déclaratif du statut de réfugié · Article 3 CEDH · Intérêt supérieur de l'enfant (art. 74/13) · Règlement retour (UE) 2026/2280 : les deux régimes · La Convention de Genève s'impose · Report de l'éloignement · Recours suspensif et délai de trente jours · Hubs de retour · Délai de départ, interdiction d'entrée, rétention · Éligibilité à la protection internationale · Pacte : adhésion, réserves et article 40 · Convention contre la torture : articles 20, 21 et 22 · Notion de réserve · Dispositif |
 | **9ter** | Article 9ter, §1er · Jurisprudence Paposhvili · Portée autonome de l'article 9ter · Les deux hypothèses · Traitement adéquat · Disponibilité effective des soins · Accessibilité financière · Situation individuelle |
 
-Les blocs s'appuient sur les textes applicables depuis la réforme de 2026 : **loi du 16 juin 2026**, **règlements (UE) 2024/1347 et 2024/1348**. Ils citent aussi la jurisprudence (Cour eur. D.H., C.J.U.E., C.C.E.), le Guide du HCR et la littérature en sciences sociales. Chaque bloc se modifie dans Word ou LibreOffice, et vous pouvez ajouter les vôtres.
+Les blocs s'appuient sur les textes applicables depuis la réforme de 2026 : **loi du 16 juin 2026**, **règlements (UE) 2024/1347 et 2024/1348**, et, pour le retour, la **directive 2008/115/CE** jusqu'au 16 octobre 2027 puis le **règlement (UE) 2026/2280**. Ils citent aussi la jurisprudence (Cour eur. D.H., C.J.U.E., C.C.E.), le Guide du HCR et la littérature en sciences sociales. Chaque bloc se modifie dans Word ou LibreOffice, et vous pouvez ajouter les vôtres.
 
 </details>
 
@@ -182,7 +182,7 @@ Probasile produit ensuite :
 Le bouton **« Vérifier la législation… »** (onglet Rédaction) répond à une question simple : *les textes cités par mes blocs ont-ils changé ?* Probasile lit la version à jour de ces textes :
 
 - la **loi du 15 décembre 1980** et l'**arrêté royal du 8 octobre 1981**, sur Justel ;
-- les **règlements (UE) 2024/1347 et 2024/1348** et la **directive 2011/95/UE**, sur EUR-Lex ;
+- les **règlements (UE) 2024/1347, 2024/1348 et 2026/2280** (retour) et les **directives 2011/95/UE et 2008/115/CE**, sur EUR-Lex ;
 - l'**arrêté royal « pays d'origine sûrs »**, un nouveau chaque année environ.
 
 Il dit ensuite, en langage courant :
@@ -300,7 +300,7 @@ Oui. Le plan peut être créé en **Word (.docx)**, et un texte écrit dans Word
 <details>
 <summary><b>Les blocs juridiques sont-ils à jour ?</b></summary>
 
-Ils tiennent compte de la réforme de 2026 (loi du 16 juin 2026, règlements (UE) 2024/1347 et 2024/1348), et leurs citations ont été vérifiées sur les textes. Le droit bouge vite, cependant : **relisez toujours** les blocs et adaptez-les au dossier. Les références se corrigent en quelques clics (bouton « Mettre à jour un arrêt ou un bloc… »), et le bouton « Vérifier la législation… » signale les blocs à relire quand un texte cité change.
+Ils tiennent compte de la réforme de 2026 (loi du 16 juin 2026, règlements (UE) 2024/1347 et 2024/1348) et du règlement (UE) 2026/2280 sur le retour, dans ses deux régimes (aujourd'hui et à partir du 17 octobre 2027), et leurs citations ont été vérifiées sur les textes. Le droit bouge vite, cependant : **relisez toujours** les blocs et adaptez-les au dossier. Les références se corrigent en quelques clics (bouton « Mettre à jour un arrêt ou un bloc… »), et le bouton « Vérifier la législation… » signale les blocs à relire quand un texte cité change.
 </details>
 
 <details>

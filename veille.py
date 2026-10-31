@@ -43,6 +43,10 @@ TEXTES_DEFAUT = [
     ("REG2024-1347", "eurlex", "32024R1347", "Règlement (UE) 2024/1347 (qualification)", "REG2024-1347"),
     ("REG2024-1348", "eurlex", "32024R1348", "Règlement (UE) 2024/1348 (procédure commune)", "REG2024-1348"),
     ("DIR2011-95", "eurlex", "32011L0095", "Directive 2011/95/UE (qualification, refonte)", "DIR2011-95"),
+    ("REG2026-2280", "eurlex", "32026R2280", "Règlement (UE) 2026/2280 (système commun en matière de retour)",
+     "REG2026-2280"),
+    ("DIR2008-115", "eurlex", "32008L0115", "Directive 2008/115/CE (retour ; abrogée le 17 octobre 2027)",
+     "DIR2008-115"),
     ("LOI-CCE-2026", "justel", "https://www.ejustice.just.fgov.be/eli/loi/2026/06/17/2026004052/justel",
      "Loi du 17 juin 2026 relative au Conseil du contentieux des étrangers", "LOI-CCE-2026"),
     ("PAYS-SURS", "pays_surs", "LOI1980",
@@ -53,6 +57,9 @@ EURLEX_TXT = "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:{celex}"
 
 # Sources citées dans le bulletin et dans les blocs « Pays sûr ? » : ouvertes avec les pages à vérifier.
 SOURCES_REFERENCE = [
+    ("Règlement (UE) 2026/2280 (système commun en matière de retour ; applicable en partie depuis le 16 octobre "
+     "2026, entièrement le 17 octobre 2027)", "http://data.europa.eu/eli/reg/2026/2280/oj"),
+    ("Directive 2008/115/CE (retour ; applicable jusqu'au 16 octobre 2027)", "http://data.europa.eu/eli/dir/2008/115/oj"),
     ("Règlement (UE) 2026/463 (concept de pays tiers sûr)", "http://data.europa.eu/eli/reg/2026/463/oj"),
     ("Règlement (UE) 2026/464 (liste des pays d'origine sûrs au niveau de l'Union)",
      "http://data.europa.eu/eli/reg/2026/464/oj"),
@@ -471,7 +478,7 @@ def texte_pdf(chemin):
 # ---------------------------------------------------------------------------------------------------
 # Textes ajoutés à la liste par défaut après la version 1.0 : ajoutés une seule fois au fichier de
 # l'utilisateur (s'il les retire ensuite, ils ne reviennent pas).
-TEXTES_AJOUTES = ["LOI-CCE-2026"]
+TEXTES_AJOUTES = ["LOI-CCE-2026", "REG2026-2280", "DIR2008-115"]
 
 
 def chemin_textes(base):

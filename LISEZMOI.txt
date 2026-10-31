@@ -1,4 +1,4 @@
-PROBASILE – mode d'emploi (version 1.1.1)
+PROBASILE – mode d'emploi (version 1.2.0)
 ==========================================
 
 À quoi sert ce programme
@@ -82,7 +82,7 @@ Onglet « Jurisprudence »
     CRPD, Charte, Constitution, loi du 15 décembre 1980, directives 2011/95, 2013/32,
     2008/115 (retour), 2024/1346 (accueil), règlements 2024/1347, 2024/1348,
     2024/1349, 2024/1351, 2024/1356 (filtrage), 2024/1359 (crise), 2026/463 (pays
-    tiers sûr), 2026/464 (liste UE), Dublin, loi du 17 juin 2026 (C.C.E.). Un texte
+    tiers sûr), 2026/464 (liste UE), 2026/2280 (retour), Dublin, loi du 17 juin 2026 (C.C.E.). Un texte
     absent de la liste peut être tapé librement : il doit alors apparaître tel quel
     après l'article.
 
@@ -204,7 +204,8 @@ Onglet « Rédaction »
 Veille législative (onglet « Rédaction », bouton « Vérifier la législation… »)
   Les textes cités par vos blocs ont-ils changé ? Probasile lit la version à jour de la
   loi du 15 décembre 1980 et de l'arrêté royal du 8 octobre 1981 (Justel), des
-  règlements (UE) 2024/1347 et 2024/1348 et de la directive 2011/95/UE (EUR-Lex), et
+  règlements (UE) 2024/1347, 2024/1348 et 2026/2280 (retour) et des directives
+  2011/95/UE et 2008/115/CE (EUR-Lex), et
   la liste des arrêtés royaux « pays d'origine sûrs » (article 57/6/1, § 3), puis dit
   en langage courant : quels actes ont modifié ces textes, quels articles cités dans vos
   blocs sont touchés (donc quels blocs relire), et quels pays ont été ajoutés ou retirés

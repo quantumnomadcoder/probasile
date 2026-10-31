@@ -107,6 +107,205 @@ DEFAUT = [
         "la Cour européenne des droits de l’homme a condamné la Belgique pour avoir éloigné un demandeur d’asile sans s’être "
         "assurée qu’il ne serait pas exposé, dans le pays de destination, à des traitements contraires à l’article 3 de la "
         "Convention européenne des droits de l’homme[[MSS]]."]),
+    # --- Retour : directive 2008/115/CE (jusqu’au 16 octobre 2027) et règlement (UE) 2026/2280 ------------
+    ("oqt", "IV. La demande", "Retour : ce qui s’applique aujourd’hui et à partir du 17 octobre 2027", True, [
+        "Le règlement (UE) 2026/2280 établit un système commun en matière de retour et abroge la directive "
+        "2008/115/CE[[REG2026-2280]]. Entré en vigueur le 16 octobre 2026, il ne s’applique pour l’essentiel qu’à partir "
+        "du 17 octobre 2027, date à laquelle l’abrogation de la directive prend effet[[REG2026-2280, art. 49, §1er, et "
+        "art. 50, §§2 et 3]]. Jusqu’au 16 octobre 2027 inclus, la décision de retour (l’ordre de quitter le territoire) "
+        "et son exécution restent donc régies par la directive 2008/115/CE[[DIR2008-115]], telle que transposée par la "
+        "loi du 15 décembre 1980[[LOI1980, art. 7, 74/11, 74/13, 74/14 et 74/17]]. Plusieurs dispositions du règlement "
+        "s’appliquent toutefois déjà depuis le 16 octobre 2026, notamment celles relatives aux droits fondamentaux, à "
+        "l’intérêt supérieur de l’enfant, à l’évaluation de l’âge et aux accords de retour conclus avec des pays "
+        "tiers[[REG2026-2280, art. 50, §2]]. [Le règlement ne contient pas de disposition transitoire pour les "
+        "décisions adoptées avant le 17 octobre 2027 et exécutées ou contestées après cette date : vérifier le régime "
+        "applicable selon la situation.]",
+        "Sous les deux régimes, le principe de non-refoulement reste la limite de toute décision de retour. La directive "
+        "l’impose[[DIR2008-115, art. 5]]. Le règlement le confirme, dans une disposition applicable depuis le 16 "
+        "octobre 2026 : « lorsqu’ils appliquent le présent règlement, les États membres agissent dans le plein respect "
+        "du droit de l’Union pertinent, y compris la Charte, du droit international applicable, des obligations liées "
+        "à l’accès à la protection internationale, du principe de non-refoulement et des droits "
+        "fondamentaux »[[REG2026-2280, art. 4]]. Il « respecte les droits fondamentaux des ressortissants de pays tiers "
+        "et observe les principes reconnus, en particulier, par la Charte […] ainsi que par la convention de "
+        "Genève »[[REG2026-2280, considérant 11]], et rappelle que « nul ne peut être éloigné, expulsé ou extradé vers un "
+        "pays tiers où il existe un risque sérieux qu’il soit soumis à la peine de mort, à la torture ou à d’autres "
+        "peines ou traitements inhumains ou dégradants »[[REG2026-2280, considérant 12]][[CHARTE, art. 19, §2]].",
+        "Ni la directive ni le nouveau règlement ne permettent donc d’éloigner {demandeur} {en_pays} : les risques "
+        "exposés ci-dessus y font obstacle aujourd’hui comme à partir du 17 octobre 2027."]),
+    ("oqt", "IV. La demande", "Convention de Genève : la Belgique est liée, et le droit de l’Union doit la respecter",
+     True, [
+        "La Belgique a ratifié la Convention relative au statut des réfugiés le 22 juillet 1953, après son approbation par "
+        "la loi du 26 juin 1953, et a adhéré à son Protocole le 8 avril 1969[[TRAITE-GENEVE ; TRAITE-PROTOCOLE-1967]]. "
+        "Elle est donc liée par l’article 33 de la Convention, qui interdit d’expulser ou de refouler un réfugié, « de "
+        "quelque manière que ce soit », sur les frontières des territoires où sa vie ou sa liberté serait "
+        "menacée[[GENEVE, art. 33, §1er]]. Cette protection ne dépend pas de la reconnaissance formelle du statut de "
+        "réfugié, qui est déclarative[[CJUE-M, point 92]].",
+        "Le droit de l’Union impose lui-même le respect de cette Convention. La politique commune d’asile doit être "
+        "conforme à la Convention de Genève et à son Protocole[[TFUE, art. 78, §1er]], et le droit d’asile est garanti "
+        "dans le respect de leurs règles[[CHARTE, art. 18]]. La Cour de justice en déduit que, si l’Union n’est pas "
+        "partie à la Convention, « l’article 78, paragraphe 1, TFUE et l’article 18 de la Charte lui imposent néanmoins "
+        "le respect des règles » de celle-ci[[CJUE-M, point 74]], qui constitue « la pierre angulaire du régime "
+        "juridique international de protection des réfugiés »[[CJUE-M, point 81]]. Le règlement (UE) 2026/2280 "
+        "s’inscrit expressément dans ce cadre : il observe les principes reconnus par la Convention de Genève et "
+        "s’applique dans le respect du droit international applicable et du principe de "
+        "non-refoulement[[REG2026-2280, considérant 11, et art. 4]]. Au surplus, les obligations nées de conventions "
+        "conclues par un État membre avec des États tiers avant le 1er janvier 1958 sont préservées[[TFUE, art. 351]], "
+        "ce qui est le cas de la Convention de Genève, ratifiée par la Belgique en 1953.",
+        "En droit belge, une norme de droit international ayant des effets directs l’emporte sur une loi interne qui "
+        "lui serait contraire[[CASS-LE-SKI]], et la loi du 15 décembre 1980 réserve elle-même, en matière d’ordre de "
+        "quitter le territoire, les « dispositions plus favorables contenues dans un traité international »[[LOI1980, "
+        "art. 7, al. 1er]]. Les dispositions européennes, quant à elles, doivent être interprétées et appliquées "
+        "conformément à la Convention de Genève[[TFUE, art. 78, §1er ; CHARTE, art. 18]][[REG2026-2280, art. 4]]. "
+        "Aucune disposition relative au retour, nationale ou européenne, ne peut donc être appliquée d’une manière qui "
+        "conduirait la Belgique à méconnaître l’article 33 de la Convention de Genève, l’article 3 de la Convention "
+        "contre la torture ou l’article 3 de la Convention européenne des droits de l’homme. L’interdiction prévue par "
+        "ces deux derniers articles est absolue, quel que soit le comportement de la personne concernée[[SAADI]]."]),
+    ("oqt", "IV. La demande", "Non-refoulement : vérifier le risque et reporter l’éloignement", True, [
+        "Dès aujourd’hui, l’autorité doit examiner le risque de refoulement avant d’adopter une décision de "
+        "retour[[DIR2008-115, art. 5]][[LOI1980, art. 74/13]]. Sous le régime de la directive, la Cour de justice a "
+        "jugé qu’une décision de retour ne peut pas être adoptée lorsqu’il est établi que l’éloignement est exclu, pour "
+        "une durée indéterminée, par le principe de non-refoulement[[CJUE-AA-2023]]. La Cour européenne des droits de "
+        "l’homme impose aux autorités qui ont connaissance d’un risque de l’apprécier d’office[[FG-SUEDE]] ; elle a "
+        "condamné la Belgique pour avoir éloigné une personne vers le Soudan sans avoir suffisamment évalué les risques "
+        "qu’elle y courait[[MA-BELGIQUE-2020]]. En toute hypothèse, la loi prévoit que « l’éloignement est reporté "
+        "temporairement si la décision de reconduite ou d’éloignement aux frontières du territoire expose le "
+        "ressortissant du pays tiers à une violation du principe de non-refoulement »[[LOI1980, art. 74/17, §1er]], "
+        "conformément à la directive[[DIR2008-115, art. 9, §1er, a)]].",
+        "À partir du 17 octobre 2027, le règlement (UE) 2026/2280 permet d’adopter une décision de retour malgré un "
+        "obstacle à l’éloignement, mais impose en contrepartie le report : « Lorsque le pays de retour a été déterminé "
+        "dans la décision de retour et qu’un risque de refoulement a été identifié, l’éloignement vers ce pays de "
+        "retour est reporté »[[REG2026-2280, art. 5, §10]] ; l’éloignement « est reporté » dans le cas « où il se "
+        "ferait en violation du principe de non-refoulement »[[REG2026-2280, art. 11, §1er, a)]]. Ce report est "
+        "obligatoire, alors que les reports prévus par le paragraphe 2 sont laissés à l’appréciation de "
+        "l’autorité[[REG2026-2280, art. 11, §2]]. Il donne lieu à une confirmation écrite précisant les droits de la "
+        "personne[[REG2026-2280, art. 11, §4]] et, pendant le report, il est tenu compte des besoins fondamentaux, de "
+        "l’unité familiale, des soins d’urgence et du traitement indispensable des maladies, de l’accès des mineurs au "
+        "système éducatif de base et des besoins des personnes vulnérables[[REG2026-2280, art. 11, §6]].",
+        "Le règlement impose aussi d’examiner le risque au plus tard avant l’éloignement, dès que la personne "
+        "l’invoque : « Lorsque le ressortissant de pays tiers indique que l’éloignement violerait le principe de "
+        "non-refoulement, ou lorsque les autorités de l’État membre prennent connaissance d’éléments pertinents "
+        "l’indiquant, les autorités compétentes orientent le ressortissant de pays tiers vers la procédure appropriée, "
+        "y compris, le cas échéant, la procédure d’asile […], ou évaluent conformément au droit national si "
+        "l’éloignement respecte le principe de non-refoulement »[[REG2026-2280, art. 10, §7]]. La personne doit "
+        "présenter dès que possible les informations qui étayent ce risque, et une nouvelle évaluation n’a lieu qu’en "
+        "cas d’informations pertinentes étayées[[REG2026-2280, art. 10, §7]].",
+        "C’est pourquoi la présente demande porte dès maintenant à la connaissance de l’Office des étrangers ces "
+        "éléments, étayés par les pièces et les sources citées ci-dessus : le risque doit être examiné avant toute "
+        "décision."]),
+    ("oqt", "IV. La demande", "Recours : effet suspensif et délai de trente jours", False, [
+        "Lorsqu’une personne soutient que son éloignement l’exposerait à un risque réel de traitement contraire à "
+        "l’article 3 de la Convention européenne des droits de l’homme, « l’effectivité requiert également que les "
+        "intéressés disposent d’un recours de plein droit suspensif »[[DE-SOUZA-RIBEIRO, §82]]. La Cour de justice a "
+        "jugé, sur la base des articles 19, §2, et 47 de la Charte, que le recours contre une décision de retour dont "
+        "l’exécution peut exposer la personne à un tel risque, ou à un risque de détérioration grave et irréversible de "
+        "son état de santé, doit avoir un effet suspensif[[CJUE-GNANDI ; CJUE-ABDIDA ; CJUE-B-CPAS-2020]].",
+        "À partir du 17 octobre 2027, le règlement ne prévoit pas d’effet suspensif automatique, mais les États "
+        "membres veillent, « dans le respect intégral de l’article 47 de la Charte », à ce que l’éloignement puisse être "
+        "suspendu par la juridiction de première instance ; la suspension peut être demandée pendant le délai de recours "
+        "et, si un recours est introduit, jusqu’à son issue, et le droit national peut prévoir un effet suspensif "
+        "automatique[[REG2026-2280, art. 28, §1er]]. Le règlement doit donc être appliqué conformément aux exigences "
+        "rappelées ci-dessus, comme il le prévoit lui-même[[REG2026-2280, art. 28, §1er, et considérant 45]] : aucun "
+        "éloignement ne devrait intervenir avant que la juridiction ait statué sur une demande de suspension fondée sur "
+        "un grief défendable tiré de l’article 3 de la Convention européenne des droits de l’homme. Le recours "
+        "« prévoit un examen complet tant des faits que des points de droit »[[REG2026-2280, art. 26, §2]] et, lorsque "
+        "les éléments du dossier laissent supposer un risque de refoulement, « le respect des obligations découlant du "
+        "principe de non-refoulement est vérifié »[[REG2026-2280, art. 26, §3]]. L’assistance juridique et la "
+        "représentation en justice gratuites nécessaires sont assurées à la demande de la personne, sauf "
+        "exceptions[[REG2026-2280, art. 25, §§1er et 4]].",
+        "Le délai de recours est en principe limité à quatorze jours, mais « les États membres qui, au plus tard le 16 "
+        "octobre 2026, prévoient dans leur droit national des délais de recours de trente jours ou plus, peuvent "
+        "maintenir ou fixer dans leur législation nationale un délai d’introduction de recours ne dépassant pas trente "
+        "jours »[[REG2026-2280, art. 27, §1er]]. Le droit belge prévoyait à cette date un délai général de trente jours "
+        "devant le Conseil du contentieux des étrangers[[LOI-CCE-2026]] : rien n’oblige donc la Belgique à le "
+        "raccourcir. [Vérifier le délai applicable à la décision attaquée, tel qu’il est indiqué dans la décision "
+        "notifiée : le délai peut être plus court lorsque la décision de retour est suivie d’une décision "
+        "d’éloignement ou que la personne est détenue.]"]),
+    ("oqt", "IV. La demande", "Intérêt supérieur de l’enfant : ce qui s’applique déjà", False, [
+        "Depuis le 16 octobre 2026, le règlement (UE) 2026/2280 consacre déjà, pour les dispositions qui s’appliquent, "
+        "que « l’intérêt supérieur de l’enfant est une considération primordiale lors de l’application du présent "
+        "règlement »[[REG2026-2280, art. 15, et art. 50, §2]]. Il confirme ainsi une exigence qui s’impose dès "
+        "aujourd’hui à toute décision de retour, en vertu de la directive 2008/115/CE, de l’article 74/13 de la loi du "
+        "15 décembre 1980, de l’article 3 de la Convention relative aux droits de l’enfant et de l’article 24 de la "
+        "Charte[[DIR2008-115, art. 5]][[LOI1980, art. 74/13 ; CIDE, art. 3, §1er ; CHARTE, art. 24]]. Pour apprécier "
+        "cet intérêt, les États membres devraient « en particulier tenir dûment compte du bien-être et du développement "
+        "social du mineur à court, moyen et long terme, de considérations tenant à la sûreté et à la sécurité et de "
+        "l’avis du mineur en fonction de son âge et de sa maturité, y compris de son passé »[[REG2026-2280, considérant "
+        "37]].",
+        "La Cour de justice a jugé que l’intérêt supérieur de l’enfant doit être pris en compte avant l’adoption d’une "
+        "décision de retour, même lorsque cette décision vise le parent et non l’enfant[[CJUE-MA-2021]], et que la vie "
+        "familiale doit être examinée avant toute décision de retour[[CJUE-KA-2018]]. Pour un mineur non accompagné, "
+        "l’État doit s’assurer, avant de prendre une décision de retour, qu’un accueil adéquat existe dans l’État de "
+        "retour[[CJUE-TQ-2021]]. Depuis le 16 octobre 2026, un mineur non accompagné ne peut pas être renvoyé, en vertu "
+        "d’un accord ou d’un arrangement conclu avec un pays tiers, vers un pays qui n’est ni son pays d’origine ni "
+        "celui de sa résidence habituelle[[REG2026-2280, art. 14, §5]] ; en cas de doute sur l’âge, le refus de se "
+        "soumettre à une évaluation « ne peut être considéré que comme une présomption réfragable » que la personne "
+        "n’est pas mineure[[REG2026-2280, art. 16, §6]].",
+        "À partir du 17 octobre 2027, le mineur non accompagné doit en outre être entendu et, au plus tard avant "
+        "l’éloignement, être remis à un membre de sa famille, à un tuteur désigné ou à une structure d’accueil "
+        "adéquate[[REG2026-2280, art. 17, §3]] ; les mesures imposées pendant la procédure doivent être compatibles "
+        "avec l’intérêt supérieur de l’enfant[[REG2026-2280, art. 20, §2]], et les mineurs ne sont placés en rétention "
+        "qu’en dernier ressort[[REG2026-2280, art. 33, §1er]].",
+        "[Exposer la situation des enfants : âge, scolarité, liens, avis exprimé, effets d’un éloignement à court, moyen "
+        "et long terme ; pièces (attestations scolaires, rapports psychologiques).]"]),
+    ("oqt", "IV. La demande", "Pays de retour et accords avec des pays tiers (« hubs de retour »)", False, [
+        "Depuis le 16 octobre 2026, la notion de pays de retour inclut un pays tiers avec lequel un accord ou un "
+        "arrangement a été conclu, et de tels accords peuvent être conclus[[REG2026-2280, art. 3, point 3), g), art. "
+        "14 et art. 50, §2]]. Les décisions de retour et l’éloignement restent toutefois régis par la directive "
+        "2008/115/CE jusqu’au 16 octobre 2027 inclus[[REG2026-2280, art. 50, §3]], et la directive ne prévoit pas de "
+        "renvoi forcé vers un tel pays[[DIR2008-115, art. 3, point 3)]].",
+        "Même à partir du 17 octobre 2027, ce renvoi reste strictement encadré : « Un tel accord ou arrangement ne peut "
+        "être conclu avec un pays tiers que si les normes et principes internationaux en matière de droits de l’homme, "
+        "y compris le principe de non-refoulement, y sont respectés conformément au droit international »[[REG2026-2280, "
+        "art. 14, §1er]]. L’accord doit régler les procédures, les conditions de séjour, les obligations du pays tiers "
+        "et les conséquences d’une violation ou d’une dégradation de la situation et, s’il prévoit un retour ultérieur, "
+        "désigner un organisme ou mécanisme de contrôle indépendant[[REG2026-2280, art. 14, §§2 et 3]]. Les mineurs "
+        "non accompagnés en sont exclus[[REG2026-2280, art. 14, §5]].",
+        "Le législateur de l’Union considère qu’un tel accord constitue une mise en œuvre du droit de l’Union au sens "
+        "de l’article 51, §1er, de la Charte[[REG2026-2280, considérant 34]] : la Charte s’applique donc, y compris "
+        "l’interdiction des expulsions collectives et du renvoi vers un risque de traitements inhumains ou "
+        "dégradants[[CHARTE, art. 19]]. Selon le règlement, le droit à un recours effectif « doit être garanti dans tous "
+        "les pays de retour déterminés dans la décision »[[REG2026-2280, considérant 19]] et, à partir du 17 octobre "
+        "2027, la personne doit être informée suffisamment à l’avance du pays vers lequel elle sera "
+        "éloignée[[REG2026-2280, art. 24, §3]]. La Cour de justice a jugé que la modification du pays de destination par "
+        "l’administration équivaut à une nouvelle décision de retour, qui doit pouvoir faire l’objet d’un recours "
+        "effectif[[CJUE-FMS-2020]].",
+        "[À vérifier pour {demandeur} : un pays de retour autre que {le_pays} est-il envisagé ? Ce pays est-il partie à "
+        "la Convention de Genève et à la Convention contre la torture (onglet ONU, cadre 4, « Élargir ») ? Un accord "
+        "a-t-il été conclu, publié, et prévoit-il un contrôle indépendant ?]"]),
+    ("oqt", "IV. La demande", "Délai de départ et interdiction d’entrée : la mesure la moins lourde", False, [
+        "À titre subsidiaire, si un ordre de quitter le territoire devait néanmoins être délivré, il devrait laisser à "
+        "{demandeur} le délai le plus long possible. La loi du 15 décembre 1980 prévoit un délai de trente jours, "
+        "prolongeable sur demande motivée, pendant lequel la personne est protégée contre un éloignement "
+        "forcé[[LOI1980, art. 74/14, §§1er et 2]]. À partir du 17 octobre 2027, le règlement (UE) 2026/2280 permet un "
+        "délai supérieur à trente jours « en tenant dûment compte des circonstances propres à chaque cas » et la "
+        "prolongation du délai initial[[REG2026-2280, art. 5, §§3 et 4]].",
+        "Aucune interdiction d’entrée ne devrait l’accompagner. En droit belge, elle « ne peut contrevenir au droit à la "
+        "protection internationale »[[LOI1980, art. 74/11, §3]]. À partir du 17 octobre 2027, le règlement permet de "
+        "s’en abstenir, dans des cas particuliers, « pour des raisons humanitaires, si le ressortissant de pays tiers "
+        "est victime de la traite des êtres humains ou si le ressortissant de pays tiers coopère comme il se doit avec "
+        "les autorités compétentes »[[REG2026-2280, art. 8, §7]], y compris dans les cas où il la rend en principe "
+        "obligatoire[[REG2026-2280, art. 8, §1er]] ; sa durée doit en tout cas être fixée « en tenant dûment compte de "
+        "toutes les circonstances propres à chaque cas »[[REG2026-2280, art. 8, §8]], et elle peut être retirée ou "
+        "réduite, notamment pour des raisons humanitaires[[REG2026-2280, art. 9, §2]]. [Raisons humanitaires propres "
+        "{au_demandeur} : enfants scolarisés, état de santé, liens familiaux en Belgique.]"]),
+    ("oqt", "IV. La demande", "Rétention et mesures de contrainte : les garde-fous", False, [
+        "[Les règles qui suivent s’appliquent à partir du 17 octobre 2027 ; jusque-là, la rétention reste régie par la "
+        "directive 2008/115/CE et par la loi du 15 décembre 1980.] La rétention n’est possible que « sur la base d’une "
+        "évaluation individuelle de chaque cas et uniquement dans la mesure où la rétention est proportionnée », et "
+        "uniquement aux fins du retour[[REG2026-2280, art. 29, §§1er et 2]]. Elle est maintenue « pendant une durée "
+        "aussi brève que possible » et levée dès que ses motifs ne sont plus réunis[[REG2026-2280, art. 30, §§1er et "
+        "2]] ; la vulnérabilité de la personne doit être prise en compte[[REG2026-2280, art. 29, §5]], et les mineurs "
+        "et les familles avec mineurs ne sont placés en rétention qu’en dernier ressort[[REG2026-2280, art. 33, "
+        "§1er]]. La Cour de justice impose la libération lorsqu’il n’existe plus de perspective raisonnable "
+        "d’éloignement[[CJUE-KADZOEV]] et oblige le juge à relever d’office toute illégalité de la "
+        "rétention[[CJUE-RETENTION-2022]].",
+        "La présomption de risque de fuite cède devant la preuve contraire (« sauf preuve du contraire ») et, hors des "
+        "cas énumérés, le risque résulte d’une « évaluation globale des circonstances propres à chaque "
+        "cas »[[REG2026-2280, art. 19]]. La réduction des prestations en cas de manque de coopération ne peut entraîner "
+        "« l’incapacité des ressortissants de pays tiers à subvenir à leurs besoins fondamentaux »[[REG2026-2280, art. "
+        "22, a)]], et une simple objection ne constitue pas une obstruction verbale[[REG2026-2280, considérant 39]]. "
+        "Les fouilles et la saisie des appareils électroniques doivent être nécessaires, proportionnées et dûment "
+        "justifiées, et respecter les droits fondamentaux[[REG2026-2280, art. 21, §§1er et 3]]."]),
     ("oqt", "IV. La demande", "Dispositif", True, [
         "Au regard de tout ce qui précède, [nous nous joignons à {demandeur}, et aux membres de {sa} famille, pour demander] "
         "respectueusement à l’Office des étrangers :",
@@ -115,6 +314,10 @@ DEFAUT = [
         "la Convention européenne des droits de l’homme, de l’article 3 de la Convention contre la torture et de l’article "
         "33 de la Convention de Genève, dès lors qu’il existe des motifs sérieux de croire qu’{il} {courrait|courraient}, en cas de "
         "retour {en_pays}, un risque réel d’être {soumis/soumise|soumis/soumises} à la torture ou à des traitements inhumains ou dégradants ;",
+        "à titre subsidiaire, si un ordre de quitter le territoire devait néanmoins être délivré, de reporter tout éloignement "
+        "aussi longtemps que subsiste le risque de refoulement, conformément à l’article 74/17 de la loi du 15 décembre 1980 et, "
+        "à partir du 17 octobre 2027, à l’article 11 du règlement (UE) 2026/2280, et de ne l’assortir d’aucune interdiction "
+        "d’entrée ;",
         "à tout le moins, de tenir compte, conformément à l’article 74/13 de la loi du 15 décembre 1980, de l’intérêt "
         "supérieur des enfants, de la vie familiale {du_demandeur} et des risques qu’{il} {encourt|encourent} {en_pays} avant toute "
         "décision d’éloignement."]),
@@ -681,10 +884,27 @@ DEFAUT = [
         "Enfin, si le bénéfice de la protection subsidiaire devait être refusé à {demandeur}, nous demandons qu’{il} "
         "{bénéficie|bénéficient} de la protection offerte par le principe de non-refoulement.",
         "[[BLOC Convention contre la torture et article 33 de la Convention de Genève]]",
+        "[[BLOC Convention de Genève : la Belgique est liée, et le droit de l’Union doit la respecter]]",
         "[[BLOC Cour européenne des droits de l’homme : article 3]]",
         "[[BLOC Conseil du contentieux des étrangers]]",
         "Dès lors, nous demandons, pour les mêmes raisons et au regard de l’argumentation développée supra concernant la "
         "protection subsidiaire, que {demandeur} ne {soit|soient} pas éloigné{e} {en_pays}."]),
+    ("pi", "B. Le principe de non-refoulement", "Après un refus : une décision de retour toujours soumise au "
+     "non-refoulement", False, [
+        "Si la protection internationale devait être refusée, la décision de retour qui accompagnerait ce refus resterait "
+        "soumise au principe de non-refoulement. Le règlement (UE) 2024/1348 impose de rendre « une décision de retour "
+        "qui respecte la directive 2008/115/CE et qui est conforme au principe de non-refoulement »[[REG2024-1348, art. "
+        "37]]. À partir du 17 octobre 2027, cette référence à la directive se lit comme faite au règlement (UE) "
+        "2026/2280[[REG2026-2280, art. 49, §2]], qui ne porte pas atteinte au règlement (UE) 2024/1348[[REG2026-2280, "
+        "art. 2, §3]] et prévoit que l’éloignement est reporté lorsqu’il se ferait en violation du principe de "
+        "non-refoulement[[REG2026-2280, art. 11, §1er, a)]]. Même lorsque le recours n’a pas d’effet suspensif "
+        "automatique, le droit de rester n’est écarté que « sans préjudice du principe de non-refoulement »"
+        "[[REG2024-1348, art. 68, §3]].",
+        "L’autorité qui adopte la décision de retour doit donc vérifier, sur la base de toutes les circonstances "
+        "pertinentes, que l’éloignement {du_demandeur} {en_pays} ne l’exposerait pas aux risques décrits ci-dessus, "
+        "même si ces risques ne relèvent pas des critères de la protection internationale[[REG2026-2280, art. 4, et "
+        "considérant 16]][[CHARTE, art. 19, §2]].",
+        "[[BLOC Recours : effet suspensif et délai de trente jours]]"]),
     ("pi", "6. La demande", "Dispositif (protection internationale)", True, [
         "Au regard de tout ce qui précède, nous demandons respectueusement [au Commissariat général aux réfugiés et aux "
         "apatrides] :",
@@ -752,6 +972,27 @@ DEFAUT = [
         "actuellement la vie ou l’intégrité physique au point qu’elle n’est pas en mesure de voyager, et celle d’une "
         "personne médicalement stable en Belgique qui subirait un traitement inhumain ou dégradant si elle était renvoyée "
         "dans son pays d’origine en raison de l’absence de traitement adéquat."]),
+    ("9ter", "B. Le fondement de la demande", "Personne gravement malade : protection contre l’éloignement en droit de "
+     "l’Union", False, [
+        "Le droit de l’Union protège aussi la personne gravement malade contre l’éloignement. La Cour de justice a jugé, "
+        "dans des affaires belges, que le recours contre une décision de retour doit avoir un effet suspensif lorsque "
+        "l’exécution de cette décision peut exposer une personne gravement malade à un risque sérieux de détérioration "
+        "grave et irréversible de son état de santé, et que ses besoins de base doivent alors être "
+        "couverts[[CJUE-ABDIDA ; CJUE-B-CPAS-2020]]. Elle a précisé que l’éloignement est exclu lorsqu’il exposerait la "
+        "personne à un risque réel d’augmentation rapide, significative et irrémédiable de la douleur causée par sa "
+        "maladie, faute de traitement approprié dans le pays de destination[[CJUE-CANNABIS-2022]]. La loi du 15 décembre "
+        "1980 impose de tenir compte de l’état de santé lors de toute décision d’éloignement et permet de reporter "
+        "l’éloignement en raison de l’état physique ou mental de la personne[[LOI1980, art. 74/13 et 74/17, §2]] ; une "
+        "interdiction d’entrée ne peut contrevenir à la demande d’autorisation de séjour visée à l’article "
+        "9ter[[LOI1980, art. 74/11, §3]].",
+        "À partir du 17 octobre 2027, le règlement (UE) 2026/2280 maintient ces garanties. Nul ne peut être éloigné "
+        "vers un pays où il existe un risque sérieux de traitements inhumains ou dégradants[[REG2026-2280, considérant "
+        "12, et art. 4]][[CHARTE, art. 19, §2]] : le risque lié à l’absence de traitement adéquat, au sens de la "
+        "jurisprudence Paposhvili[[PAPOSHVILI, §183]], relève de cette interdiction, et l’éloignement doit alors être "
+        "reporté[[REG2026-2280, art. 11, §1er, a)]]. À défaut, il peut l’être en tenant compte des circonstances propres "
+        "au cas[[REG2026-2280, art. 11, §2]]. Pendant le report, il est tenu compte des « soins d’urgence et [du] "
+        "traitement indispensable des maladies » ainsi que des besoins particuliers des personnes "
+        "vulnérables[[REG2026-2280, art. 11, §6, c) et e)]]."]),
     ("9ter", "B. Le fondement de la demande", "Intérêt supérieur de l’enfant (renvoi)", False, [
         "[[BLOC Intérêt supérieur de l’enfant (article 74/13)]]"]),
     ("9ter", "2. L’absence de traitement adéquat", "Traitement adéquat : approprié et suffisamment accessible", True, [
@@ -896,7 +1137,7 @@ def _migrer_references(c, defaut):
         os.replace(tmp, c)
 
 
-BIB_VERSION = 14  # à augmenter quand les blocs par défaut changent
+BIB_VERSION = 15  # à augmenter quand les blocs par défaut changent
 
 
 def _empreinte(chemin):

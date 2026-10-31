@@ -7,7 +7,7 @@
 
 <p align="center">
 <img src="https://img.shields.io/badge/Lizenz-GPL--3.0-blue" alt="Lizenz GPL-3.0">
-<img src="https://img.shields.io/badge/Version-1.1.1-orange" alt="Version 1.1.1">
+<img src="https://img.shields.io/badge/Version-1.2.0-orange" alt="Version 1.2.0">
 <img src="https://img.shields.io/badge/Windows%20%7C%20macOS%20%7C%20Linux-lightgrey" alt="Windows, macOS, Linux">
 <img src="https://img.shields.io/badge/Oberfl%C3%A4che-Franz%C3%B6sisch-lightgrey" alt="Oberfläche auf Französisch">
 </p>
@@ -133,7 +133,7 @@ Probasile/
   - Artikel 3 EMRK, Kindeswohl (Art. 74/13);
   - 9ter und die Rechtsprechung Paposhvili…
 
-Die Bausteine berücksichtigen die seit der Reform von 2026 geltenden Regeln: **Gesetz vom 16. Juni 2026**, **Verordnungen (EU) 2024/1347 und 2024/1348**. Sie zitieren außerdem Rechtsprechung (EGMR, EuGH, Rat für Ausländerstreitsachen), das UNHCR-Handbuch und sozialwissenschaftliche Literatur. Jeder Baustein lässt sich in Word oder LibreOffice bearbeiten, und du kannst eigene hinzufügen.
+Die Bausteine berücksichtigen die seit der Reform von 2026 geltenden Regeln: **Gesetz vom 16. Juni 2026**, **Verordnungen (EU) 2024/1347 und 2024/1348**, und für die Rückkehr die **Richtlinie 2008/115/EG** bis zum 16. Oktober 2027, danach die **Verordnung (EU) 2026/2280**. Sie zitieren außerdem Rechtsprechung (EGMR, EuGH, Rat für Ausländerstreitsachen), das UNHCR-Handbuch und sozialwissenschaftliche Literatur. Jeder Baustein lässt sich in Word oder LibreOffice bearbeiten, und du kannst eigene hinzufügen.
 
 ### 4. Fußnoten und Anlagen erzeugen
 
@@ -172,7 +172,7 @@ Probasile erstellt anschließend:
 Die Schaltfläche **« Vérifier la législation… »** (Registerkarte Rédaction) beantwortet eine Frage: *Haben sich die Texte geändert, die meine Bausteine zitieren?* Probasile liest die aktuelle Fassung:
 
 - des **Ausländergesetzes vom 15. Dezember 1980** und des **Königlichen Erlasses vom 8. Oktober 1981** (Justel);
-- der **Verordnungen (EU) 2024/1347 und 2024/1348** und der **Richtlinie 2011/95/EU** (EUR-Lex);
+- der **Verordnungen (EU) 2024/1347, 2024/1348 und 2026/2280** (Rückkehr) und der **Richtlinien 2011/95/EU und 2008/115/EG** (EUR-Lex);
 - des **Königlichen Erlasses über die Liste der sicheren Herkunftsstaaten**.
 
 Es meldet, welche Artikel geändert oder aufgehoben wurden, seit wann, und **welche Bausteine du gegenlesen solltest**. Der ausführliche Bericht zeigt den Text vor und nach der Änderung, mit den amtlichen Links. Das **[Bulletin](BULLETIN.md)**, von Jurist\*innen geschrieben, erklärt, was sich konkret ändert.
@@ -274,7 +274,7 @@ Ja. Die Gliederung kann als **Word-Datei (.docx)** erstellt werden, und ein in W
 <details>
 <summary><b>Sind die juristischen Bausteine aktuell?</b></summary>
 
-Sie berücksichtigen die Reform von 2026 (Gesetz vom 16. Juni 2026, Verordnungen (EU) 2024/1347 und 2024/1348), und die Zitate wurden an den Texten selbst überprüft. Das Recht ändert sich jedoch schnell: **Lies die Bausteine immer gegen** und passe sie an die Akte an.
+Sie berücksichtigen die Reform von 2026 (Gesetz vom 16. Juni 2026, Verordnungen (EU) 2024/1347 und 2024/1348) und die Verordnung (EU) 2026/2280 über die Rückkehr in ihren zwei Regelungen (heute und ab dem 17. Oktober 2027), und die Zitate wurden an den Texten selbst überprüft. Das Recht ändert sich jedoch schnell: **Lies die Bausteine immer gegen** und passe sie an die Akte an.
 </details>
 
 <details>

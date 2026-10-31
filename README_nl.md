@@ -7,7 +7,7 @@
 
 <p align="center">
 <img src="https://img.shields.io/badge/licentie-GPL--3.0-blue" alt="Licentie GPL-3.0">
-<img src="https://img.shields.io/badge/versie-1.1.1-orange" alt="Versie 1.1.1">
+<img src="https://img.shields.io/badge/versie-1.2.0-orange" alt="Versie 1.2.0">
 <img src="https://img.shields.io/badge/Windows%20%7C%20macOS%20%7C%20Linux-lightgrey" alt="Windows, macOS, Linux">
 <img src="https://img.shields.io/badge/interface-Frans-lightgrey" alt="Interface in het Frans">
 </p>
@@ -127,7 +127,7 @@ Probasile/
 - **Paragrafen berekend op basis van de verzamelde gegevens**, met hun voetnoten: niet-geratificeerde verdragen, geweigerde klachtprocedures, laattijdige rapporten (de vertraging wordt berekend), nooit bezorgde opvolgingsinformatie.
 - **Een bibliotheek van juridische tekstblokken**, elk gestaafd met bronnen: definitie van vluchteling, gegronde vrees, eerdere vervolging, actoren van vervolging en bescherming, groepsvervolging, subsidiaire bescherming, non-refoulement, **tijdig indienen van het verzoek** (termijn van acht dagen, art. 50; geldige redenen voor een laattijdig verzoek, gestaafd met sociaalwetenschappelijk onderzoek), artikel 3 EVRM, belang van het kind (art. 74/13), 9ter en de rechtspraak Paposhvili…
 
-De blokken zijn afgestemd op de regels die gelden sinds de hervorming van 2026: **wet van 16 juni 2026**, **verordeningen (EU) 2024/1347 en 2024/1348**. Ze citeren ook rechtspraak (EHRM, HvJ EU, RvV), het UNHCR-handboek en sociaalwetenschappelijke literatuur. Elk blok is in Word of LibreOffice aan te passen, en je kunt er zelf blokken bij maken.
+De blokken zijn afgestemd op de regels die gelden sinds de hervorming van 2026: **wet van 16 juni 2026**, **verordeningen (EU) 2024/1347 en 2024/1348**, en voor terugkeer **richtlijn 2008/115/EG** tot 16 oktober 2027 en daarna **Verordening (EU) 2026/2280**. Ze citeren ook rechtspraak (EHRM, HvJ EU, RvV), het UNHCR-handboek en sociaalwetenschappelijke literatuur. Elk blok is in Word of LibreOffice aan te passen, en je kunt er zelf blokken bij maken.
 
 ### 4. Voetnoten en bijlagen genereren
 
@@ -163,7 +163,7 @@ Probasile maakt vervolgens:
 De knop **« Vérifier la législation… »** (tabblad Rédaction) beantwoordt één vraag: *zijn de teksten die mijn blokken citeren gewijzigd?* Probasile leest de actuele versie van:
 
 - de **vreemdelingenwet van 15 december 1980** en het **koninklijk besluit van 8 oktober 1981** (Justel);
-- de **verordeningen (EU) 2024/1347 en 2024/1348** en **richtlijn 2011/95/EU** (EUR-Lex);
+- de **verordeningen (EU) 2024/1347, 2024/1348 en 2026/2280** (terugkeer) en de **richtlijnen 2011/95/EU en 2008/115/EG** (EUR-Lex);
 - het **koninklijk besluit over de lijst van veilige landen van herkomst**.
 
 Het meldt welke artikelen gewijzigd of opgeheven zijn, sinds wanneer, en **welke blokken je moet herlezen**. Het gedetailleerde verslag toont de tekst voor en na de wijziging, met de officiële links. Het **[bulletin](BULLETIN.md)**, geschreven door juristen, legt uit wat er concreet verandert.
@@ -265,7 +265,7 @@ Ja. Het plan kan in **Word (.docx)** worden aangemaakt, en een tekst die in Word
 <details>
 <summary><b>Zijn de juridische blokken up-to-date?</b></summary>
 
-Ze houden rekening met de hervorming van 2026 (wet van 16 juni 2026, verordeningen (EU) 2024/1347 en 2024/1348), en de citaten zijn nagekeken in de teksten zelf. Het recht verandert echter snel: **lees de blokken altijd na** en pas ze aan het dossier aan.
+Ze houden rekening met de hervorming van 2026 (wet van 16 juni 2026, verordeningen (EU) 2024/1347 en 2024/1348) en met Verordening (EU) 2026/2280 over terugkeer, in haar twee regimes (vandaag en vanaf 17 oktober 2027), en de citaten zijn nagekeken in de teksten zelf. Het recht verandert echter snel: **lees de blokken altijd na** en pas ze aan het dossier aan.
 </details>
 
 <details>
