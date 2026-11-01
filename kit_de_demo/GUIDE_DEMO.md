@@ -25,6 +25,12 @@ Ce guide aide à montrer Probasile en 25 minutes (ou en 5 minutes, version court
   ```
   S'il manque des éléments de Python (`python3-venv`, `python3-tk`), répondez **O** : le script les installe (mot de passe demandé). Pour lancer sans raccourci : `sh lancer_mac_linux.command`.
 
+**Passer à une nouvelle version** (le bulletin l'annonce ; détail dans `Installation_Probasile.pptx`, diapositives 11 et 12) :
+1. fermer Probasile et retirer les raccourcis : `desinstaller_windows.bat` (Windows) ou `sh installer_mac_linux.sh --retirer` (macOS, Linux) ;
+2. supprimer l'ancien dossier du programme (ou le renommer le temps de vérifier). Vos dossiers de base, vos blocs, vos références et vos réglages sont ailleurs et restent en place, sauf si vous aviez rangé votre dossier de base à l'intérieur du dossier du programme : déplacez-le d'abord ;
+3. décompresser le zip de la nouvelle version (page « Releases » sur GitHub) et relancer l'installation comme ci-dessus ;
+4. au premier lancement, lire les messages : la bibliothèque de blocs est mise à jour (l'ancienne est gardée en copie) ou, si vous l'aviez modifiée, la nouvelle est posée à côté. Vos références sont gardées et complétées.
+
 **Matériel**
 - Word ou LibreOffice installé (il en faut un pour convertir le témoignage Word en PDF).
 - Une connexion Internet seulement pour la petite collecte en direct (étape 2). Tout le reste fonctionne hors ligne avec le kit.

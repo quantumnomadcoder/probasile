@@ -10,6 +10,7 @@ Tout ce qu'il faut pour montrer Probasile **sans jamais ouvrir un vrai dossier**
    ```
    sh installer_mac_linux.sh
    ```
+   Nouvelle version de Probasile ? Retirez l'ancienne puis installez la nouvelle : pas à pas dans `Installation_Probasile.pptx` (diapositives 11 et 12) ou dans `GUIDE_DEMO.md`. Vos données ne sont pas touchées.
 2. **Copier ce kit** dans un dossier de travail (la génération écrit des fichiers dans `Redaction` : l'original reste propre). Lancez Probasile, cliquez sur **« Choisir… »** en haut et choisissez **`dossier_demo`** comme « Dossier de base ».
 3. **Pays : Indonésie (IDN).** Onglet **Rédaction**, cadre 3 : **« Choisir le texte… »** → `Indonésie (IDN)/Redaction/Texte_demo.docx` → **« Générer »**.
    Vous devez obtenir **« 17 note(s) créée(s), 4 annexe(s) »** et **« Aucun problème relevé »**, comme dans `resultats_attendus/`.
